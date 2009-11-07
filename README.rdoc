@@ -28,6 +28,6 @@ using the script/generate or script/destroy command.
 * cucumber: Sets up Cucumber in your Rails project
 * feature: Generates a skeleton for a new feature
 
-To view the README for each generator, run it with the +--help+ option.
+To view the README for each generator, run it with the --help option.
 
-  script/generate nifty_layout --help
+  script/generate cucumber --help
