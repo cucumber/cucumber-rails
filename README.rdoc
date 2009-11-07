@@ -1,8 +1,33 @@
-h1. cucumber-rails
+= cucumber-rails
 
-Extracted the Rails generators from the Cucumber gem, inspired by this
-posting on the Cukes Mailing List:
-http://groups.google.com/group/cukes/browse_thread/thread/b9b8ff6301393c19
+Extracted the Rails generators from the Cucumber gem, inspired by
+{this posting}[http://groups.google.com/group/cukes/browse_thread/thread/b9b8ff6301393c19"]
+on the Cukes Mailing List.
 
 The goal is to provide i18n of the webrat_steps.rb plus some other useful
 enhancements.
+
+== Install
+
+  gem install cucumber-rails
+
+== Usage
+
+Once you install the gem, the generators will be available to all Rails
+applications on your system. If you run script/generate without any
+additional arguments you should see the available generators listed.
+
+To run the generator, go to your rails project directory and call it
+using the script/generate or script/destroy command.
+
+  script/generate cucumber
+
+
+== Included Generators
+
+* cucumber: Sets up Cucumber in your Rails project
+* feature: Generates a skeleton for a new feature
+
+To view the README for each generator, run it with the +--help+ option.
+
+  script/generate nifty_layout --help
