@@ -7,11 +7,18 @@ class CucumberGenerator < Rails::Generator::Base
                               Config::CONFIG['ruby_install_name'])
 
   attr_accessor :framework
-
+  attr_reader :language
+  
+  def initialize(runtime_args, runtime_options = {})
+      super
+      @language = @args.empty? ? 'en' : @args.first
+  end
+  
   def manifest
     record do |m|
       m.directory 'features/step_definitions'
-      m.template 'webrat_steps.rb', 'features/step_definitions/webrat_steps.rb'
+      
+      m.template "webrat_steps/webrat_steps_#{language}.rb", 'features/step_definitions/webrat_steps.rb'
       m.template'cucumber_environment.rb', 'config/environments/cucumber.rb',
         :assigns => { :cucumber_version => ::Cucumber::VERSION }
 
