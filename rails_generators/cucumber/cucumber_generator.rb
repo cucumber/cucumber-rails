@@ -81,7 +81,7 @@ protected
   end
 
   def banner
-    "Usage: #{$0} cucumber"
+    "Usage: #{$0} cucumber (language)"
   end
 
   def after_generate

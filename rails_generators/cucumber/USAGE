@@ -9,3 +9,6 @@ Description:
     
 Examples:
     `./script/generate cucumber`
+
+You can also provide a language argument for localized webrat_steps:
+    `./script/generate cucumber de`

@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cucumber-rails}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Bl\303\266te"]
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
      "rails_generators/cucumber/templates/paths.rb",
      "rails_generators/cucumber/templates/spork_env.rb",
      "rails_generators/cucumber/templates/version_check.rb",
+     "rails_generators/cucumber/templates/webrat_steps/webrat_steps_de.rb",
      "rails_generators/cucumber/templates/webrat_steps/webrat_steps_en.rb",
      "rails_generators/feature/USAGE",
      "rails_generators/feature/feature_generator.rb",
