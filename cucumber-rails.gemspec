@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Dennis Bl\303\266te"]
+  s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y"]
   s.date = %q{2009-11-09}
-  s.description = %q{Rails Generators for Cucumber}
-  s.email = %q{mail@dennisbloete.de}
+  s.description = %q{Cucumber Generators and Runtime for Rails}
+  s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -21,33 +21,33 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "cucumber-rails.gemspec",
+     "generators/cucumber/USAGE",
+     "generators/cucumber/cucumber_generator.rb",
+     "generators/cucumber/templates/cucumber",
+     "generators/cucumber/templates/cucumber.rake",
+     "generators/cucumber/templates/cucumber_environment.rb",
+     "generators/cucumber/templates/env.rb",
+     "generators/cucumber/templates/paths.rb",
+     "generators/cucumber/templates/spork_env.rb",
+     "generators/cucumber/templates/version_check.rb",
+     "generators/cucumber/templates/webrat_steps/webrat_steps_de.rb",
+     "generators/cucumber/templates/webrat_steps/webrat_steps_en.rb",
+     "generators/feature/USAGE",
+     "generators/feature/feature_generator.rb",
+     "generators/feature/templates/feature.erb",
+     "generators/feature/templates/steps.erb",
      "lib/cucumber-rails.rb",
      "lib/cucumber/rails/action_controller.rb",
      "lib/cucumber/rails/active_record.rb",
      "lib/cucumber/rails/rspec.rb",
      "lib/cucumber/rails/test_unit.rb",
-     "lib/cucumber/rails/world.rb",
-     "rails_generators/cucumber/USAGE",
-     "rails_generators/cucumber/cucumber_generator.rb",
-     "rails_generators/cucumber/templates/cucumber",
-     "rails_generators/cucumber/templates/cucumber.rake",
-     "rails_generators/cucumber/templates/cucumber_environment.rb",
-     "rails_generators/cucumber/templates/env.rb",
-     "rails_generators/cucumber/templates/paths.rb",
-     "rails_generators/cucumber/templates/spork_env.rb",
-     "rails_generators/cucumber/templates/version_check.rb",
-     "rails_generators/cucumber/templates/webrat_steps/webrat_steps_de.rb",
-     "rails_generators/cucumber/templates/webrat_steps/webrat_steps_en.rb",
-     "rails_generators/feature/USAGE",
-     "rails_generators/feature/feature_generator.rb",
-     "rails_generators/feature/templates/feature.erb",
-     "rails_generators/feature/templates/steps.erb"
+     "lib/cucumber/rails/world.rb"
   ]
   s.homepage = %q{http://github.com/dbloete/cucumber-rails}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Rails Generators for Cucumber}
+  s.summary = %q{Cucumber Generators and Runtime for Rails}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
