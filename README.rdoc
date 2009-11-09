@@ -31,3 +31,8 @@ using the script/generate or script/destroy command.
 To view the README for each generator, run it with the --help option.
 
   script/generate cucumber --help
+
+== Tests
+
+This project has tests, but for practical and historical reasons they live in a different project:
+http://github.com/aslakhellesoy/cucumber-rails-test/
