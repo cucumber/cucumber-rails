@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Bl\303\266te"]
-  s.date = %q{2009-11-08}
+  s.date = %q{2009-11-09}
   s.description = %q{Rails Generators for Cucumber}
   s.email = %q{mail@dennisbloete.de}
   s.extra_rdoc_files = [
@@ -22,6 +22,11 @@ Gem::Specification.new do |s|
      "VERSION",
      "cucumber-rails.gemspec",
      "lib/cucumber-rails.rb",
+     "lib/cucumber/rails/action_controller.rb",
+     "lib/cucumber/rails/active_record.rb",
+     "lib/cucumber/rails/rspec.rb",
+     "lib/cucumber/rails/test_unit.rb",
+     "lib/cucumber/rails/world.rb",
      "rails_generators/cucumber/USAGE",
      "rails_generators/cucumber/cucumber_generator.rb",
      "rails_generators/cucumber/templates/cucumber",
