@@ -16,29 +16,29 @@ When /^(?:|ich )auf (.+) gehe$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^(?:|ich ) "([^\"]*)" drücke$/ do |button|
+When /^(?:|ich )auf "([^\"]*)" drücke$/ do |button|
   click_button(button)
 end
 
-When /^(?:|ich ) "([^\"]*)" klicke$/ do |link|
+When /^(?:|ich )auf "([^\"]*)" klicke$/ do |link|
   click_link(link)
 end
 
-When /^(?:|ich ) "([^\"]*)" innerhalb "([^\"]*)" klicke$/ do |link, parent|
+When /^(?:|ich )auf "([^\"]*)" innerhalb "([^\"]*)" klicke$/ do |link, parent|
   click_link_within(parent, link)
 end
 
-When /^(?:|ich ) "([^\"]*)" mit "([^\"]*)" ausfülle$/ do |field, value|
+When /^(?:|ich )"([^\"]*)" mit "([^\"]*)" ausfülle$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-When /^(?:|ich ) "([^\"]*)" in "([^\"]*)" eingebe$/ do |value, field|
+When /^(?:|ich )"([^\"]*)" in "([^\"]*)" eingebe$/ do |value, field|
   fill_in(field, :with => value)
 end
 
-# Use this to fill in an entire form with data from a table. Example:
+# Wird benutzt, um ein Formular mittels Tabelle zu füllen. Beispiel:
 #
-#   When I fill in the following:
+#   Wenn ich folgendes eingebe:
 #     | Account Number | 5002       |
 #     | Expiry date    | 2009-11-01 |
 #     | Note           | Nice guy   |
@@ -63,7 +63,7 @@ When /^(?:|ich )"([^\"]*)" als Datum und Uhrzeit auswähle$/ do |time|
   select_datetime(time)
 end
 
-# Use this step When using multiple datetime_select helpers on a page or
+# Use this step when using multiple datetime_select helpers on a page or
 # you want to specify which datetime to select. Given the following view:
 #   <%%= f.label :preferred %><br />
 #   <%%= f.datetime_select :preferred %>
@@ -100,7 +100,7 @@ end
 # Use this step When using multiple date_select helpers on one page or
 # you want to specify the name of the date on the form. For example:
 # When I select "April 26, 1982" as the "Date of Birth" date
-When /^(?:|ich ) "([^\"]*)" als "([^\"]*)" Datum auswähle$/ do |date, date_label|
+When /^(?:|ich )"([^\"]*)" als "([^\"]*)" Datum auswähle$/ do |date, date_label|
   select_date(date, :from => date_label)
 end
 
@@ -120,7 +120,7 @@ When /^(?:|ich )die Datei "([^\"]*)" als "([^\"]*)" anhänge$/ do |path, field|
   attach_file(field, path)
 end
 
-Then /^sollte (?:|ich )"([^\"]*)" sehen$/ do |text|
+Then /^(?:|ich sollte |sollte (?:|ich )?)"([^\"]*)" sehen$/ do |text|
 <% if framework == :rspec -%>
   response.should contain(text)
 <% else -%>
@@ -128,7 +128,7 @@ Then /^sollte (?:|ich )"([^\"]*)" sehen$/ do |text|
 <% end -%>
 end
 
-Then /^sollte (?:|ich )"([^\"]*)" innerhalb "([^\"]*)" sehen$/ do |text, selector|
+Then /^(?:|ich sollte |sollte (?:|ich )?)"([^\"]*)" innerhalb "([^\"]*)" sehen$/ do |text, selector|
   within(selector) do |content|
 <% if framework == :rspec -%>
     content.should contain(text)
@@ -138,7 +138,7 @@ Then /^sollte (?:|ich )"([^\"]*)" innerhalb "([^\"]*)" sehen$/ do |text, selecto
   end
 end
 
-Then /^sollte (?:|ich )\/([^\/]*)\/ sehen$/ do |regexp|
+Then /^(?:|ich sollte |sollte (?:|ich )?)\/([^\/]*)\/ sehen$/ do |regexp|
   regexp = Regexp.new(regexp)
 <% if framework == :rspec -%>
   response.should contain(regexp)
@@ -147,7 +147,7 @@ Then /^sollte (?:|ich )\/([^\/]*)\/ sehen$/ do |regexp|
 <% end -%>
 end
 
-Then /^sollte (?:|ich )\/([^\/]*)\/ innerhalb "([^\"]*)" sehen$/ do |regexp, selector|
+Then /^(?:|ich sollte |sollte (?:|ich )?)\/([^\/]*)\/ innerhalb "([^\"]*)" sehen$/ do |regexp, selector|
   within(selector) do |content|
     regexp = Regexp.new(regexp)
 <% if framework == :rspec -%>
@@ -158,7 +158,7 @@ Then /^sollte (?:|ich )\/([^\/]*)\/ innerhalb "([^\"]*)" sehen$/ do |regexp, sel
   end
 end
 
-Then /^sollte (?:|ich )nicht "([^\"]*)" sehen$/ do |text|
+Then /^(?:|ich sollte |sollte (?:|ich )?)nicht "([^\"]*)" sehen$/ do |text|
 <% if framework == :rspec -%>
   response.should_not contain(text)
 <% else -%>
@@ -166,7 +166,7 @@ Then /^sollte (?:|ich )nicht "([^\"]*)" sehen$/ do |text|
 <% end -%>
 end
 
-Then /^sollte (?:|ich )nicht "([^\"]*)" innerhalb "([^\"]*)" sehen$/ do |text, selector|
+Then /^(?:|ich sollte |sollte (?:|ich )?)nicht "([^\"]*)" innerhalb "([^\"]*)" sehen$/ do |text, selector|
   within(selector) do |content|
 <% if framework == :rspec -%>
     content.should_not contain(text)
@@ -176,7 +176,7 @@ Then /^sollte (?:|ich )nicht "([^\"]*)" innerhalb "([^\"]*)" sehen$/ do |text, s
   end
 end
 
-Then /^sollte (?:|ich )nicht \/([^\/]*)\/ sehen$/ do |regexp|
+Then /^(?:|ich sollte |sollte (?:|ich )?)nicht \/([^\/]*)\/ sehen$/ do |regexp|
   regexp = Regexp.new(regexp)
 <% if framework == :rspec -%>
   response.should_not contain(regexp)
@@ -185,7 +185,7 @@ Then /^sollte (?:|ich )nicht \/([^\/]*)\/ sehen$/ do |regexp|
 <% end -%>
 end
 
-Then /^sollte (?:|ich )nciht \/([^\/]*)\/ innerhalb "([^\"]*)" sehen$/ do |regexp, selector|
+Then /^(?:|ich sollte |sollte (?:|ich )?)nicht \/([^\/]*)\/ innerhalb "([^\"]*)" sehen$/ do |regexp, selector|
   within(selector) do |content|
     regexp = Regexp.new(regexp)
 <% if framework == :rspec -%>
@@ -228,7 +228,7 @@ Then /^sollte die "([^\"]*)" Checkbox nicht angehakt sein$/ do |label|
 <% end -%>
 end
 
-Then /^sollte (?:|ich )auf (.+) sein$/ do |page_name|
+Then /^(?:|ich sollte |sollte (?:|ich )?)auf (.+) sein$/ do |page_name|
 <% if framework == :rspec -%>
   URI.parse(current_url).path.should == path_to(page_name)
 <% else -%>
