@@ -1,0 +1,117 @@
+# encoding: utf-8
+# IMPORTANT: This file was generated.
+# Edit at your own peril - it's recommended to regenerate this file
+# in the future When you upgrade to a newer version of Cucumber.
+# Consider adding your own code to a new file instead of editing this one.
+
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+
+Gitt /^.*jeg står på (.*)$/ do |page_name|
+  Given %{I am on #{page_name}}
+end
+
+Når /^jeg går til (.*)$/ do |page_name|
+  When %{I go to #{page_name}}
+end
+
+Når /^jeg trykker "([^\"]*)"$/ do |button|
+  When %{I press "#{button}"}
+end
+
+Når /^jeg klikker "([^\"]*)"$/ do |link|
+  When %{I follow "#{link}"}
+end
+
+Når /^jeg klikker "([^\"]*)" under "([^\"]*)"$/ do |link, parent|
+  When %{I follow "#{link}" within "#{parent}"}
+end
+
+Når /^jeg fyller inn "([^\"]*)" med "([^\"]*)"$/ do |field, value|
+  When %{I fill in "#{field}" with "#{value}"}
+end
+
+Når /^jeg fyller inn "([^\"]*)" for "([^\"]*)"$/ do |value, field|
+  When %{I fill in "#{value}" for "#{field}"}
+end
+
+Når /^jeg fyller inn følgende:$/ do |fields|
+  When %{I fill in the following:}, fields
+end
+
+Når /^jeg velger "([^\"]*)" fra "([^\"]*)"$/ do |value, field|
+  When %{I select "#{value}" from "#{field}"}
+end
+
+# Missing: date stuff
+
+Når /^jeg krysser av "([^\"]*)"$/ do |field|
+  When %{I check "#{field}"}
+end
+
+Når /^jeg fjerner avkrysning for "([^\"]*)"$/ do |field|
+  When %{I uncheck "#{field}"}
+end
+
+Når /^jeg velger "([^\"]*)"$/ do |field|
+  When %{I choose "#{field}"}
+end
+
+Når /^jeg legger ved filen "([^\"]*)" til "([^\"]*)"$/ do |path, field|
+  When %{I attach the file at "#{path}" to "#{field}"}
+end
+
+Så /^(?:skal jeg|jeg skal) se "([^\"]*)"$/ do |text|
+  Then %{I should see "#{text}"}
+end
+
+Så /^(?:skal jeg|jeg skal) se "([^\"]*)" under "([^\"]*)"$/ do |text, selector|
+  Then %{I should see "#{text}" within "#{selector}"}
+end
+
+Så /^(?:skal jeg|jeg skal) se \/([^\/]*)\/$/ do |text|
+  Then %{I should see /#{text}/}
+end
+
+Så /^(?:skal jeg|jeg skal) se \/([^\/]*)\/ under "([^\"]*)"$/ do |text, selector|
+  Then %{I should see /#{text}/ within "#{selector}"}
+end
+
+Så /^(?:skal jeg|jeg skal) ikke se "([^\"]*)"$/ do |text|
+  Then %{I should not see "#{text}"}
+end
+
+Så /^(?:skal jeg|jeg skal) ikke se "([^\"]*)" under "([^\"]*)"$/ do |text, selector|
+  Then %{I should not see "#{text}" within "#{selector}"}
+end
+
+Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/$/ do |text|
+  Then %{I should not see /#{text}/}
+end
+
+Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/ under "([^\"]*)"$/ do |text, selector|
+  Then %{I should not see /#{text}/ within "#{selector}"}
+end
+
+Så /^skal "([^\"]*)" feltet inneholde "([^\"]*)"$/ do |field, value|
+  Then %{the "#{field}" field should contain "#{value}"}
+end
+
+Så /^skal "([^\"]*)" feltet ikke inneholde "([^\"]*)"$/ do |field, value|
+  Then %{the "#{field}" field should not contain "#{value}"}
+end
+
+Så /^skal "([^\"]*)" avkrysningsboksen være krysset av$/ do |label|
+  Then %{the "#{label}" checkbox should be checked"}
+end
+
+Så /^skal "([^\"]*)" avkrysningsboksen ikke være krysset av$/ do |label|
+  Then %{the "#{label}" checkbox should not be checked"}
+end
+
+Så /^(?:skal jeg|jeg skal) komme til (.+)$/ do |page_name|
+  Then %{I should be on #{page_name}}
+end
+
+Så /^vil jeg se siden$/ do |page_name|
+  Then %{show me the page}
+end
