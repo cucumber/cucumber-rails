@@ -6,7 +6,7 @@
 
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
-Gitt /^.*jeg står på (.*)$/ do |page_name|
+Gitt /^(?:at )jeg står på (.*)$/ do |page_name|
   Given %{I am on #{page_name}}
 end
 
@@ -92,19 +92,19 @@ Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/ under "([^\"]*)"$/ do |text, se
   Then %{I should not see /#{text}/ within "#{selector}"}
 end
 
-Så /^skal "([^\"]*)" feltet inneholde "([^\"]*)"$/ do |field, value|
+Så /^(?:skal )"([^\"]*)" feltet (?:skal )inneholde "([^\"]*)"$/ do |field, value|
   Then %{the "#{field}" field should contain "#{value}"}
 end
 
-Så /^skal "([^\"]*)" feltet ikke inneholde "([^\"]*)"$/ do |field, value|
+Så /^(?:skal ) "([^\"]*)" feltet (?:skal )ikke inneholde "([^\"]*)"$/ do |field, value|
   Then %{the "#{field}" field should not contain "#{value}"}
 end
 
-Så /^skal "([^\"]*)" avkrysningsboksen være krysset av$/ do |label|
+Så /^(?:skal ) "([^\"]*)" avkrysningsboksen (?:skal )være krysset av$/ do |label|
   Then %{the "#{label}" checkbox should be checked"}
 end
 
-Så /^skal "([^\"]*)" avkrysningsboksen ikke være krysset av$/ do |label|
+Så /^(?:skal ) "([^\"]*)" avkrysningsboksen (?:skal )ikke være krysset av$/ do |label|
   Then %{the "#{label}" checkbox should not be checked"}
 end
 
