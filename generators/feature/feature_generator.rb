@@ -14,6 +14,7 @@ class FeatureGenerator < Rails::Generator::NamedBase
 
   class NamedArg
     attr_reader :name
+    attr_reader :type
 
     def initialize(s)
       @name, @type = *s.split(':')
