@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y"]
-  s.date = %q{2009-11-11}
+  s.date = %q{2009-11-25}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "cucumber-rails.gemspec",
      "generators/cucumber/USAGE",
      "generators/cucumber/cucumber_generator.rb",
+     "generators/cucumber/templates/capybara_env.rb",
      "generators/cucumber/templates/cucumber",
      "generators/cucumber/templates/cucumber.rake",
      "generators/cucumber/templates/cucumber_environment.rb",
@@ -30,8 +31,13 @@ Gem::Specification.new do |s|
      "generators/cucumber/templates/paths.rb",
      "generators/cucumber/templates/spork_env.rb",
      "generators/cucumber/templates/version_check.rb",
-     "generators/cucumber/templates/webrat_steps/webrat_steps_de.rb",
-     "generators/cucumber/templates/webrat_steps/webrat_steps_en.rb",
+     "generators/cucumber/templates/web_steps/capybara_steps.rb",
+     "generators/cucumber/templates/web_steps/web_steps.rb",
+     "generators/cucumber/templates/web_steps/web_steps_de.rb",
+     "generators/cucumber/templates/web_steps/web_steps_no.rb",
+     "generators/cucumber/templates/web_steps/web_steps_pt-BR.rb",
+     "generators/cucumber/templates/web_steps/webrat_steps.rb",
+     "generators/cucumber/templates/webrat_env.rb",
      "generators/feature/USAGE",
      "generators/feature/feature_generator.rb",
      "generators/feature/templates/feature.erb",
