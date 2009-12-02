@@ -18,3 +18,9 @@ require 'capybara/cucumber'
 # would prevent the drivers from working. Capybara uses DatabaseCleaner to
 # wipe the database before each Scenario instead of using transactions.
 Cucumber::Rails::World.use_transactional_fixtures = false
+
+# Capybara defaults to XPATH selectors rather than Webrat's default of CSS. In
+# order to ease the transition to Capybara we set the default here. If you'd
+# prefer to use XPATH just remove this line and adjust any selectors in your
+# steps to use the XPATH syntax.
+Capybara.default_selector = :css

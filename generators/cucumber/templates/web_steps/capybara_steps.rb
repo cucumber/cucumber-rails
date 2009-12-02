@@ -21,8 +21,8 @@ When /^(?:|I )follow "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
-When /^(?:|I )follow "([^\"]*)" within "([^\"]*)"$/ do |link, parent|
-  within(parent, :css) do
+When /^(?:|I )follow "([^\"]*)" within "([^\"]*)"$/ do |link, selector|
+  within(selector) do
     click_link(link)
   end
 end
@@ -128,7 +128,7 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
 end
 
 Then /^(?:|I )should see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
-  within(selector, :css) do |content|
+  within(selector) do |content|
     if defined?(Spec::Rails::Matchers)
       content.should have_content(text)
     else
@@ -147,7 +147,7 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
 end
 
 Then /^(?:|I )should see \/([^\/]*)\/ within "([^\"]*)"$/ do |regexp, selector|
-  within(selector, :css) do |content|
+  within(selector) do |content|
     regexp = Regexp.new(regexp)
     if defined?(Spec::Rails::Matchers)
       content.should have_xpath('//*', :text => regexp)
@@ -166,7 +166,7 @@ Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
 end
 
 Then /^(?:|I )should not see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
-  within(selector, :css) do |content|
+  within(selector) do |content|
     if defined?(Spec::Rails::Matchers)
       content.should_not have_content(text)
     else
@@ -185,7 +185,7 @@ Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
 end
 
 Then /^(?:|I )should not see \/([^\/]*)\/ within "([^\"]*)"$/ do |regexp, selector|
-  within(selector, :css) do |content|
+  within(selector) do |content|
     regexp = Regexp.new(regexp)
     if defined?(Spec::Rails::Matchers)
       content.should_not have_xpath('//*', :text => regexp)
