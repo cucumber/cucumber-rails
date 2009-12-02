@@ -23,7 +23,11 @@ config.action_controller.allow_forgery_protection    = false
 config.action_mailer.delivery_method = :test
 
 config.gem 'cucumber',    :lib => false, :version => '>=<%= cucumber_version %>' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber'))
+<% if driver == :capybara -%>
+config.gem 'capybara',    :lib => false, :version => '>=0.1.3' unless File.directory?(File.join(Rails.root, 'vendor/plugins/capybara'))
+<% else -%>
 config.gem 'webrat',      :lib => false, :version => '>=0.5.3' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
+<% end -%>
 <% if framework == :rspec -%>
 config.gem 'rspec',       :lib => false, :version => '>=1.2.9' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
 config.gem 'rspec-rails', :lib => false, :version => '>=1.2.9' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
