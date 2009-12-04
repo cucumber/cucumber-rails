@@ -213,17 +213,17 @@ end
 
 Then /^the "([^\"]*)" checkbox should be checked$/ do |label|
   if defined?(Spec::Rails::Matchers)
-    field_labeled(label).should be_checked
+    field_labeled(label)['checked'].should == 'checked'
   else
-    assert field_labeled(label).checked?
+    assert field_labeled(label)['checked'] == 'checked'
   end
 end
 
 Then /^the "([^\"]*)" checkbox should not be checked$/ do |label|
   if defined?(Spec::Rails::Matchers)
-    field_labeled(label).should_not be_checked
+    field_labeled(label)['checked'].should_not == 'checked'
   else
-    assert !field_labeled(label).checked?
+    assert field_labeled(label)['checked'] != 'checked'
   end
 end
 
