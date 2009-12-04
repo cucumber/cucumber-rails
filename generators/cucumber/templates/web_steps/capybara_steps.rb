@@ -7,7 +7,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 
 module WithinHelpers
   def with_scope(locator)
-    within(locator || '/') { |scope| yield scope }
+    within(locator || 'html') { yield }
   end
 end
 World(WithinHelpers)
@@ -63,7 +63,7 @@ When /^(?:|I )fill in the following(?: within "([^\"]*)"|)?:$/ do |fields, selec
   end
 end
 
-When /^(?:|I )select "([^\"]*)" from "([^\"]*)"(?: within "([^\"]*)")$/ do |value, field, selector|
+When /^(?:|I )select "([^\"]*)" from "([^\"]*)"(?: within "([^\"]*)")?$/ do |value, field, selector|
   with_scope(selector) do
     select(value, :from => field)
   end
@@ -71,7 +71,7 @@ end
 
 # Use this step in conjunction with Rail's datetime_select helper. For example:
 # When I select "December 25, 2008 10:00" as the date and time
-When /^(?:|I )select "([^\"]*)" as the date and time(?: within "([^\"]*)")$/ do |time, selector|
+When /^(?:|I )select "([^\"]*)" as the date and time(?: within "([^\"]*)")?$/ do |time, selector|
   with_scope(selector) do
     select_datetime(time)
   end
@@ -86,7 +86,7 @@ end
 # The following steps would fill out the form:
 # When I select "November 23, 2004 11:20" as the "Preferred" date and time
 # And I select "November 25, 2004 10:30" as the "Alternative" date and time
-When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" date and time(?: within "([^\"]*)")$/ do |datetime, datetime_label, selector|
+When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" date and time(?: within "([^\"]*)")?$/ do |datetime, datetime_label, selector|
   with_scope(selector) do
     select_datetime(datetime, :from => datetime_label)
   end
@@ -96,7 +96,7 @@ end
 # When I select "2:20PM" as the time
 # Note: Rail's default time helper provides 24-hour time-- not 12 hour time. Webrat
 # will convert the 2:20PM to 14:20 and then select it.
-When /^(?:|I )select "([^\"]*)" as the time(?: within "([^\"]*)")$/ do |time, selector|
+When /^(?:|I )select "([^\"]*)" as the time(?: within "([^\"]*)")?$/ do |time, selector|
   with_scope(selector) do
     select_time(time)
   end
@@ -105,7 +105,7 @@ end
 # Use this step when using multiple time_select helpers on a page or you want to
 # specify the name of the time on the form.  For example:
 # When I select "7:30AM" as the "Gym" time
-When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" time$/ do |time, time_label, selector|
+When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" time(?: within "([^\"]*)")?$/ do |time, time_label, selector|
   with_scope(selector) do
     select_time(time, :from => time_label)
   end
@@ -113,7 +113,7 @@ end
 
 # Use this step in conjunction with Rail's date_select helper.  For example:
 # When I select "February 20, 1981" as the date
-When /^(?:|I )select "([^\"]*)" as the date(?: within "([^\"]*)")$/ do |date, selector|
+When /^(?:|I )select "([^\"]*)" as the date(?: within "([^\"]*)")?$/ do |date, selector|
   with_scope(selector) do
     select_date(date)
   end
@@ -122,37 +122,37 @@ end
 # Use this step when using multiple date_select helpers on one page or
 # you want to specify the name of the date on the form. For example:
 # When I select "April 26, 1982" as the "Date of Birth" date
-When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" date(?: within "([^\"]*)")$/ do |date, date_label, selector|
+When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" date(?: within "([^\"]*)")?$/ do |date, date_label, selector|
   with_scope(selector) do
     select_date(date, :from => date_label)
   end
 end
 
-When /^(?:|I )check "([^\"]*)"(?: within "([^\"]*)")$/ do |field, selector|
+When /^(?:|I )check "([^\"]*)"(?: within "([^\"]*)")?$/ do |field, selector|
   with_scope(selector) do
     check(field)
   end
 end
 
-When /^(?:|I )uncheck "([^\"]*)"(?: within "([^\"]*)")$/ do |field, selector|
+When /^(?:|I )uncheck "([^\"]*)"(?: within "([^\"]*)")?$/ do |field, selector|
   with_scope(selector) do
     uncheck(field)
   end
 end
 
-When /^(?:|I )choose "([^\"]*)"(?: within "([^\"]*)")$/ do |field, selector|
+When /^(?:|I )choose "([^\"]*)"(?: within "([^\"]*)")?$/ do |field, selector|
   with_scope(selector) do
     choose(field)
   end
 end
 
-When /^(?:|I )attach the file at "([^\"]*)" to "([^\"]*)"(?: within "([^\"]*)")$/ do |path, field, selector|
+When /^(?:|I )attach the file at "([^\"]*)" to "([^\"]*)"(?: within "([^\"]*)")?$/ do |path, field, selector|
   with_scope(selector) do
     attach_file(field, path)
   end
 end
 
-Then /^(?:|I )should see "([^\"]*)"(?: within "([^\"]*)")$/ do |text, selector|
+Then /^(?:|I )should see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, selector|
   with_scope(selector) do
     if defined?(Spec::Rails::Matchers)
       has_content?(text).should be_true
@@ -162,39 +162,39 @@ Then /^(?:|I )should see "([^\"]*)"(?: within "([^\"]*)")$/ do |text, selector|
   end
 end
 
-Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^\"]*)")$/ do |regexp, selector|
+Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^\"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
     if defined?(Spec::Rails::Matchers)
       has_xpath?('//*', :text => regexp).should be_true
     else
-      assert_match(regexp, scope.body)
+      assert has_xpath('//*', :text => regexp)
     end
   end
 end
 
-Then /^(?:|I )should not see "([^\"]*)"(?: within "([^\"]*)")$/ do |text, selector|
-  with_scope(selector) do |scope|
+Then /^(?:|I )should not see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, selector|
+  with_scope(selector) do
     if defined?(Spec::Rails::Matchers)
-      scope.should_not have_content(text)
+      has_content?(text).should be_false
     else
-      assert !scope.body.include?(text)
+      assert_not has_content?(text)
     end
   end
 end
 
-Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^\"]*)")$/ do |regexp, selector|
+Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^\"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
-  with_scope(selector) do |scope|
+  with_scope(selector) do
     if defined?(Spec::Rails::Matchers)
-      scope.should_not have_xpath('//*', :text => regexp)
+      has_xpath?('//*', :text => regexp).should be_false
     else
-      assert_no_match(regexp, scope.body)
+      assert_not has_xpath?('//*', :text => regexp)
     end
   end
 end
 
-Then /^the "([^\"]*)" field(?: within "([^\"]*)") should contain "([^\"]*)"$/ do |field, selector, value|
+Then /^the "([^\"]*)" field(?: within "([^\"]*)")? should contain "([^\"]*)"$/ do |field, selector, value|
   with_scope(selector) do
     if defined?(Spec::Rails::Matchers)
       field_labeled(field).value.should =~ /#{value}/
@@ -204,7 +204,7 @@ Then /^the "([^\"]*)" field(?: within "([^\"]*)") should contain "([^\"]*)"$/ do
   end
 end
 
-Then /^the "([^\"]*)" field(?: within "([^\"]*)") should not contain "([^\"]*)"$/ do |field, selector, value|
+Then /^the "([^\"]*)" field(?: within "([^\"]*)")? should not contain "([^\"]*)"$/ do |field, selector, value|
   with_scope(selector) do
     if defined?(Spec::Rails::Matchers)
       find_field(field).value.should_not =~ /#{value}/
@@ -214,7 +214,7 @@ Then /^the "([^\"]*)" field(?: within "([^\"]*)") should not contain "([^\"]*)"$
   end
 end
 
-Then /^the "([^\"]*)" checkbox(?: within "([^\"]*)") should be checked$/ do |label, selector|
+Then /^the "([^\"]*)" checkbox(?: within "([^\"]*)")? should be checked$/ do |label, selector|
   with_scope(selector) do
     if defined?(Spec::Rails::Matchers)
       field_labeled(label)['checked'].should == 'checked'
@@ -224,7 +224,7 @@ Then /^the "([^\"]*)" checkbox(?: within "([^\"]*)") should be checked$/ do |lab
   end
 end
 
-Then /^the "([^\"]*)" checkbox(?: within "([^\"]*)") should not be checked$/ do |label, selector|
+Then /^the "([^\"]*)" checkbox(?: within "([^\"]*)")? should not be checked$/ do |label, selector|
   with_scope(selector) do
     if defined?(Spec::Rails::Matchers)
       field_labeled(label)['checked'].should_not == 'checked'
