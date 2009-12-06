@@ -6,10 +6,10 @@ begin
     gemspec.description = "Cucumber Generators and Runtime for Rails"
     gemspec.email = "cukes@googlegroups.com"
     gemspec.homepage = "http://cukes.info"
-    gemspec.authors = ["Dennis Blöte", "Aslak Hellesøy"]
+    gemspec.authors = ["Dennis Blöte", "Aslak Hellesøy", "Rob Holland"]
     gemspec.homepage = "http://github.com/dbloete/cucumber-rails"
 
-    gemspec.add_dependency 'cucumber', '0.4.3'
+    gemspec.add_dependency 'cucumber', '>= 0.4.5'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.1.1.rc2"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y"]
-  s.date = %q{2009-11-25}
+  s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y", "Rob Holland"]
+  s.date = %q{2009-12-06}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".gitignore",
+     "History.txt",
      "README.rdoc",
      "Rakefile",
      "VERSION",
@@ -32,7 +33,6 @@ Gem::Specification.new do |s|
      "generators/cucumber/templates/spork_env.rb",
      "generators/cucumber/templates/version_check.rb",
      "generators/cucumber/templates/web_steps/capybara_steps.rb",
-     "generators/cucumber/templates/web_steps/web_steps.rb",
      "generators/cucumber/templates/web_steps/web_steps_de.rb",
      "generators/cucumber/templates/web_steps/web_steps_no.rb",
      "generators/cucumber/templates/web_steps/web_steps_pt-BR.rb",
@@ -42,7 +42,6 @@ Gem::Specification.new do |s|
      "generators/feature/feature_generator.rb",
      "generators/feature/templates/feature.erb",
      "generators/feature/templates/steps.erb",
-     "lib/cucumber-rails.rb",
      "lib/cucumber/rails/action_controller.rb",
      "lib/cucumber/rails/active_record.rb",
      "lib/cucumber/rails/rspec.rb",
@@ -60,12 +59,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<cucumber>, ["= 0.4.3"])
+      s.add_runtime_dependency(%q<cucumber>, [">= 0.4.5"])
     else
-      s.add_dependency(%q<cucumber>, ["= 0.4.3"])
+      s.add_dependency(%q<cucumber>, [">= 0.4.5"])
     end
   else
-    s.add_dependency(%q<cucumber>, ["= 0.4.3"])
+    s.add_dependency(%q<cucumber>, [">= 0.4.5"])
   end
 end
 
