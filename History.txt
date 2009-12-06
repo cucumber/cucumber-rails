@@ -1,0 +1,7 @@
+== In Git
+
+=== New features
+
+=== Bugfixes
+* Added MIME type parameter to attach file step definition (Felix Flores)
+* Added check when including ActiveSupport::Testing::SetupAndTeardown for older Rails versions (Jeremy Durham)
