@@ -3,5 +3,6 @@
 === New features
 
 === Bugfixes
+* Webrat step "Then I should be on" should use request_uri instead of path for missing query string parameters (ZhangJinzhu)
 * Added MIME type parameter to attach file step definition (Felix Flores)
 * Added check when including ActiveSupport::Testing::SetupAndTeardown for older Rails versions (Jeremy Durham)
