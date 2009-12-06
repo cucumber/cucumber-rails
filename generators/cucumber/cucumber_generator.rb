@@ -112,7 +112,7 @@ private
 
 #{yellow_cukes(15)} 
 
-          #{yellow_cukes(1)}   W E B   D R I V E R   A L E R T    #{yellow_cukes(1)}
+              #{yellow_cukes(1)}   D R I V E R   A L E R T    #{yellow_cukes(1)}
 
 You didn't explicitly generate with --capybara or --webrat, so I looked at
 your gems and saw that you had #{green(@default_driver.to_s)} installed, so I went with that. 
