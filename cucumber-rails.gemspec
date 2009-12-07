@@ -31,7 +31,6 @@ Gem::Specification.new do |s|
      "generators/cucumber/templates/env.rb",
      "generators/cucumber/templates/paths.rb",
      "generators/cucumber/templates/spork_env.rb",
-     "generators/cucumber/templates/version_check.rb",
      "generators/cucumber/templates/web_steps/capybara_steps.rb",
      "generators/cucumber/templates/web_steps/web_steps_de.rb",
      "generators/cucumber/templates/web_steps/web_steps_no.rb",
@@ -67,12 +66,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<cucumber>, [">= 0.4.5.rc1"])
+      s.add_runtime_dependency(%q<cucumber>, [">= 0.4.5.rc2"])
     else
-      s.add_dependency(%q<cucumber>, [">= 0.4.5.rc1"])
+      s.add_dependency(%q<cucumber>, [">= 0.4.5.rc2"])
     end
   else
-    s.add_dependency(%q<cucumber>, [">= 0.4.5.rc1"])
+    s.add_dependency(%q<cucumber>, [">= 0.4.5.rc2"])
   end
 end
 

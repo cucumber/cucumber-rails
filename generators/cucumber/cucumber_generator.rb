@@ -23,8 +23,7 @@ class CucumberGenerator < Rails::Generator::Base
       if language != 'en'
         m.template "web_steps/web_steps_#{language}.rb", "features/step_definitions/web_steps_#{language}.rb"
       end
-      m.template 'cucumber_environment.rb', 'config/environments/cucumber.rb',
-        :assigns => { :cucumber_version => ::Cucumber::VERSION }
+      m.template 'cucumber_environment.rb', 'config/environments/cucumber.rb'
 
       m.gsub_file 'config/database.yml', /test:.*\n/, "test: &TEST\n"
       unless File.read('config/database.yml').include? 'cucumber:'
@@ -39,7 +38,6 @@ class CucumberGenerator < Rails::Generator::Base
         m.template "#{driver}_env.rb", "features/support/#{driver}.rb"
       end
       m.template 'paths.rb', 'features/support/paths.rb'
-      m.template 'version_check.rb', 'features/support/version_check.rb'
 
       m.directory 'lib/tasks'
       m.template'cucumber.rake', 'lib/tasks/cucumber.rake'
@@ -70,8 +68,7 @@ private
       begin
         require library[0]
         return library[1]
-      rescue LoadError => e
-        puts e.inspect
+      rescue LoadError => ignore
       end
     end
     return nil
