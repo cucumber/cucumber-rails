@@ -10,5 +10,5 @@ When /^I delete the (\d+)(?:st|nd|rd|th) <%= singular_name %>$/ do |pos|
 end
 
 Then /^I should see the following <%= plural_name %>:$/ do |expected_<%= plural_name %>_table|
-  expected_<%= plural_name %>_table.diff!(table_at('table').to_a)
+  expected_<%= plural_name %>_table.diff!(tableish('table tr', 'td,th'))
 end
