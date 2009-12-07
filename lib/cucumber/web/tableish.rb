@@ -3,7 +3,8 @@ require 'nokogiri'
 module Cucumber
   module Tableish
     def tableish(row_selector, column_selectors)
-      _tableish(response_body, row_selector, column_selectors)
+      html = defined?(Capybara) ? body : response_body
+      _tableish(body, row_selector, column_selectors)
     end
 
     def _tableish(html, row_selector, column_selectors)
