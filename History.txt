@@ -4,7 +4,6 @@
 * New #tableish method to extract table-like data from a HTML page. Pure Nokogiri/CSS3/XPath. (Aslak Hellesøy)
 
 === Bugfixes
-* Make #element_at / #table_at work on Webrat 0.6.0. This is now deprecated it in favour of #tableish. (Aslak Hellesøy)
 * Webrat step "Then I should be on" should use request_uri instead of path for missing query string parameters (ZhangJinzhu)
 * Added MIME type parameter to attach file step definition (Felix Flores)
 * Added check when including ActiveSupport::Testing::SetupAndTeardown for older Rails versions (Jeremy Durham)
