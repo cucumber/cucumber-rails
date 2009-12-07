@@ -1,5 +1,7 @@
 require 'capybara/rails'
 require 'capybara/cucumber'
+require 'cucumber/web/tableish'
+World(Cucumber::Tableish)
 
 # If you set this to true, each scenario will run in a database transaction.
 # You can still turn off transactions on a per-scenario basis, simply tagging
@@ -13,11 +15,7 @@ require 'capybara/cucumber'
 # scenarios. If you do this, we recommend you create a Before block that will
 # explicitly put your database in a known state.
 #
-# Capybara supports drivers which require testing against a separate process
-# (webdriver for example), so we disable transactional fixtures here as they
-# would prevent the drivers from working. Capybara uses DatabaseCleaner to
-# wipe the database before each Scenario instead of using transactions.
-Cucumber::Rails::World.use_transactional_fixtures = false
+Cucumber::Rails::World.use_transactional_fixtures = true
 
 # Capybara defaults to XPATH selectors rather than Webrat's default of CSS. In
 # order to ease the transition to Capybara we set the default here. If you'd
