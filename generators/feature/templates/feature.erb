@@ -21,6 +21,22 @@ Feature: Manage <%= plural_name %>
 <% keyword = 'And' -%>
 <% end -%>
 
+<% File.file?('features/support/capybara.rb') -%>
+  # Rails generates delete links that use Javascript to do a HTTP
+  # POST request (emulated DELETE request). Capybara must use Culerity
+  # for such scenarios and turn off transactions. Turning off transactions
+  # for just one scenario (and keeping them on for the rest of the scenarios)
+  # will leave data in the database for following scenarios, which will
+  # inevitably cause unpredictable results.
+  #
+  # It is therefore recommended that you do one of the following:
+  #
+  # a) Keep those tags, but add an After('@no-txn') that cleans the DB with DatabaseCleaner
+  # b) Keep those tags, but globally turn off transactions in features/support/capybara.rb and 
+  #    add Before('@no-txn') that cleans the DB with DatabaseCleaner
+  # c) Remove those tags and modify your views to use <button> instead: http://github.com/jnicklas/capybara/issues#issue/12
+  @culerity @no-txn
+<% end -%>
   Scenario: Delete <%= singular_name %>
     Given the following <%= plural_name %>:
       |<%= named_args.map(&:name).join('|') %>|
