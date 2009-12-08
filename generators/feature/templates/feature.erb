@@ -21,7 +21,7 @@ Feature: Manage <%= plural_name %>
 <% keyword = 'And' -%>
 <% end -%>
 
-<% File.file?('features/support/capybara.rb') -%>
+<% if File.file?('features/support/capybara.rb') -%>
   # Rails generates delete links that use Javascript to do a HTTP
   # POST request (emulated DELETE request). Capybara must use Culerity
   # for such scenarios and turn off transactions. Turning off transactions
