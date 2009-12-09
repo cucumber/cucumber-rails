@@ -21,21 +21,22 @@ Feature: Manage <%= plural_name %>
 <% keyword = 'And' -%>
 <% end -%>
 
-<% if File.file?('features/support/capybara.rb') -%>
-  # Rails generates delete links that use Javascript to do a HTTP
-  # POST request (emulated DELETE request). Capybara must use Culerity
-  # for such scenarios and turn off transactions. Turning off transactions
-  # for just one scenario (and keeping them on for the rest of the scenarios)
-  # will leave data in the database for following scenarios, which will
-  # inevitably cause unpredictable results.
+<% if IO.read('features/support/env.rb') =~ /capybara/n -%>
+  # Rails generates Delete links that use Javascript to pop up a confirmation
+  # dialog and then do a HTTP POST request (emulated DELETE request).
   #
-  # It is therefore recommended that you do one of the following:
+  # Capybara must use Culerity or Selenium2 (webdriver) when pages rely on
+  # Javascript events. Only Culerity supports confirmation dialogs.
+  # 
+  # cucumber-rails will turn off transactions for scenarios tagged with 
+  # @culerity, @javascript or @no-txn and clean the database with DatabaseCleaner.
+  # after the scenario has finished. This is to prevent data from leaking into
+  # the next scenario.
   #
-  # a) Keep those tags, but add an After('@no-txn') that cleans the DB with DatabaseCleaner
-  # b) Keep those tags, but globally turn off transactions in features/support/capybara.rb and 
-  #    add Before('@no-txn') that cleans the DB with DatabaseCleaner
-  # c) Remove those tags and modify your views to use <button> instead: http://github.com/jnicklas/capybara/issues#issue/12
-  @culerity @no-txn
+  # Culerity has some performance overhead. You can remove the @culerity tag
+  # and run everything in-process, but then you also have to modify your views to
+  # use <button> instead: http://github.com/jnicklas/capybara/issues#issue/12
+  @culerity
 <% end -%>
   Scenario: Delete <%= singular_name %>
     Given the following <%= plural_name %>:

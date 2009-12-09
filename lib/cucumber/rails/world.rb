@@ -23,8 +23,6 @@ module Cucumber #:nodoc:
   end
 end
 
-require 'cucumber/rails/active_record'
-
 World do
   Cucumber::Rails::World.new
 end

@@ -8,43 +8,42 @@ class CucumberGenerator < Rails::Generator::Base
 
   attr_accessor :driver
   attr_accessor :framework
-  attr_reader :language
+  attr_reader :language, :template_dir
   
   def initialize(runtime_args, runtime_options = {})
-      super
-      @language = @args.empty? ? 'en' : @args.first
+    super
+    @language = @args.empty? ? 'en' : @args.first
   end
   
   def manifest
     record do |m|
+      m.template 'environments/cucumber.rb.erb', 'config/environments/cucumber.rb'
+
+      m.file 'script/cucumber', 'script/cucumber', {
+        :chmod => 0755, :shebang => options[:shebang] == DEFAULT_SHEBANG ? nil : options[:shebang]
+      }
+
       m.directory 'features/step_definitions'
-      
-      m.template "web_steps/#{driver}_steps.rb", 'features/step_definitions/web_steps.rb'
+      m.file "step_definitions/#{driver}_steps.rb", 'features/step_definitions/web_steps.rb'
       if language != 'en'
-        m.template "web_steps/web_steps_#{language}.rb", "features/step_definitions/web_steps_#{language}.rb"
+        m.file "step_definitions/web_steps_#{language}.rb", "features/step_definitions/web_steps_#{language}.rb"
       end
-      m.template 'cucumber_environment.rb', 'config/environments/cucumber.rb'
+
+      m.directory 'features/support'
+      if spork?
+        m.template 'support/rails_spork.rb.erb', 'features/support/env.rb'
+      else
+        m.template 'support/rails.rb.erb',       'features/support/env.rb'
+      end
+      m.file       'support/paths.rb',           'features/support/paths.rb'
+
+      m.directory 'lib/tasks'
+      m.template  'tasks/cucumber.rake.erb',     'lib/tasks/cucumber.rake'
 
       m.gsub_file 'config/database.yml', /test:.*\n/, "test: &TEST\n"
       unless File.read('config/database.yml').include? 'cucumber:'
         m.gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *TEST"
       end
-
-      m.directory 'features/support'
-      if spork?
-        m.template'spork_env.rb', 'features/support/env.rb'
-      else
-        m.template 'env.rb', 'features/support/env.rb'
-        m.template "#{driver}_env.rb", "features/support/#{driver}.rb"
-      end
-      m.template 'paths.rb', 'features/support/paths.rb'
-
-      m.directory 'lib/tasks'
-      m.template'cucumber.rake', 'lib/tasks/cucumber.rake'
-
-      m.file 'cucumber', 'script/cucumber', {
-        :chmod => 0755, :shebang => options[:shebang] == DEFAULT_SHEBANG ? nil : options[:shebang]
-      }
     end
   end
 
@@ -58,6 +57,15 @@ class CucumberGenerator < Rails::Generator::Base
 
   def spork?
     options[:spork]
+  end
+
+  def embed_file(source, indent='')
+    IO.read(File.join(File.dirname(__FILE__), 'templates', source)).gsub(/^/, indent)
+  end
+
+  def embed_template(source, indent='')
+    template = File.join(File.dirname(__FILE__), 'templates', source)
+    ERB.new(IO.read(template), nil, '-').result(binding).gsub(/^/, indent)
   end
 
 private
