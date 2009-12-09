@@ -1,6 +1,7 @@
 == In Git
 
 === New features
+* Added an @emulate_rails_javascript tag that will emulate onclick with Capybara (Aslak Hellesøy, Rob Holland)
 * Added a smart config/cucumber.yml file that will rerun previously failing scenarios (Aslak Hellesøy)
 * Support for Capybara. Run "script/generate --capybara" if you want that. (Rob Holland, Aslak Hellesøy)
 * New #tableish method to extract table-like data from a HTML page. Pure Nokogiri/CSS3/XPath. (Aslak Hellesøy)

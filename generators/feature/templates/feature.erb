@@ -33,9 +33,16 @@ Feature: Manage <%= plural_name %>
   # after the scenario has finished. This is to prevent data from leaking into
   # the next scenario.
   #
-  # Culerity has some performance overhead. You can remove the @culerity tag
-  # and run everything in-process, but then you also have to modify your views to
-  # use <button> instead: http://github.com/jnicklas/capybara/issues#issue/12
+  # Culerity has some performance overhead, and there are two alternatives to using
+  # Culerity:
+  #
+  # a) You can remove the @culerity tag and run everything in-process, but then you 
+  # also have to modify your views to use <button> instead: http://github.com/jnicklas/capybara/issues#issue/12
+  #
+  # b) Replace the @culerity tag with @emulate_rails_javascript. This will detect
+  # the onclick javascript and emulate its behaviour without a real Javascript
+  # interpreter.
+  #
   @culerity
 <% end -%>
   Scenario: Delete <%= singular_name %>
