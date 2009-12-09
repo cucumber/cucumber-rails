@@ -24,9 +24,9 @@ class CucumberGenerator < Rails::Generator::Base
       }
 
       m.directory 'features/step_definitions'
-      m.file "step_definitions/#{driver}_steps.rb", 'features/step_definitions/web_steps.rb'
+      m.template "step_definitions/#{driver}_steps.rb.erb", 'features/step_definitions/web_steps.rb'
       if language != 'en'
-        m.file "step_definitions/web_steps_#{language}.rb", "features/step_definitions/web_steps_#{language}.rb"
+        m.template "step_definitions/web_steps_#{language}.rb.erb", "features/step_definitions/web_steps_#{language}.rb"
       end
 
       m.directory 'features/support'
@@ -48,11 +48,11 @@ class CucumberGenerator < Rails::Generator::Base
   end
 
   def framework
-    options[:framework] ||= detect_default_framework!
+    options[:framework] ||= detect_current_framework || detect_default_framework
   end
 
   def driver
-    options[:driver] ||= detect_current_driver! || detect_default_driver!
+    options[:driver] ||= detect_current_driver || detect_default_driver
   end
 
   def spork?
@@ -82,26 +82,33 @@ private
     return nil
   end
 
-  def detect_current_driver!
-    drivers = [['capybara', :capybara], ['webrat', :webrat ]]
-    drivers.each do |driver|
-      @current_driver = driver[1] if File.exists?("features/support/#{driver[0]}.rb")
-      return @current_driver if @current_driver
-    end
-    return nil
+  def detect_current_driver
+    detect_in_env([['capybara', :capybara], ['webrat', :webrat ]])
   end
 
-  def detect_default_driver!
-    drivers = [['capybara', :capybara], ['webrat', :webrat ]]
-    @default_driver = first_loadable(drivers)
+  def detect_default_driver
+    @default_driver = first_loadable([['capybara', :capybara], ['webrat', :webrat ]])
     raise "I don't know which driver you want. Use --capybara or --webrat, or gem install capybara or webrat." unless @default_driver
     @default_driver
   end
 
-  def detect_default_framework!
+  def detect_current_framework
+    detect_in_env([['spec', :rspec], ['test/unit', :testunit]])
+  end
+
+  def detect_default_framework
     @default_framework = first_loadable([['spec', :rspec], ['test/unit', :testunit]])
     raise "I don't know what test framework you want. Use --rspec or --testunit, or gem install rspec or test-unit." unless @default_framework
     @default_framework
+  end
+
+  def detect_in_env(choices)
+    env = File.file?("features/support/env.rb") ? IO.read("features/support/env.rb") : ''
+    choices.each do |choice|
+      detected = choice[1] if env =~ /#{choice[0]}/n
+      return detected if detected
+    end
+    return nil
   end
 
   def banner
