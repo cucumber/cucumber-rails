@@ -17,6 +17,8 @@ class CucumberGenerator < Rails::Generator::Base
   
   def manifest
     record do |m|
+      m.template 'config/cucumber.yml.erb', 'config/cucumber.yml'
+
       m.template 'environments/cucumber.rb.erb', 'config/environments/cucumber.rb'
 
       m.file 'script/cucumber', 'script/cucumber', {
