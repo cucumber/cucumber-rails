@@ -17,6 +17,17 @@ class CucumberGenerator < Rails::Generator::Base
   
   def manifest
     record do |m|
+      if File.exist?('features/step_definitions/webrat_steps.rb')
+        STDERR.puts "Please remove features/step_definitions/webrat_steps.rb\n" + 
+        "See upgrading instructions for 0.2.0 in History.txt"
+        exit(1)
+      end
+      if File.exist?('features/support/version_check.rb')
+        STDERR.puts "Please remove features/support/version_check\n" + 
+        "See upgrading instructions for 0.2.0 in History.txt"
+        exit(1)
+      end
+
       m.template 'config/cucumber.yml.erb', 'config/cucumber.yml'
 
       m.template 'environments/cucumber.rb.erb', 'config/environments/cucumber.rb'
@@ -68,6 +79,10 @@ class CucumberGenerator < Rails::Generator::Base
   def embed_template(source, indent='')
     template = File.join(File.dirname(__FILE__), 'templates', source)
     ERB.new(IO.read(template), nil, '-').result(binding).gsub(/^/, indent)
+  end
+
+  def version
+    IO.read(File.dirname(__FILE__) + '/../../VERSION').chomp
   end
 
 private
