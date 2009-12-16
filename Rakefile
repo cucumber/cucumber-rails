@@ -9,7 +9,7 @@ begin
     gemspec.authors = ["Dennis Blöte", "Aslak Hellesøy", "Rob Holland"]
     gemspec.homepage = "http://github.com/dbloete/cucumber-rails"
 
-    gemspec.add_dependency 'cucumber', '>= 0.5.0'
+    gemspec.add_dependency 'cucumber', '>= 0.5.1'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
