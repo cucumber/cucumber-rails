@@ -23,7 +23,7 @@ class CucumberGenerator < Rails::Generator::Base
         exit(1)
       end
       if File.exist?('features/support/version_check.rb')
-        STDERR.puts "Please remove features/support/version_check\n" + 
+        STDERR.puts "Please remove features/support/version_check.rb\n" + 
         "See upgrading instructions for 0.2.0 in History.txt"
         exit(1)
       end
