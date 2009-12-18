@@ -7,7 +7,7 @@ begin
     gemspec.email = "cukes@googlegroups.com"
     gemspec.homepage = "http://cukes.info"
     gemspec.authors = ["Dennis Blöte", "Aslak Hellesøy", "Rob Holland"]
-    gemspec.homepage = "http://github.com/dbloete/cucumber-rails"
+    gemspec.homepage = "http://github.com/aslakhellesoy/cucumber-rails"
 
     gemspec.add_dependency 'cucumber', '>= 0.5.1'
   end
