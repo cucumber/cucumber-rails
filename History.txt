@@ -1,3 +1,8 @@
+== 0.2.2
+
+=== Bugfixes
+* cucumber.rake finds the wrong vendored cucumber when a plugin name starts with "cucumber" (#4 James Herdman, Paco Benavent, Aslak Hellesøy)
+
 == 0.2.1
 
 Small bugfix release
