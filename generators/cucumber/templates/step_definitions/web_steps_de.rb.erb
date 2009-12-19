@@ -76,7 +76,7 @@ When /^(?:|ich )"([^\"]*)" auswähle$/ do |field|
 end
 
 When /^(?:|ich )die Datei "([^\"]*)" als "([^\"]*)" anhänge$/ do |path, field|
-  When %{I attach the file at "#{path}" to "#{field}"}
+  When %{I attach the file "#{path}" to "#{field}"}
 end
 
 Then /^(?:|ich sollte |sollte (?:|ich )?)"([^\"]*)" sehen$/ do |text|

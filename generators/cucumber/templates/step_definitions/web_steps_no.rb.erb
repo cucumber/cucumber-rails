@@ -54,7 +54,7 @@ Når /^jeg velger "([^\"]*)"$/ do |field|
 end
 
 Når /^jeg legger ved filen "([^\"]*)" til "([^\"]*)"$/ do |path, field|
-  When %{I attach the file at "#{path}" to "#{field}"}
+  When %{I attach the file "#{path}" to "#{field}"}
 end
 
 Så /^(?:skal jeg|jeg skal) se "([^\"]*)"$/ do |text|
