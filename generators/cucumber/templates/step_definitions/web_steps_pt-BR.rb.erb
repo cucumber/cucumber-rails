@@ -92,11 +92,11 @@ Então /^eu devo ver "([^\"]*)" dentro de "([^\"]*)"$/ do |text, selector|
 end
 
 Então /^eu devo ver \/([^\/]*)\/$/ do |regexp|
-  Then %{I should see /#{text}/}
+  Then %{I should see /#{regexp}/}
 end
 
 Então /^eu devo ver \/([^\/]*)\/ dentro de "([^\"]*)"$/ do |regexp, selector|
-  Then %{I should see /#{text}/ within "#{selector}"}
+  Then %{I should see /#{regexp}/ within "#{selector}"}
 end
 
 Então /^eu não devo ver "([^\"]*)"$/ do |text|
@@ -108,11 +108,11 @@ Então /^eu não devo ver "([^\"]*)" dentro de "([^\"]*)"$/ do |text, selector|
 end
 
 Então /^eu não devo ver \/([^\/]*)\/$/ do |regexp|
-  Then %{I should not see /#{text}/}
+  Then %{I should not see /#{regexp}/}
 end
 
 Então /^eu não devo ver \/([^\/]*)\/ dentro de "([^\"]*)"$/ do |regexp, selector|
-  Then %{I should not see /#{text}/ within "#{selector}"}
+  Then %{I should not see /#{regexp}/ within "#{selector}"}
 end
 
 Então /^o campo "([^\"]*)" deve conter "([^\"]*)"$/ do |field, value|

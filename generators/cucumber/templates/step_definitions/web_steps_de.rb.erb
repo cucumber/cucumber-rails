@@ -88,11 +88,11 @@ Then /^(?:|ich sollte |sollte (?:|ich )?)"([^\"]*)" innerhalb "([^\"]*)" sehen$/
 end
 
 Then /^(?:|ich sollte |sollte (?:|ich )?)\/([^\/]*)\/ sehen$/ do |regexp|
-  Then %{I should see /#{text}/}
+  Then %{I should see /#{regexp}/}
 end
 
 Then /^(?:|ich sollte |sollte (?:|ich )?)\/([^\/]*)\/ innerhalb "([^\"]*)" sehen$/ do |regexp, selector|
-  Then %{I should see /#{text}/ within "#{selector}"}
+  Then %{I should see /#{regexp}/ within "#{selector}"}
 end
 
 Then /^(?:|ich sollte |sollte (?:|ich )?)nicht "([^\"]*)" sehen$/ do |text|
@@ -104,11 +104,11 @@ Then /^(?:|ich sollte |sollte (?:|ich )?)nicht "([^\"]*)" innerhalb "([^\"]*)" s
 end
 
 Then /^(?:|ich sollte |sollte (?:|ich )?)nicht \/([^\/]*)\/ sehen$/ do |regexp|
-  Then %{I should not see /#{text}/}
+  Then %{I should not see /#{regexp}/}
 end
 
 Then /^(?:|ich sollte |sollte (?:|ich )?)nicht \/([^\/]*)\/ innerhalb "([^\"]*)" sehen$/ do |regexp, selector|
-  Then %{I should not see /#{text}/ within "#{selector}"}
+  Then %{I should not see /#{regexp}/ within "#{selector}"}
 end
 
 Then /^sollte das "([^\"]*)" Feld "([^\"]*)" enthalten$/ do |field, value|
