@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cucumber-rails}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y", "Rob Holland"]
-  s.date = %q{2009-12-16}
+  s.date = %q{2009-12-21}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "generators/cucumber/templates/environments/cucumber.rb.erb",
      "generators/cucumber/templates/script/cucumber",
      "generators/cucumber/templates/step_definitions/capybara_steps.rb.erb",
+     "generators/cucumber/templates/step_definitions/web_steps_cs.rb.erb",
      "generators/cucumber/templates/step_definitions/web_steps_de.rb.erb",
      "generators/cucumber/templates/step_definitions/web_steps_no.rb.erb",
      "generators/cucumber/templates/step_definitions/web_steps_pt-BR.rb.erb",
@@ -56,7 +57,7 @@ Gem::Specification.new do |s|
      "spec/spec_helper.rb",
      "tasks/rspec.rake"
   ]
-  s.homepage = %q{http://github.com/dbloete/cucumber-rails}
+  s.homepage = %q{http://github.com/aslakhellesoy/cucumber-rails}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}

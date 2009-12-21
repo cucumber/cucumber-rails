@@ -1,16 +1,22 @@
-== 0.2.2
+== 0.2.2 2009-12-21
 
 === Bugfixes
+* Fix bad link in gemspec. (Aslak Hellesøy)
+* Unified file attaching step names. (Jiří Zajpt)
+* Fix typos in variable names in several step definitions. (Jiří Zajpt)
 * cucumber.rake finds the wrong vendored cucumber when a plugin name starts with "cucumber" (#4 James Herdman, Paco Benavent, Aslak Hellesøy)
 
-== 0.2.1
+=== New features
+* Czech translations. (Jiří Zajpt)
+
+== 0.2.1 2009-12-15
 
 Small bugfix release
 
 === Bugfixes
 * Made sure database_cleaner is always set up as a dependency in config/environments/cucumber.rb. (Aslak Hellesøy)
 
-== 0.2.0
+== 0.2.0 2009-12-14
 
 This is the first release of cucumber-rails, which was factored out of cucumber.
 We're calling it 0.2.0 just because we did some prereleases in the 0.1 series,
