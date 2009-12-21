@@ -54,7 +54,7 @@ Når /^jeg velger "([^\"]*)"$/ do |field|
 end
 
 Når /^jeg legger ved filen "([^\"]*)" til "([^\"]*)"$/ do |path, field|
-  When %{I attach the file at "#{path}" to "#{field}"}
+  When %{I attach the file "#{path}" to "#{field}"}
 end
 
 Så /^(?:skal jeg|jeg skal) se "([^\"]*)"$/ do |text|
@@ -65,12 +65,12 @@ Så /^(?:skal jeg|jeg skal) se "([^\"]*)" under "([^\"]*)"$/ do |text, selector|
   Then %{I should see "#{text}" within "#{selector}"}
 end
 
-Så /^(?:skal jeg|jeg skal) se \/([^\/]*)\/$/ do |text|
-  Then %{I should see /#{text}/}
+Så /^(?:skal jeg|jeg skal) se \/([^\/]*)\/$/ do |regexp|
+  Then %{I should see /#{regexp}/}
 end
 
-Så /^(?:skal jeg|jeg skal) se \/([^\/]*)\/ under "([^\"]*)"$/ do |text, selector|
-  Then %{I should see /#{text}/ within "#{selector}"}
+Så /^(?:skal jeg|jeg skal) se \/([^\/]*)\/ under "([^\"]*)"$/ do |regexp, selector|
+  Then %{I should see /#{regexp}/ within "#{selector}"}
 end
 
 Så /^(?:skal jeg|jeg skal) ikke se "([^\"]*)"$/ do |text|
@@ -81,12 +81,12 @@ Så /^(?:skal jeg|jeg skal) ikke se "([^\"]*)" under "([^\"]*)"$/ do |text, sele
   Then %{I should not see "#{text}" within "#{selector}"}
 end
 
-Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/$/ do |text|
-  Then %{I should not see /#{text}/}
+Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/$/ do |regexp|
+  Then %{I should not see /#{regexp}/}
 end
 
-Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/ under "([^\"]*)"$/ do |text, selector|
-  Then %{I should not see /#{text}/ within "#{selector}"}
+Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/ under "([^\"]*)"$/ do |regexp, selector|
+  Then %{I should not see /#{regexp}/ within "#{selector}"}
 end
 
 Så /^(?:skal )"([^\"]*)" feltet (?:skal )inneholde "([^\"]*)"$/ do |field, value|
