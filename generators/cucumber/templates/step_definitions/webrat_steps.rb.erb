@@ -1,5 +1,6 @@
 <%= embed_file('support/edit_warning.txt') %>
 
+require 'uri'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
 # Commonly used webrat steps
@@ -242,10 +243,11 @@ Then /^the "([^\"]*)" checkbox should not be checked$/ do |label|
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
+  current_path = URI.parse(current_url).select(:path, :query).compact.join('?')
   if defined?(Spec::Rails::Matchers)
-    URI.parse(current_url).path.should == path_to(page_name)
+    current_path.should == path_to(page_name)
   else
-    assert_equal path_to(page_name), URI.parse(current_url).path
+    assert_equal path_to(page_name), current_path
   end
 end
 

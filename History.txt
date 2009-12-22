@@ -1,3 +1,8 @@
+== In Git
+
+=== Bugfixes
+* Handle all types of URIs in "I should be on ..." steps. (Andrew D. Smith)
+
 == 0.2.2 2009-12-21
 
 === Bugfixes
