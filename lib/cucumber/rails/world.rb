@@ -3,7 +3,7 @@ if defined?(ActiveRecord::Base)
 else
   # I can't do rescue LoadError because in this files could be loaded
   # from rails gem (ie. load actionpack 2.3.5 if rubygems are not disabled)
-  if Rails.version.to_f <= 3.0
+  if Rails.version.to_f < 3.0
     require 'action_controller/test_process'
     require 'action_controller/integration'
   else
