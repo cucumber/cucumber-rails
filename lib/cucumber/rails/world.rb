@@ -1,8 +1,15 @@
 if defined?(ActiveRecord::Base)
   require 'test_help' 
 else
-  require 'action_controller/test_process'
-  require 'action_controller/integration'
+  # I can't do rescue LoadError because in this files could be loaded
+  # from rails gem (ie. load actionpack 2.3.5 if rubygems are not disabled)
+  if Rails.version.to_f <= 3.0
+    require 'action_controller/test_process'
+    require 'action_controller/integration'
+  else
+    require 'action_dispatch/testing/test_process'
+    require 'action_dispatch/testing/integration'
+  end
 end
 
 require 'cucumber/rails/test_unit'
