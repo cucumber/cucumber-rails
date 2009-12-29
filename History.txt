@@ -1,5 +1,8 @@
 == In Git
 
+=== New Features
+* The #tableish Proc can return Strings as well as Nokogiri nodes now. (Aslak Hellesøy)
+
 === Bugfixes
 * Handle all types of URIs in "I should be on ..." steps. (#5 Andrew D. Smith)
 

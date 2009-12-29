@@ -145,12 +145,12 @@ module Cucumber
           selectors = lambda do |form| 
             [
               form.css('div input:nth-child(1)').first.attributes['value'],
-              form.css('span').first
+              form.css('span').first.text.gsub(/\302\240/, ' ')
             ]
           end
 
           _tableish(html, 'form', selectors).should == [
-            ['Approve', "Hello\302\240World"],
+            ['Approve', "Hello World"],
             ['Delegate', 'Hi There']
           ]
         end

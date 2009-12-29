@@ -61,7 +61,11 @@ module Cucumber
         column_count ||= cells.length
         (0...column_count).map do |n|
           cell = cells[n]
-          cell ? cell.text.strip : ''
+          case(cell)
+            when String then cell.strip
+            when nil then ''
+            else cell.text.strip
+          end
         end
       end
     end
