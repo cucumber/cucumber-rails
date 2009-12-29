@@ -123,6 +123,37 @@ module Cucumber
             %w{aslak},
           ]
         end
+
+        it "should do complex shit" do
+          html = <<-HTML
+            <form method="post" action="/invoices/10/approve" class="button-to">
+              <div>
+                <input id="approve_invoice_10" type="submit" value="Approve" />
+                <input name="authenticity_token" type="hidden" value="WxKGVy3Y5zcvFEiFe66D/odoc3CicfMdAup4vzQfiZ0=" />
+                <span>Hello&nbsp;World<span>
+              </div>
+            </form>
+            <form method="post" action="/invoices/10/delegate" class="button-to">
+              <div>
+                <input id="delegate_invoice_10" type="submit" value="Delegate" />
+                <input name="authenticity_token" type="hidden" value="WxKGVy3Y5zcvFEiFe66D/odoc3CicfMdAup4vzQfiZ0=" />
+                <span>Hi There<span>
+              </div>
+            </form>
+          HTML
+
+          selectors = lambda do |form| 
+            [
+              form.css('div input:nth-child(1)').first.attributes['value'],
+              form.css('span').first
+            ]
+          end
+
+          _tableish(html, 'form', selectors).should == [
+            ['Approve', "Hello\302\240World"],
+            ['Delegate', 'Hi There']
+          ]
+        end
       end
     end
   end
