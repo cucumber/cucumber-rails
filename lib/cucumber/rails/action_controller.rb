@@ -1,13 +1,40 @@
-ActionController::Base.class_eval do
-  cattr_accessor :allow_rescue
-  
-  alias_method :rescue_action_without_bypass, :rescue_action
+if Rails.version.to_f >= 3.0
+  module ActionController #:nodoc:
+    module AllowRescueException
+      extend ActiveSupport::Concern
+      include ActiveSupport::Rescuable
 
-  def rescue_action(exception)
-    if ActionController::Base.allow_rescue
-      rescue_action_without_bypass(exception)
-    else
-      raise exception
+      private
+        def process_action(*args)
+          if ActionController::Base.allow_rescue
+            super
+          else
+            begin
+              super
+            rescue Exception => exception
+              raise(exception)
+            end
+          end
+        end
+    end
+  end
+
+  ActionController::Base.class_eval do
+    cattr_accessor :allow_rescue
+    include ActionController::AllowRescueException
+  end
+else
+  ActionController::Base.class_eval do
+    cattr_accessor :allow_rescue
+    
+    alias_method :rescue_action_without_bypass, :rescue_action
+  
+    def rescue_action(exception)
+      if ActionController::Base.allow_rescue
+        rescue_action_without_bypass(exception)
+      else
+        raise exception
+      end
     end
   end
 end
