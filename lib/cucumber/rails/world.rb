@@ -1,3 +1,7 @@
+unless defined?(Test)
+  require 'spec/test/unit'
+end
+
 if defined?(ActiveRecord::Base)
   require 'test_help' 
 else
