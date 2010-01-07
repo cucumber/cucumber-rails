@@ -1,7 +1,7 @@
 = cucumber-rails
 
 Extracted the Rails generators from the Cucumber gem, inspired by
-{this posting}[http://groups.google.com/group/cukes/browse_thread/thread/b9b8ff6301393c19"]
+{this posting}[http://groups.google.com/group/cukes/browse_thread/thread/b9b8ff6301393c19]
 on the Cukes Mailing List.
 
 The goal is to provide i18n of the webrat_steps.rb plus some other useful
