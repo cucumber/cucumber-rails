@@ -44,7 +44,7 @@ When /^(?:|ich )"([^\"]*)" als Datum und Uhrzeit auswähle$/ do |time|
 end
 
 When /^(?:|ich )"([^\"]*)" als "([^\"]*)" Datum und Uhrzeit auswähle$/ do |datetime, datetime_label|
-  When %{I select "#{detetime}" as the "#{datetime_label}" date and time}
+  When %{I select "#{datetime}" as the "#{datetime_label}" date and time}
 end
 
 When /^(?:|ich )"([^\"]*)" als Uhrzeit auswähle$/ do |time|

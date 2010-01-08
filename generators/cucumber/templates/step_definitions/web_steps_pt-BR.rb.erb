@@ -44,7 +44,7 @@ Quando /^eu seleciono "([^\"]*)" como a data e a hora$/ do |time|
 end
 
 Quando /^eu seleciono "([^\"]*)" como a data e a hora "([^\"]*)"$/ do |datetime, datetime_label|
-  When %{I select "#{detetime}" as the "#{datetime_label}" date and time}
+  When %{I select "#{datetime}" as the "#{datetime_label}" date and time}
 end
 
 Quando /^eu seleciono "([^\"]*)" como a hora$/ do |time|
