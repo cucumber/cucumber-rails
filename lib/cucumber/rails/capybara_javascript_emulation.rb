@@ -8,23 +8,37 @@ module Cucumber
       end
   
       def click_with_rails_javascript_emulation
-        if tag_name == 'a' and node['onclick'] =~ /m\.setAttribute\('name', '_method'\)/
-          method = node['onclick'].match(/m\.setAttribute\('value', '([^']*)'\)/)[1]
- 
-          js_form = node.document.create_element('form')
-          js_form['action'] = self[:href]
-          js_form['method'] = 'POST'
- 
-          input = node.document.create_element('input')
-          input['type'] = 'hidden'
-          input['name'] = '_method'
-          input['value'] = method
-          js_form.add_child(input)
- 
-          Capybara::Driver::RackTest::Form.new(driver, js_form).submit(self)
+        if link_with_onclick_from_rails?
+          Capybara::Driver::RackTest::Form.new(driver, js_form(self[:href], emulated_method)).submit(self)
         else
           click_without_rails_javascript_emulation
         end
+      end
+      
+
+      private
+      def js_form(action, emulated_method, method = 'POST')
+        js_form = node.document.create_element('form')
+        js_form['action'] = action
+        js_form['method'] = method
+
+        if emulated_method and emulated_method.downcase != method.downcase
+          input = node.document.create_element('input')
+          input['type'] = 'hidden'
+          input['name'] = '_method'
+          input['value'] = emulated_method
+          js_form.add_child(input)
+        end
+        
+        js_form
+      end
+
+      def link_with_onclick_from_rails?
+        tag_name == 'a' and node['onclick'] =~ /var f = document\.createElement\('form'\); f\.style\.display = 'none';/
+      end
+
+      def emulated_method
+        node['onclick'][/m\.setAttribute\('value', '([^']*)'\)/, 1]
       end
     end
   end
