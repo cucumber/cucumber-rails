@@ -1,3 +1,14 @@
+== (In Git)
+
+=== New Features
+* Added Spanish translation (Gabriel)
+
+=== Bugfixes
+* Better Javascript emulation with Capybara (#7 Thorbjørn Hermansen)
+* Removed stray quote in i18n web_steps.rb (Gabriel)
+* Update hooks to new boolean logic (#6 Jon Larkowski, Michael MacDonald)
+* Fixed incompatibility with Rails 3 (Mutwin Kraus)
+
 == 0.2.3 2010-01-03
 
 === New Features

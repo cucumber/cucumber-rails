@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y", "Rob Holland"]
-  s.date = %q{2010-01-03}
+  s.date = %q{2010-01-11}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
      "generators/cucumber/templates/step_definitions/capybara_steps.rb.erb",
      "generators/cucumber/templates/step_definitions/web_steps_cs.rb.erb",
      "generators/cucumber/templates/step_definitions/web_steps_de.rb.erb",
+     "generators/cucumber/templates/step_definitions/web_steps_es.rb.erb",
      "generators/cucumber/templates/step_definitions/web_steps_no.rb.erb",
      "generators/cucumber/templates/step_definitions/web_steps_pt-BR.rb.erb",
      "generators/cucumber/templates/step_definitions/webrat_steps.rb.erb",
@@ -72,15 +73,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<cucumber>, [">= 0.5.1"])
-      s.add_runtime_dependency(%q<webrat>, [">= 0.6.0"])
+      s.add_runtime_dependency(%q<cucumber>, [">= 0.6.1"])
     else
-      s.add_dependency(%q<cucumber>, [">= 0.5.1"])
-      s.add_dependency(%q<webrat>, [">= 0.6.0"])
+      s.add_dependency(%q<cucumber>, [">= 0.6.1"])
     end
   else
-    s.add_dependency(%q<cucumber>, [">= 0.5.1"])
-    s.add_dependency(%q<webrat>, [">= 0.6.0"])
+    s.add_dependency(%q<cucumber>, [">= 0.6.1"])
   end
 end
 
