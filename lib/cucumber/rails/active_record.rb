@@ -7,7 +7,7 @@ if defined?(ActiveRecord::Base)
     Cucumber::Rails::World.use_transactional_fixtures = $__cucumber_global_use_txn
   end
 
-  Before('@no-txn', '@selenium', '@culerity', '@javascript') do
+  Before('@no-txn,@selenium,@culerity,@javascript') do
     Cucumber::Rails::World.use_transactional_fixtures = false
   end
 
