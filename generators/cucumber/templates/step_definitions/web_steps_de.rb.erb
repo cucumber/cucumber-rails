@@ -44,7 +44,7 @@ When /^(?:|ich )"([^\"]*)" als Datum und Uhrzeit auswähle$/ do |time|
 end
 
 When /^(?:|ich )"([^\"]*)" als "([^\"]*)" Datum und Uhrzeit auswähle$/ do |datetime, datetime_label|
-  When %{I select "#{detetime}" as the "#{datetime_label}" date and time}
+  When %{I select "#{datetime}" as the "#{datetime_label}" date and time}
 end
 
 When /^(?:|ich )"([^\"]*)" als Uhrzeit auswähle$/ do |time|
@@ -120,11 +120,11 @@ Then /^sollte das "([^\"]*)" Feld nicht "([^\"]*)" enthalten$/ do |field, value|
 end
 
 Then /^sollte die "([^\"]*)" Checkbox angehakt sein$/ do |label|
-  Then %{the "#{label}" checkbox should be checked"}
+  Then %{the "#{label}" checkbox should be checked}
 end
 
 Then /^sollte die "([^\"]*)" Checkbox nicht angehakt sein$/ do |label|
-  Then %{the "#{label}" checkbox should not be checked"}
+  Then %{the "#{label}" checkbox should not be checked}
 end
 
 Then /^(?:|ich sollte |sollte (?:|ich )?)auf (.+) sein$/ do |page_name|

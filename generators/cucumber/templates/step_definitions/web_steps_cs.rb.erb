@@ -44,7 +44,7 @@ When /^vyberu "([^\"]*)" jako datum a čas$/ do |time|
 end
 
 When /^vyberu "([^\"]*)" jako "([^\"]*)" datum a čas$/ do |datetime, datetime_label|
-  When %{I select "#{detetime}" as the "#{datetime_label}" date and time}
+  When %{I select "#{datetime}" as the "#{datetime_label}" date and time}
 end
 
 When /^vyberu "([^\"]*)" jako čas$/ do |time|
@@ -120,11 +120,11 @@ Then /^pole "([^\"]*)" by nemělo obsahovat "([^\"]*)"$/ do |field, value|
 end
 
 Then /^pole "([^\"]*)" by mělo být zaškrtnuté$/ do |label|
-  Then %{the "#{label}" checkbox should be checked"}
+  Then %{the "#{label}" checkbox should be checked}
 end
 
 Then /^pole "([^\"]*)" by nemělo být zaškrtnuté$/ do |label|
-  Then %{the "#{label}" checkbox should not be checked"}
+  Then %{the "#{label}" checkbox should not be checked}
 end
 
 Then /^(?:|také )bych měl být na (.+)$/ do |page_name|
