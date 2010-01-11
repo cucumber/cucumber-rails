@@ -22,7 +22,7 @@ config.action_controller.allow_forgery_protection    = false
 config.action_mailer.delivery_method = :test
 
 config.gem 'cucumber-rails',   :lib => false, :version => '>=<%= version %>' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber-rails'))
-config.gem 'database_cleaner', :lib => false, :version => '>=0.2.3' unless File.directory?(File.join(Rails.root, 'vendor/plugins/database_cleaner'))
+config.gem 'database_cleaner', :lib => false, :version => '>=0.4.1' unless File.directory?(File.join(Rails.root, 'vendor/plugins/database_cleaner'))
 <% if driver == :capybara -%>
 config.gem 'capybara',         :lib => false, :version => '>=0.2.0' unless File.directory?(File.join(Rails.root, 'vendor/plugins/capybara'))
 <% else -%>
