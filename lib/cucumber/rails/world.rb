@@ -1,5 +1,8 @@
 unless defined?(Test)
-  require 'spec/test/unit'
+  begin
+    require 'spec/test/unit'
+  rescue LoadError => ignore_if_rspec_not_installed
+  end
 end
 
 if defined?(ActiveRecord::Base)
