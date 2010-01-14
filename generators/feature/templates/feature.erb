@@ -7,11 +7,11 @@ Feature: Manage <%= plural_name %>
     Given I am on the new <%= singular_name %> page
 <% keyword = 'When' -%>
 <% named_args.each do |arg| -%>
-  <% if arg.type == 'boolean' -%>
-  <%= keyword %> I uncheck "<%= arg.name.humanize %>"
-  <% else -%>
-  <%= keyword %> I fill in "<%= arg.name.humanize %>" with "<%= arg.value(1) %>"
-  <% end -%>
+<% if arg.type == 'boolean' -%>
+    <%= keyword %> I uncheck "<%= arg.name.humanize %>"
+<% else -%>
+    <%= keyword %> I fill in "<%= arg.name.humanize %>" with "<%= arg.value(1) %>"
+<% end -%>
 <% keyword = 'And' -%>
 <% end -%>
     And I press "Create"
