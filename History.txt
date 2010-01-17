@@ -9,7 +9,8 @@
 * Update hooks to new boolean logic (#6 Jon Larkowski, Michael MacDonald)
 * Fixed incompatibility with Rails 3 (Mutwin Kraus)
 * Fixed broken "fill in the following" step for Capybara web_steps (Lenny Marks)
-* Capybara web_steps.rb with_scope didn't work in nested steps (Lenny Marks) 
+* Capybara web_steps.rb with_scope didn't work in nested steps (Lenny Marks)
+* Fixed "should not see" steps in web_steps.rb to use the correct selector (Toni Tuominen)
 
 == 0.2.3 2010-01-03
 
