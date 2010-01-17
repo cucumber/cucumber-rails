@@ -4,6 +4,7 @@
 * Added Spanish translation (Gabriel)
 
 === Bugfixes
+* Fixed some broken Webrat/Test::Unit step definitions. (Aslak Hellesøy)
 * Better Javascript emulation with Capybara (#7 Thorbjørn Hermansen)
 * Removed stray quote in i18n web_steps.rb (Gabriel)
 * Update hooks to new boolean logic (#6 Jon Larkowski, Michael MacDonald)
