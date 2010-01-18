@@ -1,4 +1,4 @@
-== (In Git)
+== 0.2.4 2010-01-18
 
 === New Features
 * Added Spanish translation (Gabriel)
