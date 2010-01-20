@@ -1,3 +1,8 @@
+== In Git
+
+=== Bugfixes
+* Fixed typos in Capybara's web steps (has_not_xpath? => has_no_xpath?) (Thorbjørn Hermansen, Carlos Antonio da Silva)
+
 == 0.2.4 2010-01-18
 
 === New Features
