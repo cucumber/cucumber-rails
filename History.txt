@@ -1,6 +1,11 @@
 == In Git
 
 === Bugfixes
+* Reverts changes from issue #5 where verification of query string params was added to the step for being on a page.  Adds step discussed in issue #11 for verification of query string. (#11 Eric Milford)
+
+== In Git
+
+=== Bugfixes
 * Fixed typos in Capybara's web steps (has_not_xpath? => has_no_xpath?) (Thorbjørn Hermansen, Carlos Antonio da Silva)
 
 == 0.2.4 2010-01-18
