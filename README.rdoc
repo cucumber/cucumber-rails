@@ -1,6 +1,4 @@
-= cucumber-rails3
-
-*This version works ONLY with Rails 3*
+= cucumber-rails3 (Rails 3 ONLY)
 
 Extracted the Rails generators from the Cucumber gem, inspired by
 {this posting}[http://groups.google.com/group/cukes/browse_thread/thread/b9b8ff6301393c19]
