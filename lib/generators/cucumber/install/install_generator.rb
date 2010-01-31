@@ -166,7 +166,7 @@ module Cucumber
     end
 
     def version
-      IO.read(File.dirname(__FILE__) + '/../../../VERSION').chomp
+      IO.read(File.dirname(__FILE__) + '/../../../../VERSION').chomp
     end
 
     def first_loadable(libraries)
