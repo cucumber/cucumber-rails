@@ -9,7 +9,10 @@ enhancements.
 
 == Install
 
-  gem install cucumber-rails
+This version is not installable as a gem, since it's a patch-fork. Should it be integrated
+into the main branch, it will be.
+
+  script/plugin install git@github.com:alg/cucumber-rails3.git
 
 == Usage
 
@@ -20,17 +23,18 @@ additional arguments you should see the available generators listed.
 To run the generator, go to your rails project directory and call it
 using the script/generate or script/destroy command.
 
-  script/generate cucumber
+  script/generate cucumber:install
 
 
 == Included Generators
 
-* cucumber: Sets up Cucumber in your Rails project
-* feature: Generates a skeleton for a new feature
+* cucumber:cucumber -- Sets up Cucumber in your Rails project
+* cucumber:feature -- Generates a skeleton for a new feature
 
 To view the README for each generator, run it with the --help option.
 
-  script/generate cucumber --help
+  script/generate cucumber:install --help
+  script/generate cucumber:feature --help
 
 == Tests
 
