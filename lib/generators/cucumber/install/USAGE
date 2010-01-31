@@ -8,7 +8,7 @@ Description:
     for new features.
     
 Examples:
-    `./script/generate cucumber`
+    `script/generate cucumber:install`
 
 You can also provide a language argument for localized webrat_steps:
-    `./script/generate cucumber de`
+    `script/generate cucumber:install de`

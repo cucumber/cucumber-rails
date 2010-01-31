@@ -8,5 +8,5 @@ Description:
     built-in resource generator.
 
 Examples:
-    `./script/generate feature post` # no attributes
-    `./script/generate feature post title:string body:text published:boolean`
+    `script/generate cucumber:feature post` # no attributes
+    `script/generate cucumber:feature post title:string body:text published:boolean`
