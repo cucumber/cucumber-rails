@@ -9,10 +9,15 @@ enhancements.
 
 == Install
 
-This version is not installable as a gem, since it's a patch-fork. Should it be integrated
-into the main branch, it will be.
+Add it to the Gemfile as follows:
 
-  script/plugin install git@github.com:alg/cucumber-rails3.git
+  gem "cucumber-rails", :git => "git@github.com:alg/cucumber-rails3.git"
+
+then:
+
+  gem bundle
+
+... and you are ready to go.
 
 == Usage
 
