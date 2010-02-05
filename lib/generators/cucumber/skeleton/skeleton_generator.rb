@@ -1,9 +1,9 @@
-require File.join(File.dirname(__FILE__), 'install_base')
+require File.join(File.dirname(__FILE__), 'skeleton_base')
 
 module Cucumber
-  class InstallGenerator < Rails::Generators::Base
+  class SkeletonGenerator < Rails::Generators::Base
 
-    include Cucumber::InstallBase
+    include Cucumber::SkeletonBase
 
     DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 
@@ -38,7 +38,7 @@ module Cucumber
     end
     
     def self.source_root
-      File.join(gem_root, 'templates', 'install')
+      File.join(gem_root, 'templates/skeleton')
     end
     
     private

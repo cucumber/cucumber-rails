@@ -1,8 +1,8 @@
 module Cucumber
   module FeatureBase
 
-    def create_directory(m = self)
-      if defined?(RAILS_2)
+    def create_directory(m = self, rails2 = false)
+      if rails2
         m.directory 'features/step_definitions'
       else
         m.empty_directory 'features/step_definitions'

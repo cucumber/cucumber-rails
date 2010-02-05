@@ -1,21 +1,30 @@
-require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'generators', 'cucumber', 'feature', 'base')
-require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'generators', 'cucumber', 'feature', 'named_arg')
+require File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/feature/named_arg')
+require File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/feature/feature_base')
 
 # This generator generates a baic feature.
 class FeatureGenerator < Rails::Generator::NamedBase
-  RAILS_2 = true
+  
+  include Cucumber::FeatureBase
   
   def manifest
     record do |m|
-      create_directory(m)
+      create_directory(m, true)
       create_feature_file(m)
       create_steps_file(m)
       create_support_file(m)
     end
   end
 
+  def self.gem_root
+    File.expand_path('../../../', __FILE__)
+  end
+  
+  def self.source_root
+    File.join(gem_root, 'templates', 'feature')
+  end
+  
   def source_root
-    File.join(File.dirname(__FILE__), '..', '..', 'templates', 'feature')
+    self.class.source_root
   end
 
   def named_args

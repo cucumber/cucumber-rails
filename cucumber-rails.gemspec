@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y", "Rob Holland"]
-  s.date = %q{2010-02-05}
+  s.date = %q{2010-02-06}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -34,36 +34,14 @@ Gem::Specification.new do |s|
      "lib/cucumber/rails/world.rb",
      "lib/cucumber/web/tableish.rb",
      "lib/generators/cucumber/feature/USAGE",
-     "lib/generators/cucumber/feature/base.rb",
+     "lib/generators/cucumber/feature/feature_base.rb",
      "lib/generators/cucumber/feature/feature_generator.rb",
      "lib/generators/cucumber/feature/named_arg.rb",
-     "lib/generators/cucumber/install/USAGE",
-     "lib/generators/cucumber/install/base.rb",
-     "lib/generators/cucumber/install/install_generator.rb",
      "spec/cucumber/web/tableish_spec.rb",
      "spec/spec_helper.rb",
      "tasks/rspec.rake",
      "templates/feature/feature.erb",
-     "templates/feature/steps.erb",
-     "templates/install/config/cucumber.yml.erb",
-     "templates/install/environments/cucumber.rb.erb",
-     "templates/install/script/cucumber",
-     "templates/install/step_definitions/capybara_steps.rb.erb",
-     "templates/install/step_definitions/web_steps_cs.rb.erb",
-     "templates/install/step_definitions/web_steps_de.rb.erb",
-     "templates/install/step_definitions/web_steps_es.rb.erb",
-     "templates/install/step_definitions/web_steps_no.rb.erb",
-     "templates/install/step_definitions/web_steps_pt-BR.rb.erb",
-     "templates/install/step_definitions/webrat_steps.rb.erb",
-     "templates/install/support/_rails_each_run.rb",
-     "templates/install/support/_rails_prefork.rb.erb",
-     "templates/install/support/capybara.rb",
-     "templates/install/support/edit_warning.txt",
-     "templates/install/support/paths.rb",
-     "templates/install/support/rails.rb.erb",
-     "templates/install/support/rails_spork.rb.erb",
-     "templates/install/support/webrat.rb",
-     "templates/install/tasks/cucumber.rake.erb"
+     "templates/feature/steps.erb"
   ]
   s.homepage = %q{http://github.com/aslakhellesoy/cucumber-rails}
   s.rdoc_options = ["--charset=UTF-8"]

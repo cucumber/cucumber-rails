@@ -1,5 +1,7 @@
 module Cucumber
-  module InstallBase
+  module SkeletonBase
+
+    DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 
     # Checks and prints the limitations
     def check_upgrade_limitations
@@ -22,8 +24,8 @@ module Cucumber
       m.template 'environments/cucumber.rb.erb', 'config/environments/cucumber.rb'
     end
 
-    def create_scripts(m = self)
-      if defined?(RAILS_2)
+    def create_scripts(m = self, rails2 = false)
+      if rails2
         m.file 'script/cucumber', 'script/cucumber', {
           :chmod => 0755, :shebang => options[:shebang] == DEFAULT_SHEBANG ? nil : options[:shebang]
         }
@@ -33,8 +35,8 @@ module Cucumber
       end
     end
 
-    def create_step_definitions(m = self)
-      if defined?(RAILS_2)
+    def create_step_definitions(m = self, rails2 = false)
+      if rails2
         m.directory 'features/step_definitions'
       else
         m.empty_directory 'features/step_definitions'
@@ -46,8 +48,8 @@ module Cucumber
       end
     end
 
-    def create_feature_support(m = self)
-      if defined?(RAILS_2)
+    def create_feature_support(m = self, rails2 = false)
+      if rails2
         m.directory 'features/support'
         m.file      'support/paths.rb', 'features/support/paths.rb'
       else
@@ -62,8 +64,8 @@ module Cucumber
       end
     end
 
-    def create_tasks(m = self)
-      if defined?(RAILS_2)
+    def create_tasks(m = self, rails2 = false)
+      if rails2
         m.directory 'lib/tasks'
       else
         m.empty_directory 'lib/tasks'

@@ -1,12 +1,11 @@
 require 'rbconfig'
 require 'cucumber/platform'
-require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'generators', 'cucumber', 'install', 'base')
+require File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/skeleton/skeleton_base')
 
 # This generator bootstraps a Rails project for use with Cucumber
 class CucumberGenerator < Rails::Generator::Base
   
-  GEM_ROOT        = File.join(File.dirname(__FILE__), '..', '..')
-  DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
+  include Cucumber::InstallBase
 
   attr_accessor :driver
   attr_accessor :framework
@@ -17,16 +16,14 @@ class CucumberGenerator < Rails::Generator::Base
     @language = @args.empty? ? 'en' : @args.first
   end
   
-  include Generators::Cucumber::Install::Base
-
   def manifest
     record do |m|
       check_upgrade_limitations
       create_templates(m)
-      create_scripts(m)
-      create_step_definitions(m)
-      create_feature_support(m)
-      create_tasks(m)
+      create_scripts(m, true)
+      create_step_definitions(m, true)
+      create_feature_support(m, true)
+      create_tasks(m, true)
       create_database(m)
     end
   end
@@ -40,11 +37,15 @@ class CucumberGenerator < Rails::Generator::Base
   end
 
   def self.gem_root
-    GEM_ROOT
+    File.expand_path('../../../', __FILE__)
   end
   
   def self.source_root
-    File.join(gem_root, 'templates', 'install')
+    File.join(gem_root, 'templates', 'skeleton')
+  end
+  
+  def source_root
+    self.class.source_root
   end
   
   private
