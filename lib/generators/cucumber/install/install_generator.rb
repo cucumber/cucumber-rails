@@ -1,10 +1,10 @@
-require File.join(File.dirname(__FILE__), 'steps')
-require File.join(File.dirname(__FILE__), 'template_methods')
+require File.join(File.dirname(__FILE__), 'install_base')
 
 module Cucumber
   class InstallGenerator < Rails::Generators::Base
 
-    GEM_ROOT        = File.join(File.dirname(__FILE__), '..', '..', '..', '..')
+    include Cucumber::InstallBase
+
     DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 
     argument     :language, :banner => "LANG", :type => :string, :optional => true
@@ -17,22 +17,30 @@ module Cucumber
     
     attr_reader :framework, :driver
     
+    def configure_defaults
+      @language ||= 'en'
+      @framework  = framework_from_options || detect_current_framework || detect_default_framework
+      @driver     = driver_from_options    || detect_current_driver    || detect_default_driver
+    end
+
+    def generate
+      check_upgrade_limitations
+      create_templates
+      create_scripts
+      create_step_definitions
+      create_feature_support
+      create_tasks
+      create_database
+    end
+    
     def self.gem_root
-      GEM_ROOT
+      File.expand_path("../../../../../", __FILE__)
     end
     
     def self.source_root
       File.join(gem_root, 'templates', 'install')
     end
     
-    def configure_defaults
-      @language ||= 'en'
-      @framework  = framework_from_options || detect_current_framework || detect_default_framework
-      @driver     = driver_from_options    || detect_current_driver    || detect_default_driver
-    end
-    
-    include Generators::Cucumber::Install::Base
-
     private
     
     def framework_from_options
