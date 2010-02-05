@@ -1,4 +1,4 @@
-= cucumber-rails3 (Rails 3 ONLY)
+= cucumber-rails
 
 Extracted the Rails generators from the Cucumber gem, inspired by
 {this posting}[http://groups.google.com/group/cukes/browse_thread/thread/b9b8ff6301393c19]
@@ -22,24 +22,41 @@ then:
 == Usage
 
 Once you install the gem, the generators will be available to all Rails
-applications on your system. If you run script/generate without any
-additional arguments you should see the available generators listed.
+applications on your system. If you run `script/rails generate` (or `script/generate` on Rails 2.x)
+without any additional arguments you should see the available generators listed.
 
-To run the generator, go to your rails project directory and call it
-using the script/generate or script/destroy command.
+To run the generator, go to your rails project directory and call it.
 
-  script/generate cucumber:install
+Rails 3:
+
+  script/rails generate cucumber:skeleton
+
+Rails 2.x:
+
+  script/generate cucumber
 
 
 == Included Generators
 
-* cucumber:cucumber -- Sets up Cucumber in your Rails project
+Rails 3:
+
+* cucumber:skeleton -- Sets up Cucumber in your Rails project
 * cucumber:feature -- Generates a skeleton for a new feature
+
+Rails 2:
+
+* cucumber -- Sets up Cucumber in your Rails project
+* feature -- Generates a skeleton for a new feature
 
 To view the README for each generator, run it with the --help option.
 
-  script/generate cucumber:install --help
-  script/generate cucumber:feature --help
+  script/rails generate cucumber:skeleton --help
+  script/rails generate cucumber:feature --help
+
+or for Rails 2.x:
+
+  script/generate cucumber --help
+  script/generate feature --help
 
 == Tests
 
