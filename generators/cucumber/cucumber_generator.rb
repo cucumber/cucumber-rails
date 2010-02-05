@@ -5,7 +5,7 @@ require File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/skeleto
 # This generator bootstraps a Rails project for use with Cucumber
 class CucumberGenerator < Rails::Generator::Base
   
-  include Cucumber::InstallBase
+  include Cucumber::SkeletonBase
 
   attr_accessor :driver
   attr_accessor :framework
