@@ -1,7 +1,7 @@
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "cucumber-rails"
+    gemspec.name = "alg-cucumber-rails"
     gemspec.summary = "Cucumber Generators and Runtime for Rails"
     gemspec.description = "Cucumber Generators and Runtime for Rails"
     gemspec.email = "cukes@googlegroups.com"

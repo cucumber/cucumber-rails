@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y", "Rob Holland"]
-  s.date = %q{2010-02-01}
+  s.date = %q{2010-02-05}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -31,29 +31,8 @@ Gem::Specification.new do |s|
      "lib/cucumber/web/tableish.rb",
      "lib/generators/cucumber/feature/USAGE",
      "lib/generators/cucumber/feature/feature_generator.rb",
-     "lib/generators/cucumber/feature/templates/feature.erb",
-     "lib/generators/cucumber/feature/templates/steps.erb",
      "lib/generators/cucumber/install/USAGE",
      "lib/generators/cucumber/install/install_generator.rb",
-     "lib/generators/cucumber/install/templates/config/cucumber.yml.erb",
-     "lib/generators/cucumber/install/templates/environments/cucumber.rb.erb",
-     "lib/generators/cucumber/install/templates/script/cucumber",
-     "lib/generators/cucumber/install/templates/step_definitions/capybara_steps.rb.erb",
-     "lib/generators/cucumber/install/templates/step_definitions/web_steps_cs.rb.erb",
-     "lib/generators/cucumber/install/templates/step_definitions/web_steps_de.rb.erb",
-     "lib/generators/cucumber/install/templates/step_definitions/web_steps_es.rb.erb",
-     "lib/generators/cucumber/install/templates/step_definitions/web_steps_no.rb.erb",
-     "lib/generators/cucumber/install/templates/step_definitions/web_steps_pt-BR.rb.erb",
-     "lib/generators/cucumber/install/templates/step_definitions/webrat_steps.rb.erb",
-     "lib/generators/cucumber/install/templates/support/_rails_each_run.rb",
-     "lib/generators/cucumber/install/templates/support/_rails_prefork.rb.erb",
-     "lib/generators/cucumber/install/templates/support/capybara.rb",
-     "lib/generators/cucumber/install/templates/support/edit_warning.txt",
-     "lib/generators/cucumber/install/templates/support/paths.rb",
-     "lib/generators/cucumber/install/templates/support/rails.rb.erb",
-     "lib/generators/cucumber/install/templates/support/rails_spork.rb.erb",
-     "lib/generators/cucumber/install/templates/support/webrat.rb",
-     "lib/generators/cucumber/install/templates/tasks/cucumber.rake.erb",
      "spec/cucumber/web/tableish_spec.rb",
      "spec/spec_helper.rb",
      "tasks/rspec.rake"
