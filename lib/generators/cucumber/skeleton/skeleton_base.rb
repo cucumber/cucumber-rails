@@ -100,22 +100,6 @@ module Cucumber
 
   WARNING
       end
-
-      if @default_framework
-        puts <<-WARNING
-
-  #{yellow_cukes(15)} 
-
-            #{yellow_cukes(1)}   T E S T   F R A M E W O R K   A L E R T    #{yellow_cukes(1)}
-
-  You didn't explicitly generate with --rspec or --testunit, so I looked at
-  your gems and saw that you had #{green(@default_framework.to_s)} installed, so I went with that. 
-  If you want something else, be specific about it. Otherwise, relax.
-
-  #{yellow_cukes(15)} 
-
-  WARNING
-      end
     end
 
     protected
@@ -131,13 +115,11 @@ module Cucumber
     end
 
     def detect_current_framework
-      detect_in_env([['spec', :rspec], ['test/unit', :testunit]])
+      detect_in_env([['spec', :rspec]])
     end
 
     def detect_default_framework
-      @default_framework = first_loadable([['spec', :rspec], ['test/unit', :testunit]])
-      raise "I don't know what test framework you want. Use --rspec or --testunit, or gem install rspec or test-unit." unless @default_framework
-      @default_framework
+      @default_framework ||= first_loadable([['rspec', :rspec]])
     end
 
     def spork?
@@ -159,23 +141,25 @@ module Cucumber
 
     def first_loadable(libraries)
       require 'rubygems'
-      libraries.each do |library|
-        begin
-          require library[0]
-          return library[1]
-        rescue LoadError => ignore
-        end
+
+      libraries.each do |lib_name, lib_key|
+        return lib_key if Gem.available?(lib_name)
       end
-      return nil
+
+      # It's unlikely that we don't have test/unit since it comes with Ruby
+      return :testunit
     end
 
     def detect_in_env(choices)
       env = File.file?("features/support/env.rb") ? IO.read("features/support/env.rb") : ''
+
       choices.each do |choice|
         detected = choice[1] if env =~ /#{choice[0]}/n
         return detected if detected
       end
-      return nil
+      
+      # Fallback to test unit
+      return :testunit
     end
 
   end

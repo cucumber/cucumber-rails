@@ -7,13 +7,14 @@ module Cucumber
 
     DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 
-    argument     :language, :banner => "LANG", :type => :string, :optional => true
+    argument     :language,     :type => :string,  :banner => "LANG", :optional => true
     
-    class_option :webrat,   :type => :boolean, :desc => "Setup cucumber for use with webrat"
-    class_option :capybara, :type => :boolean, :desc => "Setup cucumber for use with capybara"
-    class_option :rspec,    :type => :boolean, :desc => "Setup cucumber for use with RSpec"
-    class_option :testunit, :type => :boolean, :desc => "Setup cucumber for use with test/unit"
-    class_option :spork,    :type => :boolean, :desc => "Setup cucumber for use with Spork"
+    class_option :webrat,       :type => :boolean, :desc => "Setup cucumber for use with webrat"
+    class_option :capybara,     :type => :boolean, :desc => "Setup cucumber for use with capybara"
+    class_option :rspec,        :type => :boolean, :desc => "Setup cucumber for use with RSpec"
+    class_option :testunit,     :type => :boolean, :desc => "Setup cucumber for use with test/unit"
+    class_option :spork,        :type => :boolean, :desc => "Setup cucumber for use with Spork"
+    class_option :database,     :type => :boolean, :desc => "Indicates when to update the database.yml", :default => true
     
     attr_reader :framework, :driver
     
@@ -30,7 +31,7 @@ module Cucumber
       create_step_definitions
       create_feature_support
       create_tasks
-      create_database
+      create_database if options[:database]
     end
     
     def self.gem_root
