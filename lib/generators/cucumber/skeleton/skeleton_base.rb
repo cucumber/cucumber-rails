@@ -29,7 +29,8 @@ module Cucumber
 
       def configure_gemfile(m = self, rails2 = false)
         require 'thor-ext'
-        unless rails2        
+        unless rails2   
+          puts "Update Rails 3 Gemfile for cucumber"     
           gsub_file 'Gemfile', /('|")gem/, "\1\ngem"
           add_gem('database_cleaner', '>=0.4.3') unless has_plugin? 'database_cleaner'
           if driver == :capybara
@@ -74,6 +75,7 @@ module Cucumber
 
       def create_feature_support(m = self, rails2 = false)
         if rails2
+          puts "Rails 2 feature support"          
           m.directory 'features/support'
           m.file      'support/paths.rb', 'features/support/paths.rb'
           
@@ -85,6 +87,7 @@ module Cucumber
           end          
           
         else
+          puts "Rails 3 feature support"
           m.empty_directory 'features/support'
           m.copy_file 'support/paths.rb', 'features/support/paths.rb'
           
