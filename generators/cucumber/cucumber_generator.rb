@@ -19,12 +19,12 @@ class CucumberGenerator < Rails::Generator::Base
   def manifest
     record do |m|
       check_upgrade_limitations
-      create_templates(m)
+      create_templates(m, true)
       create_scripts(m, true)
       create_step_definitions(m, true)
       create_feature_support(m, true)
       create_tasks(m, true)
-      create_database(m)
+      create_database(m, true)
     end
   end
 

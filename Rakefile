@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
@@ -10,6 +12,7 @@ begin
     gemspec.homepage = "http://github.com/aslakhellesoy/cucumber-rails"
 
     gemspec.add_dependency 'cucumber', '>= 0.6.2'
+    gemspec.add_dependency 'thor-ext'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

@@ -6,10 +6,13 @@
 == 0.2.5 2010-02-07
 
 === New Features
-TODO:
 * Added Danish translation (Kristian Mandrup)
 * Using Gemfile for Rails 3. Tidies it up and adds cucumber gems only if not already present! (Kristian Mandrup)
 * Added Generators wrapper module for Rails 3 generators so they are now all in Cucumber::Generators (Kristian Mandrup)
+
+=== Bugfixes
+* Started to work on solutions for generating suitable support files depending on Rails version
+  - see skeleton_base.rb#create_feature_support and templates/support  
 
 == 0.2.4 2010-01-18
 

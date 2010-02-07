@@ -1,0 +1,10 @@
+require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
+require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
+<% if framework == :rspec -%>
+require 'cucumber/rails/rspec'
+<% end -%>
+require 'cucumber/rails/world'
+
+# FIX: In Rails 3 we shouldn't HAVE TO use active_record!!!
+require 'cucumber/rails/active_record'
+require 'cucumber/web/tableish'
