@@ -3,6 +3,14 @@
 === Bugfixes
 * Fixed typos in Capybara's web steps (has_not_xpath? => has_no_xpath?) (Thorbjørn Hermansen, Carlos Antonio da Silva)
 
+== 0.2.5 2010-02-07
+
+=== New Features
+TODO:
+* Added Danish translation (Kristian Mandrup)
+* Using Gemfile for Rails 3. Tidies it up and adds cucumber gems only if not already present! (Kristian Mandrup)
+* Added Generators wrapper module for Rails 3 generators so they are now all in Cucumber::Generators (Kristian Mandrup)
+
 == 0.2.4 2010-01-18
 
 === New Features
