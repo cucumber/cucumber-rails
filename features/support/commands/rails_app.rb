@@ -13,5 +13,9 @@ class Commands
     def files
       @runner.files
     end
+
+    def file(filename)
+      @runner.file(filename)
+    end
   end
 end

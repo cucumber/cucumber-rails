@@ -1,21 +1,21 @@
 require 'rbconfig'
 require 'cucumber/platform'
-require File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/skeleton/skeleton_base')
+require File.expand_path(File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/skeleton/skeleton_base'))
 
 # This generator bootstraps a Rails project for use with Cucumber
 class CucumberGenerator < Rails::Generator::Base
-  
-  include Cucumber::SkeletonBase
+
+  include Cucumber::Generators::SkeletonBase
 
   attr_accessor :driver
   attr_accessor :framework
   attr_reader :language, :template_dir
-  
+
   def initialize(runtime_args, runtime_options = {})
     super
     @language = @args.empty? ? 'en' : @args.first
   end
-  
+
   def manifest
     record do |m|
       check_upgrade_limitations
@@ -39,15 +39,15 @@ class CucumberGenerator < Rails::Generator::Base
   def self.gem_root
     File.expand_path('../../../', __FILE__)
   end
-  
+
   def self.source_root
     File.join(gem_root, 'templates', 'skeleton')
   end
-  
+
   def source_root
     self.class.source_root
   end
-  
+
   private
 
   def banner

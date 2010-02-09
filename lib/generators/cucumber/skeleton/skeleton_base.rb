@@ -142,20 +142,26 @@ module Cucumber
       protected
 
       def detect_current_driver
-        detect_in_env([['capybara', :capybara], ['webrat', :webrat ]])
+        detect_in_env([['capybara', :capybara], ['webrat', :webrat]])
       end
 
       def detect_default_driver
-        @default_driver = first_loadable([['capybara', :capybara], ['webrat', :webrat ]])
+        @default_driver = first_loadable([['capybara', :capybara], ['webrat', :webrat]])
         raise "I don't know which driver you want. Use --capybara or --webrat, or gem install capybara or webrat." unless @default_driver
         @default_driver
       end
 
       def detect_current_framework
-        detect_in_env([['spec', :rspec]])
+        # TODO need to check this - defaulting to :testunit has been moved from first_loadable
+        # TODO ... what do we put here to make it detect "test/unit" ... is this right?
+        #   detect_in_env([['spec', :rspec], ['test/unit', :testunit]])
+        # or do we default
+        detect_in_env([['spec', :rspec]])  || :testunit
       end
 
       def detect_default_framework
+        # TODO need to check this - defaulting to :testunit has been moved from first_loadable
+        # It's unlikely that we don't have test/unit since it comes with Ruby
         @default_framework ||= first_loadable([['rspec', :rspec]])
       end
 
@@ -182,21 +188,21 @@ module Cucumber
         libraries.each do |lib_name, lib_key|
           return lib_key if Gem.available?(lib_name)
         end
-
-        # It's unlikely that we don't have test/unit since it comes with Ruby
-        return :testunit
+        
+        nil
       end
 
       def detect_in_env(choices)
-        env = File.file?("features/support/env.rb") ? IO.read("features/support/env.rb") : ''
-
+        return nil unless File.file?("features/support/env.rb")
+        
+        env = IO.read("features/support/env.rb")
+        
         choices.each do |choice|
           detected = choice[1] if env =~ /#{choice[0]}/n
           return detected if detected
         end
-      
-        # Fallback to test unit
-        return :testunit
+        
+        nil
       end
     end
   end

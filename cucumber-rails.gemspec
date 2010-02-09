@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Blöte", "Aslak Hellesøy", "Rob Holland"]
-  s.date = %q{2010-02-07}
+  s.date = %q{2010-02-09}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -22,6 +22,13 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "cucumber-rails.gemspec",
+     "features/descriptions/skeleton.feature",
+     "features/step_definitions/cucumber_rails_steps.rb",
+     "features/support/commands.rb",
+     "features/support/commands/rails_app.rb",
+     "features/support/commands/runner.rb",
+     "features/support/env.rb",
+     "features/support/gemfiles/ruby_187_rails_2.gemfile",
      "generators/cucumber/USAGE",
      "generators/cucumber/cucumber_generator.rb",
      "generators/feature/USAGE",
@@ -42,6 +49,7 @@ Gem::Specification.new do |s|
      "lib/generators/cucumber/skeleton/skeleton_generator.rb",
      "spec/cucumber/web/tableish_spec.rb",
      "spec/spec_helper.rb",
+     "tasks/cucumber.rake",
      "tasks/rspec.rake",
      "templates/feature/feature.erb",
      "templates/feature/steps.erb",
@@ -76,6 +84,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Cucumber Generators and Runtime for Rails}
   s.test_files = [
     "spec/cucumber/web/tableish_spec.rb",
+     "spec/generators/cucumber/skeleton/skeleton_base_spec.rb",
      "spec/spec_helper.rb"
   ]
 

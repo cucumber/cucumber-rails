@@ -14,12 +14,18 @@ class Commands
     end
 
     def rvm(command)
-      run_and_log("rvm #{@ruby_version} -S #{command}")
+      run_and_log("rvm #{@ruby_version}%cucumber-rails -S #{command}")
     end
 
     def files
       in_runner_dir do
         Dir["**/*"]
+      end
+    end
+
+    def file(filename)
+      in_runner_dir do
+        File.new(filename, "r")
       end
     end
 
