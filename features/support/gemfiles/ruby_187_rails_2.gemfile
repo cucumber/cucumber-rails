@@ -1,0 +1,6 @@
+# TODO use this to set up the rvm environments
+# gem "bundler"
+gem "rails", "2.3.5"
+gem "cucumber-rails"
+gem "capybara"
+gem "webrat"
