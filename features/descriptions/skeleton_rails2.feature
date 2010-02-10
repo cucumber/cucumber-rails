@@ -1,7 +1,7 @@
-Feature: cucumber:skeleton
+Feature: Rails 2 script/generate cucumber
   In order to quickly set up Cucumber
   As a Rails developer
-  I want to have the Cucumber skeleton generate automatically
+  I want to have the Cucumber skeleton generated automatically
 
   Scenario: Rails 2
     Given I'm using Ruby 1.8.7 and Rails 2.3.5
