@@ -17,16 +17,20 @@ class Commands
       run_and_log("rvm #{@ruby_version}%cucumber-rails -S #{command}")
     end
 
+    def chmod(*args)
+      in_runner_dir { File.chmod(*args) }
+    end
+
     def files
-      in_runner_dir do
-        Dir["**/*"]
-      end
+      in_runner_dir { Dir["**/*"] }
     end
 
     def file(filename)
-      in_runner_dir do
-        File.new(filename, "r")
-      end
+      in_runner_dir { File.new(filename, "r") }
+    end
+
+    def open_file(filename, mode, &block)
+      in_runner_dir { File.open(filename, mode, &block) }
     end
 
     private
@@ -39,9 +43,7 @@ class Commands
     end
 
     def in_runner_dir
-      Dir.chdir(@directory) do
-        yield
-      end
+      Dir.chdir(@directory) { yield }
     end
   end
 end

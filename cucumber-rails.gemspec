@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "cucumber-rails.gemspec",
-     "features/descriptions/skeleton.feature",
+     "features/descriptions/skeleton_rails2.feature",
      "features/step_definitions/cucumber_rails_steps.rb",
      "features/support/commands.rb",
      "features/support/commands/rails_app.rb",

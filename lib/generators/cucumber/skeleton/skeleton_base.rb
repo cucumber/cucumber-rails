@@ -7,13 +7,13 @@ module Cucumber
       # Checks and prints the limitations
       def check_upgrade_limitations
         if File.exist?('features/step_definitions/webrat_steps.rb')
-          STDERR.puts "Please remove features/step_definitions/webrat_steps.rb\n" + 
+          STDERR.puts "Please remove features/step_definitions/webrat_steps.rb\n" +
           "See upgrading instructions for 0.2.0 in History.txt"
           exit(1)
         end
 
         if File.exist?('features/support/version_check.rb')
-          STDERR.puts "Please remove features/support/version_check.rb\n" + 
+          STDERR.puts "Please remove features/support/version_check.rb\n" +
           "See upgrading instructions for 0.2.0 in History.txt"
           exit(1)
         end
@@ -22,19 +22,19 @@ module Cucumber
       # Creates templates
       def create_templates(m = self, rails2 = false)
         m.template 'config/cucumber.yml.erb', 'config/cucumber.yml'
-        if rails2        
+        if rails2
           m.template 'environments/cucumber.rb.erb', 'config/environments/cucumber.rb'
         end
       end
 
       def configure_gemfile(m = self, rails2 = false)
         require 'thor-ext'
-        unless rails2   
-          puts "Update Rails 3 Gemfile for cucumber"     
+        unless rails2
+          puts "Update Rails 3 Gemfile for cucumber"
           gsub_file 'Gemfile', /('|")gem/, "\1\ngem"
           add_gem('database_cleaner', '>=0.4.3') unless has_plugin? 'database_cleaner'
           if driver == :capybara
-            add_gem('capybara', '>=0.3.0') 
+            add_gem('capybara', '>=0.3.0')
           else
             add_gem('webrat', '>=0.6.0') unless has_plugin? 'webrat'
           end
@@ -44,7 +44,7 @@ module Cucumber
           end
           if spork?
             add_gem('spork''>=0.7.5') unless has_plugin? 'spork'
-          end          
+          end
           add_gems(%w{cucumber cucumber-rails})
         end
       end
@@ -75,30 +75,30 @@ module Cucumber
 
       def create_feature_support(m = self, rails2 = false)
         if rails2
-          puts "Rails 2 feature support"          
+          puts "DEBUG Rails 2 feature support"
           m.directory 'features/support'
           m.file      'support/paths.rb', 'features/support/paths.rb'
-          
+
           # spork
           if spork?
             m.template 'support/rails_spork.rb.erb', 'features/support/env.rb'
           else
             m.template 'support/rails.rb.erb',       'features/support/env.rb'
-          end          
-          
+          end
+
         else
-          puts "Rails 3 feature support"
+          puts "DEBUG Rails 3 feature support"
           m.empty_directory 'features/support'
           m.copy_file 'support/paths.rb', 'features/support/paths.rb'
-          
+
           if spork?
             m.template 'support/rails3_spork.rb.erb', 'features/support/env.rb'
           else
             m.template 'support/rails3.rb.erb',       'features/support/env.rb'
-          end          
-          
+          end
+
         end
-      
+
       end
 
       def create_tasks(m = self, rails2 = false)
@@ -107,7 +107,7 @@ module Cucumber
         else
           m.empty_directory 'lib/tasks'
         end
-      
+
         m.template 'tasks/cucumber.rake.erb', 'lib/tasks/cucumber.rake'
       end
 
@@ -125,15 +125,15 @@ module Cucumber
         if @default_driver
           puts <<-WARNING
 
-    #{yellow_cukes(15)} 
+    #{yellow_cukes(15)}
 
                   #{yellow_cukes(1)}   D R I V E R   A L E R T    #{yellow_cukes(1)}
 
     You didn't explicitly generate with --capybara or --webrat, so I looked at
-    your gems and saw that you had #{green(@default_driver.to_s)} installed, so I went with that. 
+    your gems and saw that you had #{green(@default_driver.to_s)} installed, so I went with that.
     If you want something else, be specific about it. Otherwise, relax.
 
-    #{yellow_cukes(15)} 
+    #{yellow_cukes(15)}
 
     WARNING
         end
@@ -188,20 +188,20 @@ module Cucumber
         libraries.each do |lib_name, lib_key|
           return lib_key if Gem.available?(lib_name)
         end
-        
+
         nil
       end
 
       def detect_in_env(choices)
         return nil unless File.file?("features/support/env.rb")
-        
+
         env = IO.read("features/support/env.rb")
-        
+
         choices.each do |choice|
           detected = choice[1] if env =~ /#{choice[0]}/n
           return detected if detected
         end
-        
+
         nil
       end
     end
