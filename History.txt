@@ -1,5 +1,8 @@
 == In Git
 
+=== New Features
+* Support for Rails3 (WORK IN PROGRESS) (#10 Kristian Mandrup, Aleksey Gureiev, Ashley Moran, Aslak Hellesøy)
+
 === Bugfixes
 * Fixed typos in Capybara's web steps (has_not_xpath? => has_no_xpath?) (Thorbjørn Hermansen, Carlos Antonio da Silva)
 
