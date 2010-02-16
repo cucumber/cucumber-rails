@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Blöte", "Aslak Hellesøy", "Rob Holland"]
-  s.date = %q{2010-02-10}
+  s.date = %q{2010-02-16}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -22,7 +22,9 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "cucumber-rails.gemspec",
+     "cucumber.yml",
      "features/descriptions/skeleton_rails2.feature",
+     "features/descriptions/skeleton_rails3.feature",
      "features/step_definitions/cucumber_rails_steps.rb",
      "features/support/commands.rb",
      "features/support/commands/rails_app.rb",
