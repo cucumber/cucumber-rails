@@ -75,19 +75,15 @@ module Cucumber
 
       def create_feature_support(m = self, rails2 = false)
         if rails2
-          puts "DEBUG Rails 2 feature support"
           m.directory 'features/support'
           m.file      'support/paths.rb', 'features/support/paths.rb'
 
-          # spork
           if spork?
             m.template 'support/rails_spork.rb.erb', 'features/support/env.rb'
           else
             m.template 'support/rails.rb.erb',       'features/support/env.rb'
           end
-
         else
-          puts "DEBUG Rails 3 feature support"
           m.empty_directory 'features/support'
           m.copy_file 'support/paths.rb', 'features/support/paths.rb'
 
@@ -96,9 +92,7 @@ module Cucumber
           else
             m.template 'support/rails3.rb.erb',       'features/support/env.rb'
           end
-
         end
-
       end
 
       def create_tasks(m = self, rails2 = false)
@@ -112,9 +106,12 @@ module Cucumber
       end
 
       def create_database(m = self, rails2 = false)
-        m.gsub_file 'config/database.yml', /test:.*\n/, "test: &TEST\n"
         unless File.read('config/database.yml').include? 'cucumber:'
+          m.gsub_file 'config/database.yml', /^test:.*\n/, "test: &TEST\n"
           m.gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *TEST"
+          
+          # Since gsub_file doesn't ask the user, just inform user that the file was overwritten.
+          puts "       force  config/database.yml"
         end
       end
 
