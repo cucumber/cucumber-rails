@@ -8,17 +8,17 @@ module Cucumber
 
       DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 
-      argument     :language,     :type => :string,  :banner => "LANG", :optional => true
-    
-      class_option :webrat,       :type => :boolean, :desc => "Setup cucumber for use with webrat"
-      class_option :capybara,     :type => :boolean, :desc => "Setup cucumber for use with capybara"
-      class_option :rspec,        :type => :boolean, :desc => "Setup cucumber for use with RSpec"
-      class_option :testunit,     :type => :boolean, :desc => "Setup cucumber for use with test/unit"
-      class_option :spork,        :type => :boolean, :desc => "Setup cucumber for use with Spork"    
-      class_option :skip_database, :type => :boolean, :desc => "Use to skip database.yml", :aliases => '-D', :default => false        
-    
+      argument     :language,      :type => :string,  :banner => "LANG", :optional => true
+
+      class_option :webrat,        :type => :boolean, :desc => "Use Webrat"
+      class_option :capybara,      :type => :boolean, :desc => "Use Capybara"
+      class_option :rspec,         :type => :boolean, :desc => "Use RSpec"
+      class_option :testunit,      :type => :boolean, :desc => "Use Test::Unit"
+      class_option :spork,         :type => :boolean, :desc => "Use Spork"
+      class_option :skip_database, :type => :boolean, :desc => "Skip modification of database.yml", :aliases => '-D', :default => false
+
       attr_reader :framework, :driver
-    
+
       def configure_defaults
         @language ||= 'en'
         @framework  = framework_from_options || detect_current_framework || detect_default_framework

@@ -149,10 +149,6 @@ module Cucumber
       end
 
       def detect_current_framework
-        # TODO need to check this - defaulting to :testunit has been moved from first_loadable
-        # TODO ... what do we put here to make it detect "test/unit" ... is this right?
-        #   detect_in_env([['spec', :rspec], ['test/unit', :testunit]])
-        # or do we default
         detect_in_env([['spec', :rspec]])  || :testunit
       end
 
