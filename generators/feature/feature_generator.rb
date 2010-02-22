@@ -4,7 +4,7 @@ require File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/feature
 # This generator generates a baic feature.
 class FeatureGenerator < Rails::Generator::NamedBase
   
-  include Cucumber::FeatureBase
+  include Cucumber::Generators::FeatureBase
   
   def manifest
     record do |m|

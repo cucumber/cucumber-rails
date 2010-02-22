@@ -5,7 +5,7 @@ module Cucumber
   module Generators
     class FeatureGenerator < Rails::Generators::NamedBase
 
-      include FeatureBase
+      include Cucumber::Generators::FeatureBase
     
       argument :fields, :optional => true, :type => :array, :banner => "[field:type, field:type]"
 

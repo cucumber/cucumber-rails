@@ -32,11 +32,11 @@ module Cucumber
         unless rails2
           puts "Update Rails 3 Gemfile for cucumber"
           gsub_file 'Gemfile', /('|")gem/, "\1\ngem"
-          add_gem('database_cleaner', '>=0.4.3') unless has_plugin? 'database_cleaner'
+          add_gem('database_cleaner', '>=0.5.0') unless has_plugin? 'database_cleaner'
           if driver == :capybara
             add_gem('capybara', '>=0.3.0')
           else
-            add_gem('webrat', '>=0.6.0') unless has_plugin? 'webrat'
+            add_gem('webrat', '>=0.7.0') unless has_plugin? 'webrat'
           end
           if framework == :rspec
             add_gem('rspec', '>=1.3.0') unless has_plugin? 'rspec'
