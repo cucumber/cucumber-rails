@@ -6,7 +6,11 @@ unless defined?(Test)
 end
 
 if defined?(ActiveRecord::Base)
-  require 'test_help' 
+  if Rails.version.to_f >= 3.0
+    require 'rails/test_help' 
+  else
+    require 'test_help' 
+  end
 else
   # I can't do rescue LoadError because in this files could be loaded
   # from rails gem (ie. load actionpack 2.3.5 if rubygems are not disabled)

@@ -9,7 +9,7 @@ module Cucumber
           RVMS['rubies'].each do |ruby_name, ruby_version|
             gems = RVMS['gems']
             RVMS['rails_gems'].each do |rails_version, rails_gems|
-              proc.call(new(ruby_name, rails_version, gems + rails_gems, nil))
+              proc.call(new(ruby_name, rails_version, gems, rails_gems))
             end
           end
         end
@@ -31,7 +31,7 @@ module Cucumber
       end
 
       def rvm(cmd)
-        rvm_cmd = "rvm #{@ruby_version} #{cmd}"
+        rvm_cmd = "rvm #{@ruby_version}%cucumber-rails-#{@rails_version} #{cmd}"
         if @world
           @world.announce(rvm_cmd)
         else
@@ -43,6 +43,15 @@ module Cucumber
 
       def rails(args)
         rvm("-S rails _#{@rails_version}_ #{args}")
+      end
+
+      def rails_create(name)
+        rails(name)
+        cd(name)
+        if @rails_version =~ /^3\./
+          @world.announce('Appending gem "cucumber-rails" to Gemfile')
+          append_to_file("Gemfile", 'gem "cucumber-rails"')
+        end
       end
 
       def install_gems
@@ -63,8 +72,7 @@ module Cucumber
       end
       
       def create!
-        @rvm.rails(@name)
-        @rvm.cd(@name)
+        @rvm.rails_create(@name)
       end
 
       def script(args)

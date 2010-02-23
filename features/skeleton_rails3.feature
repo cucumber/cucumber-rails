@@ -1,3 +1,4 @@
+@wip
 Feature: Rails 3 rails generate cucumber:skeleton
   In order to quickly set up Cucumber
   As a Rails developer
