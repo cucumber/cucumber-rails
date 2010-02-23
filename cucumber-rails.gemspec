@@ -41,7 +41,6 @@ Gem::Specification.new do |s|
      "lib/cucumber/rails/test_unit.rb",
      "lib/cucumber/rails/world.rb",
      "lib/cucumber/web/tableish.rb",
-     "lib/generators/cucumber/cucumber_generator.rb",
      "lib/generators/cucumber/feature/USAGE",
      "lib/generators/cucumber/feature/feature_base.rb",
      "lib/generators/cucumber/feature/feature_generator.rb",
