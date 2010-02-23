@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.2.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Dennis Blöte", "Aslak Hellesøy", "Rob Holland"]
-  s.date = %q{2010-02-16}
+  s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y", "Rob Holland"]
+  s.date = %q{2010-02-23}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -23,17 +23,14 @@ Gem::Specification.new do |s|
      "VERSION",
      "cucumber-rails.gemspec",
      "cucumber.yml",
-     "features/descriptions/skeleton_rails2.feature",
-     "features/descriptions/skeleton_rails3.feature",
+     "features/skeleton_rails2.feature",
+     "features/skeleton_rails3.feature",
      "features/step_definitions/cucumber_rails_steps.rb",
-     "features/support/commands.rb",
-     "features/support/commands/rails_app.rb",
-     "features/support/commands/runner.rb",
      "features/support/env.rb",
-     "features/support/gemfiles/ruby_187_rails_2.gemfile",
      "features/support/matchers/files.rb",
      "generators/cucumber/USAGE",
      "generators/cucumber/cucumber_generator.rb",
+     "generators/cucumber/templates/step_definitions/web_steps_ja.rb.erb",
      "generators/feature/USAGE",
      "generators/feature/feature_generator.rb",
      "lib/cucumber/rails/action_controller.rb",
@@ -85,7 +82,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/aslakhellesoy/cucumber-rails}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Cucumber Generators and Runtime for Rails}
   s.test_files = [
     "spec/cucumber/web/tableish_spec.rb",

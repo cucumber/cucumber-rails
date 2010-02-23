@@ -4,9 +4,9 @@ Feature: Rails 3 rails generate cucumber:skeleton
   I want to have the Cucumber skeleton generated automatically
 
   Scenario: Rails 3
-    Given I'm using Ruby 1.9.1 and Rails 3.0.0.beta
+    Given I'm using Ruby 1.8.7 and Rails 3.0.0.beta
     # TODO add to Gemfile
-    And a Rails 3 app "rails-3-app"
+    And a Rails app "rails-3-app"
     When I run "rails generate cucumber:skeleton" in the app
     Then I get the following new files and directories
       | name                                   |

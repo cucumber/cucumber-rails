@@ -5,7 +5,7 @@ Feature: Rails 2 script/generate cucumber
 
   Scenario: Rails 2
     Given I'm using Ruby 1.8.7 and Rails 2.3.5
-    And a Rails 2 app "rails-2-app"
+    And a Rails app "rails-2-app"
     When I run "script/generate cucumber" in the app
     Then I get the following new files and directories
       | name                                   |
@@ -22,7 +22,7 @@ Feature: Rails 2 script/generate cucumber
 
   Scenario: Rails 2 with Webrat
     Given I'm using Ruby 1.8.7 and Rails 2.3.5
-    And a Rails 2 app "rails-2-app"
+    And a Rails app "rails-2-app"
     When I run "script/generate cucumber --webrat" in the app
     Then the files are configured for Webrat
       | name                            | contents                       |
@@ -32,7 +32,7 @@ Feature: Rails 2 script/generate cucumber
 
   Scenario: Rails 2 with Capybara
     Given I'm using Ruby 1.8.7 and Rails 2.3.5
-    And a Rails 2 app "rails-2-app"
+    And a Rails app "rails-2-app"
     When I run "script/generate cucumber --capybara" in the app
     Then the files are configured for Capybara
       | name                            | contents                                               |
@@ -47,14 +47,14 @@ Feature: Rails 2 script/generate cucumber
   # or add something into the generator?
   Scenario: Rails 2 with Test::Unit
     Given I'm using Ruby 1.8.7 and Rails 2.3.5
-    And a Rails 2 app "rails-2-app"
+    And a Rails app "rails-2-app"
     When I run "script/generate cucumber --testunit" in the app
     Then the files are configured for Capybara
       | name | contents |
 
   Scenario: Rails 2 with Test::Unit
     Given I'm using Ruby 1.8.7 and Rails 2.3.5
-    And a Rails 2 app "rails-2-app"
+    And a Rails app "rails-2-app"
     When I run "script/generate cucumber --rspec" in the app
     Then the files are configured for Capybara
       | name                            | contents                       |

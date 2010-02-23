@@ -1,13 +1,11 @@
-Given /^I'm using Ruby (.*) and Rails (.*)$/ do |ruby_version, rails_version|
-  @commands = Commands.new(ruby_version, rails_version)
+require 'cucumber/rails/rvm'
+
+Given /^I'm using Ruby (.*) and Rails (.*)$/ do |ruby_name, rails_version|
+  @rvm = Cucumber::Rails::Rvm.new(ruby_name, rails_version, nil)
 end
 
-Given /^a Rails 2 app "(.*)"$/ do |app_name|
-  @rails_app = @commands.new_rails_2_app(app_name)
-end
-
-Given /^a Rails 3 app "(.*)"$/ do |app_name|
-  @rails_app = @commands.new_rails_3_app(app_name)
+Given /^a Rails app "(.*)"$/ do |app_name|
+  @rails_app = @rvm.new_rails_app(app_name)
 end
 
 When /^I run "script\/(.*)" in the app$/ do |command|

@@ -1,3 +1,4 @@
+$:.unshift(File.dirname(__FILE__) + '/../../lib')
 require 'fileutils'
 require 'rubygems'
 require 'spec'

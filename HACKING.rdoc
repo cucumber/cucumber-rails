@@ -1,0 +1,34 @@
+= Hacking on Cucumber-Rails
+
+If you have a bugfix or a new feature you want to contribute, please fork on Github and make your own feature branch:
+
+  git clone git@github.com:you/cucumber-rails.git
+  git checkout -b 87-add-chinese-translation
+
+The feature branch should contain a ticket number (if appliccable) and a descriptive name that aligns with the ticket name.
+
+== Setting up your environment
+
+Before you change anything, you should make sure you can run all the Cucumber features for Cucumber-Rails.
+The first time you clone the repo you may have to install Rails for all of the Ruby versions we're testing against.
+For this you need RVM:
+
+=== Installing rubies with RVM
+
+sudo gem install rvm
+rvm install 1.8.7 1.9.1
+
+=== Installing gems
+
+In order to avoid conflicts we'll use RVM's gem sets to set up a gem set for each combination of Ruby version and Rails version
+to be tested against. Open platforms.yml and modify the rubies section if you have different patchlevels for the rubies.
+
+Installing the various gem sets is done with the following command:
+
+  rake gemsets:install
+
+This will take 10-15 minutes to complete, as there are many gems to download. After you have done this once you shouldn't have
+to do it again (unless future versions require new gems).
+
+== Gotchas
+* https://rails.lighthouseapp.com/projects/8994/tickets/3865-invalid-gemspec-format-in-and-already-initialized-constant-warnings-with-ruby-192dev
