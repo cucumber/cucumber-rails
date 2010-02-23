@@ -1,10 +1,11 @@
+puts "HALOOOOOOOOOOOOOOOOO"
 require File.join(File.dirname(__FILE__), 'skeleton_base')
 
 module Cucumber
-  module Generators
+#  module Generators
     class SkeletonGenerator < Rails::Generators::Base
 
-      include SkeletonBase
+      include Cucumber::Generators::SkeletonBase
 
       DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 
@@ -58,5 +59,5 @@ module Cucumber
       end
     
     end
-  end
+#  end
 end

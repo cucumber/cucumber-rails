@@ -9,14 +9,14 @@ module Cucumber
           RVMS['rubies'].each do |ruby_name, ruby_version|
             gems = RVMS['gems']
             RVMS['rails_gems'].each do |rails_version, rails_gems|
-              proc.call(new(ruby_name, rails_version, gems))
+              proc.call(new(ruby_name, rails_version, gems + rails_gems, nil))
             end
           end
         end
       end
 
-      def initialize(ruby_name, rails_version, gems_with_version)
-        @ruby_version, @rails_version, @gems_with_version = RVMS['rubies'][ruby_name], rails_version, gems_with_version
+      def initialize(ruby_name, rails_version, gems_with_version, world)
+        @ruby_version, @rails_version, @gems_with_version, @world = RVMS['rubies'][ruby_name], rails_version, gems_with_version, world
         raise "NO RUBY VERSION FOUND FOR #{ruby_name}. Check your rvms.yml" if @ruby_version.nil?
       end
 
@@ -31,11 +31,12 @@ module Cucumber
       end
 
       def rvm(cmd)
-        rvm_cmd = "rvm #{@ruby_version}%cucumber-rails-#{@rails_version} #{cmd}"
-        # puts "====="
-        # puts rvm_cmd
-        # puts "-----"
-        # puts @last_stdout
+        rvm_cmd = "rvm #{@ruby_version} #{cmd}"
+        if @world
+          @world.announce(rvm_cmd)
+        else
+          puts(rvm_cmd)
+        end
         run(rvm_cmd)
         raise "STDERR:\n#{@last_stderr}" if @last_exit_status && @last_exit_status != 0
       end

@@ -1,7 +1,7 @@
 require 'cucumber/rails/rvm'
 
 Given /^I'm using Ruby (.*) and Rails (.*)$/ do |ruby_name, rails_version|
-  @rvm = Cucumber::Rails::Rvm.new(ruby_name, rails_version, nil)
+  @rvm = Cucumber::Rails::Rvm.new(ruby_name, rails_version, nil, self)
 end
 
 Given /^a Rails app "(.*)"$/ do |app_name|
