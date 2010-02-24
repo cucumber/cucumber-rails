@@ -9,7 +9,7 @@ module Cucumber
           RVMS['rubies'].each do |ruby_name, ruby_version|
             gems = RVMS['gems']
             RVMS['rails_gems'].each do |rails_version, rails_gems|
-              proc.call(new(ruby_name, rails_version, gems, rails_gems))
+              proc.call(new(ruby_name, rails_version, gems + rails_gems, nil))
             end
           end
         end
@@ -38,7 +38,7 @@ module Cucumber
           puts(rvm_cmd)
         end
         run(rvm_cmd)
-        raise "STDERR:\n#{@last_stderr}" if @last_exit_status && @last_exit_status != 0
+        raise "STDOUT:\n#{@last_stdout}\nSTDERR:\n#{@last_stderr}" if @last_exit_status && @last_exit_status != 0
       end
 
       def rails(args)
@@ -49,8 +49,10 @@ module Cucumber
         rails(name)
         cd(name)
         if @rails_version =~ /^3\./
-          @world.announce('Appending gem "cucumber-rails" to Gemfile')
+          @world.announce('Adding gems to Gemfile')
           append_to_file("Gemfile", 'gem "cucumber-rails"')
+          append_to_file("Gemfile", 'gem "capybara" , :git => "git://github.com/aslakhellesoy/capybara.git"')
+          append_to_file("Gemfile", 'gem "database_cleaner"')
         end
       end
 
@@ -75,8 +77,8 @@ module Cucumber
         @rvm.rails_create(@name)
       end
 
-      def script(args)
-        @rvm.rvm("-S script/#{args}")
+      def run(args)
+        @rvm.rvm("-S #{args}")
       end
 
       def rails(args)

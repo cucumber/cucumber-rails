@@ -8,12 +8,8 @@ Given /^a Rails app "(.*)"$/ do |app_name|
   @rails_app = @rvm.new_rails_app(app_name)
 end
 
-When /^I run "script\/(.*)" in the app$/ do |command|
-  @rails_app.script(command)
-end
-
-When /^I run "rails (.*)" in the app$/ do |command|
-  @rails_app.rails(command)
+When /^I run "(.*)" in the app$/ do |command|
+  @rails_app.run(command)
 end
 
 Then /^I get the following new files and directories$/ do |files|

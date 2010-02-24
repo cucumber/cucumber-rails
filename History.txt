@@ -1,6 +1,7 @@
 == In Git
 
 === New Features
+* Generated features will default to @emulate_rails_javascript instead of @culerity (Aslak Hellesøy)
 * Support for Rails3 (WORK IN PROGRESS) (#10 Kristian Mandrup, Aleksey Gureiev, Ashley Moran, Aslak Hellesøy)
 * Japanese translation. (MOROHASHI Kyosuke)
 

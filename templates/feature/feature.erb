@@ -43,7 +43,8 @@ Feature: Manage <%= plural_name %>
   # the onclick javascript and emulate its behaviour without a real Javascript
   # interpreter.
   #
-  @culerity
+  # For convenience we're defaulting to @emulate_rails_javascript
+  @emulate_rails_javascript
 <% end -%>
   Scenario: Delete <%= singular_name %>
     Given the following <%= plural_name %>:
