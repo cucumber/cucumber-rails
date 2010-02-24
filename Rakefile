@@ -19,4 +19,4 @@ rescue LoadError
 end
 
 $:.unshift(File.dirname(__FILE__) + '/lib')
-Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
+Dir["#{File.dirname(__FILE__)}/dev_tasks/*.rake"].sort.each { |ext| load ext }
