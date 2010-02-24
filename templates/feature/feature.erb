@@ -39,12 +39,9 @@ Feature: Manage <%= plural_name %>
   # a) You can remove the @culerity tag and run everything in-process, but then you 
   # also have to modify your views to use <button> instead: http://github.com/jnicklas/capybara/issues#issue/12
   #
-  # b) Replace the @culerity tag with @emulate_rails_javascript. This will detect
-  # the onclick javascript and emulate its behaviour without a real Javascript
-  # interpreter.
+  # b) Remove the @culerity tag. The rack driver will detect the onclick javascript
+  # and emulate its behaviour without a real Javascript interpreter.
   #
-  # For convenience we're defaulting to @emulate_rails_javascript
-  @emulate_rails_javascript
 <% end -%>
   Scenario: Delete <%= singular_name %>
     Given the following <%= plural_name %>:
