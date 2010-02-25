@@ -1,7 +1,7 @@
 module Cucumber
   module Rails
     # This class is only used for testing Cucumber-Rails
-    class Rvm #:nodoc:
+    class RvmXX #:nodoc:
       RVMS = YAML.load_file(File.dirname(__FILE__) + '/../../../rvm.yml')
       
       class << self

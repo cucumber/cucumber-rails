@@ -11,7 +11,7 @@ namespace :cucumber do
 
   desc "Prepare RVM environments for Cucumber"
   task :prepare do
-    Cucumber::Rails::Rvm.each do |rvm|
+    Cucumber::Rails::RvmXX.each do |rvm|
       rvm.rvm('-S rake install')
     end
   end
