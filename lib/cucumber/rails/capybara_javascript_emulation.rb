@@ -4,6 +4,7 @@ module Cucumber
       def self.included(base)
         base.class_eval do
           alias_method :click_without_rails_javascript_emulation, :click
+          alias_method :click, :click_with_rails_javascript_emulation
         end
       end
   
@@ -47,15 +48,15 @@ end
 class Capybara::Driver::RackTest::Node
   include Cucumber::Rails::CapybaraJavascriptEmulation
 end
- 
-Before('@emulate_rails_javascript') do
-  Capybara::Driver::RackTest::Node.class_eval do
-    alias_method :click, :click_with_rails_javascript_emulation
-  end
-end
- 
-After('@emulate_rails_javascript') do
+
+Before('@disable_rails_javascript_emulation') do
   Capybara::Driver::RackTest::Node.class_eval do
     alias_method :click, :click_without_rails_javascript_emulation
+  end
+end
+
+After('@disable_rails_javascript_emulation') do
+  Capybara::Driver::RackTest::Node.class_eval do
+    alias_method :click, :click_with_rails_javascript_emulation
   end
 end
