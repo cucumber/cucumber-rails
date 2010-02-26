@@ -31,9 +31,17 @@ class FeatureGenerator < Rails::Generator::NamedBase
     args.map { |arg| NamedArg.new(arg) }
   end
 
-  protected
+  private
 
   def banner
     "Usage: #{$0} feature ModelName [field:type, field:type]"
+  end
+
+  def add_options!(opt)
+    opt.separator ''
+    opt.separator 'Options:'
+    opt.on('--capybara=BACKEND', 'Generate a feature that uses a particular Capybara backend') do |backend|
+      options[:capybara] = backend
+    end
   end
 end

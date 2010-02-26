@@ -1,10 +1,10 @@
 @announce-cmd
 Feature: Rails 3
-  In order to quickly set up Cucumber
-  As a Rails developer
-  I want to have the Cucumber skeleton generated automatically
+  In order to take over the world
+  Cucumber-Rails should work on major versions
+  of Rails2 and Ruby, with Capybara, Spork and DatabaseCleaner
 
-  Scenario: Install
+  Scenario: Install Cucumber-Rails
     Given I am using rvm "1.8.7"
     And I am using rvm gemset "cucumber-rails-3.0.0.beta"
     When I successfully run "rails rails-3-app"
@@ -25,7 +25,7 @@ Feature: Rails 3
     And the file "features/support/env.rb" should contain "require 'cucumber/rails/world'"
     And the file "features/support/env.rb" should contain "require 'capybara/rails'"
 
-  Scenario: Run with Capybara
+  Scenario: Run Cucumber
     Given I am using rvm "1.8.7"
     And I am using rvm gemset "cucumber-rails-3.0.0.beta"
     And I successfully run "rails rails-3-app"
@@ -38,7 +38,7 @@ Feature: Rails 3
       """
       gem 'cucumber'
       gem 'database_cleaner'
-      gem 'capybara', :git => 'git://github.com/aslakhellesoy/capybara.git'
+      gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
 
       """
     And I run "bundle install"

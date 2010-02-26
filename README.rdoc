@@ -10,15 +10,19 @@ giving you a head start for writing Cucumber features against your Rails app.
 
 === Rails 3:
 
-Before you can use the generator, add it to your project's Gemfile as follows:
+Before you can use the generator, add the necessary gems to your project's Gemfile as follows:
 
-  gem "cucumber-rails"
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
 
 Or if you prefer the latest and greatest:
 
-  gem "cucumber-rails", :git => "git@github.com:aslakhellesoy/cucumber-rails3.git"
+  gem 'capybara',         :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
+  gem 'cucumber-rails',   :git => 'git://github.com/aslakhellesoy/cucumber-rails3.git'
 
-Then install the gem by running:
+Then install the gems by running:
 
   bundle install
 

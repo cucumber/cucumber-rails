@@ -65,23 +65,23 @@ class CucumberGenerator < Rails::Generator::Base
   def add_options!(opt)
     opt.separator ''
     opt.separator 'Options:'
-    opt.on('--webrat', 'Setup cucumber for use with webrat') do |value|
+    opt.on('--webrat', 'Setup cucumber for use with webrat') do
       options[:driver] = :webrat
     end
 
-    opt.on('--capybara', 'Setup cucumber for use with capybara') do |value|
+    opt.on('--capybara', 'Setup cucumber for use with capybara') do
       options[:driver] = :capybara
     end
 
-    opt.on('--rspec', "Setup cucumber for use with RSpec") do |value|
+    opt.on('--rspec', "Setup cucumber for use with RSpec") do
       options[:framework] = :rspec
     end
 
-    opt.on('--testunit', "Setup cucumber for use with test/unit") do |value|
+    opt.on('--testunit', "Setup cucumber for use with test/unit") do
       options[:framework] = :testunit
     end
 
-    opt.on('--spork', 'Setup cucumber for use with Spork') do |value|
+    opt.on('--spork', 'Setup cucumber for use with Spork') do
       options[:spork] = true
     end
   end

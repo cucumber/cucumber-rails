@@ -1,12 +1,13 @@
 == In Git
 
 === New Features
-* Support for both rspec-1.x and rspec-2.x (Louis Rose, Aslak Hellesøy)
-* Generated features will default to @emulate_rails_javascript instead of @culerity (Aslak Hellesøy)
-* Support for Rails3 (WORK IN PROGRESS) (#10 Kristian Mandrup, Aleksey Gureiev, Ashley Moran, Aslak Hellesøy)
+* Support for both Rails-2.x and Rails-3.x (#10 Kristian Mandrup, Aleksey Gureiev, Ashley Moran, Aslak Hellesøy)
+* Support for both RSpec-1.x and RSpec-2.x (Louis Rose, Aslak Hellesøy)
+* Features will default to Javascript emulation unless you turn it off with @culerity,  (Aslak Hellesøy)
 * Japanese translation. (MOROHASHI Kyosuke)
 
 === Bugfixes
+* Support projects that don't use ActiveRecord (#14 Aslak Hellesøy)
 * Running test/unit tests when creating a skeleton (#12 Aleksey Gureiev)
 * Inform that config/database.yml is overwritten, be smarter about it and inform the user that it is forced. (#15 Aslak Hellesøy)
 * Reverts changes from issue #5 where verification of query string params was added to the step for being on a page.  Adds step discussed in issue #11 for verification of query string. (#5, #11 Eric Milford)
