@@ -7,7 +7,7 @@ rails_gems:
   2.3.5:
     - rails -v 2.3.5
   3.0.0.beta:
-    - i18n -v 0.3.0
+    - i18n -v 0.3.5
     - tzinfo -v 0.3.16
     - memcache-client -v 1.7.5
     - rack-mount -v 0.4.0
@@ -15,7 +15,7 @@ rails_gems:
     - text-format -v 1.0.0
     - erubis -v 2.6.5
     - mail -v 2.1.2
-    - thor -v 0.13
+    - thor -v 0.13.4
     - bundler -v 0.9.7
     - builder -v 2.1.2
     - rails --pre
