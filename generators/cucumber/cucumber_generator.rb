@@ -36,6 +36,10 @@ class CucumberGenerator < Rails::Generator::Base
     options[:driver] ||= detect_current_driver || detect_default_driver
   end
 
+  def cucumber_rails_env
+    'cucumber'
+  end
+
   def self.gem_root
     File.expand_path('../../../', __FILE__)
   end

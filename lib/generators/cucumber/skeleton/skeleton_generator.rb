@@ -41,7 +41,11 @@ module Cucumber
     def self.source_root
       File.join(gem_root, 'templates/skeleton')
     end
-  
+
+    def cucumber_rails_env
+      'test'
+    end
+
     private
   
     def framework_from_options

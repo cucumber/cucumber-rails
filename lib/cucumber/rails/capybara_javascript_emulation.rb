@@ -9,15 +9,15 @@ module Cucumber
       end
   
       def click_with_rails_javascript_emulation
-        if link_with_onclick_from_rails?
+        if link_with_non_get_http_method?
           Capybara::Driver::RackTest::Form.new(driver, js_form(self[:href], emulated_method)).submit(self)
         else
           click_without_rails_javascript_emulation
         end
       end
-      
 
       private
+
       def js_form(action, emulated_method, method = 'POST')
         js_form = node.document.create_element('form')
         js_form['action'] = action
@@ -34,12 +34,20 @@ module Cucumber
         js_form
       end
 
-      def link_with_onclick_from_rails?
-        tag_name == 'a' and node['onclick'] =~ /var f = document\.createElement\('form'\); f\.style\.display = 'none';/
+      def link_with_non_get_http_method?
+        if ::Rails.version.to_f >= 3.0
+          tag_name == 'a' && node['data-method'] && node['data-method'] =~ /(?:delete|put|post)/
+        else
+          tag_name == 'a' && node['onclick'] && node['onclick'] =~ /var f = document\.createElement\('form'\); f\.style\.display = 'none';/
+        end
       end
 
       def emulated_method
-        node['onclick'][/m\.setAttribute\('value', '([^']*)'\)/, 1]
+        if ::Rails.version.to_f >= 3.0
+          node['data-method']
+        else
+          node['onclick'][/m\.setAttribute\('value', '([^']*)'\)/, 1]
+        end
       end
     end
   end

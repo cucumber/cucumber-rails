@@ -1,64 +1,60 @@
-= cucumber-rails
+= Cucumber-Rails
 
-Extracted the Rails generators from the Cucumber gem, inspired by
-{this posting}[http://groups.google.com/group/cukes/browse_thread/thread/b9b8ff6301393c19]
-on the Cukes Mailing List.
+Cucumber-Rails brings Cucumber to Rails2 and Rails3. It contains 2 generators - one
+for bootstrapping your Rails app for Cucumber, and a second one for generating features.
 
-The goal is to provide i18n of the webrat_steps.rb plus some other useful
-enhancements.
+Cucumber-Rails also contains Cucumber Step Definitions that wrap Capybara or Webrat,
+giving you a head start for writing Cucumber features against your Rails app.
 
-== Install
+== Installation
 
-Add it to the Gemfile as follows:
+=== Rails 3:
 
-  gem "cucumber-rails", :git => "git@github.com:alg/cucumber-rails3.git"
+Before you can use the generator, add it to your project's Gemfile as follows:
 
-then:
+  gem "cucumber-rails"
 
-  gem bundle
+Or if you prefer the latest and greatest:
 
-... and you are ready to go.
+  gem "cucumber-rails", :git => "git@github.com:aslakhellesoy/cucumber-rails3.git"
 
-== Usage
+Then install the gem by running:
 
-Once you install the gem, the generators will be available to all Rails
-applications on your system. If you run `script/rails generate` (or `script/generate` on Rails 2.x)
-without any additional arguments you should see the available generators listed.
+  bundle install
 
-To run the generator, go to your rails project directory and call it.
+Finally, bootstrap your Rails app by running:
 
-Rails 3:
+  ruby script/rails generate cucumber:skeleton
 
-  script/rails generate cucumber:skeleton
+=== Rails 2.x:
 
-Rails 2.x:
+Before you can use the generator, install the gem by running:
+
+  gem install cucumber-rails
+
+Finally, bootstrap your Rails app by running:
 
   script/generate cucumber
 
+== Generating a Cucumber feature
 
-== Included Generators
+IMPORTANT: Only do this if you are new to Cucumber. We recommend you write your
+Cucumber features by hand once you get the hang of it.
 
-Rails 3:
+=== Rails 3:
 
-* cucumber:skeleton -- Sets up Cucumber in your Rails project
-* cucumber:feature -- Generates a skeleton for a new feature
+Example:
 
-Rails 2:
+  ruby script/rails generate cucumber:feature post title:string body:text published:boolean
+  ruby script/rails generate scaffold post title:string body:text published:boolean
+  rake db:migrate
+  rake cucumber
 
-* cucumber -- Sets up Cucumber in your Rails project
-* feature -- Generates a skeleton for a new feature
+=== Rails 2:
 
-To view the README for each generator, run it with the --help option.
+Example:
 
-  script/rails generate cucumber:skeleton --help
-  script/rails generate cucumber:feature --help
-
-or for Rails 2.x:
-
-  script/generate cucumber --help
-  script/generate feature --help
-
-== Tests
-
-This project has tests, but for practical and historical reasons they live in a different project:
-http://github.com/aslakhellesoy/cucumber-rails-test/
+  ruby script/generate feature post title:string body:text published:boolean
+  ruby script/generate scaffold post title:string body:text published:boolean
+  rake db:migrate
+  rake cucumber

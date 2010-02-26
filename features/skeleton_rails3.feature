@@ -41,11 +41,12 @@ Feature: Rails 3
       gem 'capybara', :git => 'git://github.com/aslakhellesoy/capybara.git'
 
       """
-    And I run "ruby -S bundle install"
+    And I run "bundle install"
     And I successfully run "rake db:migrate"
     And I run "rake cucumber"
     Then it should pass with:
        """
-       3 steps (3 passed)
+       2 scenarios (2 passed)
+       11 steps (11 passed)
        """
       
