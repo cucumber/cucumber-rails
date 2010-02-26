@@ -8,7 +8,7 @@ Given /^"([^\"]*)"ページを表示している$/ do |page_name|
 end
 
 When /^"([^\"]*)"ページを表示する$/ do |page_name|
-  Given %{I go to #{page_name}}
+  When %{I go to #{page_name}}
 end
 
 When /^"([^\"]*)"ボタンをクリックする$/ do |button|
@@ -26,6 +26,8 @@ end
 When /^"([^\"]*)"に"([^\"]*)"と入力する$/ do |field, value|
   When %{I fill in "#{field}" with "#{value}"}
 end
+
+# less difference to %{I fill in "#{value}" for "#{field}"} with above in Japanese.
 
 When /^以下の項目を入力する:$/ do |fields|
   When %{I fill in the following:}, fields
@@ -72,7 +74,7 @@ When /^"([^\"]*)"を選択する$/ do |field|
 end
 
 When /^"([^\"]*)"としてファイル"([^\"]*)"を選択する$/ do |field, path|
-  When %{I attach the file at "#{path}" to "#{field}"}
+  When %{I attach the file "#{path}" to "#{field}"}
 end
 
 Then /^"([^\"]*)"と表示されていること$/ do |text|
