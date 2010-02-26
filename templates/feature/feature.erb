@@ -33,9 +33,10 @@ Feature: Manage <%= plural_name %>
   # detect the presence of Javascript behind Delete links and issue a DELETE request 
   # instead of a GET request.
   #
-  # You can turn off this emulation by tagging your scenario with @selenium, 
-  # @culerity, @celerity or @javascript. (See the Capybara documentation for 
-  # details about those tags). If any of these tags are present, Cucumber-Rails
+  # You can turn this emulation off by tagging your scenario with @no-js-emulation.
+  # Turning on browser testing with @selenium, @culerity, @celerity or @javascript
+  # will also turn off the emulation. (See the Capybara documentation for 
+  # details about those tags). If any of the browser tags are present, Cucumber-Rails
   # will also turn off transactions and clean the database with DatabaseCleaner 
   # after the scenario has finished. This is to prevent data from leaking into 
   # the next scenario.
