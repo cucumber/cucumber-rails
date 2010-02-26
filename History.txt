@@ -1,4 +1,7 @@
-== In Git
+== 0.3.0
+
+This is a major release since we're now supporting both Rails 3 and RSpec 2. Older versions
+(Rails 2 and RSpec 1) are still supported.
 
 === New Features
 * Support for both Rails-2.x and Rails-3.x (#10 Kristian Mandrup, Aleksey Gureiev, Ashley Moran, Aslak Hellesøy)
