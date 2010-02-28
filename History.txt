@@ -2,6 +2,7 @@
 
 == New features
 * Added @no-js-emulation, which turns off javascript emulation for delete links when not using browser testing. (Rob Holland, Aslak Hellesøy)
+* Korean translation (Shim Taewon)
 
 == 0.3.0
 
