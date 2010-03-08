@@ -33,7 +33,6 @@ Gem::Specification.new do |s|
      "features/support/matchers/files.rb",
      "generators/cucumber/USAGE",
      "generators/cucumber/cucumber_generator.rb",
-     "generators/cucumber/templates/step_definitions/web_steps_ja.rb.erb",
      "generators/feature/USAGE",
      "generators/feature/feature_generator.rb",
      "lib/cucumber/rails/action_controller.rb",
