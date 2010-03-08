@@ -20,7 +20,7 @@ Or if you prefer the latest and greatest:
 
   gem 'capybara',         :git => 'git://github.com/jnicklas/capybara.git'
   gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
-  gem 'cucumber-rails',   :git => 'git://github.com/aslakhellesoy/cucumber-rails3.git'
+  gem 'cucumber-rails',   :git => 'git://github.com/aslakhellesoy/cucumber-rails.git'
 
 Then install the gems by running:
 
