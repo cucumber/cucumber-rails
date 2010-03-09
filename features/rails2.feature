@@ -12,6 +12,7 @@ Feature: Rails 2
       create  README
       """
     And I cd to "rails-2-app"
+    And I symlink this repo to "vendor/plugins/cucumber-rails"
     When I successfully run "ruby script/generate cucumber <args>"
     Then the following files should exist:
       | config/cucumber.yml                    |

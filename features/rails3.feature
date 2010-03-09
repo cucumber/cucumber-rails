@@ -38,12 +38,12 @@ Feature: Rails 3
       """
       gem 'cucumber'
       gem 'database_cleaner'
-      gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+      gem 'capybara'
 
       """
-    And I run "bundle install"
+    And I successfully run "bundle install"
     And I successfully run "rake db:migrate"
-    And I run "rake cucumber"
+    And I successfully run "rake cucumber"
     Then it should pass with:
        """
        2 scenarios (2 passed)
