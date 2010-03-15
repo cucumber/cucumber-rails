@@ -1,6 +1,7 @@
 == In Git
 
 == New features
+* Support RSpec 2 (Johan Kiviniemi)
 * Added @no-js-emulation, which turns off javascript emulation for delete links when not using browser testing. (Rob Holland, Aslak Hellesøy)
 * Korean translation (Shim Taewon)
 
