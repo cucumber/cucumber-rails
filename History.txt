@@ -4,6 +4,9 @@
 * Added @no-js-emulation, which turns off javascript emulation for delete links when not using browser testing. (Rob Holland, Aslak Hellesøy)
 * Korean translation (Shim Taewon)
 
+=== Bugfixes
+* @culerity tag breaks Rails 3 RESTful helpers (#17 Aslak Hellesøy)
+
 == 0.3.0
 
 This is a major release since we're now supporting both Rails 3 and RSpec 2. Older versions
