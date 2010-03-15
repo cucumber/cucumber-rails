@@ -3,7 +3,7 @@ require 'nokogiri'
 module Cucumber
   module Web
     module Tableish
-      # This method returns an Array of Array of String, using CSS3 selectors. 
+      # This method returns an Array of Array of String, using CSS3 selectors.
       # This is particularly handy when using Cucumber's Table#diff! method.
       #
       # The +row_selector+ argument must be a String, and picks out all the rows
@@ -51,18 +51,29 @@ module Cucumber
 
       def _tableish(html, row_selector, column_selectors) #:nodoc
         doc = Nokogiri::HTML(html)
-        column_count = nil
+
+        column_count =
+          doc.search(row_selector).map do |row|
+            case column_selectors
+            when String
+              row.search(column_selectors)
+            when Proc
+              column_selectors.call(row)
+            end.length
+          end.max
+
         doc.search(row_selector).map do |row|
-          cells = case(column_selectors)
-          when String
-            row.search(column_selectors)
-          when Proc
-            column_selectors.call(row)
-          end
-          column_count ||= cells.length
+          cells =
+            case(column_selectors)
+            when String
+              row.search(column_selectors)
+            when Proc
+              column_selectors.call(row)
+            end
+
           (0...column_count).map do |n|
             cell = cells[n]
-            case(cell)
+            case cell
               when String then cell.strip
               when nil then ''
               else cell.text.strip
@@ -70,7 +81,7 @@ module Cucumber
           end
         end
       end
-    end    
+    end
   end
 end
 

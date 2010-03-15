@@ -9,7 +9,7 @@ module Cucumber
   module Web
     describe Tableish do
       include Tableish
-      
+
       unless RUBY_PLATFORM =~ /java/
         it "should convert a table" do
           html = <<-HTML
@@ -36,7 +36,7 @@ module Cucumber
           ]
         end
 
-        it "should size to the first row" do
+        it "should size to the largest row" do
           html = <<-HTML
             <table id="tools">
               <tr>
@@ -58,9 +58,9 @@ module Cucumber
           HTML
 
           _tableish(html, 'table#tools tr', 'td,th').should == [
-            %w{tool dude},
-            %w{webrat bryan},
-            %w{cucumber aslak}
+            ['tool',     'dude',  '',        ''     ],
+            ['webrat',   'bryan', 'crapola', ''     ],
+            ['cucumber', 'aslak', 'gunk',    'filth']
           ]
         end
 
@@ -144,7 +144,7 @@ module Cucumber
             </form>
           HTML
 
-          selectors = lambda do |form| 
+          selectors = lambda do |form|
             [
               form.css('div input:nth-child(1)').first.attributes['value'],
               form.css('span').first.text.gsub(/\302\240/, ' ')
