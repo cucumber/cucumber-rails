@@ -36,7 +36,7 @@ module Cucumber
           ]
         end
 
-        it "should size to the largest row" do
+        it "should size to the first row" do
           html = <<-HTML
             <table id="tools">
               <tr>
@@ -58,9 +58,9 @@ module Cucumber
           HTML
 
           _tableish(html, 'table#tools tr', 'td,th').should == [
-            ['tool',     'dude',  '',        ''     ],
-            ['webrat',   'bryan', 'crapola', ''     ],
-            ['cucumber', 'aslak', 'gunk',    'filth']
+            ['tool',     'dude',],
+            ['webrat',   'bryan'],
+            ['cucumber', 'aslak']
           ]
         end
 
@@ -86,6 +86,36 @@ module Cucumber
             %w{webrat bryan},
             ['cucumber', '']
           ]
+        end
+
+        it "should handle colspan and rowspan" do
+          html = <<-HTML
+            <table id="tools">
+              <tr>
+                <td rowspan="4">a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+              </tr>
+              <tr>
+                <td colspan="3">e</td>
+              </tr>
+              <tr>
+                <td rowspan="2" colspan="2">f</td>
+                <td>g</td>
+              </tr>
+              <tr>
+                <td>h</td>
+              </tr>
+            </table>
+          HTML
+
+          _tableish(html, 'table#tools tr', 'td,th').should == [
+            ['a', 'b', 'c', 'd'],
+            ['',  'e', '',  '' ],
+            ['',  'f', '',  'g' ],
+            ['',  '',  '',  'h' ],
+           ]
         end
 
         it "should convert a dl" do
