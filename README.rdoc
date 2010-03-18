@@ -30,6 +30,10 @@ Finally, bootstrap your Rails app by running:
 
   ruby script/rails generate cucumber:skeleton
 
+By default this will configure cucumber to use Test::Unit.  If you would prefer instead to use RSpec run:
+
+  ruby script/rails generate cucumber:skeleton --rspec
+
 === Rails 2.x:
 
 Before you can use the generator, install the gem by running:
