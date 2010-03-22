@@ -16,7 +16,7 @@ Before you can use the generator, add the necessary gems to your project's Gemfi
   gem 'database_cleaner'
   gem 'cucumber-rails'
 
-Or if you prefer the latest and greatest:
+Or, if you prefer the latest and greatest:
 
   gem 'capybara',         :git => 'git://github.com/jnicklas/capybara.git'
   gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
@@ -26,13 +26,13 @@ Then install the gems by running:
 
   bundle install
 
-Finally, bootstrap your Rails app by running:
+Learn about the various options:
 
-  ruby script/rails generate cucumber:skeleton
+  ruby script/rails generate cucumber:skeleton --help
 
-By default this will configure cucumber to use Test::Unit.  If you would prefer instead to use RSpec run:
+Finally, bootstrap your Rails app, for example:
 
-  ruby script/rails generate cucumber:skeleton --rspec
+  ruby script/rails generate cucumber:skeleton --rspec --capybara
 
 === Rails 2.x:
 
@@ -40,9 +40,13 @@ Before you can use the generator, install the gem by running:
 
   gem install cucumber-rails
 
-Finally, bootstrap your Rails app by running:
+Learn about the various options:
 
-  script/generate cucumber
+  ruby script/generate cucumber --help
+
+Finally, bootstrap your Rails app, for example:
+
+  ruby script/generate cucumber --rspec --capybara
 
 == Generating a Cucumber feature
 
