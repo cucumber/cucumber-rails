@@ -2,7 +2,7 @@
 
 == New features
 * The #tableish method now understands tables with colspan and rowspan
-* Support RSpec 2 (Johan Kiviniemi)
+* Support RSpec 2 (Johan Kiviniemi, Aslak Hellesøy, Rolf Bjaanes)
 * Added @no-js-emulation, which turns off javascript emulation for delete links when not using browser testing. (Rob Holland, Aslak Hellesøy)
 * Korean translation (Shim Taewon)
 
