@@ -259,7 +259,8 @@ end
 
 Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   actual_params   = CGI.parse(URI.parse(current_url).query)
-  expected_params = Hash[expected_pairs.rows_hash.map{|k,v| [k,[v]]}]
+  expected_params = {}
+  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = [v]}
  
   if actual_params.respond_to? :should
     actual_params.should == expected_params
