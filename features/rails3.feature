@@ -6,7 +6,12 @@ Feature: Rails 3
 
   Scenario: Install Cucumber-Rails
     Given I am using rvm "1.8.7"
-    And I am using rvm gemset "cucumber-rails-3.0.0.beta"
+    And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
+      """
+      gem 'rails', '3.0.0.beta'
+      gem 'sqlite3-ruby', '1.2.5'
+      gem 'capybara', '0.3.6'
+      """
     When I successfully run "rails rails-3-app"
     Then it should pass with:
       """
@@ -27,7 +32,12 @@ Feature: Rails 3
 
   Scenario: Run Cucumber
     Given I am using rvm "1.8.7"
-    And I am using rvm gemset "cucumber-rails-3.0.0.beta"
+    And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
+      """
+      gem 'rails', '3.0.0.beta'
+      gem 'sqlite3-ruby', '1.2.5'
+      gem 'capybara', '0.3.6'
+      """
     And I successfully run "rails rails-3-app"
     And I cd to "rails-3-app"
     And I symlink this repo to "vendor/plugins/cucumber-rails"
