@@ -1,6 +1,7 @@
 == In Git
 
 == New features
+* Relegate rerun to its own profile and rake task (Mike Sassak)
 * Added new Then /^(?:|I )should see JSON:$/ step definition to Capybara - useful for REST. (Aslak Hellesøy)
 * The #tableish method now understands tables with colspan and rowspan
 * Support RSpec 2 (Johan Kiviniemi, Aslak Hellesøy, Rolf Bjaanes)
