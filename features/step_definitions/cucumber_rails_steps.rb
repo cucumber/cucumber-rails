@@ -25,5 +25,6 @@ Given /^I have created a new Rails 2 app "([^\"]*)" with cucumber\-rails support
     And I cd to "#{app_name}"
     And I symlink this repo to "vendor/plugins/cucumber-rails"
     And I successfully run "ruby script/generate cucumber --capybara"
+    And I successfully run "rake db:migrate"
   }
 end
