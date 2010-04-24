@@ -19,7 +19,7 @@ Feature: Rails 3
       """
     And I cd to "rails-3-app"
     And I symlink this repo to "vendor/plugins/cucumber-rails"
-    When I successfully run "rails generate cucumber:skeleton"
+    When I successfully run "rails generate cucumber:skeleton --capybara"
     Then the following files should exist:
       | config/cucumber.yml                    |
       | script/cucumber                        |
@@ -41,7 +41,7 @@ Feature: Rails 3
     And I successfully run "rails rails-3-app"
     And I cd to "rails-3-app"
     And I symlink this repo to "vendor/plugins/cucumber-rails"
-    And I successfully run "rails generate cucumber:skeleton"
+    And I successfully run "rails generate cucumber:skeleton --capybara"
     And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold post title:string body:text published:boolean"
     And I append to "Gemfile" with:
