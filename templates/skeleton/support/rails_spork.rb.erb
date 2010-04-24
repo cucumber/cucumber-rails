@@ -9,5 +9,5 @@ Spork.prefork do
 end
  
 Spork.each_run do
-<%= embed_file('support/_rails_each_run.rb', '  ') %>
+<%= embed_template('support/_rails_each_run.rb.erb', '  ') %>
 end
