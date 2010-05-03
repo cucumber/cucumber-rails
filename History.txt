@@ -1,6 +1,7 @@
 == In Git
 
 == New features
+* Steps now recognise "Given I am on the users page" etc. (Solomon White)
 * Relegate rerun to its own profile and rake task (Mike Sassak)
 * Added new Then /^(?:|I )should see JSON:$/ step definition to Capybara - useful for REST. (Aslak Hellesøy)
 * The #tableish method now understands tables with colspan and rowspan
@@ -9,6 +10,7 @@
 * Korean translation (Shim Taewon)
 
 === Bugfixes
+* "Rspec is not missing constant Matchers!" error. (#27 David Chelimsky, Aslak Hellesøy)
 * @culerity tag breaks Rails 3 RESTful helpers (#17 Aslak Hellesøy)
 
 == 0.3.0
