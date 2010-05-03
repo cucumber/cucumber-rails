@@ -10,7 +10,7 @@ Feature: Rails 3
       """
       gem 'rails', '3.0.0.beta'
       gem 'sqlite3-ruby', '1.2.5'
-      gem 'capybara', '0.3.6'
+      gem 'capybara', '0.3.7'
       """
     When I successfully run "rails rails-3-app"
     Then it should pass with:
@@ -36,7 +36,7 @@ Feature: Rails 3
       """
       gem 'rails', '3.0.0.beta'
       gem 'sqlite3-ruby', '1.2.5'
-      gem 'capybara', '0.3.6'
+      gem 'capybara', '0.3.7'
       """
     And I successfully run "rails rails-3-app"
     And I cd to "rails-3-app"

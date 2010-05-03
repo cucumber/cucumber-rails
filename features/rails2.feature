@@ -9,7 +9,7 @@ Feature: Rails 2
       """
       gem 'rails', '2.3.5'
       gem 'sqlite3-ruby', '1.2.5'
-      gem 'capybara', '0.3.6'
+      gem 'capybara', '0.3.7'
       gem 'webrat'
       gem 'rspec-rails'
       gem 'cucumber'
@@ -48,7 +48,7 @@ Feature: Rails 2
         """
         gem 'rails', '2.3.5'
         gem 'sqlite3-ruby', '1.2.5'
-        gem 'capybara', '0.3.6'
+        gem 'capybara', '0.3.7'
         gem 'webrat'
         gem 'rspec-rails'
         gem 'cucumber'

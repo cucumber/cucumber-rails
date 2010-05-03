@@ -1,3 +1,4 @@
+# This is fishy. Try to get rid of it....
 begin
   require 'test/unit/testresult'
 rescue LoadError => e

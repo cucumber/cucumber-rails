@@ -15,12 +15,11 @@ Before you can use the generator, add the necessary gems to your project's Gemfi
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails'
-
-Or, if you prefer the latest and greatest:
-
-  gem 'capybara',         :git => 'git://github.com/jnicklas/capybara.git'
-  gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
-  gem 'cucumber-rails',   :git => 'git://github.com/aslakhellesoy/cucumber-rails.git'
+  gem 'cucumber', '0.7.0'
+  gem 'rspec-rails', '2.0.0.beta.8'
+  gem 'spork'
+  gem 'test-unit'  # Only if you're on ruby 1.9
+  gem 'launchy'    # So you can do Then show me the page
 
 Then install the gems by running:
 

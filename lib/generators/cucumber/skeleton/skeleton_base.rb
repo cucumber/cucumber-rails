@@ -107,8 +107,8 @@ module Cucumber
 
       def create_database(m = self, rails2 = false)
         unless File.read('config/database.yml').include? 'cucumber:'
-          m.gsub_file 'config/database.yml', /^test:.*\n/, "test: &TEST\n"
-          m.gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *TEST"
+          m.gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
+          m.gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test"
           
           # Since gsub_file doesn't ask the user, just inform user that the file was overwritten.
           puts "       force  config/database.yml"
