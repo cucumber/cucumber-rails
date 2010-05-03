@@ -46,9 +46,9 @@ Feature: Rails 3
     And I successfully run "rails generate scaffold post title:string body:text published:boolean"
     And I append to "Gemfile" with:
       """
-      gem 'cucumber'
-      gem 'database_cleaner'
-      gem 'capybara'
+      gem 'capybara', '0.3.7'
+      gem 'webrat', '0.7.0'
+      gem 'cucumber', '0.7.1'
 
       """
     And I successfully run "bundle install"

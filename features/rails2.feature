@@ -10,9 +10,9 @@ Feature: Rails 2
       gem 'rails', '2.3.5'
       gem 'sqlite3-ruby', '1.2.5'
       gem 'capybara', '0.3.7'
-      gem 'webrat'
-      gem 'rspec-rails'
-      gem 'cucumber'
+      gem 'webrat', '0.7.0'
+      gem 'rspec-rails', '1.3.2'
+      gem 'cucumber', '0.7.1'
       """
     When I successfully run "rails rails-2-app"
     Then it should pass with:
@@ -49,12 +49,12 @@ Feature: Rails 2
         gem 'rails', '2.3.5'
         gem 'sqlite3-ruby', '1.2.5'
         gem 'capybara', '0.3.7'
-        gem 'webrat'
-        gem 'rspec-rails'
-        gem 'cucumber'
-        gem 'database_cleaner'
-        gem 'culerity'
-        gem 'celerity'
+        gem 'webrat', '0.7.0'
+        gem 'rspec-rails', '1.3.2'
+        gem 'cucumber', '0.7.1'
+        gem 'database_cleaner', '0.5.2'
+        gem 'culerity', '0.2.10'
+        gem 'celerity', '0.7.9'
         """
       And I successfully run "rails rails-2-app"
       And I cd to "rails-2-app"
