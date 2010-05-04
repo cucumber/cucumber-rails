@@ -69,7 +69,7 @@ Gem::Specification.new do |s|
      "templates/skeleton/step_definitions/web_steps_no.rb.erb",
      "templates/skeleton/step_definitions/web_steps_pt-BR.rb.erb",
      "templates/skeleton/step_definitions/webrat_steps.rb.erb",
-     "templates/skeleton/support/_rails_each_run.rb",
+     "templates/skeleton/support/_rails_each_run.rb.erb",
      "templates/skeleton/support/_rails_prefork.rb.erb",
      "templates/skeleton/support/capybara.rb",
      "templates/skeleton/support/edit_warning.txt",
