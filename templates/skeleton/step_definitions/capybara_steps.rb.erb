@@ -143,7 +143,8 @@ end
 
 Then /^the "([^\"]*)" field(?: within "([^\"]*)")? should contain "([^\"]*)"$/ do |field, selector, value|
   with_scope(selector) do
-    field_value = find_field(field).value
+    field = find_field(field)
+    field_value = (field.tag_name == 'textarea') ? field.text : field.value
     if field_value.respond_to? :should
       field_value.should =~ /#{value}/
     else
@@ -154,11 +155,12 @@ end
 
 Then /^the "([^\"]*)" field(?: within "([^\"]*)")? should not contain "([^\"]*)"$/ do |field, selector, value|
   with_scope(selector) do
-    field_value = find_field(field).value
+    field = find_field(field)
+    field_value = (field.tag_name == 'textarea') ? field.text : field.value
     if field_value.respond_to? :should_not
       field_value.should_not =~ /#{value}/
     else
-      assert_no_match(/#{value}/, field_value.value)
+      assert_no_match(/#{value}/, field_value)
     end
   end
 end
