@@ -51,7 +51,7 @@ Feature: Rails 3
     And I append to "Gemfile" with:
       """
       gem 'capybara', '0.3.7'
-      gem 'cucumber', '0.7.1'
+      gem 'cucumber', '0.7.2'
 
       """
     And I write to "app/controllers/cukes_controller.rb" with:

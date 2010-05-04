@@ -12,7 +12,7 @@ Feature: Rails 2
       gem 'capybara', '0.3.7'
       gem 'webrat', '0.7.0'
       gem 'rspec-rails', '1.3.2'
-      gem 'cucumber', '0.7.1'
+      gem 'cucumber', '0.7.2'
       """
     When I successfully run "rails rails-2-app"
     Then it should pass with:
@@ -51,7 +51,7 @@ Feature: Rails 2
         gem 'capybara', '0.3.7'
         gem 'webrat', '0.7.0'
         gem 'rspec-rails', '1.3.2'
-        gem 'cucumber', '0.7.1'
+        gem 'cucumber', '0.7.2'
         gem 'database_cleaner', '0.5.2'
         gem 'culerity', '0.2.10'
         gem 'celerity', '0.7.9'

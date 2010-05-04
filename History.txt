@@ -1,4 +1,8 @@
-== In Git
+== 0.3.1
+
+This release has a lot of bugfixes! The test suite (based on Aruba) verifies that Cucumber-Rails
+now works with various combinations of Rails2/Rails3, RSpec1/RSpec2/Test-Unit/Mini-Uint, Webrat/CapyBara, 
+MRI 1.8.6/1.8.7/1.9.1.
 
 == New features
 * Steps now recognise "Given I am on the users page" etc. (Solomon White)
