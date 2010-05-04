@@ -1,10 +1,19 @@
 == 0.3.1
 
 This release has a lot of bugfixes! The test suite (based on Aruba) verifies that Cucumber-Rails
-now works with various combinations of Rails2/Rails3, RSpec1/RSpec2/Test-Unit/Mini-Uint, Webrat/CapyBara, 
-MRI 1.8.6/1.8.7/1.9.1.
+now works with various combinations of: 
+
+* Cucumber 0.6.x/0.7.2
+* Rails2/Rails3
+* RSpec1/RSpec2/Test-Unit/Mini-Uint
+* Webrat/CapyBara
+* MRI 1.8.6/1.8.7/1.9.1
+
+This one requires a special mention: The handy (but error prone) rerun functionality has moved to a 
+separate rerun profile, so all rerun.txt related issues should now be gone.
 
 == New features
+* New Capybara Step Definitions for Dates. (Rob Holland)
 * Steps now recognise "Given I am on the users page" etc. (Solomon White)
 * Relegate rerun to its own profile and rake task (Mike Sassak)
 * Added new Then /^(?:|I )should see JSON:$/ step definition to Capybara - useful for REST. (Aslak Hellesøy)
