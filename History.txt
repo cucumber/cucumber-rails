@@ -10,6 +10,8 @@
 * Korean translation (Shim Taewon)
 
 === Bugfixes
+* No longer need to install the test-unit gem on 1.9.1 (Aslak Hellesøy)
+* capybara rack-test field should contain step support for textarea (#28 Nicholas Rutherford)
 * "Rspec is not missing constant Matchers!" error. (#27 David Chelimsky, Aslak Hellesøy)
 * @culerity tag breaks Rails 3 RESTful helpers (#17 Aslak Hellesøy)
 

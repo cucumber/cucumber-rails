@@ -30,13 +30,16 @@ Feature: Rails 3
     And the file "features/support/env.rb" should contain "require 'cucumber/rails/world'"
     And the file "features/support/env.rb" should contain "require 'capybara/rails'"
 
-  Scenario: Run Cucumber
-    Given I am using rvm "1.8.7"
+  Scenario Outline: Run Cucumber
+    Given I am using rvm "<ruby_version>"
     And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
       """
+      source :gemcutter
+
       gem 'rails', '3.0.0.beta'
       gem 'sqlite3-ruby', '1.2.5'
       gem 'capybara', '0.3.7'
+      gem 'rspec-rails', '<rspec_version>'
       """
     And I successfully run "rails rails-3-app"
     And I cd to "rails-3-app"
@@ -48,7 +51,6 @@ Feature: Rails 3
     And I append to "Gemfile" with:
       """
       gem 'capybara', '0.3.7'
-      gem 'webrat', '0.7.0'
       gem 'cucumber', '0.7.1'
 
       """
@@ -84,4 +86,8 @@ Feature: Rails 3
        3 scenarios (3 passed)
        14 steps (14 passed)
        """
-      
+    
+    Examples:
+      | ruby_version | rspec_version |
+      | 1.8.7        | 1.3.2         |
+      | 1.9.1        | 2.0.0.beta.8  |
