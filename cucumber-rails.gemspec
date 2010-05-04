@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dennis Bl\303\266te", "Aslak Helles\303\270y", "Rob Holland"]
-  s.date = %q{2010-02-26}
+  s.date = %q{2010-04-06}
   s.description = %q{Cucumber Generators and Runtime for Rails}
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
@@ -64,6 +64,8 @@ Gem::Specification.new do |s|
      "templates/skeleton/step_definitions/web_steps_da.rb.erb",
      "templates/skeleton/step_definitions/web_steps_de.rb.erb",
      "templates/skeleton/step_definitions/web_steps_es.rb.erb",
+     "templates/skeleton/step_definitions/web_steps_ja.rb.erb",
+     "templates/skeleton/step_definitions/web_steps_ko.rb.erb",
      "templates/skeleton/step_definitions/web_steps_no.rb.erb",
      "templates/skeleton/step_definitions/web_steps_pt-BR.rb.erb",
      "templates/skeleton/step_definitions/webrat_steps.rb.erb",

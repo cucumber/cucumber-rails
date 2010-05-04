@@ -5,7 +5,15 @@ Feature: Rails 2
 
   Scenario Outline: Install Cucumber-Rails
     Given I am using rvm "1.8.7"
-    And I am using rvm gemset "cucumber-rails-2.3.5"
+    And I am using rvm gemset "cucumber-rails-2.3.5" with Gemfile:
+      """
+      gem 'rails', '2.3.5'
+      gem 'sqlite3-ruby', '1.2.5'
+      gem 'capybara', '0.3.7'
+      gem 'webrat', '0.7.0'
+      gem 'rspec-rails', '1.3.2'
+      gem 'cucumber', '0.7.1'
+      """
     When I successfully run "rails rails-2-app"
     Then it should pass with:
       """
@@ -36,7 +44,18 @@ Feature: Rails 2
     @announce-cmd
     Scenario Outline: Run Cucumber
       Given I am using rvm "1.8.7"
-      And I am using rvm gemset "cucumber-rails-2.3.5"
+      And I am using rvm gemset "cucumber-rails-2.3.5" with Gemfile:
+        """
+        gem 'rails', '2.3.5'
+        gem 'sqlite3-ruby', '1.2.5'
+        gem 'capybara', '0.3.7'
+        gem 'webrat', '0.7.0'
+        gem 'rspec-rails', '1.3.2'
+        gem 'cucumber', '0.7.1'
+        gem 'database_cleaner', '0.5.2'
+        gem 'culerity', '0.2.10'
+        gem 'celerity', '0.7.9'
+        """
       And I successfully run "rails rails-2-app"
       And I cd to "rails-2-app"
       And I symlink this repo to "vendor/plugins/cucumber-rails"

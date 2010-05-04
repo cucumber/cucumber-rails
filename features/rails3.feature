@@ -6,7 +6,12 @@ Feature: Rails 3
 
   Scenario: Install Cucumber-Rails
     Given I am using rvm "1.8.7"
-    And I am using rvm gemset "cucumber-rails-3.0.0.beta"
+    And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
+      """
+      gem 'rails', '3.0.0.beta'
+      gem 'sqlite3-ruby', '1.2.5'
+      gem 'capybara', '0.3.7'
+      """
     When I successfully run "rails rails-3-app"
     Then it should pass with:
       """
@@ -14,7 +19,7 @@ Feature: Rails 3
       """
     And I cd to "rails-3-app"
     And I symlink this repo to "vendor/plugins/cucumber-rails"
-    When I successfully run "rails generate cucumber:skeleton"
+    When I successfully run "rails generate cucumber:skeleton --capybara"
     Then the following files should exist:
       | config/cucumber.yml                    |
       | script/cucumber                        |
@@ -27,26 +32,56 @@ Feature: Rails 3
 
   Scenario: Run Cucumber
     Given I am using rvm "1.8.7"
-    And I am using rvm gemset "cucumber-rails-3.0.0.beta"
+    And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
+      """
+      gem 'rails', '3.0.0.beta'
+      gem 'sqlite3-ruby', '1.2.5'
+      gem 'capybara', '0.3.7'
+      """
     And I successfully run "rails rails-3-app"
     And I cd to "rails-3-app"
     And I symlink this repo to "vendor/plugins/cucumber-rails"
-    And I successfully run "rails generate cucumber:skeleton"
+    And I successfully run "rails generate cucumber:skeleton --capybara"
     And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold post title:string body:text published:boolean"
+    And I successfully run "rails generate scaffold cukes name:string"
     And I append to "Gemfile" with:
       """
-      gem 'cucumber'
-      gem 'database_cleaner'
-      gem 'capybara'
+      gem 'capybara', '0.3.7'
+      gem 'webrat', '0.7.0'
+      gem 'cucumber', '0.7.1'
 
+      """
+    And I write to "app/controllers/cukes_controller.rb" with:
+      """
+      class CukesController < ApplicationController
+        def index
+          redirect_to cuke_path(10, :overwrite_params => {:name => 'cucumber', :what => 'vegetable'})
+        end
+        
+        def show
+          render :text => "Cuke #{params[:id]}"
+        end
+      end
+      """
+    And I write to "features/tests.feature" with:
+      """
+      Feature: Tests
+        Scenario: Tests
+          When I go to the cukes page
+          Then I should have the following query string: 
+            |name|cucumber|
+            |what|vegetable|
+            |controller|cukes|
+            |action|index|
+          And I should see "Cuke 10"
       """
     And I successfully run "bundle install"
     And I successfully run "rake db:migrate"
     And I successfully run "rake cucumber"
     Then it should pass with:
        """
-       2 scenarios (2 passed)
-       11 steps (11 passed)
+       3 scenarios (3 passed)
+       14 steps (14 passed)
        """
       

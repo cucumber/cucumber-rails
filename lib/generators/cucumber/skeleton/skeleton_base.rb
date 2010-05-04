@@ -32,9 +32,9 @@ module Cucumber
         unless rails2
           puts "Update Rails 3 Gemfile for cucumber"
           gsub_file 'Gemfile', /('|")gem/, "\1\ngem"
-          add_gem('database_cleaner', '>=0.5.0') unless has_plugin? 'database_cleaner'
+          add_gem('database_cleaner', '>=0.5.2') unless has_plugin? 'database_cleaner'
           if driver == :capybara
-            add_gem('capybara', '>=0.3.0')
+            add_gem('capybara', '>=0.3.7')
           else
             add_gem('webrat', '>=0.7.0') unless has_plugin? 'webrat'
           end
@@ -107,8 +107,8 @@ module Cucumber
 
       def create_database(m = self, rails2 = false)
         unless File.read('config/database.yml').include? 'cucumber:'
-          m.gsub_file 'config/database.yml', /^test:.*\n/, "test: &TEST\n"
-          m.gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *TEST"
+          m.gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
+          m.gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test"
           
           # Since gsub_file doesn't ask the user, just inform user that the file was overwritten.
           puts "       force  config/database.yml"

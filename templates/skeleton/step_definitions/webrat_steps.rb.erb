@@ -1,6 +1,7 @@
 <%= embed_file('support/edit_warning.txt') %>
 
 require 'uri'
+require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
 # Commonly used webrat steps
@@ -258,9 +259,10 @@ Then /^(?:|I )should be on (.+)$/ do |page_name|
 end
 
 Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
-  actual_params   = CGI.parse(URI.parse(current_url).query)
+  query = URI.parse(current_url).query
+  actual_params   = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = [v]}
+  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = [v.split(',')]}
  
   if actual_params.respond_to? :should
     actual_params.should == expected_params
