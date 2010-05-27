@@ -5,7 +5,7 @@ begin
 
   [Cucumber::Rails::World, ActionController::Integration::Session].each do |klass|
     klass.class_eval do
-      include Rspec::Matchers
+      include RSpec::Matchers
     end
   end
 rescue LoadError => try_rspec_1
