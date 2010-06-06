@@ -1,5 +1,4 @@
 require 'rbconfig'
-require 'cucumber/platform'
 require File.expand_path(File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/skeleton/skeleton_base'))
 
 # This generator bootstraps a Rails project for use with Cucumber

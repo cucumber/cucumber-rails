@@ -1,16 +1,17 @@
 @announce-cmd
+@announce @puts
 Feature: Rails 3
   In order to take over the world
   Cucumber-Rails should work on major versions
   of Rails2 and Ruby, with Capybara, Spork and DatabaseCleaner
 
   Scenario: Install Cucumber-Rails
-    Given I am using rvm "1.8.7"
+    Given I am using rvm "ruby-1.8.7-p249"
     And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
       """
       gem 'rails', '3.0.0.beta'
       gem 'sqlite3-ruby', '1.2.5'
-      gem 'capybara', '0.3.7'
+      gem 'capybara', '0.3.8'
       """
     When I successfully run "rails rails-3-app"
     Then it should pass with:
@@ -18,7 +19,7 @@ Feature: Rails 3
       README
       """
     And I cd to "rails-3-app"
-    And I symlink this repo to "vendor/plugins/cucumber-rails"
+    And I symlink "../../.." to "vendor/plugins/cucumber-rails"
     When I successfully run "rails generate cucumber:skeleton --capybara"
     Then the following files should exist:
       | config/cucumber.yml                    |
@@ -32,26 +33,29 @@ Feature: Rails 3
 
   Scenario Outline: Run Cucumber
     Given I am using rvm "<ruby_version>"
-    And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
+    And I am using rvm gemset "cucumber-rails-3.0.0.beta-gemset-<gemset>" with Gemfile:
       """
       source :gemcutter
 
       gem 'rails', '3.0.0.beta'
       gem 'sqlite3-ruby', '1.2.5'
-      gem 'capybara', '0.3.7'
+      gem 'capybara', '0.3.8'
+      gem 'gherkin', '1.0.30'
+      gem 'term-ansicolor', '1.0.4'
+      gem 'diff-lcs', '1.1.2'
       gem 'rspec-rails', '<rspec_version>'
       """
     And I successfully run "rails rails-3-app"
     And I cd to "rails-3-app"
-    And I symlink this repo to "vendor/plugins/cucumber-rails"
+    And I symlink "../../.." to "vendor/plugins/cucumber-rails"
     And I successfully run "rails generate cucumber:skeleton --capybara"
     And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold cukes name:string"
     And I append to "Gemfile" with:
       """
-      gem 'capybara', '0.3.7'
-      gem 'cucumber', '0.7.2'
+      gem 'capybara', '0.3.8'
+      gem 'cucumber', :path => '../../../../cucumber'
 
       """
     And I write to "app/controllers/cukes_controller.rb" with:
@@ -78,7 +82,7 @@ Feature: Rails 3
             |action|index|
           And I should see "Cuke 10"
       """
-    And I successfully run "bundle install"
+    And I successfully run "bundle lock"
     And I successfully run "rake db:migrate"
     And I successfully run "rake cucumber"
     Then it should pass with:
@@ -88,6 +92,6 @@ Feature: Rails 3
        """
     
     Examples:
-      | ruby_version | rspec_version |
-      | 1.8.7        | 1.3.2         |
-      | 1.9.1        | 2.0.0.beta.8  |
+      | ruby_version    | rspec_version | gemset |
+      | ruby-1.8.7-p249 | 1.3.2         | 1      |
+      | ruby-1.9.1-p378 | 2.0.0.beta.10 | 2      |

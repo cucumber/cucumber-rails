@@ -12,7 +12,7 @@ The feature branch should contain a ticket number (if appliccable) and a descrip
 Before you change anything, you should make sure you can run all the Cucumber features for Cucumber-Rails. You need rvm.
 
   sudo gem install rvm
-  rvm install 1.8.7 1.9.1
+  rvm install ruby-1.8.7-p249 ruby-1.9.1-p378
 
 == Running all features
 

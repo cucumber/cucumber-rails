@@ -1,4 +1,4 @@
-Spec::Matchers.define :have_files do |expected_files|
+RSpec::Matchers.define :have_files do |expected_files|
   match do |rails_app|
     actual_files = rails_app.files
     @missing_files = expected_files - actual_files
@@ -10,7 +10,7 @@ Spec::Matchers.define :have_files do |expected_files|
   end
 end
 
-Spec::Matchers.define :have_contents do |contents|
+RSpec::Matchers.define :have_contents do |contents|
   match do |file|
     file.read.include?(contents)
   end
