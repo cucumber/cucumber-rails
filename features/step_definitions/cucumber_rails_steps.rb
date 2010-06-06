@@ -6,7 +6,7 @@ Given /^I symlink "([^"]*)" to "([^"]*)"$/ do |source, target|
   end
 end
 
-Given /^I have created a new Rails 2 app "([^\"]*)" with cucumber\-rails support$/ do |app_name|
+Given /^I have created a new Rails 2 app "([^"]*)" with cucumber\-rails support$/ do |app_name|
   steps %Q{
     Given I am using rvm "1.8.7"
     And I am using rvm gemset "cucumber-rails-2.3.5" with Gemfile:
