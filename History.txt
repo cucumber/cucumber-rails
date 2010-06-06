@@ -1,3 +1,8 @@
+== In Git
+
+== Bugfixes
+* ... LOOK AT RECENT LOG 
+
 == 0.3.1
 
 This release has a lot of bugfixes! The test suite (based on Aruba) verifies that Cucumber-Rails
