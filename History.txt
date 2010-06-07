@@ -1,9 +1,11 @@
-== In Git
+== 0.3.2 2010-06-06
 
-== Bugfixes
-* ... LOOK AT RECENT LOG 
+== Changed features
+* web_steps.rb uses "([^"]*)" instead of "([^\"]*)" (Aslak Hellesøy)
+* Renamed cucumber:skeleton to cucumber:install (Rails 3 generator). (Aslak Hellesøy)
+* Upgraded to be compatible with rspec 2.0.0.beta.10 (#35 Gabor Ratky, Pete Yandell)
 
-== 0.3.1
+== 0.3.1 2010-05-03
 
 This release has a lot of bugfixes! The test suite (based on Aruba) verifies that Cucumber-Rails
 now works with various combinations of: 
@@ -33,7 +35,7 @@ separate rerun profile, so all rerun.txt related issues should now be gone.
 * "Rspec is not missing constant Matchers!" error. (#27 David Chelimsky, Aslak Hellesøy)
 * @culerity tag breaks Rails 3 RESTful helpers (#17 Aslak Hellesøy)
 
-== 0.3.0
+== 0.3.0 2010-02-25
 
 This is a major release since we're now supporting both Rails 3 and RSpec 2. Older versions
 (Rails 2 and RSpec 1) are still supported.
