@@ -1,6 +1,6 @@
 module Cucumber
   module Generators
-    module SkeletonBase
+    module InstallBase
 
       DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 

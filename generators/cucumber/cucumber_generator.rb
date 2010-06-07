@@ -1,10 +1,10 @@
 require 'rbconfig'
-require File.expand_path(File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/skeleton/skeleton_base'))
+require File.expand_path(File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/install/install_base'))
 
 # This generator bootstraps a Rails project for use with Cucumber
 class CucumberGenerator < Rails::Generator::Base
 
-  include Cucumber::Generators::SkeletonBase
+  include Cucumber::Generators::InstallBase
 
   attr_accessor :driver
   attr_accessor :framework
@@ -44,7 +44,7 @@ class CucumberGenerator < Rails::Generator::Base
   end
 
   def self.source_root
-    File.join(gem_root, 'templates', 'skeleton')
+    File.join(gem_root, 'templates', 'install')
   end
 
   def source_root

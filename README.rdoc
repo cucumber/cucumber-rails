@@ -26,11 +26,11 @@ Then install the gems by running:
 
 Learn about the various options:
 
-  ruby script/rails generate cucumber:skeleton --help
+  ruby script/rails generate cucumber:install --help
 
 Finally, bootstrap your Rails app, for example:
 
-  ruby script/rails generate cucumber:skeleton --rspec --capybara
+  ruby script/rails generate cucumber:install --rspec --capybara
 
 === Rails 2.x:
 

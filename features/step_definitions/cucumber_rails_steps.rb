@@ -28,7 +28,7 @@ Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$
       gem 'cucumber', :path => '../../../../cucumber'
 
       """
-    And I successfully run "rails generate cucumber:skeleton --capybara"
+    And I successfully run "rails generate cucumber:install --capybara"
     And I successfully run "bundle lock"
     And I successfully run "rake db:migrate"
   }

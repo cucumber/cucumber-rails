@@ -4,8 +4,7 @@ Description:
     
     This also generates the necessary files in the features directory.
     
-    Also see the feature generator, which you can use to generate skeletons
-    for new features.
+    Also see the feature generator
     
 Examples:
     `./script/generate cucumber`

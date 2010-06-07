@@ -7,11 +7,11 @@ module Config
     'ruby_install_name' => 'bar'
   }
 end
-require 'generators/cucumber/skeleton/skeleton_base'
+require 'generators/cucumber/install/install_base'
 
 module Cucumber
   module Generators
-    describe SkeletonBase do
+    describe InstallBase do
       def instance_of_class_including(mixin)
         Class.new do
           include mixin
@@ -21,7 +21,7 @@ module Cucumber
       before(:each) do
         Kernel.stub(:require => nil)
         
-        @generator = instance_of_class_including(Cucumber::Generators::SkeletonBase)
+        @generator = instance_of_class_including(Cucumber::Generators::InstallBase)
       end
       
       # This is a private method, but there was a bug in it where it

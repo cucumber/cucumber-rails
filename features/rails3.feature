@@ -21,7 +21,7 @@ Feature: Rails 3
       """
     And I cd to "rails-3-app"
     And I symlink "../../.." to "vendor/plugins/cucumber-rails"
-    When I successfully run "rails generate cucumber:skeleton --capybara"
+    When I successfully run "rails generate cucumber:install --capybara"
     Then the following files should exist:
       | config/cucumber.yml                    |
       | script/cucumber                        |
@@ -54,7 +54,7 @@ Feature: Rails 3
       gem 'cucumber', :path => '../../../../cucumber'
 
       """
-    And I successfully run "rails generate cucumber:skeleton --capybara"
+    And I successfully run "rails generate cucumber:install --capybara"
     And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold cukes name:string"

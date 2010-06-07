@@ -49,37 +49,37 @@ Gem::Specification.new do |s|
      "lib/generators/cucumber/feature/feature_base.rb",
      "lib/generators/cucumber/feature/feature_generator.rb",
      "lib/generators/cucumber/feature/named_arg.rb",
-     "lib/generators/cucumber/skeleton/USAGE",
-     "lib/generators/cucumber/skeleton/skeleton_base.rb",
-     "lib/generators/cucumber/skeleton/skeleton_generator.rb",
+     "lib/generators/cucumber/install/USAGE",
+     "lib/generators/cucumber/install/install_base.rb",
+     "lib/generators/cucumber/install/install_generator.rb",
      "spec/cucumber/web/tableish_spec.rb",
-     "spec/generators/cucumber/skeleton/skeleton_base_spec.rb",
+     "spec/generators/cucumber/install/install_base_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
      "templates/feature/feature.erb",
      "templates/feature/steps.erb",
-     "templates/skeleton/config/cucumber.yml.erb",
-     "templates/skeleton/environments/cucumber.rb.erb",
-     "templates/skeleton/script/cucumber",
-     "templates/skeleton/step_definitions/capybara_steps.rb.erb",
-     "templates/skeleton/step_definitions/web_steps_cs.rb.erb",
-     "templates/skeleton/step_definitions/web_steps_da.rb.erb",
-     "templates/skeleton/step_definitions/web_steps_de.rb.erb",
-     "templates/skeleton/step_definitions/web_steps_es.rb.erb",
-     "templates/skeleton/step_definitions/web_steps_ja.rb.erb",
-     "templates/skeleton/step_definitions/web_steps_ko.rb.erb",
-     "templates/skeleton/step_definitions/web_steps_no.rb.erb",
-     "templates/skeleton/step_definitions/web_steps_pt-BR.rb.erb",
-     "templates/skeleton/step_definitions/webrat_steps.rb.erb",
-     "templates/skeleton/support/_rails_each_run.rb.erb",
-     "templates/skeleton/support/_rails_prefork.rb.erb",
-     "templates/skeleton/support/capybara.rb",
-     "templates/skeleton/support/edit_warning.txt",
-     "templates/skeleton/support/paths.rb",
-     "templates/skeleton/support/rails.rb.erb",
-     "templates/skeleton/support/rails_spork.rb.erb",
-     "templates/skeleton/support/webrat.rb",
-     "templates/skeleton/tasks/cucumber.rake.erb"
+     "templates/install/config/cucumber.yml.erb",
+     "templates/install/environments/cucumber.rb.erb",
+     "templates/install/script/cucumber",
+     "templates/install/step_definitions/capybara_steps.rb.erb",
+     "templates/install/step_definitions/web_steps_cs.rb.erb",
+     "templates/install/step_definitions/web_steps_da.rb.erb",
+     "templates/install/step_definitions/web_steps_de.rb.erb",
+     "templates/install/step_definitions/web_steps_es.rb.erb",
+     "templates/install/step_definitions/web_steps_ja.rb.erb",
+     "templates/install/step_definitions/web_steps_ko.rb.erb",
+     "templates/install/step_definitions/web_steps_no.rb.erb",
+     "templates/install/step_definitions/web_steps_pt-BR.rb.erb",
+     "templates/install/step_definitions/webrat_steps.rb.erb",
+     "templates/install/support/_rails_each_run.rb.erb",
+     "templates/install/support/_rails_prefork.rb.erb",
+     "templates/install/support/capybara.rb",
+     "templates/install/support/edit_warning.txt",
+     "templates/install/support/paths.rb",
+     "templates/install/support/rails.rb.erb",
+     "templates/install/support/rails_spork.rb.erb",
+     "templates/install/support/webrat.rb",
+     "templates/install/tasks/cucumber.rake.erb"
   ]
   s.homepage = %q{http://github.com/aslakhellesoy/cucumber-rails}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -88,7 +88,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Cucumber Generators and Runtime for Rails}
   s.test_files = [
     "spec/cucumber/web/tableish_spec.rb",
-     "spec/generators/cucumber/skeleton/skeleton_base_spec.rb",
+     "spec/generators/cucumber/install/install_base_spec.rb",
      "spec/spec_helper.rb"
   ]
 
@@ -97,14 +97,14 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<cucumber>, [">= 0.7.2"])
+      s.add_runtime_dependency(%q<cucumber>, [">= 0.8.0"])
       s.add_development_dependency(%q<aruba>, [">= 0.1.9"])
     else
-      s.add_dependency(%q<cucumber>, [">= 0.7.2"])
+      s.add_dependency(%q<cucumber>, [">= 0.8.0"])
       s.add_dependency(%q<aruba>, [">= 0.1.9"])
     end
   else
-    s.add_dependency(%q<cucumber>, [">= 0.7.2"])
+    s.add_dependency(%q<cucumber>, [">= 0.8.0"])
     s.add_dependency(%q<aruba>, [">= 0.1.9"])
   end
 end
