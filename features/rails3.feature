@@ -9,6 +9,7 @@ Feature: Rails 3
     Given I am using rvm "ruby-1.8.7-p249"
     And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
       """
+      source :gemcutter
       gem 'rails', '3.0.0.beta'
       gem 'sqlite3-ruby', '1.2.5'
       gem 'capybara', '0.3.8'
@@ -36,7 +37,6 @@ Feature: Rails 3
     And I am using rvm gemset "cucumber-rails-3.0.0.beta-gemset-<gemset>" with Gemfile:
       """
       source :gemcutter
-
       gem 'rails', '3.0.0.beta'
       gem 'sqlite3-ruby', '1.2.5'
       gem 'capybara', '0.3.8'
@@ -48,16 +48,16 @@ Feature: Rails 3
     And I successfully run "rails rails-3-app"
     And I cd to "rails-3-app"
     And I symlink "../../.." to "vendor/plugins/cucumber-rails"
-    And I successfully run "rails generate cucumber:skeleton --capybara"
-    And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
-    And I successfully run "rails generate scaffold post title:string body:text published:boolean"
-    And I successfully run "rails generate scaffold cukes name:string"
     And I append to "Gemfile" with:
       """
       gem 'capybara', '0.3.8'
       gem 'cucumber', :path => '../../../../cucumber'
 
       """
+    And I successfully run "rails generate cucumber:skeleton --capybara"
+    And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
+    And I successfully run "rails generate scaffold post title:string body:text published:boolean"
+    And I successfully run "rails generate scaffold cukes name:string"
     And I write to "app/controllers/cukes_controller.rb" with:
       """
       class CukesController < ApplicationController

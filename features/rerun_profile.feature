@@ -1,10 +1,11 @@
+@announce
 Feature: Rerun profile
   In order to concentrate on failing features
   As a Rails developer working with Cucumber
   I want to rerun only failing features
 
   Scenario: Rerun
-    Given I have created a new Rails 2 app "rails-2-app" with cucumber-rails support
+    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
     And a file named "rerun.txt" with:
       """
       features/rerun_test.feature:2
@@ -28,7 +29,7 @@ Feature: Rerun profile
         puts "I've always been passing"
       end
       """
-    When I successfully run "rake cucumber:rerun"
+    When I successfully run "ruby script/cucumber -p rerun"
     Then it should pass with:
       """
       1 scenario (1 passed)
