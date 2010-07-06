@@ -13,6 +13,53 @@ module Cucumber
       unless RUBY_PLATFORM =~ /java/
         it "should convert a table" do
           html = <<-HTML
+          <div class="admin-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th><span>Edit</span></th>
+                  <th><span>Delete</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Guybrush Threepwood</strong></td>
+                  <td><a href="/users/1/edit">Edit</a></td>
+                  <td>
+                    <form method="post" action="/users/1" class="button-to">
+                      <div>
+                        <input type="hidden" name="_method" value="delete" />
+                        <input value="Delete" type="submit" />
+                      </div>
+                    </form>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          HTML
+
+          header = _tableish(html, '.admin-table table thead tr', 'th')
+
+          column_selector = lambda do |tr|
+            tds = tr.search('td')
+            [
+              tds[0].text,
+              tds[1].text,
+              tds[2].css('input:nth-child(2)').first.attributes['value']
+            ]
+          end
+          body = _tableish(html, '.admin-table table tbody tr', column_selector)
+          
+          (header + body).should == [
+            ['Name', 'Edit', 'Delete'],
+            ['Guybrush Threepwood', 'Edit', 'Delete']
+          ]
+        end
+
+        it "should convert a table" do
+          html = <<-HTML
             <table id="tools">
               <tr>
                 <th>tool</th>
