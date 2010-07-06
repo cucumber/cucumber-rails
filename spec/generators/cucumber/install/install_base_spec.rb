@@ -1,12 +1,3 @@
-require File.expand_path(File.dirname(__FILE__) + "/../../../spec_helper")
-
-# TODO using this seam as an interim way to get the file to load
-module Config
-  CONFIG = {
-    'bindir' => 'foo',
-    'ruby_install_name' => 'bar'
-  }
-end
 require 'generators/cucumber/install/install_base'
 
 module Cucumber
