@@ -1,3 +1,8 @@
+== In Git
+
+=== Bugfixes
+* Gem dependency on Nokogiri (for #tableish). (#53 Aslak Hellesøy)
+
 == 0.3.2 2010-06-06
 
 == Changed features

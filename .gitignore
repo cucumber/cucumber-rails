@@ -2,3 +2,4 @@ pkg
 doc
 tmp
 coverage
+.bundle
