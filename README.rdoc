@@ -16,7 +16,7 @@ Before you can use the generator, add the necessary gems to your project's Gemfi
   gem 'database_cleaner'
   gem 'cucumber-rails'
   gem 'cucumber'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>=2.0.0.beta.5'
   gem 'spork'
   gem 'launchy'    # So you can do Then show me the page
 
