@@ -11,11 +11,10 @@ Feature: Rails 2
       source :gemcutter
       gem 'rails', '<rails_version>'
       gem 'sqlite3-ruby', '1.2.5'
-      gem 'capybara', '0.3.8'
+      gem 'capybara', '0.3.9'
       gem 'webrat', '0.7.1'
       gem 'rspec-rails', '1.3.2'
-      #gem 'cucumber', '0.8.0'
-      gem 'cucumber', :path => '../../../cucumber'
+      gem 'cucumber', '0.8.5' #:path => '../../../cucumber'
       gem 'database_cleaner', '0.5.2'
       gem 'culerity', '0.2.10'
       gem 'celerity', '0.7.9'

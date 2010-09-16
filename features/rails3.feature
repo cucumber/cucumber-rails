@@ -10,11 +10,11 @@ Feature: Rails 3
     And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
       """
       source :gemcutter
-      gem 'rails', '3.0.0.beta'
+      gem 'rails', '3.0.0.rc'
       gem 'sqlite3-ruby', '1.2.5'
-      gem 'capybara', '0.3.8'
+      gem 'capybara', '0.3.9'
       """
-    When I successfully run "rails rails-3-app"
+    When I successfully run "rails new rails-3-app"
     Then it should pass with:
       """
       README
@@ -37,21 +37,20 @@ Feature: Rails 3
     And I am using rvm gemset "cucumber-rails-3.0.0.beta-gemset-<gemset>" with Gemfile:
       """
       source :gemcutter
-      gem 'rails', '3.0.0.beta'
+      gem 'rails', '3.0.0.rc'
       gem 'sqlite3-ruby', '1.2.5'
-      gem 'capybara', '0.3.8'
-      gem 'gherkin', '1.0.30'
-      gem 'term-ansicolor', '1.0.4'
+      gem 'capybara', '0.3.9'
+      gem 'term-ansicolor', '1.0.5'
       gem 'diff-lcs', '1.1.2'
       gem 'rspec-rails', '<rspec_version>'
       """
-    And I successfully run "rails rails-3-app"
+    And I successfully run "rails new rails-3-app"
     And I cd to "rails-3-app"
-    And I symlink "../../.." to "vendor/plugins/cucumber-rails"
     And I append to "Gemfile" with:
       """
-      gem 'capybara', '0.3.8'
-      gem 'cucumber', :path => '../../../../cucumber'
+      gem 'capybara', '0.3.9'
+      gem 'cucumber', '0.8.5' # :path => '../../../../cucumber'
+      gem 'cucumber-rails', :path => '../../..'
 
       """
     And I successfully run "rails generate cucumber:install --capybara"
@@ -82,6 +81,7 @@ Feature: Rails 3
             |action|index|
           And I should see "Cuke 10"
       """
+    And I successfully run "bundle install"
     And I successfully run "bundle lock"
     And I successfully run "rake db:migrate"
     And I successfully run "rake cucumber"
@@ -94,4 +94,4 @@ Feature: Rails 3
     Examples:
       | ruby_version    | rspec_version | gemset |
       | ruby-1.8.7-p249 | 1.3.2         | 1      |
-      | ruby-1.9.1-p378 | 2.0.0.beta.10 | 2      |
+      | ruby-1.9.1-p378 | 2.0.0.beta.19 | 2      |
