@@ -1,27 +1,18 @@
-@announce-cmd
-@announce @puts
+@announce
 Feature: Rails 3
   In order to take over the world
   Cucumber-Rails should work on major versions
-  of Rails2 and Ruby, with Capybara, Spork and DatabaseCleaner
+  of Rails 3 and Ruby, with Capybara, Spork and DatabaseCleaner
 
   Scenario: Install Cucumber-Rails
-    Given I am using rvm "ruby-1.8.7-p249"
-    And I am using rvm gemset "cucumber-rails-3.0.0.beta" with Gemfile:
+    Given I have a Rails "3.0.0" project named "rails-3-app" with the following appended to Gemfile:
       """
-      source :gemcutter
-      gem 'rails', '3.0.0.rc'
-      gem 'sqlite3-ruby', '1.2.5'
       gem 'capybara', '0.3.9'
+      gem 'rspec', '2.0.0.beta.22'
+      gem 'cucumber-rails', :path => '../../..' 
       """
-    When I successfully run "rails new rails-3-app"
-    Then it should pass with:
-      """
-      README
-      """
-    And I cd to "rails-3-app"
-    And I symlink "../../.." to "vendor/plugins/cucumber-rails"
-    When I successfully run "rails generate cucumber:install --capybara"
+
+
     Then the following files should exist:
       | config/cucumber.yml                    |
       | script/cucumber                        |

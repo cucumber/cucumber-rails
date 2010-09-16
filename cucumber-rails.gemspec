@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
-require "cucumber/platform"
 
 Gem::Specification.new do |s|
   s.name        = 'cucumber-rails'
@@ -13,8 +12,9 @@ Gem::Specification.new do |s|
 
   s.platform    = Gem::Platform::RUBY
 
-  s.add_dependency 'cucumber', '~> 0.9.0' unless File.directory?(File.dirname(__FILE__) + '/../cucumber')
+  s.add_dependency('cucumber', '~> 0.9.0') unless File.directory?(File.expand_path(File.dirname(__FILE__) + '/../cucumber'))
   s.add_dependency 'aruba', '~> 0.2.2' unless File.directory?(File.dirname(__FILE__) + '/../aruba')
+  s.add_development_dependency('rspec', "~> 2.0.0.beta.22")
   
   s.rubygems_version   = "1.3.7"
   s.files            = `git ls-files`.split("\n")
