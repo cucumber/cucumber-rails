@@ -5,6 +5,11 @@ module Cucumber
     module InstallBase
 
       DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
+      GEMS = {
+        'capybara' => '0.3.9',
+        'webrat' => '0.7.1',
+        'rspec-rails' => '2.0.0.beta.22'
+      }
 
       # Checks and prints the limitations
       def check_upgrade_limitations
@@ -118,8 +123,11 @@ module Cucumber
 
       protected
 
-      def rails2?
-        defined?(Rails::Generator::Base) # In Rails3 it's Rails::Generators::Base (plural s)
+      def add_gem(*args)
+        if rails2?
+        else
+          self.gem(*args)
+        end
       end
 
       def detect_current_driver
@@ -144,6 +152,10 @@ module Cucumber
 
       def spork?
         options[:spork]
+      end
+
+      def rails2?
+        defined?(Rails::Generator::Base) # In Rails3 it's Rails::Generators::Base (plural s)
       end
 
       def embed_file(source, indent='')

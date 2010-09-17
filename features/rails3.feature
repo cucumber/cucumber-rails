@@ -5,12 +5,7 @@ Feature: Rails 3
   of Rails 3 and Ruby, with Capybara, Spork and DatabaseCleaner
 
   Scenario: Install Cucumber-Rails
-    Given I have a Rails "3.0.0" project named "rails-3-app" with the following appended to Gemfile:
-      """
-      gem 'capybara', '0.3.9'
-      gem 'rspec', '2.0.0.beta.22'
-      gem 'cucumber-rails', :path => '../../..' 
-      """
+    Given a Rails "3.0.0" project named "rails-3-app" with Cucumber-Rails generated with "--capybara"
 
     Then the following files should exist:
       | config/cucumber.yml                    |
@@ -23,13 +18,12 @@ Feature: Rails 3
     And the file "features/support/env.rb" should contain "require 'capybara/rails'"
 
   Scenario: Run Cucumber
-    Given I have a Rails "3.0.0" project named "rails-3-app" with the following appended to Gemfile:
+    Given a Rails "3.0.0" project named "rails-3-app" with Cucumber-Rails generated with "--capybara --rspec"
+    And I append to "Gemfile" with:
       """
-      gem 'capybara', '0.3.9'
-      gem 'rspec', '2.0.0.beta.22'
-      gem 'cucumber-rails', :path => '../../..' 
-      gem 'cucumber', :path => '../../../../cucumber' 
-      gem 'gherkin', :path => '../../../../gherkin' 
+      gem "cucumber", :path => '../../../../cucumber', :group => :test 
+      gem "gherkin", :path => '../../../../gherkin', :group => :test 
+
       """
 
     And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"

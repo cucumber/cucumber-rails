@@ -23,6 +23,7 @@ module Cucumber
     end
 
     def generate
+      # TODO - move to module
       check_upgrade_limitations
       create_templates
       create_scripts
@@ -30,6 +31,8 @@ module Cucumber
       create_feature_support
       create_tasks
       create_database unless options[:skip_database]
+      add_gem(driver_from_options.to_s, GEMS[driver_from_options], :group => :test)
+      add_gem(framework_from_options.to_s, GEMS[framework_from_options], :group => :test)
     end
   
     def self.gem_root
@@ -45,16 +48,16 @@ module Cucumber
     end
 
     private
-  
+
     def framework_from_options
-      return :rspec if options[:rspec]
-      return :testunit if options[:testunit]
+      return 'rspec-rails' if options[:rspec]
+      return 'testunit' if options[:testunit]
       return nil
     end
 
     def driver_from_options
-      return :webrat if options[:webrat]
-      return :capybara if options[:capybara]
+      return 'webrat' if options[:webrat]
+      return 'capybara' if options[:capybara]
       return nil
     end
   
