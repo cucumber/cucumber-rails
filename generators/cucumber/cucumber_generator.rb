@@ -1,9 +1,7 @@
-require 'rbconfig'
 require File.expand_path(File.join(File.dirname(__FILE__), '../../lib/generators/cucumber/install/install_base'))
 
 # This generator bootstraps a Rails project for use with Cucumber
 class CucumberGenerator < Rails::Generator::Base
-
   include Cucumber::Generators::InstallBase
 
   attr_accessor :driver
@@ -18,12 +16,12 @@ class CucumberGenerator < Rails::Generator::Base
   def manifest
     record do |m|
       check_upgrade_limitations
-      create_templates(m, true)
-      create_scripts(m, true)
-      create_step_definitions(m, true)
-      create_feature_support(m, true)
-      create_tasks(m, true)
-      create_database(m, true)
+      create_templates(m)
+      create_scripts(m)
+      create_step_definitions(m)
+      create_feature_support(m)
+      create_tasks(m)
+      create_database(m)
     end
   end
 

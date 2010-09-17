@@ -1,11 +1,9 @@
+require 'rbconfig'
 require File.join(File.dirname(__FILE__), 'install_base')
 
 module Cucumber
   class InstallGenerator < Rails::Generators::Base
-
     include Cucumber::Generators::InstallBase
-
-    DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 
     argument     :language,      :type => :string,  :banner => "LANG", :optional => true
 
