@@ -15,13 +15,7 @@ class CucumberGenerator < Rails::Generator::Base
 
   def manifest
     record do |m|
-      check_upgrade_limitations
-      create_templates(m)
-      create_scripts(m)
-      create_step_definitions(m)
-      create_feature_support(m)
-      create_tasks(m)
-      create_database(m)
+      install_cucumber_rails(m)
     end
   end
 
@@ -53,10 +47,6 @@ class CucumberGenerator < Rails::Generator::Base
 
   def banner
     "Usage: #{$0} cucumber (language)"
-  end
-
-  def after_generate
-    print_instructions
   end
 
   def add_options!(opt)

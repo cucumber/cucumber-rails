@@ -11,6 +11,18 @@ module Cucumber
         'rspec-rails' => '2.0.0.beta.22'
       }
 
+      def install_cucumber_rails(m)
+        check_upgrade_limitations
+        create_templates(m)
+        create_scripts(m)
+        create_step_definitions(m)
+        create_feature_support(m)
+        create_tasks(m)
+        create_database(m) unless options[:skip_database]
+        add_gem(driver_from_options.to_s, GEMS[driver_from_options], :group => :test)
+        add_gem(framework_from_options.to_s, GEMS[framework_from_options], :group => :test)
+      end
+
       # Checks and prints the limitations
       def check_upgrade_limitations
         if File.exist?('features/step_definitions/webrat_steps.rb')
@@ -27,14 +39,14 @@ module Cucumber
       end
 
       # Creates templates
-      def create_templates(m = self)
+      def create_templates(m)
         m.template 'config/cucumber.yml.erb', 'config/cucumber.yml'
         if rails2?
           m.template 'environments/cucumber.rb.erb', 'config/environments/cucumber.rb'
         end
       end
 
-      def create_scripts(m = self)
+      def create_scripts(m)
         if rails2?
           m.file 'script/cucumber', 'script/cucumber', {
             :chmod => 0755, :shebang => options[:shebang] == DEFAULT_SHEBANG ? nil : options[:shebang]
@@ -45,7 +57,7 @@ module Cucumber
         end
       end
 
-      def create_step_definitions(m = self)
+      def create_step_definitions(m)
         if rails2?
           m.directory 'features/step_definitions'
         else
@@ -58,7 +70,7 @@ module Cucumber
         end
       end
 
-      def create_feature_support(m = self)
+      def create_feature_support(m)
         if rails2?
           m.directory 'features/support'
           m.file      'support/paths.rb', 'features/support/paths.rb'
@@ -80,7 +92,7 @@ module Cucumber
         end
       end
 
-      def create_tasks(m = self)
+      def create_tasks(m)
         if rails2?
           m.directory 'lib/tasks'
         else
@@ -90,34 +102,13 @@ module Cucumber
         m.template 'tasks/cucumber.rake.erb', 'lib/tasks/cucumber.rake'
       end
 
-      def create_database(m = self)
+      def create_database(m)
         unless File.read('config/database.yml').include? 'cucumber:'
           m.gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
           m.gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test"
           
           # Since gsub_file doesn't ask the user, just inform user that the file was overwritten.
           puts "       force  config/database.yml"
-        end
-      end
-
-      def print_instructions
-        require 'cucumber/formatter/ansicolor'
-        extend Cucumber::Formatter::ANSIColor
-
-        if @default_driver
-          puts <<-WARNING
-
-    #{yellow_cukes(15)}
-
-                  #{yellow_cukes(1)}   D R I V E R   A L E R T    #{yellow_cukes(1)}
-
-    You didn't explicitly generate with --capybara or --webrat, so I looked at
-    your gems and saw that you had #{green(@default_driver.to_s)} installed, so I went with that.
-    If you want something else, be specific about it. Otherwise, relax.
-
-    #{yellow_cukes(15)}
-
-    WARNING
         end
       end
 

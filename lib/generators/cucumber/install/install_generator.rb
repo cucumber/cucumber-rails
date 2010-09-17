@@ -23,16 +23,7 @@ module Cucumber
     end
 
     def generate
-      # TODO - move to module
-      check_upgrade_limitations
-      create_templates
-      create_scripts
-      create_step_definitions
-      create_feature_support
-      create_tasks
-      create_database unless options[:skip_database]
-      add_gem(driver_from_options.to_s, GEMS[driver_from_options], :group => :test)
-      add_gem(framework_from_options.to_s, GEMS[framework_from_options], :group => :test)
+      install_cucumber_rails(self)
     end
   
     def self.gem_root

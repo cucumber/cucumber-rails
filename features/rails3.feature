@@ -5,7 +5,8 @@ Feature: Rails 3
   of Rails 3 and Ruby, with Capybara, Spork and DatabaseCleaner
 
   Scenario: Install Cucumber-Rails
-    Given a Rails "3.0.0" project named "rails-3-app" with Cucumber-Rails generated with "--capybara"
+    Given I'm using a clean gemset "cucumber-rails-3.0.0"
+    Given a Rails "3.0.0" project named "rails-3-app" with Cucumber-Rails generated with "--capybara --rspec"
 
     Then the following files should exist:
       | config/cucumber.yml                    |
@@ -25,7 +26,7 @@ Feature: Rails 3
       gem "gherkin", :path => '../../../../gherkin', :group => :test 
 
       """
-
+    And I successfully run "bundle install"
     And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold post title:string body:text published:boolean"
 
