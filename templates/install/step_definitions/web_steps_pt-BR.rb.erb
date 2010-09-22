@@ -4,6 +4,16 @@
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
+# Single-line step scoper
+Quando /^(.*) dentro de ([^:]+)$/ do |step, parent|
+  with_scope(parent) { Quando step }
+end
+
+# Multi-line step scoper
+Quando /^(.*) dentro de ([^:]+):$/ do |step, parent, table_or_string|
+  with_scope(parent) { Quando "#{step}:", table_or_string }
+end
+
 Dado /^que eu esteja na (.+)$/ do |page_name|
   Given %{I am on #{page_name}}
 end
@@ -18,10 +28,6 @@ end
 
 Quando /^eu clico "([^"]*)"$/ do |link|
   When %{I follow "#{link}"}
-end
-
-Quando /^eu clico "([^"]*)" dentro de "([^"]*)"$/ do |link, parent|
-  When %{I follow "#{link}" within "#{parent}"}
 end
 
 Quando /^eu preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
@@ -88,32 +94,16 @@ Então /^eu devo ver "([^"]*)"$/ do |text|
   Then %{I should see "#{text}"}
 end
 
-Então /^eu devo ver "([^"]*)" dentro de "([^"]*)"$/ do |text, selector|
-  Then %{I should see "#{text}" within "#{selector}"}
-end
-
 Então /^eu devo ver \/([^\/]*)\/$/ do |regexp|
   Then %{I should see /#{regexp}/}
-end
-
-Então /^eu devo ver \/([^\/]*)\/ dentro de "([^"]*)"$/ do |regexp, selector|
-  Then %{I should see /#{regexp}/ within "#{selector}"}
 end
 
 Então /^eu não devo ver "([^"]*)"$/ do |text|
   Then %{I should not see "#{text}"}
 end
 
-Então /^eu não devo ver "([^"]*)" dentro de "([^"]*)"$/ do |text, selector|
-  Then %{I should not see "#{text}" within "#{selector}"}
-end
-
 Então /^eu não devo ver \/([^\/]*)\/$/ do |regexp|
   Then %{I should not see /#{regexp}/}
-end
-
-Então /^eu não devo ver \/([^\/]*)\/ dentro de "([^"]*)"$/ do |regexp, selector|
-  Then %{I should not see /#{regexp}/ within "#{selector}"}
 end
 
 Então /^o campo "([^"]*)" deve conter "([^"]*)"$/ do |field, value|

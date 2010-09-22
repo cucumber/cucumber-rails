@@ -4,6 +4,16 @@
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
+# Single-line step scoper
+When /^(.*) uvnitř ([^:]+)$/ do |step, parent|
+  with_scope(parent) { When step }
+end
+
+# Multi-line step scoper
+When /^(.*) uvnitř ([^:]+):$/ do |step, parent, table_or_string|
+  with_scope(parent) { When "#{step}:", table_or_string }
+end
+
 Given /^jsem na (.+)$/ do |page_name|
   Given %{I am on #{page_name}}
 end
@@ -18,10 +28,6 @@ end
 
 When /^kliknu na "([^"]*)"$/ do |link|
   When %{I follow "#{link}"}
-end
-
-When /^kliknu na "([^"]*)" uvnitř "([^"]*)"$/ do |link, parent|
-  When %{I follow "#{link}" within "#{parent}"}
 end
 
 When /^vyplním pole "([^"]*)" hodnotou "([^"]*)"$/ do |field, value|
@@ -84,32 +90,16 @@ Then /^(?:|také )bych měl vidět "([^"]*)"$/ do |text|
   Then %{I should see "#{text}"}
 end
 
-Then /^(?:|také )bych měl vidět "([^"]*)" uvnitř "([^"]*)"$/ do |text, selector|
-  Then %{I should see "#{text}" within "#{selector}"}
-end
-
 Then /^(?:|také )bych měl vidět \/([^\/]*)\/$/ do |regexp|
   Then %{I should see /#{regexp}/}
-end
-
-Then /^(?:|také )bych měl vidět \/([^\/]*)\/ uvnitř "([^"]*)"$/ do |regexp, selector|
-  Then %{I should see /#{regexp}/ within "#{selector}"}
 end
 
 Then /^(?:|také )bych neměl vidět "([^"]*)"$/ do |text|
   Then %{I should not see "#{text}"}
 end
 
-Then /^(?:|také )bych neměl vidět "([^"]*)" uvnitř "([^"]*)"$/ do |text, selector|
-  Then %{I should not see "#{text}" within "#{selector}"}
-end
-
 Then /^(?:|také )bych neměl vidět \/([^\/]*)\/$/ do |regexp|
   Then %{I should not see /#{regexp}/}
-end
-
-Then /^(?:|také )bych neměl vidět \/([^\/]*)\/ uvnitř "([^"]*)"$/ do |regexp, selector|
-  Then %{I should not see /#{regexp}/ within "#{selector}"}
 end
 
 Then /^pole "([^"]*)" by mělo obsahovat "([^"]*)"$/ do |field, value|

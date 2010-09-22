@@ -4,6 +4,16 @@
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
+# Single-line step scoper
+Når /^(.*) under ([^:]+)$/ do |step, parent|
+  with_scope(parent) { Når step }
+end
+
+# Multi-line step scoper
+Når /^(.*) under ([^:]+):$/ do |step, parent, table_or_string|
+  with_scope(parent) { Når "#{step}:", table_or_string }
+end
+
 Givet /^(?:at )jeg står på (.*)$/ do |page_name|
   Given %{I am on #{page_name}}
 end
@@ -18,10 +28,6 @@ end
 
 Når /^jeg klikker "([^"]*)"$/ do |link|
   When %{I follow "#{link}"}
-end
-
-Når /^jeg klikker "([^"]*)" under "([^"]*)"$/ do |link, parent|
-  When %{I follow "#{link}" within "#{parent}"}
 end
 
 Når /^jeg fylder ud "([^"]*)" med "([^"]*)"$/ do |field, value|
@@ -62,32 +68,16 @@ Så /^(?:skal jeg|jeg skal) se "([^"]*)"$/ do |text|
   Then %{I should see "#{text}"}
 end
 
-Så /^(?:skal jeg|jeg skal) se "([^"]*)" under "([^"]*)"$/ do |text, selector|
-  Then %{I should see "#{text}" within "#{selector}"}
-end
-
 Så /^(?:skal jeg|jeg skal) se \/([^\/]*)\/$/ do |regexp|
   Then %{I should see /#{regexp}/}
-end
-
-Så /^(?:skal jeg|jeg skal) se \/([^\/]*)\/ under "([^"]*)"$/ do |regexp, selector|
-  Then %{I should see /#{regexp}/ within "#{selector}"}
 end
 
 Så /^(?:skal jeg|jeg skal) ikke se "([^"]*)"$/ do |text|
   Then %{I should not see "#{text}"}
 end
 
-Så /^(?:skal jeg|jeg skal) ikke se "([^"]*)" under "([^"]*)"$/ do |text, selector|
-  Then %{I should not see "#{text}" within "#{selector}"}
-end
-
 Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/$/ do |regexp|
   Then %{I should not see /#{regexp}/}
-end
-
-Så /^(?:skal jeg|jeg skal) ikke se \/([^\/]*)\/ under "([^"]*)"$/ do |regexp, selector|
-  Then %{I should not see /#{regexp}/ within "#{selector}"}
 end
 
 Så /^(?:skal )"([^"]*)" feltet (?:skal )indeholde "([^"]*)"$/ do |field, value|
