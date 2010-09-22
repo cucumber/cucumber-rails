@@ -17,6 +17,12 @@ module HtmlSelectorsHelpers
     #  when /the (notice|error|info) flash/
     #    ".flash.#{$1}"
 
+    # This allows you to provide a quoted selector as the scope
+    # for "within" steps as was previously the default for the
+    # web steps:
+    when /"(.+)"/
+      $1
+
     else
       raise "Can't find mapping from \"#{scope}\" to a selector.\n" +
         "Now, go and add a mapping in #{__FILE__}"

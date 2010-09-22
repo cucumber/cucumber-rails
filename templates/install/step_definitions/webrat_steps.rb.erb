@@ -24,8 +24,8 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
 
-When /^(?:|I )follow "([^"]*)" within "([^"]*)"$/ do |link, parent|
-  click_link_within(parent, link)
+When /^(?:|I )follow "([^"]*)" within (.*)$/ do |link, parent|
+  click_link_within(selector_for(parent), link)
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
@@ -144,8 +144,8 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should see "([^"]*)" within "([^"]*)"$/ do |text, selector|
-  within(selector) do |content|
+Then /^(?:|I )should see "([^"]*)" within "([^"]*)"$/ do |text, parent|
+  within(selector_for(parent)) do |content|
     if content.respond_to? :should
       content.should contain(text)
     else
@@ -164,8 +164,8 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   end
 end
 
-Then /^(?:|I )should see \/([^\/]*)\/ within "([^"]*)"$/ do |regexp, selector|
-  within(selector) do |content|
+Then /^(?:|I )should see \/([^\/]*)\/ within (.*)$/ do |regexp, parent|
+  within(selector_for(parent)) do |content|
     regexp = Regexp.new(regexp)
     if content.respond_to? :should
       content.should contain(regexp)
@@ -183,8 +183,8 @@ Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should not see "([^"]*)" within "([^"]*)"$/ do |text, selector|
-  within(selector) do |content|
+Then /^(?:|I )should not see "([^"]*)" within (.*)$/ do |text, parent|
+  within(selector_for(parent)) do |content|
     if content.respond_to? :should_not
       content.should_not contain(text)
     else
@@ -203,8 +203,8 @@ Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
   end
 end
 
-Then /^(?:|I )should not see \/([^\/]*)\/ within "([^"]*)"$/ do |regexp, selector|
-  within(selector) do |content|
+Then /^(?:|I )should not see \/([^\/]*)\/ within (.*)$/ do |regexp, parent|
+  within(selector_for(parent)) do |content|
     regexp = Regexp.new(regexp)
     if content.respond_to? :should_not
       content.should_not contain(regexp)
