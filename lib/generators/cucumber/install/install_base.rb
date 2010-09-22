@@ -73,22 +73,18 @@ module Cucumber
       def create_feature_support(m)
         if rails2?
           m.directory 'features/support'
-          m.file      'support/paths.rb', 'features/support/paths.rb'
-
-          if spork?
-            m.template 'support/rails_spork.rb.erb', 'features/support/env.rb'
-          else
-            m.template 'support/rails.rb.erb',       'features/support/env.rb'
-          end
+          m.file      'support/paths.rb',     'features/support/paths.rb'
+          m.file      'support/selectors.rb', 'features/support/selectors.rb'
         else
           m.empty_directory 'features/support'
-          m.copy_file 'support/paths.rb', 'features/support/paths.rb'
+          m.copy_file       'support/paths.rb',     'features/support/paths.rb'
+          m.copy_file       'support/selectors.rb', 'features/support/selectors.rb'
+        end
 
-          if spork?
-            m.template 'support/rails_spork.rb.erb', 'features/support/env.rb'
-          else
-            m.template 'support/rails.rb.erb',       'features/support/env.rb'
-          end
+        if spork?
+          m.template 'support/rails_spork.rb.erb', 'features/support/env.rb'
+        else
+          m.template 'support/rails.rb.erb',       'features/support/env.rb'
         end
       end
 
