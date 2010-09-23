@@ -16,6 +16,12 @@ module HtmlSelectorsHelpers
     #
     #  when /the (notice|error|info) flash/
     #    ".flash.#{$1}"
+    
+    # You can also return an array to use a different selector
+    # type, like:
+    #
+    #  when /the header/
+    #    [:xpath, "//header"]
 
     # This allows you to provide a quoted selector as the scope
     # for "within" steps as was previously the default for the
