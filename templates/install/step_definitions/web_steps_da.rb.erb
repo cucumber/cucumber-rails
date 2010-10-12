@@ -3,7 +3,7 @@
 
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
-Givet /^(?:at )jeg står på (.*)$/ do |page_name|
+Givet /^(?:|at )jeg står på (.*)$/ do |page_name|
   Given %{I am on #{page_name}}
 end
 
