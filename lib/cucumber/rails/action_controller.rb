@@ -1,4 +1,3 @@
-:q
 if Rails.version.to_f >= 3.0
   module ActionController #:nodoc:
     module AllowRescueException
