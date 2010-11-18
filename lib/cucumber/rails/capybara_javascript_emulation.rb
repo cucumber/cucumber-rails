@@ -19,12 +19,12 @@ module Cucumber
       private
 
       def js_form(action, emulated_method, method = 'POST')
-        js_form = node.document.create_element('form')
+        js_form = self.native.document.create_element('form')
         js_form['action'] = action
         js_form['method'] = method
 
         if emulated_method and emulated_method.downcase != method.downcase
-          input = node.document.create_element('input')
+          input = self.native.document.create_element('input')
           input['type'] = 'hidden'
           input['name'] = '_method'
           input['value'] = emulated_method
@@ -36,17 +36,17 @@ module Cucumber
 
       def link_with_non_get_http_method?
         if ::Rails.version.to_f >= 3.0
-          tag_name == 'a' && node['data-method'] && node['data-method'] =~ /(?:delete|put|post)/
+          tag_name == 'a' && self['data-method'] && self['data-method'] =~ /(?:delete|put|post)/
         else
-          tag_name == 'a' && node['onclick'] && node['onclick'] =~ /var f = document\.createElement\('form'\); f\.style\.display = 'none';/
+          tag_name == 'a' && self['onclick'] && self['onclick'] =~ /var f = document\.createElement\('form'\); f\.style\.display = 'none';/
         end
       end
 
       def emulated_method
         if ::Rails.version.to_f >= 3.0
-          node['data-method']
+          self['data-method']
         else
-          node['onclick'][/m\.setAttribute\('value', '([^']*)'\)/, 1]
+          self['onclick'][/m\.setAttribute\('value', '([^']*)'\)/, 1]
         end
       end
     end
