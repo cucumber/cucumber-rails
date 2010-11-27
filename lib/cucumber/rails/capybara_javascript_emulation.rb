@@ -10,7 +10,7 @@ module Cucumber
   
       def click_with_javascript_emulation
         if link_with_non_get_http_method?
-          Capybara::Driver::RackTest::Form.new(driver, js_form(self[:href], emulated_method)).submit(self)
+          Capybara::Driver::RackTest::Form.new(driver, js_form(element_node.document, self[:href], emulated_method)).submit(self)
         else
           click_without_javascript_emulation
         end
@@ -18,13 +18,13 @@ module Cucumber
 
       private
 
-      def js_form(action, emulated_method, method = 'POST')
-        js_form = node.document.create_element('form')
+      def js_form(document, action, emulated_method, method = 'POST')
+        js_form = document.create_element('form')
         js_form['action'] = action
         js_form['method'] = method
 
         if emulated_method and emulated_method.downcase != method.downcase
-          input = node.document.create_element('input')
+          input = document.create_element('input')
           input['type'] = 'hidden'
           input['name'] = '_method'
           input['value'] = emulated_method
@@ -36,17 +36,26 @@ module Cucumber
 
       def link_with_non_get_http_method?
         if ::Rails.version.to_f >= 3.0
-          tag_name == 'a' && node['data-method'] && node['data-method'] =~ /(?:delete|put|post)/
+          tag_name == 'a' && element_node['data-method'] && element_node['data-method'] =~ /(?:delete|put|post)/
         else
-          tag_name == 'a' && node['onclick'] && node['onclick'] =~ /var f = document\.createElement\('form'\); f\.style\.display = 'none';/
+          tag_name == 'a' && element_node['onclick'] && element_node['onclick'] =~ /var f = document\.createElement\('form'\); f\.style\.display = 'none';/
         end
       end
 
       def emulated_method
         if ::Rails.version.to_f >= 3.0
-          node['data-method']
+          element_node['data-method']
         else
-          node['onclick'][/m\.setAttribute\('value', '([^']*)'\)/, 1]
+          element_node['onclick'][/m\.setAttribute\('value', '([^']*)'\)/, 1]
+        end
+      end
+
+      def element_node
+        if self.respond_to? :native
+          self.native
+        else
+          warn "DEPRECATED: cucumber-rails loves you, just not your version of Capybara. Please update Capybara to >= 0.4.0"
+          self.node
         end
       end
     end
