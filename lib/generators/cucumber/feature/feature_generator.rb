@@ -2,7 +2,7 @@ require File.join(File.dirname(__FILE__), 'named_arg')
 require File.join(File.dirname(__FILE__), 'feature_base')
 
 module Cucumber
-  class FeatureGenerator < Rails::Generators::NamedBase
+  class FeatureGenerator < ::Rails::Generators::NamedBase
 
     include Cucumber::Generators::FeatureBase
   

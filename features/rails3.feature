@@ -5,9 +5,7 @@ Feature: Rails 3
   of Rails 3 and Ruby, with Capybara, Spork and DatabaseCleaner
 
   Scenario: Install Cucumber-Rails
-    Given I'm using a clean gemset "cucumber-rails-3.0.0"
-    Given a Rails "3.0.0" project named "rails-3-app" with Cucumber-Rails generated with "--capybara --rspec"
-
+    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
     Then the following files should exist:
       | config/cucumber.yml                    |
       | script/cucumber                        |
@@ -19,14 +17,8 @@ Feature: Rails 3
     And the file "features/support/env.rb" should contain "require 'capybara/rails'"
 
   Scenario: Run Cucumber
-    Given a Rails "3.0.0" project named "rails-3-app" with Cucumber-Rails generated with "--capybara --rspec"
-    And I append to "Gemfile" with:
-      """
-      gem "cucumber", :path => '../../../../cucumber', :group => :test 
-      gem "gherkin", :path => '../../../../gherkin', :group => :test 
-
-      """
-    And I successfully run "bundle install"
+    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
+    When I successfully run "bundle install"
     And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold post title:string body:text published:boolean"
 

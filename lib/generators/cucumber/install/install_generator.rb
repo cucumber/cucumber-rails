@@ -2,7 +2,7 @@ require 'rbconfig'
 require File.join(File.dirname(__FILE__), 'install_base')
 
 module Cucumber
-  class InstallGenerator < Rails::Generators::Base
+  class InstallGenerator < ::Rails::Generators::Base
     include Cucumber::Generators::InstallBase
 
     argument     :language,      :type => :string,  :banner => "LANG", :optional => true
@@ -43,13 +43,13 @@ module Cucumber
     def framework_from_options
       return 'rspec-rails' if options[:rspec]
       return 'testunit' if options[:testunit]
-      return nil
+      return 'rspec-rails'
     end
 
     def driver_from_options
       return 'webrat' if options[:webrat]
       return 'capybara' if options[:capybara]
-      return nil
+      return 'capybara'
     end
   
   end

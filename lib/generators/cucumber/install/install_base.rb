@@ -1,15 +1,10 @@
 require 'rbconfig'
+#require 'cucumber/rails/version'
 
 module Cucumber
   module Generators
     module InstallBase
-
       DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
-      GEMS = {
-        'capybara' => '0.3.9',
-        'webrat' => '0.7.1',
-        'rspec-rails' => '2.0.0.beta.22'
-      }
 
       def install_cucumber_rails(m)
         check_upgrade_limitations
@@ -19,8 +14,12 @@ module Cucumber
         create_feature_support(m)
         create_tasks(m)
         create_database(m) unless options[:skip_database]
-        add_gem(driver_from_options.to_s, GEMS[driver_from_options], :group => :test)
-        add_gem(framework_from_options.to_s, GEMS[framework_from_options], :group => :test)
+        
+        cucumber_rails_options = {:group => :test}
+        cucumber_rails_options[:path] = '../../..'
+        add_gem('cucumber-rails', Cucumber::Rails::VERSION, cucumber_rails_options)
+        add_gem(driver_from_options.to_s, Cucumber::Rails::DEPS[driver_from_options.to_s], :group => :test)
+        add_gem(framework_from_options.to_s, Cucumber::Rails::DEPS[framework_from_options.to_s], :group => :test)
       end
 
       # Checks and prints the limitations
