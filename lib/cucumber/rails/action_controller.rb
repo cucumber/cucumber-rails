@@ -39,18 +39,26 @@ else
   end
 end
 
-begin
-  ActionController::Failsafe.class_eval do
-    alias_method :failsafe_response_without_bypass, :failsafe_response
-  
-    def failsafe_response(exception)
+if Rails.version.to_f >= 3.0
+  ActionDispatch::ShowExceptions.class_eval do
+    def render_exception(env, exception)
       raise exception
     end
   end
-rescue NameError # Failsafe was introduced in Rails 2.3.2
-  ActionController::Dispatcher.class_eval do
-    def self.failsafe_response(output, status, exception = nil)
-      raise exception
+else
+  begin
+    ActionController::Failsafe.class_eval do
+      alias_method :failsafe_response_without_bypass, :failsafe_response
+
+      def failsafe_response(exception)
+        raise exception
+      end
+    end
+  rescue NameError # Failsafe was introduced in Rails 2.3.2
+    ActionController::Dispatcher.class_eval do
+      def self.failsafe_response(output, status, exception = nil)
+        raise exception
+      end
     end
   end
 end
