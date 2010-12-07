@@ -16,7 +16,7 @@ module Cucumber
         create_database(m) unless options[:skip_database]
         
         cucumber_rails_options = {:group => :test}
-        cucumber_rails_options[:path] = '../../..'
+        cucumber_rails_options[:path] = '../../..' if ENV['CUCUMBER_RAILS_TEST']
         add_gem('cucumber-rails', Cucumber::Rails::VERSION, cucumber_rails_options)
         add_gem(driver_from_options.to_s, Cucumber::Rails::DEPS[driver_from_options.to_s], :group => :test)
         add_gem(framework_from_options.to_s, Cucumber::Rails::DEPS[framework_from_options.to_s], :group => :test)
