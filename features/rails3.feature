@@ -16,12 +16,10 @@ Feature: Rails 3
     And the file "features/support/env.rb" should contain "require 'cucumber/rails/world'"
     And the file "features/support/env.rb" should contain "require 'capybara/rails'"
 
-  Scenario: Run Cucumber
+  Scenario: Inspect query string
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
-    When I successfully run "bundle install"
     And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
     And I successfully run "rails generate scaffold post title:string body:text published:boolean"
-
     And I successfully run "rails generate scaffold cukes name:string"
     And I overwrite "app/controllers/cukes_controller.rb" with:
       """
@@ -51,4 +49,75 @@ Feature: Rails 3
        """
        3 scenarios (3 passed)
        14 steps (14 passed)
+       """
+
+   Scenario: Allow rescue
+     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
+     And I write to "app/controllers/posts_controller.rb" with:
+       """
+       class PostsController < ApplicationController
+         def index
+           raise "There is an error in index"
+         end
+       end
+       """
+     And I write to "config/routes.rb" with:
+       """
+       Rails3App::Application.routes.draw do
+         resources :posts
+       end
+       """
+     And I write to "features/posts.feature" with:
+       """
+       Feature: posts
+         @allow-rescue
+         Scenario: See them
+           When I do it
+       """
+     And I write to "features/step_definitions/posts_steps.rb" with:
+       """
+       When /^I do it$/ do
+         visit '/posts'
+       end
+       """
+     And I run "rake cucumber"
+     Then it should pass with:
+        """
+        1 scenario (1 passed)
+        1 step (1 passed)
+        """
+
+  Scenario: Don't allow rescue
+    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
+    And I write to "app/controllers/posts_controller.rb" with:
+      """
+      class PostsController < ApplicationController
+        def index
+          raise "There is an error in index"
+        end
+      end
+      """
+    And I write to "config/routes.rb" with:
+      """
+      Rails3App::Application.routes.draw do
+        resources :posts
+      end
+      """
+    And I write to "features/posts.feature" with:
+      """
+      Feature: posts
+        Scenario: See them
+          When I do it
+      """
+    And I write to "features/step_definitions/posts_steps.rb" with:
+      """
+      When /^I do it$/ do
+        visit '/posts'
+      end
+      """
+    And I run "rake cucumber"
+    Then it should fail with:
+       """
+       1 scenario (1 failed)
+       1 step (1 failed)
        """
