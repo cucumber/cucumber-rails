@@ -20,6 +20,7 @@ module Cucumber
         add_gem('cucumber-rails', Cucumber::Rails::VERSION, cucumber_rails_options)
         add_gem(driver_from_options.to_s, Cucumber::Rails::DEPS[driver_from_options.to_s], :group => :test)
         add_gem(framework_from_options.to_s, Cucumber::Rails::DEPS[framework_from_options.to_s], :group => :test)
+        add_gem('database_cleaner', Cucumber::Rails::DEPS['database_cleaner'], :group => :test)
       end
 
       # Checks and prints the limitations

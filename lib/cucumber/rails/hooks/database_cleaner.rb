@@ -14,19 +14,11 @@ begin
   end
 
   Before do
-    if Cucumber::Rails::World.use_transactional_fixtures
-      run_callbacks :setup if respond_to?(:run_callbacks)
-    else
-      DatabaseCleaner.start
-    end
+    DatabaseCleaner.start
   end
 
   After do
-    if Cucumber::Rails::World.use_transactional_fixtures
-      run_callbacks :teardown if respond_to?(:run_callbacks)
-    else
-      DatabaseCleaner.clean
-    end
+    DatabaseCleaner.clean
   end
 
 rescue LoadError => ignore_if_database_cleaner_not_present

@@ -11,7 +11,7 @@ module Cucumber
   
         def click_with_javascript_emulation
           if link_with_non_get_http_method?
-            Capybara::Driver::RackTest::Form.new(driver, js_form(element_node.document, self[:href], emulated_method)).submit(self)
+            ::Capybara::Driver::RackTest::Form.new(driver, js_form(element_node.document, self[:href], emulated_method)).submit(self)
           else
             click_without_javascript_emulation
           end
@@ -65,19 +65,19 @@ module Cucumber
 end
 
 class Capybara::Driver::RackTest::Node
-  include Cucumber::Rails::Capybara::JavascriptEmulation
+  include ::Cucumber::Rails::Capybara::JavascriptEmulation
 end
 
 Before('~@no-js-emulation') do
   # Enable javascript emulation
-  Capybara::Driver::RackTest::Node.class_eval do
+  ::Capybara::Driver::RackTest::Node.class_eval do
     alias_method :click, :click_with_javascript_emulation
   end
 end
 
 Before('@no-js-emulation') do
   # Disable javascript emulation
-  Capybara::Driver::RackTest::Node.class_eval do
+  ::Capybara::Driver::RackTest::Node.class_eval do
     alias_method :click, :click_without_javascript_emulation
   end
 end

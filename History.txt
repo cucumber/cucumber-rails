@@ -1,5 +1,7 @@
 == In Git
 
+No more Cucumber::Rails::World.use_transactional_fixtures = false. Use DatabaseCleaner.strategy = :none instead
+
 === Bugfixes
 * Gem dependency on Nokogiri (for #tableish). (#53 Aslak Hellesøy)
 

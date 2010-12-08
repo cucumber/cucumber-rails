@@ -13,8 +13,7 @@ Feature: Rails 3
       | features/support/env.rb                |
       | features/support/paths.rb              |
       | lib/tasks/cucumber.rake                |
-    And the file "features/support/env.rb" should contain "require 'cucumber/rails/world'"
-    And the file "features/support/env.rb" should contain "require 'capybara/rails'"
+    And the file "features/support/env.rb" should contain "require 'cucumber/rails'"
 
   Scenario: Inspect query string
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
