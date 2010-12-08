@@ -1,4 +1,6 @@
-if defined?(ActiveRecord::Base)
+begin
+  require 'database_cleaner'
+
   Before do
     $__cucumber_global_use_txn = !!Cucumber::Rails::World.use_transactional_fixtures if $__cucumber_global_use_txn.nil?
   end
@@ -17,7 +19,6 @@ if defined?(ActiveRecord::Base)
     else
       DatabaseCleaner.start
     end
-    ActionMailer::Base.deliveries = [] if defined?(ActionMailer::Base)
   end
 
   After do
@@ -27,8 +28,6 @@ if defined?(ActiveRecord::Base)
       DatabaseCleaner.clean
     end
   end
-else
-  module Cucumber::Rails
-    def World.fixture_table_names; []; end # Workaround for projects that don't use ActiveRecord
-  end
+
+rescue LoadError => ignore_if_database_cleaner_not_present
 end

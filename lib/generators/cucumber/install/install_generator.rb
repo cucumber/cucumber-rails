@@ -34,10 +34,6 @@ module Cucumber
       File.join(gem_root, 'templates/install')
     end
 
-    def cucumber_rails_env
-      'test'
-    end
-
     private
 
     def framework_from_options

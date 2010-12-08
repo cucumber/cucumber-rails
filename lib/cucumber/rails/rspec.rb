@@ -1,6 +1,3 @@
-# TODO: Not even sure is this is necessary anymore, since we're doing this in Cucumber's rb_world.rb...
-require 'cucumber/rails/world'
-
 begin
   require 'rspec/rails/matchers'
 

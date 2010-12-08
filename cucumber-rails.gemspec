@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rspec-rails', Cucumber::Rails::DEPS['rspec-rails'])
   s.add_development_dependency('capybara', Cucumber::Rails::DEPS['capybara'])
   s.add_development_dependency('webrat', Cucumber::Rails::DEPS['webrat'])
+  s.add_development_dependency('database_cleaner', Cucumber::Rails::DEPS['database_cleaner'])
   
   s.rubygems_version   = "1.3.7"
   s.files            = `git ls-files`.split("\n")

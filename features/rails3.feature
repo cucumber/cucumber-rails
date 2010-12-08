@@ -78,6 +78,7 @@ Feature: Rails 3
        """
        When /^I do it$/ do
          visit '/posts'
+         puts page.body
        end
        """
      And I run "rake cucumber"
