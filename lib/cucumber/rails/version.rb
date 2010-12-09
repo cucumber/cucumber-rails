@@ -1,6 +1,6 @@
 module Cucumber
   module Rails
-    VERSION = '0.4.0'
+    VERSION = '0.4.0.beta.1'
     DEPS = {
       'cucumber'          => '~> 0.10.0',
       'rails'             => '~> 3.0.3',
