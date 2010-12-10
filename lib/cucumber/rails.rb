@@ -8,6 +8,7 @@ end
 require 'cucumber/rails/world'
 require 'cucumber/rails/hooks/database_cleaner'
 require 'cucumber/rails/hooks/allow_rescue'
+require 'cucumber/rails/hooks/mail'
 
 if defined?(Capybara)
   require 'capybara/rails'

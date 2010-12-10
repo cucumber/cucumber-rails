@@ -1,9 +1,13 @@
 == In Git
 
-No more Cucumber::Rails::World.use_transactional_fixtures = false. Use DatabaseCleaner.strategy = :none instead
+TODO: Document tags and what they do
 
 === Bugfixes
 * Gem dependency on Nokogiri (for #tableish). (#53 Aslak Hellesøy)
+
+=== Removed Features
+* Cucumber::Rails::World.use_transactional_fixtures. TODO: Explain what to do instead.
+  No more Cucumber::Rails::World.use_transactional_fixtures = false. Use DatabaseCleaner.strategy = :none instead
 
 == 0.3.2 2010-06-06
 

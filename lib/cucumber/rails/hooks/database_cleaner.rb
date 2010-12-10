@@ -1,19 +1,24 @@
 begin
   require 'database_cleaner'
+  DatabaseCleaner.strategy = :transaction
 
   Before do
-    $__cucumber_global_use_txn = !!Cucumber::Rails::World.use_transactional_fixtures if $__cucumber_global_use_txn.nil?
+    $__cucumber_global_database_cleaner_strategy ||= DatabaseCleaner.connections[0].strategy # There is no accessor on the DatabaseCleaner
   end
 
   Before('~@no-txn', '~@selenium', '~@culerity', '~@celerity', '~@javascript') do
-    Cucumber::Rails::World.use_transactional_fixtures = $__cucumber_global_use_txn
+    DatabaseCleaner.strategy = :truncation
   end
 
   Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do
-    Cucumber::Rails::World.use_transactional_fixtures = false
+    DatabaseCleaner.strategy = $__cucumber_global_database_cleaner_strategy
   end
 
   Before do
+    # TODO: May have to patch DatabaseCleaner's Transaction class to do what we used to do:
+    #   run_callbacks :setup if respond_to?(:run_callbacks)
+    # IIRC There was a cucumber-rails ticket that added that to support multiple connections...
+    # Similar in After (use run_callbacks :teardown if respond_to?(:run_callbacks))
     DatabaseCleaner.start
   end
 

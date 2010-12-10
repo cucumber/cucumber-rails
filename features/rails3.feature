@@ -43,7 +43,7 @@ Feature: Rails 3
           And I should see "Cuke 10"
       """
     And I successfully run "rake db:migrate"
-    And I successfully run "rake cucumber"
+    And I run "rake cucumber"
     Then it should pass with:
        """
        3 scenarios (3 passed)
