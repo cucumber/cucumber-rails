@@ -6,7 +6,11 @@ else
 end
   
 require 'cucumber/rails/world'
-require 'cucumber/rails/hooks/database_cleaner'
+
+if defined? ActiveRecord::Base
+  require 'cucumber/rails/hooks/database_cleaner'
+end
+
 require 'cucumber/rails/hooks/allow_rescue'
 require 'cucumber/rails/hooks/mail'
 
