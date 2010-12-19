@@ -5,10 +5,10 @@ require File.expand_path(File.dirname(env) + '/../../config/environment')
 require 'cucumber/rails3/action_controller'
 
 if defined?(ActiveRecord::Base)
-  require 'rails/test_help' 
+  require 'rails/test_help'
 else
-  require 'action_controller/test_process'
-  require 'action_controller/integration'
+  require 'action_dispatch/testing/test_process'
+  require 'action_dispatch/testing/integration'
 end
 
 if !Rails.application.config.cache_classes
