@@ -1,6 +1,7 @@
 == 0.4.0.beta.2
 
 === New Features
+* Add selectors helper (#63 Bodaniel Jeanes)
 * Capybara date stepdefs (#66 Rob Holland)
 * The World now includes Rack::Test::Methods, allowing get, post, put delete (Aslak Hellesøy)
 

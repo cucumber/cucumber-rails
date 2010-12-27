@@ -12,6 +12,7 @@ Feature: Rails 3
       | features/step_definitions/web_steps.rb |
       | features/support/env.rb                |
       | features/support/paths.rb              |
+      | features/support/selectors.rb          |
       | lib/tasks/cucumber.rake                |
     And the file "features/support/env.rb" should contain "require 'cucumber/rails'"
 
@@ -38,8 +39,8 @@ Feature: Rails 3
         Scenario: Tests
           When I go to the cukes page
           Then I should have the following query string: 
-            | name       | cucumber  |
-            | what       | vegetable |
+            | name | cucumber  |
+            | what | vegetable |
           And I should see "Cuke 10"
       """
     And I successfully run "rake db:migrate"
