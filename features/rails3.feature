@@ -228,5 +228,5 @@ Feature: Rails 3
     Then it should pass with:
        """
        1 scenario (1 passed)
-       1 step (1 passed)
+       2 steps (2 passed)
        """
