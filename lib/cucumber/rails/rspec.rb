@@ -1,3 +1,5 @@
+require 'cucumber/rails/world'
+
 begin
   require 'rspec/rails/matchers'
 
