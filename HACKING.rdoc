@@ -22,3 +22,11 @@ This takes a long time because a lot of gems have to be installed. (This is done
 
 == Gotchas
 * https://rails.lighthouseapp.com/projects/8994/tickets/3865-invalid-gemspec-format-in-and-already-initialized-constant-warnings-with-ruby-192dev
+
+== Before 0.4.0
+
+TODO: Rename rails3.feature to rails.feature and make it work on Rails2 with smarter stepdefs.
+TODO: Document tags and what they do
+TODO: Fix or remove cucumber.rb.erb (for Rails 2). It has obsolete gem references. Maybe copy the test config instead and apply regexen?
+TODO: Have several require lines in env.rb, so people can remove individual ones if defaults don't work (like database_cleaner)
+

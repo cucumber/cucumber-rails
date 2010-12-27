@@ -1,8 +1,4 @@
-== In Git
-
-TODO: Document tags and what they do
-TODO: Fix or remove cucumber.rb.erb (for Rails 2). It has obsolete gem references. Maybe copy the test config instead and apply regexen?
-TODO: Have several require lines in env.rb, so people can remove individual ones if defaults don't work (like database_cleaner)
+== 0.4.0.beta.2
 
 === New Features
 * Capybara date stepdefs (#66 Rob Holland)
