@@ -143,6 +143,7 @@ Feature: Rails 3
          end
        end
        """
+     And I remove the file "config/database.yml"
      # Remove DatabaseCleaner and SQLite
      And I write to "Gemfile" with:
        """

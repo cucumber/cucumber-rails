@@ -103,6 +103,7 @@ module Cucumber
       end
 
       def create_database(m)
+        return unless File.exist?('config/database.yml')
         unless File.read('config/database.yml').include? 'cucumber:'
           m.gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
           m.gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test"
