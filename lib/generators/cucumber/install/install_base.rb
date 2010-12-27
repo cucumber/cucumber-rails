@@ -1,5 +1,5 @@
 require 'rbconfig'
-#require 'cucumber/rails/version'
+require 'cucumber/rails/version'
 
 module Cucumber
   module Generators
