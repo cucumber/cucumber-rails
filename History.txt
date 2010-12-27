@@ -6,7 +6,7 @@ TODO: Have several require lines in env.rb, so people can remove individual ones
 
 === Bugfixes
 * Support for projects using other ORMs than ActiveRecord (or nothing at all). (#18, #22, #46, #85, #86, #87, #90 Aslak Hellesøy)
-* @allow-rescue not working in rails 3 (#31 Aslak Hellesøy)
+* @allow-rescue not working in rails 3 (#31 Joe Ferris, Aslak Hellesøy)
 * Gem dependency on Nokogiri (for #tableish). (#53 Aslak Hellesøy)
 
 === Removed Features
