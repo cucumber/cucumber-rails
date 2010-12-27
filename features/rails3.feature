@@ -232,9 +232,9 @@ Feature: Rails 3
        """
 
  Scenario: Look within named selector
-   Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
-   And I successfully run "rails generate scaffold cukes name:string"
-   And I overwrite "app/views/cukes/index.html.erb" with:
+   Given a project without ActiveRecord
+   And a cukes resource
+   And I write to "app/views/cukes/index.html.erb" with:
      """
      <div class="foo">foo</div>
      <div class="bar">bar</div>
@@ -256,7 +256,6 @@ Feature: Rails 3
      end
      World(HtmlSelectorsHelpers)
      """
-   And I successfully run "rake db:migrate"
    And I run "rake cucumber"
    Then it should pass with:
       """
