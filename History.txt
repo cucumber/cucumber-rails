@@ -9,8 +9,9 @@ TODO: Have several require lines in env.rb, so people can remove individual ones
 * The World now includes Rack::Test::Methods, allowing get, post, put delete (Aslak Hellesøy)
 
 === Bugfixes
+* Can not run cucumber-rails (0.4.0.beta.1) with cucumber (0.10.0) (#89 Aslak Hellesøy)
 * Installing cucumber-rails without a database.yml fails (#61 Aslak Hellesøy)
-* Fix #click_link compatibility with Capybara 0.4. (#54, #77, #78, Aslak Hellesøy)
+* Fix #click_link compatibility with Capybara 0.4. (#54, #77, #78, #80 Aslak Hellesøy)
 * Support for projects using other ORMs than ActiveRecord (or nothing at all). (#18, #22, #46, #85, #86, #87, #90 Aslak Hellesøy)
 * @allow-rescue not working in rails 3 (#31 Joe Ferris, Aslak Hellesøy)
 * Gem dependency on Nokogiri (for #tableish). (#53 Aslak Hellesøy)
