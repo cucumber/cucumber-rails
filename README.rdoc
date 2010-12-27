@@ -10,17 +10,11 @@ giving you a head start for writing Cucumber features against your Rails app.
 
 === Rails 3:
 
-Before you can use the generator, add the necessary gems to your project's Gemfile as follows:
+Before you can use the generator, add the gem to your project's Gemfile as follows:
 
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'cucumber-rails'
-  gem 'cucumber'
-  gem 'rspec-rails'
-  gem 'spork'
-  gem 'launchy'    # So you can do Then show me the page
+  gem 'cucumber-rails', :group => :test
 
-Then install the gems by running:
+Then install it by running:
 
   bundle install
 
