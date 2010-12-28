@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency('cucumber', '~> 0.10.0')
   s.add_dependency('rack-test', '~> 0.5.6')
-  s.add_development_dependency('aruba', '~> 0.2.8')
+  s.add_development_dependency('aruba', '~> 0.3.0')
   s.add_development_dependency('rails', '~> 3.0.3')
   s.add_development_dependency('sqlite3-ruby', '~> 1.3.2')
   s.add_development_dependency('rspec-rails', Cucumber::Rails::DEPS['rspec-rails'])
