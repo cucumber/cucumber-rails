@@ -15,7 +15,7 @@ Feature: Routing
       1 scenario (1 failed)
       1 step (1 failed)
       """
-    Then the stdout should contain:
+    And the stdout should contain:
        """
        No route matches "/" (ActionController::RoutingError)
        """
