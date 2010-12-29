@@ -13,7 +13,6 @@ Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$
       gem "rspec-rails", :group => :test
       gem "database_cleaner", :group => :test
       """
-    And I successfully run "bundle install"
     And I successfully run "bundle exec rails generate cucumber:install"
   }
 end
@@ -22,14 +21,12 @@ Given /^a project without ActiveRecord$/ do
   steps %Q{
     Given I successfully run "rails new cuke-app"
     And I cd to "cuke-app"
-    And I overwrite "Gemfile" with:
+    And I append to "Gemfile" with:
       """
-      source 'http://rubygems.org'
       gem "cucumber-rails", :group => :test, :path => "../../.."
       gem "capybara", :group => :test
       gem "rspec-rails", :group => :test
       """
-    And I successfully run "bundle install"
     And I successfully run "bundle exec rails generate cucumber:install"
     And I overwrite "features/support/env.rb" with:
       """

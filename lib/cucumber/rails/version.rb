@@ -11,7 +11,9 @@ module Cucumber
       'rspec-rails'       => '~> 2.2.0',
       'database_cleaner'  => '~> 0.6.0',
       'sqlite3-ruby'      => '~> 1.3.2',
-      'aruba'             => '~> 0.3.0'
+      'aruba'             => '~> 0.3.2',
+      'mongoid'           => '2.0.0.beta.20',
+      'bson_ext'          => '~> 1.1.5'
     }
   end
 end

@@ -1,3 +1,4 @@
+@announce
 Feature: Mongoid
 
   Scenario: Keep Mongoid happy
@@ -31,7 +32,6 @@ Feature: Mongoid
       gem "bson_ext", :group => :test
 
       """
-    And I successfully run "bundle install"
     And I successfully run "bundle exec rails generate cucumber:install"
     And I successfully run "bundle exec rails generate mongoid:config"
     And I write to "features/tests.feature" with:

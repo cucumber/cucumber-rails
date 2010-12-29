@@ -42,7 +42,6 @@ Feature: Rails 3
             | what | vegetable |
           And I should see "Cuke 10"
       """
-    And I successfully run "rake db:migrate"
     And I run "bundle exec rake db:migrate cucumber"
     Then it should pass with:
        """
