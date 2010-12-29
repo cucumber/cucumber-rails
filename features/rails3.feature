@@ -1,4 +1,3 @@
-@announce
 Feature: Rails 3
   In order to take over the world
   Cucumber-Rails should work on major versions
@@ -44,7 +43,7 @@ Feature: Rails 3
           And I should see "Cuke 10"
       """
     And I successfully run "rake db:migrate"
-    And I run "rake cucumber"
+    And I run "bundle exec rake db:migrate cucumber"
     Then it should pass with:
        """
        3 scenarios (3 passed)
@@ -81,7 +80,7 @@ Feature: Rails 3
          puts page.body
        end
        """
-     And I run "rake cucumber"
+     And I run "bundle exec rake db:migrate cucumber"
      Then it should pass with:
         """
         1 scenario (1 passed)
@@ -116,7 +115,7 @@ Feature: Rails 3
         visit '/posts'
       end
       """
-    And I run "rake cucumber"
+    And I run "bundle exec rake db:migrate cucumber"
     Then it should fail with:
        """
        1 scenario (1 failed)
@@ -145,6 +144,10 @@ Feature: Rails 3
        end
        """
      And I remove the file "config/database.yml"
+     And I overwrite "features/support/env.rb" with:
+       """
+       require 'cucumber/rails'
+       """
      # Remove DatabaseCleaner and SQLite
      And I write to "Gemfile" with:
        """
@@ -180,7 +183,7 @@ Feature: Rails 3
          visit '/posts'
        end
        """
-     And I run "rake cucumber"
+     And I run "bundle exec rake cucumber"
      Then it should fail with:
         """
         There is an error in index
@@ -224,7 +227,7 @@ Feature: Rails 3
         JSON.parse(last_response.body).should == JSON.parse(json)
       end
       """
-    And I run "rake cucumber"
+    And I run "bundle exec rake db:migrate cucumber"
     Then it should pass with:
        """
        1 scenario (1 passed)

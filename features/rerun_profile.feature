@@ -1,4 +1,3 @@
-@announce
 Feature: Rerun profile
   In order to concentrate on failing features
   As a Rails developer working with Cucumber
@@ -29,7 +28,7 @@ Feature: Rerun profile
         puts "I've always been passing"
       end
       """
-    When I successfully run "ruby script/cucumber -p rerun"
+    When I successfully run "bundle exec cucumber -p rerun"
     Then it should pass with:
       """
       1 scenario (1 passed)

@@ -12,7 +12,11 @@ giving you a head start for writing Cucumber features against your Rails app.
 
 Before you can use the generator, add the gem to your project's Gemfile as follows:
 
-  gem 'cucumber-rails', :group => :test
+  group :test do
+    gem 'cucumber-rails'
+    gem 'capybara'
+    gem 'database_cleaner'
+  end
 
 Then install it by running:
 
@@ -24,7 +28,7 @@ Learn about the various options:
 
 Finally, bootstrap your Rails app, for example:
 
-  ruby script/rails generate cucumber:install --rspec --capybara
+  rails generate cucumber:install
 
 === Rails 2.x:
 

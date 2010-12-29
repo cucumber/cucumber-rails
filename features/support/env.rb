@@ -1,4 +1,3 @@
-ENV['CUCUMBER_RAILS_TEST'] = 'yeah baby'
 $:.unshift(File.dirname(__FILE__) + '/../../lib')
 require 'rubygems'
 require 'bundler/setup'
@@ -7,4 +6,5 @@ require 'aruba/cucumber'
 
 Before do
   @aruba_timeout_seconds = 15
+  unset_bundler_env_vars
 end

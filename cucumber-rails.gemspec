@@ -11,16 +11,17 @@ Gem::Specification.new do |s|
   s.email       = 'cukes@googlegroups.com'
   s.homepage    = "http://cukes.info"
 
-  s.add_dependency('cucumber', '~> 0.10.0')
-  s.add_dependency('rack-test', '~> 0.5.6')
-  s.add_development_dependency('aruba', '~> 0.3.0')
-  s.add_development_dependency('rails', '~> 3.0.3')
-  s.add_development_dependency('sqlite3-ruby', '~> 1.3.2')
+  s.add_dependency('cucumber', Cucumber::Rails::DEPS['cucumber'])
+  s.add_dependency('rack-test', Cucumber::Rails::DEPS['rack-test'])
+  s.add_dependency('nokogiri', Cucumber::Rails::DEPS['nokogiri'])
+  s.add_development_dependency('aruba', Cucumber::Rails::DEPS['aruba'])
+  s.add_development_dependency('rails', Cucumber::Rails::DEPS['rails'])
+  s.add_development_dependency('sqlite3-ruby', Cucumber::Rails::DEPS['sqlite3-ruby'])
   s.add_development_dependency('rspec-rails', Cucumber::Rails::DEPS['rspec-rails'])
   s.add_development_dependency('capybara', Cucumber::Rails::DEPS['capybara'])
   s.add_development_dependency('webrat', Cucumber::Rails::DEPS['webrat'])
   s.add_development_dependency('database_cleaner', Cucumber::Rails::DEPS['database_cleaner'])
-  
+
   s.rubygems_version   = "1.3.7"
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")

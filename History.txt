@@ -14,6 +14,7 @@
 * Gem dependency on Nokogiri (for #tableish). (#53 Aslak Hellesøy)
 
 === Removed Features
+* Automatic detection of RSpec, Capybara and Webrat for install generator. Set gems explicitly in your Gemfile (Rails3) or environment.rb (Rails2)
 * Then /^(?:|I )should see JSON:$/. Use #get and #last_response instead. See features/rails3.feature. (Aslak Hellesøy)
 * Cucumber::Rails::World.use_transactional_fixtures. TODO: Explain what to do instead.
   No more Cucumber::Rails::World.use_transactional_fixtures = false. Use DatabaseCleaner.strategy = :none instead

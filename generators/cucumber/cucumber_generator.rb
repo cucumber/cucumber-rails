@@ -4,8 +4,6 @@ require File.expand_path(File.join(File.dirname(__FILE__), '../../lib/generators
 class CucumberGenerator < Rails::Generator::Base
   include Cucumber::Generators::InstallBase
 
-  attr_accessor :driver
-  attr_accessor :framework
   attr_reader :language, :template_dir
 
   def initialize(runtime_args, runtime_options = {})
@@ -17,14 +15,6 @@ class CucumberGenerator < Rails::Generator::Base
     record do |m|
       install_cucumber_rails(m)
     end
-  end
-
-  def framework
-    options[:framework] ||= detect_current_framework || detect_default_framework
-  end
-
-  def driver
-    options[:driver] ||= detect_current_driver || detect_default_driver
   end
 
   def self.gem_root
@@ -48,23 +38,7 @@ class CucumberGenerator < Rails::Generator::Base
   def add_options!(opt)
     opt.separator ''
     opt.separator 'Options:'
-    opt.on('--webrat', 'Setup cucumber for use with webrat') do
-      options[:driver] = :webrat
-    end
-
-    opt.on('--capybara', 'Setup cucumber for use with capybara') do
-      options[:driver] = :capybara
-    end
-
-    opt.on('--rspec', "Setup cucumber for use with RSpec") do
-      options[:framework] = :rspec
-    end
-
-    opt.on('--testunit', "Setup cucumber for use with test/unit") do
-      options[:framework] = :testunit
-    end
-
-    opt.on('--spork', 'Setup cucumber for use with Spork') do
+    opt.on('--spork', 'Use Spork to run features') do
       options[:spork] = true
     end
   end

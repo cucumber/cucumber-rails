@@ -1,14 +1,20 @@
 Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$/ do |app_name|
   steps %Q{
-    When I successfully run "rails new rails-3-app"
+    When I successfully run "rails new #{app_name}"
     Then it should pass with:
       """
       README
       """
     And I cd to "#{app_name}"
-    And I successfully run "rails generate cucumber:install"
+    And I append to "Gemfile" with:
+      """
+      gem "cucumber-rails", :group => :test, :path => "../../.."
+      gem "capybara", :group => :test
+      gem "rspec-rails", :group => :test
+      gem "database_cleaner", :group => :test
+      """
     And I successfully run "bundle install"
-    And I successfully run "rake db:migrate"
+    And I successfully run "bundle exec rails generate cucumber:install"
   }
 end
 
@@ -16,6 +22,20 @@ Given /^a project without ActiveRecord$/ do
   steps %Q{
     Given I successfully run "rails new cuke-app"
     And I cd to "cuke-app"
+    And I overwrite "Gemfile" with:
+      """
+      source 'http://rubygems.org'
+      gem "cucumber-rails", :group => :test, :path => "../../.."
+      gem "capybara", :group => :test
+      gem "rspec-rails", :group => :test
+      """
+    And I successfully run "bundle install"
+    And I successfully run "bundle exec rails generate cucumber:install"
+    And I overwrite "features/support/env.rb" with:
+      """
+      require 'cucumber/rails'
+      """
+
     And I write to "config/application.rb" with:
       """
       require File.expand_path('../boot', __FILE__)
@@ -35,16 +55,6 @@ Given /^a project without ActiveRecord$/ do
       end
       """
     And I remove the file "config/database.yml"
-    And I successfully run "rails generate cucumber:install"
-    And I write to "Gemfile" with:
-      """
-      source 'http://rubygems.org'
-      gem 'rails'
-      gem "cucumber-rails", :group => :test, :path => "../../.."
-      gem "capybara", :group => :test
-      gem "rspec-rails", :group => :test
-      """
-    And I successfully run "bundle install"
   }
 end
 

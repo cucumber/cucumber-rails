@@ -14,13 +14,6 @@ module Cucumber
         create_feature_support(m)
         create_tasks(m)
         create_database(m) unless options[:skip_database]
-        
-        cucumber_rails_options = {:group => :test}
-        cucumber_rails_options[:path] = '../../..' if ENV['CUCUMBER_RAILS_TEST']
-        add_gem('cucumber-rails', Cucumber::Rails::VERSION, cucumber_rails_options)
-        add_gem(driver_from_options.to_s, Cucumber::Rails::DEPS[driver_from_options.to_s], :group => :test)
-        add_gem(framework_from_options.to_s, Cucumber::Rails::DEPS[framework_from_options.to_s], :group => :test)
-        add_gem('database_cleaner', Cucumber::Rails::DEPS['database_cleaner'], :group => :test)
       end
 
       # Checks and prints the limitations
@@ -118,26 +111,6 @@ module Cucumber
         end
       end
 
-      def detect_current_driver
-        detect_in_env([['capybara', :capybara], ['webrat', :webrat]])
-      end
-
-      def detect_default_driver
-        @default_driver = first_loadable([['capybara', :capybara], ['webrat', :webrat]])
-        raise "I don't know which driver you want. Use --capybara or --webrat, or gem install capybara or webrat." unless @default_driver
-        @default_driver
-      end
-
-      def detect_current_framework
-        detect_in_env([['spec', :rspec]])  || :testunit
-      end
-
-      def detect_default_framework
-        # TODO need to check this - defaulting to :testunit has been moved from first_loadable
-        # It's unlikely that we don't have test/unit since it comes with Ruby
-        @default_framework ||= first_loadable([['rspec', :rspec]])
-      end
-
       def spork?
         options[:spork]
       end
@@ -157,16 +130,6 @@ module Cucumber
 
       def version
         IO.read(File.join(self.class.gem_root, 'VERSION')).chomp
-      end
-
-      def first_loadable(libraries)
-        require 'rubygems'
-
-        libraries.each do |lib_name, lib_key|
-          return lib_key if Gem.available?(lib_name)
-        end
-
-        nil
       end
 
       def detect_in_env(choices)
