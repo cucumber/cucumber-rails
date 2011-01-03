@@ -4,21 +4,17 @@ module Cucumber
       module SelectDatesAndTimes
         def select_date(field, options = {})
           date = Date.parse(options[:with])
-          within(:xpath, ::Capybara::XPath.fieldset(field).append(%Q{//p[label[contains(., "#{field}")]]})) do
-            find(:xpath, '//select[contains(@id, "_1i")]').select(date.year)
-            find(:xpath, '//select[contains(@id, "_2i")]').select(date.strftime('%B'))
-            find(:xpath, '//select[contains(@id, "_3i")]').select(date.day)
-          end
+          find(:xpath, XPath::HTML.select("#{field}_1i")).find(:xpath, XPath::HTML.option(date.year.to_s)).select_option
+          find(:xpath, XPath::HTML.select("#{field}_2i")).find(:xpath, XPath::HTML.option(date.strftime('%B'))).select_option
+          find(:xpath, XPath::HTML.select("#{field}_3i")).find(:xpath, XPath::HTML.option(date.day.to_s)).select_option
         end
-      
+
         def select_time(field, options = {})
           time = Time.parse(options[:with])
-          within(:xpath, ::Capybara::XPath.fieldset(field).append(%Q{//p[label[contains(., "#{field}")]]})) do
-            find(:xpath, '//select[contains(@id, "_4i")]').select(time.hour.to_s.rjust(2,'0'))
-            find(:xpath, '//select[contains(@id, "_5i")]').select(time.min.to_s.rjust(2,'0'))
-          end
+          find(:xpath, XPath::HTML.select("#{field}_4i")).find(:xpath, XPath::HTML.option(time.hour.to_s.rjust(2,'0'))).select_option
+          find(:xpath, XPath::HTML.select("#{field}_5i")).find(:xpath, XPath::HTML.option(time.min.to_s.rjust(2,'0'))).select_option
         end
-      
+
         def select_datetime(field, options = {})
           select_date(field, options)
           select_time(field, options)
