@@ -5,9 +5,9 @@ module Cucumber
         def select_date(field, options = {})
           date = Date.parse(options[:with])
           within(:xpath, XPath::HTML.fieldset(field).where(%Q{//p[label[contains(., "#{field}")]]})) do
-            find(:xpath, '//select[contains(@id, "_1i")]').select(date.year)
+            find(:xpath, '//select[contains(@id, "_1i")]').select(date.year.to_s)
             find(:xpath, '//select[contains(@id, "_2i")]').select(date.strftime('%B'))
-            find(:xpath, '//select[contains(@id, "_3i")]').select(date.day)
+            find(:xpath, '//select[contains(@id, "_3i")]').select(date.day.to_s)
           end
         end
       
