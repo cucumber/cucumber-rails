@@ -4,7 +4,7 @@ module Cucumber
       module SelectDatesAndTimes
         def select_date(field, options = {})
           date = Date.parse(options[:with])
-          within(:xpath, ::Capybara::XPath.fieldset(field).append(%Q{//p[label[contains(., "#{field}")]]})) do
+          within(:xpath, XPath::HTML.fieldset(field).where(%Q{//p[label[contains(., "#{field}")]]})) do
             find(:xpath, '//select[contains(@id, "_1i")]').select(date.year)
             find(:xpath, '//select[contains(@id, "_2i")]').select(date.strftime('%B'))
             find(:xpath, '//select[contains(@id, "_3i")]').select(date.day)
@@ -13,7 +13,7 @@ module Cucumber
       
         def select_time(field, options = {})
           time = Time.parse(options[:with])
-          within(:xpath, ::Capybara::XPath.fieldset(field).append(%Q{//p[label[contains(., "#{field}")]]})) do
+          within(:xpath, XPath::HTML.fieldset(field).where(%Q{//p[label[contains(., "#{field}")]]})) do
             find(:xpath, '//select[contains(@id, "_4i")]').select(time.hour.to_s.rjust(2,'0'))
             find(:xpath, '//select[contains(@id, "_5i")]').select(time.min.to_s.rjust(2,'0'))
           end
