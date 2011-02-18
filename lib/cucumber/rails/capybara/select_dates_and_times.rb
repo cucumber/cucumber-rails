@@ -3,27 +3,32 @@ module Cucumber
     module Capybara
       module SelectDatesAndTimes
         def select_date(field, options = {})
-          date = Date.parse(options[:with])
+          date        = Date.parse(options[:with])
+          base_dom_id = get_base_dom_id(field)
 
-          within(:xpath, %Q{//label[contains(., "#{field}")]/..}) do
-            find(:xpath, '//select[contains(@id, "_1i")]').select(date.year.to_s)
-            find(:xpath, '//select[contains(@id, "_2i")]').select(date.strftime('%B'))
-            find(:xpath, '//select[contains(@id, "_3i")]').select(date.day.to_s)
-          end
+          find(:xpath, "//select[@id='#{base_dom_id}1i']").select(date.year.to_s)
+          find(:xpath, "//select[@id='#{base_dom_id}2i']").select(date.strftime('%B'))
+          find(:xpath, "//select[@id='#{base_dom_id}3i']").select(date.day.to_s)
         end
       
         def select_time(field, options = {})
-          time = Time.parse(options[:with])
+          time        = Time.zone.parse(options[:with])
+          base_dom_id = get_base_dom_id(field)
 
-          within(:xpath, %Q{//label[contains(., "#{field}")]/..}) do
-            find(:xpath, '//select[contains(@id, "_4i")]').select(time.hour.to_s.rjust(2,'0'))
-            find(:xpath, '//select[contains(@id, "_5i")]').select(time.min.to_s.rjust(2,'0'))
-          end
+          find(:xpath, "//select[@id='#{base_dom_id}4i']").select(time.hour.to_s.rjust(2, '0'))
+          find(:xpath, "//select[@id='#{base_dom_id}5i']").select(time.min.to_s.rjust(2,  '0'))
         end
       
         def select_datetime(field, options = {})
           select_date(field, options)
           select_time(field, options)
+        end
+
+        private
+
+        # @example "event_starts_at_"
+        def get_base_dom_id(field)
+          find(:xpath, "//label[contains(., '#{field}')]")['for'].gsub(/(1i)$/, '')
         end
       end
     end
