@@ -45,14 +45,14 @@ end
 
 World(Cucumber::Rails::Capybara::SelectDatesAndTimes)
 
-When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" time$/ do |time, selector|
-  select_time(time, :label => selector)
+When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" time$/ do |time, label|
+  select_time(time, :label => label)
 end
 
-When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" date$/ do |date, selector|
-  select_date(date, :label => selector)
+When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" date$/ do |date, label|
+  select_date(date, :label => label)
 end
 
-When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, selector|
-  select_datetime(datetime, :label => selector)
+When /^(?:|I )select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, label|
+  select_datetime(datetime, :label => label)
 end
