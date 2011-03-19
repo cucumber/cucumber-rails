@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.add_dependency('cucumber', Cucumber::Rails::DEPS['cucumber'])
   s.add_dependency('rack-test', Cucumber::Rails::DEPS['rack-test'])
   s.add_dependency('nokogiri', Cucumber::Rails::DEPS['nokogiri'])
+  s.add_development_dependency('bundler', Cucumber::Rails::DEPS['bundler'])
   s.add_development_dependency('aruba', Cucumber::Rails::DEPS['aruba'])
   s.add_development_dependency('rails', Cucumber::Rails::DEPS['rails'])
   s.add_development_dependency('sqlite3-ruby', Cucumber::Rails::DEPS['sqlite3-ruby'])
