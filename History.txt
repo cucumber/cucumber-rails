@@ -6,6 +6,7 @@
 * The World now includes Rack::Test::Methods, allowing get, post, put delete (Aslak Hellesøy)
 
 === Bugfixes
+* Allow setting rails root (#102, #103, Fabio Kreusch)
 * Fix Date selection steps and helpers (#93, #99, #100, #101, #109 James Herdman, John Ferlito, twalpole, Geoff Drake, Ricky Robinson, Michael Fleet)
 * Can not run cucumber-rails (0.4.0.beta.1) with cucumber (0.10.0) (#89 Aslak Hellesøy)
 * Installing cucumber-rails without a database.yml fails (#61 Aslak Hellesøy)
