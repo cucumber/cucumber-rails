@@ -1,7 +1,7 @@
 require 'cucumber/rails3/application'
 ENV["RAILS_ENV"] ||= "test"
-env = caller.detect{|f| f =~ /\/env\.rb:/}
-require File.expand_path(File.dirname(env) + '/../../config/environment')
+ENV["RAILS_ROOT"] ||= File.expand_path(File.dirname(caller.detect{|f| f =~ /\/env\.rb:/}) + '/../..')
+require File.expand_path(ENV["RAILS_ROOT"] + '/config/environment')
 require 'cucumber/rails3/action_controller'
 
 if defined?(ActiveRecord::Base)
