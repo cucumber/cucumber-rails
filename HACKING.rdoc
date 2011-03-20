@@ -3,30 +3,20 @@
 If you have a bugfix or a new feature you want to contribute, please fork on Github and make your own feature branch:
 
   git clone git@github.com:you/cucumber-rails.git
-  git checkout -b 87-add-chinese-translation
+  git checkout -b 87-my-awesome-bugfix
 
 The feature branch should contain a ticket number (if appliccable) and a descriptive name that aligns with the ticket name.
+When you think you're done send a pull request.
 
 == Setting up your environment
 
-Before you change anything, you should make sure you can run all the Cucumber features for Cucumber-Rails. You need rvm.
+I strongly recommend rvm and ruby 1.9.2. When you have that, cd into your cucumber-rails repository and:
 
-  sudo gem install rvm
-  rvm install ruby-1.8.7-p249 ruby-1.9.1-p378
+  gem install bundler
+  bundle install
 
 == Running all features
 
   rake cucumber
   
-This takes a long time because a lot of gems have to be installed. (This is done while running the cucumber features)
-
-== Gotchas
-* https://rails.lighthouseapp.com/projects/8994/tickets/3865-invalid-gemspec-format-in-and-already-initialized-constant-warnings-with-ruby-192dev
-
-== Before 0.4.0
-
-TODO: Rename rails3.feature to rails.feature and make it work on Rails2 with smarter stepdefs.
-TODO: Document tags and what they do
-TODO: Fix or remove cucumber.rb.erb (for Rails 2). It has obsolete gem references. Maybe copy the test config instead and apply regexen?
-TODO: Have several require lines in env.rb, so people can remove individual ones if defaults don't work (like database_cleaner)
-
+One of the features uses MongoDB, which needs to be running in order to make features/mongoid.feature to pass.

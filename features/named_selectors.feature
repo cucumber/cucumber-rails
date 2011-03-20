@@ -25,7 +25,7 @@ Feature: Named Selectors
       end
       World(HtmlSelectorsHelpers)
       """
-    And I run "rake cucumber"
+    And I run `rake cucumber`
     Then it should pass with:
       """
       1 scenario (1 passed)

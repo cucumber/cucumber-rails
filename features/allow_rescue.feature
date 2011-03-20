@@ -32,7 +32,7 @@ Feature: Allow Cucumber to rescue exceptions
         visit '/posts'
       end
       """
-    And I run "bundle exec rake db:migrate cucumber"
+    And I run `bundle exec rake db:migrate cucumber`
     Then it should pass with:
       """
       1 scenario (1 passed)
@@ -52,7 +52,7 @@ Feature: Allow Cucumber to rescue exceptions
         visit '/posts'
       end
       """
-    And I run "bundle exec rake db:migrate cucumber"
+    And I run `bundle exec rake db:migrate cucumber`
     Then it should fail with:
        """
        1 scenario (1 failed)

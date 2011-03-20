@@ -2,8 +2,8 @@ module Cucumber
   module Rails
     VERSION = '0.4.0'
     DEPS = {
-      'aruba'             => '>= 0.3.3',
-      'cucumber'          => '>= 0.10.0',
+      'aruba'             => '>= 0.3.4',
+      'cucumber'          => '>= 0.10.1',
 
       'bundler'           => '>= 1.0.10',
       'rack-test'         => '>= 0.5.7',
@@ -14,8 +14,7 @@ module Cucumber
       'rspec-rails'       => '>= 2.2.0',
       'database_cleaner'  => '>= 0.6.0',
       'sqlite3-ruby'      => '>= 1.3.3',
-      'mongoid'           => '>= 1.9',
-      'bson_ext'          => '>= 1.2.4'
+      'mongoid'           => '>= 2.0.0.rc.7'
     }
   end
 end

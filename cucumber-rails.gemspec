@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency('webrat', Cucumber::Rails::DEPS['webrat'])
   s.add_development_dependency('database_cleaner', Cucumber::Rails::DEPS['database_cleaner'])
   s.add_development_dependency('mongoid', Cucumber::Rails::DEPS['mongoid'])
-  s.add_development_dependency('bson_ext', Cucumber::Rails::DEPS['bson_ext'])
 
   s.rubygems_version = ">= 1.6.1"
   s.files            = `git ls-files`.split("\n")

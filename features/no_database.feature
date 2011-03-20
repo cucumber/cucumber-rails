@@ -62,7 +62,7 @@ Feature: No Database
         visit '/posts'
       end
       """
-    And I run "bundle exec rake cucumber"
+    And I run `bundle exec rake cucumber`
     Then it should fail with:
       """
       There is an error in index

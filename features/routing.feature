@@ -9,7 +9,7 @@ Feature: Routing
         Scenario: Tests
           When I go to the home page
       """
-    And I run "rake cucumber"
+    And I run `rake cucumber`
     Then it should fail with:
       """
       1 scenario (1 failed)

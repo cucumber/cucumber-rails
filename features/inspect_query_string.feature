@@ -2,9 +2,9 @@ Feature: Inspect query string
 
   Scenario: Inspect query string
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
-    And I successfully run "rails generate cucumber:feature post title:string body:text published:boolean"
-    And I successfully run "rails generate scaffold post title:string body:text published:boolean"
-    And I successfully run "rails generate scaffold cukes name:string"
+    And I successfully run `rails generate cucumber:feature post title:string body:text published:boolean`
+    And I successfully run `rails generate scaffold post title:string body:text published:boolean`
+    And I successfully run `rails generate scaffold cukes name:string`
     And I overwrite "app/controllers/cukes_controller.rb" with:
       """
       class CukesController < ApplicationController
@@ -27,7 +27,7 @@ Feature: Inspect query string
             | what | vegetable |
           And I should see "Cuke 10"
       """
-    And I run "bundle exec rake db:migrate cucumber"
+    And I run `bundle exec rake db:migrate cucumber`
     Then it should pass with:
        """
        3 scenarios (3 passed)

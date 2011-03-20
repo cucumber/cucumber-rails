@@ -2,7 +2,7 @@
 Feature: Mongoid
 
   Scenario: Keep Mongoid happy
-    Given I successfully run "rails new cuke-app"
+    Given I successfully run `rails new cuke-app`
     And I cd to "cuke-app"
     And I write to "config/application.rb" with:
       """
@@ -32,8 +32,8 @@ Feature: Mongoid
       gem "bson_ext", :group => :test
 
       """
-    And I successfully run "bundle exec rails generate cucumber:install"
-    And I successfully run "bundle exec rails generate mongoid:config"
+    And I successfully run `bundle exec rails generate cucumber:install`
+    And I successfully run `bundle exec rails generate mongoid:config`
     And I write to "features/tests.feature" with:
       """
       Feature: Tests
@@ -45,7 +45,7 @@ Feature: Mongoid
       require 'cucumber/rails'
       DatabaseCleaner.strategy = :truncation
       """
-    And I run "bundle exec rake cucumber"
+    And I run `bundle exec rake cucumber`
     Then it should pass with:
       """
       1 scenario (1 passed)

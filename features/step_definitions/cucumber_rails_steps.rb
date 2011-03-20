@@ -1,6 +1,6 @@
 Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$/ do |app_name|
   steps %Q{
-    When I successfully run "rails new #{app_name}"
+    When I successfully run `rails new #{app_name}`
     Then it should pass with:
       """
       README
@@ -13,13 +13,13 @@ Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$
       gem "rspec-rails", :group => :test
       gem "database_cleaner", :group => :test
       """
-    And I successfully run "bundle exec rails generate cucumber:install"
+    And I successfully run `bundle exec rails generate cucumber:install`
   }
 end
 
 Given /^a project without ActiveRecord$/ do
   steps %Q{
-    Given I successfully run "rails new cuke-app"
+    Given I successfully run `rails new cuke-app`
     And I cd to "cuke-app"
     And I append to "Gemfile" with:
       """
@@ -27,7 +27,7 @@ Given /^a project without ActiveRecord$/ do
       gem "capybara", :group => :test
       gem "rspec-rails", :group => :test
       """
-    And I successfully run "bundle exec rails generate cucumber:install"
+    And I successfully run `bundle exec rails generate cucumber:install`
     And I overwrite "features/support/env.rb" with:
       """
       require 'cucumber/rails'

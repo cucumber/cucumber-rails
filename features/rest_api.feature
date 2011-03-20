@@ -38,7 +38,7 @@ Feature: REST API
         JSON.parse(last_response.body).should == JSON.parse(json)
       end
       """
-    And I run "bundle exec rake db:migrate cucumber"
+    And I run `bundle exec rake db:migrate cucumber`
     Then it should pass with:
        """
        1 scenario (1 passed)
