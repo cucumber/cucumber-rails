@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('mongoid', Cucumber::Rails::DEPS['mongoid'])
   s.add_development_dependency('bson_ext', Cucumber::Rails::DEPS['bson_ext'])
 
-  s.rubygems_version   = "1.3.7"
+  s.rubygems_version = ">= 1.6.1"
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
   s.executables      = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
