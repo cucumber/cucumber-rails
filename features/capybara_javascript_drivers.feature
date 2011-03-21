@@ -1,4 +1,4 @@
-Feature: Select dates
+Feature: Capybara Javascript Drivers
 
   Background: A simple calendar app
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
@@ -17,7 +17,7 @@ Feature: Select dates
 
       """
   
-  Scenario Outline: Use different Capybara driver
+  Scenario Outline: Use a particular driver
     Given I append to "Gemfile" with:
       """
       <Gemfile extra>
