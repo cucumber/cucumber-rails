@@ -14,7 +14,8 @@ module Cucumber
       'rspec-rails'       => '>= 2.2.0',
       'database_cleaner'  => '>= 0.6.0',
       'sqlite3-ruby'      => '>= 1.3.3',
-      'mongoid'           => '>= 2.0.0.rc.7'
+      'mongoid'           => '>= 2.0.0.rc.7',
+      'akephalos'         => '>= 0.2.5'
     }
   end
 end
