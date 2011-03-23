@@ -144,7 +144,7 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should see "([^"]*)" within "([^"]*)"$/ do |text, parent|
+Then /^(?:|I )should see "([^"]*)" within (.*)$/ do |text, parent|
   within(selector_for(parent)) do |content|
     if content.respond_to? :should
       content.should contain(text)
