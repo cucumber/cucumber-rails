@@ -3,9 +3,7 @@ Feature: Select dates
   Background: A simple calendar app
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
     And I successfully run `bundle exec rails g scaffold appointment name:string when:datetime`
-  
-  Scenario: Select dates
-    Given I write to "features/create_appointment.feature" with:
+    And I write to "features/create_appointment.feature" with:
       """
       Feature: Create appointments
         Scenario: Constitution on May 17
@@ -17,9 +15,33 @@ Feature: Select dates
           And I should see "2009-02-20 15:10:00 UTC"
       """
     When I run `bundle exec rake db:migrate cucumber`
+  
+  Scenario: Select dates
     Then it should pass with:
       """
       1 scenario (1 passed)
       6 steps (6 passed)
       """
-    
+  
+  Scenario: Select dates with label pointing to first select
+    Given I write to "app/views/appointments/_form.html.erb" with:
+      """
+      <%= form_for(@appointment) do |f| %>
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :when, :for => "when_li1" %><br />
+          <%= f.datetime_select :when %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+      """
+    Then it should pass with:
+      """
+      1 scenario (1 passed)
+      6 steps (6 passed)
+      """
