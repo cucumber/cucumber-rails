@@ -32,7 +32,7 @@ Feature: Select dates
           <%= f.text_field :name %>
         </div>
         <div class="field">
-          <%= f.label :when, :for => "when_li1" %><br />
+          <%= f.label :when, :for => "when_1i" %><br />
           <%= f.datetime_select :when %>
         </div>
         <div class="actions">
