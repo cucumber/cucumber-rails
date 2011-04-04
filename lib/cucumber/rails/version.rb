@@ -8,7 +8,7 @@ module Cucumber
       'bundler'           => '>= 1.0.10',
       'rack-test'         => '>= 0.5.7',
       'nokogiri'          => '>= 1.4.4',
-      'rails'             => '>= 3.0.3',
+      'rails'             => '>= 3.0.5',
       'capybara'          => '>= 0.4.1',
       'webrat'            => '>= 0.7.3',
       'rspec-rails'       => '>= 2.2.0',
