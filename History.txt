@@ -1,6 +1,7 @@
 == In Git
 
 === Bugfixes
+* Fixed incorrect hooks for DatabaseCleaner (#113 Markus Bengts)
 * Throw an error if the user forgot to add DatabaseCleaner to the Gemfile, allowing them to decide whether or not to use it. (#36 Aslak Hellesøy, Ryan Bigg)
 
 == 0.4.0 2011-03-20
