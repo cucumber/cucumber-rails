@@ -1,6 +1,6 @@
 module Cucumber
   module Rails
-    VERSION = '0.4.0'
+    VERSION = '0.4.1'
     DEPS = {
       'aruba'             => '>= 0.3.4',
       'cucumber'          => '>= 0.10.1',

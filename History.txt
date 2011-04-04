@@ -1,4 +1,4 @@
-== In Git
+== 0.4.1 2011-04-05
 
 === Bugfixes
 * Fixed incorrect warning in generated files. (#115 Emanuele Vicentini)
