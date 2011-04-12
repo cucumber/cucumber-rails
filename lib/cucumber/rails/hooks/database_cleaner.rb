@@ -4,11 +4,12 @@ begin
   require 'database_cleaner'
 
   Before do
-    begin
-      $__cucumber_global_database_cleaner_strategy ||= DatabaseCleaner.connections[0].strategy # There is no accessor on the DatabaseCleaner
-    rescue DatabaseCleaner::NoStrategySetError => e
-      e.message << "\nYou can set the strategy in your features/support/env.rb"
-    end
+    $__cucumber_global_database_cleaner_strategy ||= DatabaseCleaner.connections[0].strategy
+    #begin
+    #  $__cucumber_global_database_cleaner_strategy ||= DatabaseCleaner.connections[0].strategy # There is no accessor on the DatabaseCleaner
+    #rescue DatabaseCleaner::NoStrategySetError => e
+    #  e.message << "\nYou can set the strategy in your features/support/env.rb"
+    #end
   end
 
   Before('~@no-txn', '~@selenium', '~@culerity', '~@celerity', '~@javascript') do
