@@ -1,3 +1,7 @@
+== In Git
+
+* Generated paths.rb cleanup (#133 Tim Pope)
+
 == 0.4.1 2011-04-05
 
 === Bugfixes
