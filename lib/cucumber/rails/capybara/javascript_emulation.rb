@@ -9,11 +9,11 @@ module Cucumber
           end
         end
   
-        def click_with_javascript_emulation
+        def click_with_javascript_emulation(*args)
           if link_with_non_get_http_method?
-            ::Capybara::Driver::RackTest::Form.new(driver, js_form(element_node.document, self[:href], emulated_method)).submit(self)
+            ::Capybara::Driver::RackTest::Form.new(driver, js_form(element_node.document, self[:href], emulated_method)).submit(self, *args)
           else
-            click_without_javascript_emulation
+            click_without_javascript_emulation(*args)
           end
         end
 

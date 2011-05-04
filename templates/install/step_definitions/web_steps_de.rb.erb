@@ -2,6 +2,17 @@
 <%= embed_file('support/web_steps_warning.txt') %>
 
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
+
+# Single-line step scoper
+Wenn /^(.*) innerhalb ([^:]+)$/ do |step, parent|
+  with_scope(parent) { Wenn step }
+end
+
+# Multi-line step scoper
+When /^(.*) innerhalb ([^:]+):$/ do |step, parent, table_or_string|
+  with_scope(parent) { Wenn "#{step}:", table_or_string }
+end
 
 Angenommen /^(?:|ich )bin auf (.+)$/ do |page_name|
   Given %{I am on #{page_name}}
@@ -19,10 +30,6 @@ Wenn /^(?:|ich )auf "([^"]*)" klicke$/ do |link|
   When %{I follow "#{link}"}
 end
 
-Wenn /^(?:|ich )auf "([^"]*)" innerhalb "([^"]*)" klicke$/ do |link, parent|
-  When %{I follow "#{link}" within "#{parent}"}
-end
-
 Wenn /^(?:|ich )"([^"]*)" mit "([^"]*)" ausfülle$/ do |field, value|
   When %{I fill in "#{field}" with "#{value}"}
 end
@@ -37,30 +44,6 @@ end
 
 Wenn /^(?:|ich )"([^"]*)" in "([^"]*)" auswähle$/ do |value, field|
   When %{I select "#{value}" from "#{field}"}
-end
-
-Wenn /^(?:|ich )"([^"]*)" als Datum und Uhrzeit auswähle$/ do |time|
-  When %{I select "#{time}" as the date and time}
-end
-
-Wenn /^(?:|ich )"([^"]*)" als "([^"]*)" Datum und Uhrzeit auswähle$/ do |datetime, datetime_label|
-  When %{I select "#{datetime}" as the "#{datetime_label}" date and time}
-end
-
-Wenn /^(?:|ich )"([^"]*)" als Uhrzeit auswähle$/ do |time|
-  When %{I select "#{time}" as the time}
-end
-
-Wenn /^(?:|ich )"([^"]*)" als "([^"]*)" Uhrzeit auswähle$/ do |time, time_label|
-  When %{I select "#{time}" as the "#{time_label}" time}
-end
-
-Wenn /^(?:|ich )"([^"]*)" als Datum auswähle$/ do |date|
-  When %{I select "#{date}" as the date}
-end
-
-Wenn /^(?:|ich )"([^"]*)" als "([^"]*)" Datum auswähle$/ do |date, date_label|
-  When %{I select "#{date}" as the "#{date_label}" date}
 end
 
 Wenn /^(?:|ich )"([^"]*)" anhake$/ do |field|
@@ -83,47 +66,31 @@ Dann /^(?:|ich sollte |sollte (?:|ich )?)"([^"]*)" sehen$/ do |text|
   Then %{I should see "#{text}"}
 end
 
-Dann /^(?:|ich sollte |sollte (?:|ich )?)"([^"]*)" innerhalb "([^"]*)" sehen$/ do |text, selector|
-  Then %{I should see "#{text}" within "#{selector}"}
-end
-
 Dann /^(?:|ich sollte |sollte (?:|ich )?)\/([^\/]*)\/ sehen$/ do |regexp|
   Then %{I should see /#{regexp}/}
-end
-
-Dann /^(?:|ich sollte |sollte (?:|ich )?)\/([^\/]*)\/ innerhalb "([^"]*)" sehen$/ do |regexp, selector|
-  Then %{I should see /#{regexp}/ within "#{selector}"}
 end
 
 Dann /^(?:|ich sollte |sollte (?:|ich )?)nicht "([^"]*)" sehen$/ do |text|
   Then %{I should not see "#{text}"}
 end
 
-Dann /^(?:|ich sollte |sollte (?:|ich )?)nicht "([^"]*)" innerhalb "([^"]*)" sehen$/ do |text, selector|
-  Then %{I should not see "#{text}" within "#{selector}"}
-end
-
 Dann /^(?:|ich sollte |sollte (?:|ich )?)nicht \/([^\/]*)\/ sehen$/ do |regexp|
   Then %{I should not see /#{regexp}/}
 end
 
-Dann /^(?:|ich sollte |sollte (?:|ich )?)nicht \/([^\/]*)\/ innerhalb "([^"]*)" sehen$/ do |regexp, selector|
-  Then %{I should not see /#{regexp}/ within "#{selector}"}
-end
-
-Dann /^sollte das "([^"]*)" Feld "([^"]*)" enthalten$/ do |field, value|
+Dann /^(?:|sollte )das "([^"]*)" Feld (?:|sollte )"([^"]*)" enthalten$/ do |field, value|
   Then %{the "#{field}" field should contain "#{value}"}
 end
 
-Dann /^sollte das "([^"]*)" Feld nicht "([^"]*)" enthalten$/ do |field, value|
+Dann /^(?:|sollte )das "([^"]*)" Feld (?:|sollte )nicht "([^"]*)" enthalten$/ do |field, value|
   Then %{the "#{field}" field should not contain "#{value}"}
 end
 
-Dann /^sollte die "([^"]*)" Checkbox angehakt sein$/ do |label|
+Dann /^(?:|sollte )die "([^"]*)" Checkbox (?:|sollte )angehakt sein$/ do |label|
   Then %{the "#{label}" checkbox should be checked}
 end
 
-Dann /^sollte die "([^"]*)" Checkbox nicht angehakt sein$/ do |label|
+Dann /^(?:|sollte )die "([^"]*)" Checkbox (?:|sollte )nicht angehakt sein$/ do |label|
   Then %{the "#{label}" checkbox should not be checked}
 end
 
