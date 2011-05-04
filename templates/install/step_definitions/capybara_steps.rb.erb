@@ -1,4 +1,4 @@
-<%= embed_file('support/edit_warning.txt') %>
+<%= embed_file('support/web_steps_warning.txt') %>
 
 require 'uri'
 require 'cgi'
@@ -13,12 +13,12 @@ end
 World(WithinHelpers)
 
 # Single-line step scoper
-When /^(.*) within ([^:]+)$/ do |step, parent|
+When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }
 end
 
 # Multi-line step scoper
-When /^(.*) within ([^:]+):$/ do |step, parent, table_or_string|
+When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
 

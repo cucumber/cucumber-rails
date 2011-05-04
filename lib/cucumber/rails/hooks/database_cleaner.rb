@@ -12,11 +12,11 @@ begin
   end
 
   Before('~@no-txn', '~@selenium', '~@culerity', '~@celerity', '~@javascript') do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = $__cucumber_global_database_cleaner_strategy
   end
 
   Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do
-    DatabaseCleaner.strategy = $__cucumber_global_database_cleaner_strategy
+    DatabaseCleaner.strategy = :truncation
   end
 
   Before do

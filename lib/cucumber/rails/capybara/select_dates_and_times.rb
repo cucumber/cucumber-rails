@@ -28,7 +28,7 @@ module Cucumber
 
         # @example "event_starts_at_"
         def get_base_dom_id_from_label_tag(field)
-          find(:xpath, "//label[contains(., '#{field}')]")['for'].gsub(/(1i)$/, '')
+          find(:xpath, "//label[contains(., '#{field}')]")['for'].gsub(/(_[1-5]i)$/, '')
         end
       end
     end

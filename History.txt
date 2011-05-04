@@ -1,3 +1,15 @@
+== In Git
+
+* Generated paths.rb cleanup (#133 Tim Pope)
+* Allow css pseudo-classes in scopers (#122 twalpole)
+
+== 0.4.1 2011-04-05
+
+=== Bugfixes
+* Fixed incorrect warning in generated files. (#115 Emanuele Vicentini)
+* Fixed incorrect hooks for DatabaseCleaner (#113 Markus Bengts)
+* Throw an error if the user forgot to add DatabaseCleaner to the Gemfile, allowing them to decide whether or not to use it. (#36 Aslak Hellesøy, Ryan Bigg)
+
 == 0.4.0 2011-03-20
 
 === New Features
