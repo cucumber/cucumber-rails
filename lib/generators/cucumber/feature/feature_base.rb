@@ -3,10 +3,12 @@ module Cucumber
     module FeatureBase
 
       def create_directory(m = self, rails2 = false)
+        dir = 'features/step_definitions'
+
         if rails2
-          m.directory 'features/step_definitions'
+          m.directory dir
         else
-          m.empty_directory 'features/step_definitions'
+          m.empty_directory dir unless File.directory?(dir)
         end
       end
 
