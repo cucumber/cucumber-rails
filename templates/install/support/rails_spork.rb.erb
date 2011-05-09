@@ -6,6 +6,8 @@ Spork.prefork do
 <%= embed_template('support/_rails_prefork.rb.erb', '  ') %>
 
 <%= embed_file("support/#{driver}.rb", '  ') %>
+
+<%= embed_file("support/configuration.rb", '  ') %>
 end
  
 Spork.each_run do

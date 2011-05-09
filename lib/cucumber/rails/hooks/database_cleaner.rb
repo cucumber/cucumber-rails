@@ -16,7 +16,7 @@ begin
   end
 
   Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :truncation, Cucumber::Rails::Configuration.truncation_options || {}
   end
 
   Before do

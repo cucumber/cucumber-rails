@@ -5,6 +5,7 @@ else
   require 'cucumber/rails3'
 end
 
+require 'cucumber/rails/configuration'
 require 'cucumber/rails/world'
 require 'cucumber/rails/hooks'
 require 'cucumber/rails/capybara'
