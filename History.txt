@@ -1,7 +1,7 @@
 == In Git
 
 * Dropped support for Webrat (Aslak Hellesøy)
-* Upgrade to Capybara 1.0.0.beta1 or newer (#130 Simon Menke, Aslak Hellesøy)
+* Upgrade to Capybara 1.0.0.beta1 or newer (#130 Simon Menke, Klaus Hartl, Aslak Hellesøy)
 * Generated paths.rb cleanup (#133 Tim Pope)
 * Allow css pseudo-classes in scopers (#122 twalpole)
 
