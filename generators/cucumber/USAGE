@@ -9,5 +9,5 @@ Description:
 Examples:
     `./script/generate cucumber`
 
-You can also provide a language argument for localized webrat_steps:
+You can also provide a language argument for localized capybara_steps:
     `./script/generate cucumber de`

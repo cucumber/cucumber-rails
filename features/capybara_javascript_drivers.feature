@@ -1,3 +1,4 @@
+@broken
 Feature: Capybara Javascript Drivers
 
   Background: A simple calendar app

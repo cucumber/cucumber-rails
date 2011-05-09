@@ -7,28 +7,12 @@ module Cucumber
       DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
 
       def install_cucumber_rails(m)
-        check_upgrade_limitations
         create_templates(m)
         create_scripts(m)
         create_step_definitions(m)
         create_feature_support(m)
         create_tasks(m)
         create_database(m) unless options[:skip_database]
-      end
-
-      # Checks and prints the limitations
-      def check_upgrade_limitations
-        if File.exist?('features/step_definitions/webrat_steps.rb')
-          STDERR.puts "Please remove features/step_definitions/webrat_steps.rb\n" +
-          "See upgrading instructions for 0.2.0 in History.txt"
-          exit(1)
-        end
-
-        if File.exist?('features/support/version_check.rb')
-          STDERR.puts "Please remove features/support/version_check.rb\n" +
-          "See upgrading instructions for 0.2.0 in History.txt"
-          exit(1)
-        end
       end
 
       # Creates templates
@@ -57,7 +41,7 @@ module Cucumber
           m.empty_directory 'features/step_definitions'
         end
 
-        m.template "step_definitions/#{driver}_steps.rb.erb", 'features/step_definitions/web_steps.rb'
+        m.template "step_definitions/capybara_steps.rb.erb", 'features/step_definitions/web_steps.rb'
         if language != 'en'
           m.template "step_definitions/web_steps_#{language}.rb.erb", "features/step_definitions/web_steps_#{language}.rb"
         end

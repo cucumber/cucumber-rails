@@ -5,7 +5,7 @@ require 'spork'
 Spork.prefork do
 <%= embed_template('support/_rails_prefork.rb.erb', '  ') %>
 
-<%= embed_file("support/#{driver}.rb", '  ') %>
+<%= embed_file("support/capybara.rb", '  ') %>
 end
  
 Spork.each_run do
