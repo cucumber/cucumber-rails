@@ -42,7 +42,7 @@ Learn about the various options:
 
 Finally, bootstrap your Rails app, for example:
 
-  ruby script/generate cucumber --rspec --capybara
+  ruby script/generate cucumber
 
 == Generating a Cucumber feature
 
