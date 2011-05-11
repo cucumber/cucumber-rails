@@ -22,7 +22,7 @@ Then install it by running:
 
 Learn about the various options:
 
-    ruby rails generate cucumber:install --help
+    rails generate cucumber:install --help
 
 Finally, bootstrap your Rails app, for example:
 
@@ -35,8 +35,8 @@ Cucumber features by hand once you get the hang of it.
 
 Example:
 
-    ruby rails generate cucumber:feature post title:string body:text published:boolean
-    ruby rails generate scaffold post title:string body:text published:boolean
+    rails generate cucumber:feature post title:string body:text published:boolean
+    rails generate scaffold post title:string body:text published:boolean
     rake db:migrate
     rake cucumber
 
