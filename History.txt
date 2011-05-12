@@ -1,3 +1,7 @@
+== In Git
+
+* fixed date-localization bug (#138 Michael Opitz)
+
 == 0.5.0.beta1
 
 * Dropped support for Rails 2 (Aslak Hellesøy)
