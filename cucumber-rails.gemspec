@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.add_dependency('rack-test', '>= 0.5.7')
   s.add_dependency('nokogiri', '>= 1.4.4')
   s.add_dependency('capybara', '>= 1.0.0.beta1')
-  s.add_development_dependency('bundler', '>= 1.0.12')
+  s.add_development_dependency('bundler', '>= 1.0.13')
   s.add_development_dependency('aruba', '>= 0.3.6')
   s.add_development_dependency('rails', '>= 3.0.7')
   s.add_development_dependency('sqlite3-ruby', '>= 1.3.3')
