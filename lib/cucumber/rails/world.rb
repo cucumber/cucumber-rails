@@ -1,3 +1,9 @@
+begin
+  # Try to load it so we can assign @_result below if needed.
+  require 'test/unit/testresult'
+rescue LoadError => ignore
+end
+
 module Cucumber #:nodoc:
   module Rails #:nodoc:
     class World < ActionController::IntegrationTest #:nodoc:

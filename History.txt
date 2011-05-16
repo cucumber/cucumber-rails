@@ -1,6 +1,7 @@
 == In Git
 
-* fixed date-localization bug (#138 Michael Opitz)
+* Fixed "undefined method `add_assertion' for nil:NilClass (NoMethodError)" for non-RSpec projects on Ruby 1.8.7 (Aslak Hellesøy)
+* Fixed date-localization bug (#138 Michael Opitz)
 
 == 0.5.0.beta1
 
