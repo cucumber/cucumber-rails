@@ -1,14 +1,15 @@
-== In Git
+== 0.5.0 2011-05-17
 
+* Fix "Capybara name error from env.rb" (#125 Aslak Hellesøy)
 * Fixed "undefined method `add_assertion' for nil:NilClass (NoMethodError)" for non-RSpec projects on Ruby 1.8.7 (Aslak Hellesøy)
 * Fixed date-localization bug (#138 Michael Opitz)
 
-== 0.5.0.beta1
+== 0.5.0.beta1 2011-05-08
 
 * Dropped support for Rails 2 (Aslak Hellesøy)
 * Dropped support for Webrat (Aslak Hellesøy)
 * Removed database cleaner strategy overrides (#134 Daniel Morrison, Daniel Duvall)
-* Upgrade to Capybara 1.0.0.beta1 or newer (#130 Simon Menke, Klaus Hartl, Aslak Hellesøy)
+* Upgrade to Capybara 1.0.0.beta1 or newer (#129, #130 Simon Menke, Klaus Hartl, Aslak Hellesøy)
 * Generated paths.rb cleanup (#133 Tim Pope)
 * Allow css pseudo-classes in scopers (#122 twalpole)
 
