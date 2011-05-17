@@ -1,5 +1,6 @@
 == 0.5.0 2011-05-17
 
+* Latest cucumber-rails doesn't correctly initialize World (#98 Aslak Hellesøy)
 * Fix "Capybara name error from env.rb" (#125 Aslak Hellesøy)
 * Fixed "undefined method `add_assertion' for nil:NilClass (NoMethodError)" for non-RSpec projects on Ruby 1.8.7 (Aslak Hellesøy)
 * Fixed date-localization bug (#138 Michael Opitz)
