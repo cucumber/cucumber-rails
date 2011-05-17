@@ -3,7 +3,7 @@ $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'cucumber-rails'
-  s.version     = '0.5.0.beta1'
+  s.version     = '0.5.0'
   s.authors     = ["Aslak Hellesøy", "Dennis Blöte", "Rob Holland"]
   s.description = "Cucumber Generators and Runtime for Rails"
   s.summary     = "#{s.name}-#{s.version}"
@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency('aruba', '>= 0.3.6')
   s.add_development_dependency('rails', '>= 3.0.7')
   s.add_development_dependency('sqlite3-ruby', '>= 1.3.3')
-  s.add_development_dependency('rspec', '>= 2.6.0.rc6')
-  s.add_development_dependency('rspec-rails', '>= 2.2.0')
+  s.add_development_dependency('rspec', '>= 2.6.0')
+  s.add_development_dependency('rspec-rails', '>= 2.6.0')
   s.add_development_dependency('factory_girl', '>= 2.0.0.beta2')
   s.add_development_dependency('database_cleaner', '>= 0.6.7')
   s.add_development_dependency('mongoid', '>= 2.0.1')
