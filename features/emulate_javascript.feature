@@ -5,6 +5,7 @@ Feature: Emulate Javascript
     And I successfully run `rails generate scaffold widget name:string`
     And I write to "features/f.feature" with:
       """
+      @javascript
       Feature: Widget inventory
         Scenario: Delete a widget
           Given there is a widget named "wrench"
