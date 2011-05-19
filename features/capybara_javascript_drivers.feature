@@ -1,10 +1,11 @@
-@broken
 Feature: Capybara Javascript Drivers
 
   Background: A simple calendar app
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
     And I successfully run `bundle exec rails g scaffold appointment name:string when:datetime`
-    And I write to "features/create_appointment.feature" with:
+
+  Scenario Outline: Use a particular driver
+    Given I write to "features/create_appointment.feature" with:
       """
       @javascript
       Feature: Create appointments
@@ -17,9 +18,7 @@ Feature: Capybara Javascript Drivers
           And I should see "2009-02-20 15:10:00 UTC"
 
       """
-  
-  Scenario Outline: Use a particular driver
-    Given I append to "Gemfile" with:
+    And I append to "Gemfile" with:
       """
       <Gemfile extra>
 
@@ -36,8 +35,51 @@ Feature: Capybara Javascript Drivers
       1 scenario (1 passed)
       6 steps (6 passed)
       """
-      
+
     Examples:
-      | Gemfile extra                    | env.rb extra                                                  |
-      | gem "akephalos", :group => :test | require 'akephalos' ; Capybara.javascript_driver = :akephalos |
-    
+      | Gemfile extra                    | env.rb extra       |
+      | gem "capybara", :group => :test  | require 'capybara' |
+
+  Scenario Outline: Mixed DB access
+    Given I write to "features/create_appointment.feature" with:
+      """
+      @javascript
+      Feature: Create appointments
+        Scenario: Constitution on May 17
+          Given a random appointment
+          And I am viewing random appointment
+          Then I should see "Random appointment"
+
+      """
+    And I write to "features/step_definitions/custom_steps.rb" with:
+      """
+      Given /^a random appointment$/ do
+        @appointment = Appointment.create :name => 'Random apointment', :when => DateTime.now
+      end
+
+      Given /^I am viewing random appointment$/ do
+        visit appointment_path(@appointment)
+      end
+      """
+    And I append to "Gemfile" with:
+      """
+      <Gemfile extra>
+
+      """
+    And I append to "features/support/env.rb" with:
+      """
+      <env.rb extra>
+
+      """
+
+    When I run `bundle exec rake db:migrate cucumber`
+    Then it should pass with:
+      """
+      1 scenario (1 passed)
+      3 steps (3 passed)
+      """
+
+    Examples:
+      | Gemfile extra                    | env.rb extra       |
+      | gem "capybara", :group => :test  | require 'capybara' |
+
