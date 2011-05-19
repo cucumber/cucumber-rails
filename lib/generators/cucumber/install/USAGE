@@ -7,9 +7,9 @@ Description:
     Also see the cucumber:feature generator.
     
 Examples:
-    `script/rails generate cucumber:install`
+    `rails generate cucumber:install`
 
-    `script/rails generate cucumber:install --help`
+    `rails generate cucumber:install --help`
 
-    You can also provide a language argument for localized webrat_steps:
-    `script/rails generate cucumber:install de`
+    You can also provide a language argument for localized web_steps:
+    `rails generate cucumber:install de`

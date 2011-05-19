@@ -15,15 +15,6 @@ module Cucumber
 
     attr_reader :framework
 
-    def generate
-      create_templates
-      create_scripts
-      create_step_definitions
-      create_feature_support
-      create_tasks
-      create_database unless options[:skip_database]
-    end
-
     def create_templates
       template 'config/cucumber.yml.erb', 'config/cucumber.yml'
     end
