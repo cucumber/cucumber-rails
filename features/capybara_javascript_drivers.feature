@@ -54,7 +54,7 @@ Feature: Capybara Javascript Drivers
     And I write to "features/step_definitions/custom_steps.rb" with:
       """
       Given /^a random appointment$/ do
-        @appointment = Appointment.create :name => 'Random apointment', :when => DateTime.now
+        @appointment = Appointment.create!(:name => 'Random appointment', :when => DateTime.now)
       end
 
       Given /^I am viewing random appointment$/ do

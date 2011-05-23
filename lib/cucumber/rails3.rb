@@ -6,6 +6,7 @@ require 'cucumber/rails3/action_controller'
 
 if defined?(ActiveRecord::Base)
   require 'rails/test_help'
+  require 'cucumber/rails3/active_record'
 else
   require 'action_dispatch/testing/test_process'
   require 'action_dispatch/testing/integration'

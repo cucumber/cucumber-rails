@@ -1,6 +1,6 @@
 Feature: Emulate Javascript
 
-  Scenario: Delete a widget
+  Scenario: See a widget
     Given I have created a new Rails 3 app "widgets" with cucumber-rails support
     And I successfully run `rails generate scaffold widget name:string`
     And I write to "features/f.feature" with:
@@ -10,8 +10,7 @@ Feature: Emulate Javascript
         Scenario: Delete a widget
           Given there is a widget named "wrench"
           When I go to the widgets page
-          And I follow "Destroy"
-          Then I should not see "wrench"
+          Then I should see "wrench"
       """
     And I write to "features/step_definitions/s.rb" with:
       """
@@ -29,6 +28,6 @@ Feature: Emulate Javascript
     Then it should pass with:
        """
        1 scenario (1 passed)
-       4 steps (4 passed)
+       3 steps (3 passed)
        """
 
