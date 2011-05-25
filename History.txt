@@ -1,7 +1,8 @@
-== In Git
+== 0.5.1 2011-05-25
 
 === Bugfixes
-* cucumber:feature and integers. not createing feature correctly (#30 John Ivanoff, Aslak Hellesøy)
+* Mixed DB access feature for @javascript drivers (#142 Alexander Mankuta)
+* cucumber:feature and integers. not creating feature correctly (#30 John Ivanoff, Aslak Hellesøy)
 * New project can't find capybara's "visit" (#143 Aslak Hellesøy)
 * rails generate cucumber:install attempts double run (#140 Aslak Hellesøy)
 
