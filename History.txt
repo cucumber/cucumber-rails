@@ -1,6 +1,7 @@
 == In Git
 
 === Bugfixes
+* New project can't find capybara's "visit" (#143 Aslak Hellesøy)
 * rails generate cucumber:install attempts double run (#140 Aslak Hellesøy)
 
 == 0.5.0 2011-05-17
