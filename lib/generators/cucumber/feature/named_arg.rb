@@ -9,6 +9,8 @@ class NamedArg
   def value(n)
     if @type == 'boolean'
       (n % 2) == 0
+    elsif @type == 'integer'
+      n
     else
       "#{@name} #{n}"
     end
