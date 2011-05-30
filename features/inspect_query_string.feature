@@ -27,7 +27,8 @@ Feature: Inspect query string
             | what | vegetable |
           And I should see "Cuke 10"
       """
-    And I run `bundle exec rake db:migrate cucumber`
+    And I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake cucumber`
     Then it should pass with:
        """
        3 scenarios (3 passed)

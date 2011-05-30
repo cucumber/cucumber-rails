@@ -16,7 +16,8 @@ Feature: Select dates
           Then I should see "Norway's constitution"
           And I should see "2009-02-20 15:10:00 UTC"
       """
-    When I run `bundle exec rake db:migrate cucumber`
+    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake cucumber`
     Then it should pass with:
       """
       1 scenario (1 passed)
@@ -52,7 +53,8 @@ Feature: Select dates
         </div>
       <% end %>
       """
-    When I run `bundle exec rake db:migrate cucumber`
+    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake cucumber`
     Then it should pass with:
       """
       1 scenario (1 passed)
@@ -88,7 +90,8 @@ Feature: Select dates
         </div>
       <% end %>
       """
-    When I run `bundle exec rake db:migrate cucumber`
+    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake cucumber`
     Then it should pass with:
       """
       1 scenario (1 passed)

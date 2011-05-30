@@ -29,7 +29,8 @@ Feature: Capybara Javascript Drivers
 
       """
 
-    When I run `bundle exec rake db:migrate cucumber`
+    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake cucumber`
     Then it should pass with:
       """
       1 scenario (1 passed)
@@ -72,7 +73,8 @@ Feature: Capybara Javascript Drivers
 
       """
 
-    When I run `bundle exec rake db:migrate cucumber`
+    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake cucumber`
     Then it should pass with:
       """
       1 scenario (1 passed)

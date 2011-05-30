@@ -33,7 +33,8 @@ Feature: Run with Test::Unit
         f.name 'testwidget'
       end
       """
-    When I run `rake db:migrate cucumber`
+    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake cucumber`
     Then it should pass with:
        """
        1 scenario (1 passed)
