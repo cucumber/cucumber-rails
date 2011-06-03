@@ -52,7 +52,7 @@ Without Rake:
 
 ## Bugs and feature requests
 
-The only way to have a bug fixed or a new feature accepted is to describe it with a Cucumber feature. Let's say you think you have found a bug in the cucumber:install generator. Fork this project, clone it to your workstation and check out a branch with a descriptive name:
+The *only* way to have a bug fixed or a new feature accepted is to describe it with a Cucumber feature. Let's say you think you have found a bug in the cucumber:install generator. Fork this project, clone it to your workstation and check out a branch with a descriptive name:
 
     git clone git@github.com:you/cucumber-rails.git
     git checkout -b bug-install-generator
