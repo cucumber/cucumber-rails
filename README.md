@@ -65,11 +65,13 @@ If you know how to fix the bug yourself, make a second commit (after committing 
 
 I strongly recommend rvm and ruby 1.9.2. When you have that, cd into your cucumber-rails repository and:
 
-  gem install bundler
-  bundle install
+    gem install bundler
+    bundle install
 
 ### Running all features
 
-  rake cucumber
+With all dependencies installed, all features should pass:
+
+    rake cucumber
 
 One of the features uses MongoDB, which needs to be running in order to make features/mongoid.feature to pass.
