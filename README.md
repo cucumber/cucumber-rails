@@ -50,25 +50,28 @@ Without Rake:
 
     [bundle exec] cucumber
 
-## Hacking on Cucumber-Rails
+## Bugs and feature requests
 
-If you have a bugfix or a new feature you want to contribute, please fork on Github and make your own feature branch:
+The *only* way to have a bug fixed or a new feature accepted is to describe it with a Cucumber feature. Let's say you think you have found a bug in the cucumber:install generator. Fork this project, clone it to your workstation and check out a branch with a descriptive name:
 
-  git clone git@github.com:you/cucumber-rails.git
-  git checkout -b 87-my-awesome-bugfix
+    git clone git@github.com:you/cucumber-rails.git
+    git checkout -b bug-install-generator
 
-The feature branch should contain a ticket number (if applicable) and a descriptive name that aligns with the ticket name.
-When you think you're done send a pull request.
+Start by making sure you can run the existing features. Now, create a feature that demonstrates what's wrong. See the existing features for examples. When you have a failing feature that reproduces the bug, commit, push and send a pull request. Someone from the Cucumber-Rails team will review it and hopefully create a fix.
+
+If you know how to fix the bug yourself, make a second commit (after committing the failing feature) before you send the pull request.
 
 ### Setting up your environment
 
 I strongly recommend rvm and ruby 1.9.2. When you have that, cd into your cucumber-rails repository and:
 
-  gem install bundler
-  bundle install
+    gem install bundler
+    bundle install
 
 ### Running all features
 
-  rake cucumber
+With all dependencies installed, all features should pass:
+
+    rake cucumber
 
 One of the features uses MongoDB, which needs to be running in order to make features/mongoid.feature to pass.
