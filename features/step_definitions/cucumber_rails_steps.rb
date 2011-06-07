@@ -16,10 +16,6 @@ Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$
 
       """
     And I successfully run `bundle exec rails generate cucumber:install`
-    And I append to "features/support/env.rb" with:
-      """
-      Capybara.server_boot_timeout = 60 # It takes forever sometimes
-      """
   }
 end
 
