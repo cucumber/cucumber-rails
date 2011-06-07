@@ -1,6 +1,7 @@
 == 0.5.2 2011-06-07
 
 === New Features
+* Upgraded to Capybara 1.0.0.rc1 (Aslak Hellesøy)
 * Add stats to generator (#144 Aslak Hellesøy)
 
 == 0.5.1 2011-05-25
