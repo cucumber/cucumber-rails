@@ -3,4 +3,3 @@ doc
 tmp
 coverage
 .bundle
-Gemfile.lock

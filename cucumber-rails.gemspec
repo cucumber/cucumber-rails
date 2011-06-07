@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.add_dependency('cucumber', '>= 0.10.5')
   s.add_dependency('rack-test', '>= 0.5.7')
   s.add_dependency('nokogiri', '>= 1.4.4')
-  s.add_dependency('capybara', '>= 1.0.0.beta1')
-  s.add_development_dependency('rails', '= 3.0.7') # 3.0.8.rc4 and 3.1.0.rc1 currently breaks some features.
+  s.add_dependency('capybara', '>= 1.0.0.rc1')
+  s.add_development_dependency('rails', '= 3.1.0.rc1')
   s.add_development_dependency('rake', '= 0.8.7') # Until Rails 3 supports rake 0.9.0. Rakefile needs TheApp::Application.send(:include, Rake::DSL)
   s.add_development_dependency('bundler', '>= 1.0.14')
   s.add_development_dependency('aruba', '>= 0.3.7')
