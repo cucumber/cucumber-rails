@@ -1,3 +1,8 @@
+== 0.5.3 (In Git)
+
+=== New Features
+* Added a @no-database-cleaner tag you can add if you don't want to run DatabaseCleaner. Useful for debugging if you want to leave data in the database. Typical use case is to run `rails server --environment test` to look at/try app with data from test. (Aslak Hellesøy)
+
 == 0.5.2 2011-06-07
 
 === New Features

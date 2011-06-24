@@ -1,11 +1,11 @@
 begin
   require 'database_cleaner'
 
-  Before do
+  Before('~@no-database-cleaner') do
     DatabaseCleaner.start
   end
 
-  After do
+  After('~@no-database-cleaner') do
     DatabaseCleaner.clean
   end
 

@@ -1,5 +1,12 @@
 if defined?(ActiveRecord::Base)
-  require 'cucumber/rails3/active_record'
+  class ActiveRecord::Base
+    mattr_accessor :shared_connection
+    @@shared_connection = nil
+
+    def self.connection
+      @@shared_connection || retrieve_connection
+    end
+  end
 
   Before('@javascript') do
     # Forces all threads to share the same connection. This works on
