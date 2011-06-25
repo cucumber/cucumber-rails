@@ -10,7 +10,7 @@ end
 desc "Push yardoc to http://cukes.info/cucumber-rails/api/#{CUCUMBER_RAILS_VERSION}"
 task :push_yard => :yard do
   sh("tar czf tmp/api-#{CUCUMBER_RAILS_VERSION}.tgz -C doc .")
-  sh("scp tmp/api-#{CUCUMBER_RAILS_VERSION}.tgz cukes.info:/var/www/cucumber-rails/cucumber-rails/api")
+  sh("scp tmp/api-#{CUCUMBER_RAILS_VERSION}.tgz cukes.info:/var/www/cucumber-rails/api")
   sh("ssh cukes.info 'cd /var/www/cucumber-rails/api && rm -rf #{CUCUMBER_RAILS_VERSION} && mkdir #{CUCUMBER_RAILS_VERSION} && tar xzf api-#{CUCUMBER_RAILS_VERSION}.tgz -C #{CUCUMBER_RAILS_VERSION} && rm -f latest && ln -s #{CUCUMBER_RAILS_VERSION} latest'")
 end
 
