@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rails', '>= 3.1.0.rc4')
   s.add_development_dependency('rake', '>= 0.9.2')
   s.add_development_dependency('bundler', '>= 1.0.15')
-  s.add_development_dependency('aruba', '>= 0.4.1')
+  s.add_development_dependency('aruba', '>= 0.4.3')
   s.add_development_dependency('sqlite3-ruby', '>= 1.3.3')
   s.add_development_dependency('rspec', '>= 2.6.0')
   s.add_development_dependency('rspec-rails', '>= 2.6.1')
@@ -34,11 +34,14 @@ Gem::Specification.new do |s|
   s.add_development_dependency('uglifier', '>= 1.0.0')
   s.add_development_dependency('jquery-rails', '>= 1.0.12')
 
+  # For Documentation:
+  s.add_development_dependency('yard', '= 0.7.1')
+  s.add_development_dependency('rdiscount', '= 1.6.8')
+  s.add_development_dependency('bcat', '= 0.6.1')
+
   s.rubygems_version = ">= 1.6.1"
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
   s.executables      = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.extra_rdoc_files = ["LICENSE", "README.md", "History.txt"]
-  s.rdoc_options     = ["--charset=UTF-8"]
   s.require_path     = "lib"
 end

@@ -17,6 +17,10 @@ Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$
       """
     And I successfully run `bundle exec rails generate cucumber:install`
   }
+  if(ENV['ARUBA_REPORT_DIR'])
+    @aruba_report_start = Time.new
+    sleep(1)
+  end
 end
 
 Given /^a project without ActiveRecord$/ do
@@ -58,6 +62,10 @@ Given /^a project without ActiveRecord$/ do
       """
     And I remove the file "config/database.yml"
   }
+  if(ENV['ARUBA_REPORT_DIR'])
+    @aruba_report_start = Time.new
+    sleep(1)
+  end
 end
 
 And /^a cukes resource$/ do

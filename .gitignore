@@ -3,3 +3,4 @@ doc
 tmp
 coverage
 .bundle
+.yardoc/

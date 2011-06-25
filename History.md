@@ -2,7 +2,7 @@
 
 ### New Features
 * Added a @no-database-cleaner tag you can add if you don't want to run DatabaseCleaner. Useful for debugging if you want to leave data in the database. Typical use case is to run `rails server --environment test` to look at/try app with data from test. (Aslak Hellesøy)
-* Markdown format in History. (Aslak Hellesøy)
+* History file is now in Markdown format. (Aslak Hellesøy)
 
 ## [v1.0.0](https://github.com/cucumber/cucumber-rails/compare/v0.5.2...v1.0.0)
 

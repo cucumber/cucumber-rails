@@ -1,4 +1,5 @@
 # encoding: utf-8
+CUCUMBER_RAILS_VERSION = Gem::Specification.load(File.dirname(__FILE__) + '/cucumber-rails.gemspec').version.version
 require 'rubygems'
 require 'bundler/setup'
 Bundler::GemHelper.install_tasks
