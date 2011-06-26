@@ -1,3 +1,8 @@
+## [v1.0.2](https://github.com/cucumber/cucumber-rails/compare/v1.0.1...v1.0.2)
+
+### Bugfixes
+* Removed the dependency on rack-test, since it is not used directly. v1.0.1 was incompatible with Rails 3.0.9. (Aslak Hellesøy)
+
 ## [v1.0.1](https://github.com/cucumber/cucumber-rails/compare/v1.0.0...v1.0.1)
 
 ### New Features

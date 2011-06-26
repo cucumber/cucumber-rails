@@ -3,7 +3,7 @@ $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'cucumber-rails'
-  s.version     = '1.0.1'
+  s.version     = '1.0.2'
   s.authors     = ["Aslak Hellesøy", "Dennis Blöte", "Rob Holland"]
   s.description = "Cucumber Generators and Runtime for Rails"
   s.summary     = "#{s.name}-#{s.version}"
@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.homepage    = "http://cukes.info"
 
   s.add_dependency('cucumber', '~> 1.0.0')
-  s.add_dependency('rack-test', '>= 0.6.0')
   s.add_dependency('nokogiri', '>= 1.4.6')
   s.add_dependency('capybara', '>= 1.0.0')
   s.add_development_dependency('rails', '>= 3.1.0.rc4')

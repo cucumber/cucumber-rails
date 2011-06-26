@@ -1,11 +1,10 @@
 PATH
   remote: .
   specs:
-    cucumber-rails (1.0.1)
+    cucumber-rails (1.0.2)
       capybara (>= 1.0.0)
       cucumber (~> 1.0.0)
       nokogiri (>= 1.4.6)
-      rack-test (>= 0.6.0)
 
 GEM
   remote: http://rubygems.org/
