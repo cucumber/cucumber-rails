@@ -13,7 +13,6 @@ module Cucumber
     end    
 
     def generate
-      empty_directory 'features/step_definitions'
       template 'feature.erb', "features/manage_#{plural_name}.feature"
       template 'steps.erb', "features/step_definitions/#{singular_name}_steps.rb"
       gsub_file 'features/support/paths.rb', /'\/'/mi do |match|
