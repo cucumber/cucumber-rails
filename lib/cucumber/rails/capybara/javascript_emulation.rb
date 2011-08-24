@@ -19,6 +19,26 @@ module Cucumber
 
         private
 
+        def csrf?
+          csrf_param_node && csrf_token_node
+        end
+
+        def csrf_param_node
+          element_node.document.at_xpath("//meta[@name='csrf-param']")
+        end
+
+        def csrf_param
+          csrf_param_node['content']
+        end
+
+        def csrf_token_node
+          element_node.document.at_xpath("//meta[@name='csrf-token']")
+        end
+
+        def csrf_token
+          csrf_token_node['content']
+        end
+
         def js_form(document, action, emulated_method, method = 'POST')
           js_form = document.create_element('form')
           js_form['action'] = action
@@ -29,6 +49,16 @@ module Cucumber
             input['type'] = 'hidden'
             input['name'] = '_method'
             input['value'] = emulated_method
+            js_form.add_child(input)
+          end
+
+          # rails will wipe the session if the CSRF token is not sent
+          # with non-GET requests
+          if csrf? && emulated_method.downcase != "get"
+            input = document.create_element('input')
+            input['type'] = 'hidden'
+            input['name'] = csrf_param
+            input['value'] = csrf_token
             js_form.add_child(input)
           end
         
