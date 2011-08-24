@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.add_dependency('cucumber', '~> 1.0.0')
   s.add_dependency('nokogiri', '>= 1.4.6')
   s.add_dependency('capybara', '>= 1.0.0')
-  s.add_development_dependency('rails', '>= 3.1.0.rc4')
+  s.add_development_dependency('rails', '>= 3.1.0.rc6')
   s.add_development_dependency('rake', '>= 0.9.2')
   s.add_development_dependency('bundler', '>= 1.0.15')
   s.add_development_dependency('aruba', '>= 0.4.3')
