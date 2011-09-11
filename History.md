@@ -1,3 +1,8 @@
+## [v1.0.3](https://github.com/cucumber/cucumber-rails/compare/v1.0.2...v1.0.3)
+
+### Bugfixes
+* sqlite3-ruby is now sqlite3 ([#158](https://github.com/cucumber/cucumber-rails/pull/158) Trung Le)
+
 ## [v1.0.2](https://github.com/cucumber/cucumber-rails/compare/v1.0.1...v1.0.2)
 
 ### Bugfixes
