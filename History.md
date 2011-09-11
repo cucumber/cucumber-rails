@@ -6,6 +6,7 @@
 * Rails destroy cucumber:feature deletes the steps folder, even though it's not empty. ((#154)[https://github.com/cucumber/cucumber-rails/pull/154], (#111)[https://github.com/cucumber/cucumber-rails/issues/111] mblake)
 * Adjust select_date, select_time xpaths so they work when scoped in the document ((#151)[https://github.com/cucumber/cucumber-rails/pull/151] Thomas Walpole)
 * Extend javascript emulation to handle rails CSRF protection ((#164)[https://github.com/cucumber/cucumber-rails/pull/164] Jonathon M. Abbott)
+* Add steps for finding fields with errors ((#162)[https://github.com/cucumber/cucumber-rails/pull/162] Mike Burns)
 
 ## [v1.0.2](https://github.com/cucumber/cucumber-rails/compare/v1.0.1...v1.0.2)
 
