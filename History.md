@@ -2,7 +2,6 @@
 
 ### Bugfixes
 * sqlite3-ruby is now sqlite3 ([#158](https://github.com/cucumber/cucumber-rails/pull/158) Trung Le)
-* Require features by default in the generated cucumber.yml ((#157)[https://github.com/cucumber/cucumber-rails/pull/157] Mario Visic)
 * Broken link in the USAGE file of the features generator ((#156)[https://github.com/cucumber/cucumber-rails/pull/156] Pablo Alonso García)
 * Rails destroy cucumber:feature deletes the steps folder, even though it's not empty. ((#154)[https://github.com/cucumber/cucumber-rails/pull/154], (#111)[https://github.com/cucumber/cucumber-rails/issues/111] mblake)
 
