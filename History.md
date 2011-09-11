@@ -4,6 +4,7 @@
 * sqlite3-ruby is now sqlite3 ([#158](https://github.com/cucumber/cucumber-rails/pull/158) Trung Le)
 * Broken link in the USAGE file of the features generator ((#156)[https://github.com/cucumber/cucumber-rails/pull/156] Pablo Alonso García)
 * Rails destroy cucumber:feature deletes the steps folder, even though it's not empty. ((#154)[https://github.com/cucumber/cucumber-rails/pull/154], (#111)[https://github.com/cucumber/cucumber-rails/issues/111] mblake)
+* Adjust select_date, select_time xpaths so they work when scoped in the document ((#151)[https://github.com/cucumber/cucumber-rails/pull/151] Thomas Walpole)
 
 ## [v1.0.2](https://github.com/cucumber/cucumber-rails/compare/v1.0.1...v1.0.2)
 
