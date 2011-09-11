@@ -2,6 +2,7 @@
 
 ### Bugfixes
 * sqlite3-ruby is now sqlite3 ([#158](https://github.com/cucumber/cucumber-rails/pull/158) Trung Le)
+* Require features by default in the generated cucumber.yml ((#157)[https://github.com/cucumber/cucumber-rails/pull/157] Mario Visic)
 
 ## [v1.0.2](https://github.com/cucumber/cucumber-rails/compare/v1.0.1...v1.0.2)
 

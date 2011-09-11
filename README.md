@@ -1,6 +1,8 @@
 # Cucumber-Rails
 
-Cucumber-Rails brings Cucumber to Rails3. It contains 2 generators - one
+Cucumber-Rails brings Cucumber to Rails 3.x. For Rails 2x support, see the [Cucumber Wiki](https://github.com/cucumber/cucumber/wiki/Ruby-on-Rails). 
+
+Cucumber-Rails contains 2 generators - one
 for bootstrapping your Rails app for Cucumber, and a second one for generating features.
 
 Cucumber-Rails also contains Cucumber Step Definitions that wrap Capybara,
