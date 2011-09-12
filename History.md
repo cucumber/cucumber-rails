@@ -1,3 +1,8 @@
+## [v1.0.4](https://github.com/cucumber/cucumber-rails/compare/v1.0.3...v1.0.4)
+
+### Bugfixes
+* Active_record hook prevents features that access multiple database from running correctly ([#152](https://github.com/cucumber/cucumber-rails/issues/152) winnipegtransit)
+
 ## [v1.0.3](https://github.com/cucumber/cucumber-rails/compare/v1.0.2...v1.0.3)
 
 ### Bugfixes
