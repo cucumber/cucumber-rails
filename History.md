@@ -1,3 +1,8 @@
+## [v1.0.5](https://github.com/cucumber/cucumber-rails/compare/v1.0.4...v1.0.5)
+
+### Bugfixes
+* No = dependencies in gemspec, since rubies with old YAML (sych) can't read them. (Aslak Hellesøy)
+
 ## [v1.0.4](https://github.com/cucumber/cucumber-rails/compare/v1.0.3...v1.0.4)
 
 ### Bugfixes
