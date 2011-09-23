@@ -3,10 +3,9 @@ Feature: Fixing Bundler Pre
   As a user with cucumber-rails outside of test group in my Gemfile
   I want run features without errors
   
-  
+  @bundler-pre
   Scenario: Install Cucumber-Rails with bundler prerelease
-    Given I am using bundler prerelease
-    And I have created a new Rails 3 app "rails-3-app" with cucumber-rails support and cucumber-rails is outside of test group
+    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support and cucumber-rails is outside of test group
     And I successfully run `rake db:migrate`
     And I write to "features/tests.feature" with:
       """
@@ -21,8 +20,5 @@ Feature: Fixing Bundler Pre
       1 step (1 passed)
       """
     And the output should contain "WARNING:"
-    
-  Scenario: Teardown
-    Given I am using stable bundler
 
 

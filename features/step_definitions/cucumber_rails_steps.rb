@@ -23,20 +23,6 @@ Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support 
   end
 end
 
-Given /^I am using bundler prerelease$/ do
-  steps %Q{
-    Given I successfully run `gem uninstall bundler`
-    And I successfully run `gem install bundler --pre`
-  }
-end
-
-Given /^I am using stable bundler$/ do
-  steps %Q{
-    Given I successfully run `gem uninstall bundler`
-    And I successfully run `gem install bundler`
-  }
-end
-
 Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$/ do |app_name|
   steps %Q{
     When I successfully run `rails new #{app_name}`
@@ -107,7 +93,7 @@ Given /^a project without ActiveRecord$/ do
   end
 end
 
-And /^a cukes resource$/ do
+Given /^a cukes resource$/ do
   steps %Q{
     Given I write to "config/routes.rb" with:
       """
@@ -124,5 +110,19 @@ And /^a cukes resource$/ do
       end
 
       """
+  }
+end
+
+Before('@bundler-pre') do
+  steps %Q{
+    Given I successfully run `gem uninstall bundler`
+    And I successfully run `gem install bundler --pre`
+  }
+end
+
+After('@bundler-pre') do
+  steps %Q{
+    Given I successfully run `gem uninstall bundler`
+    And I successfully run `gem install bundler`
   }
 end
