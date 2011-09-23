@@ -1,28 +1,8 @@
-@announce
 Feature: Mongoid
 
   Scenario: Keep Mongoid happy
-    Given I successfully run `rails new cuke-app`
+    Given I successfully run `rails new cuke-app -O`
     And I cd to "cuke-app"
-    And I write to "config/application.rb" with:
-      """
-      require File.expand_path('../boot', __FILE__)
-
-      require 'action_controller/railtie'
-      require 'action_mailer/railtie'
-      require 'active_resource/railtie'
-      require 'rails/test_unit/railtie'
-
-      Bundler.require(:default, Rails.env) if defined?(Bundler)
-
-      module CukeApp
-        class Application < Rails::Application
-          config.encoding = "utf-8"
-          config.filter_parameters += [:password]
-        end
-      end
-      """
-    And I remove the file "config/database.yml"
     And I append to "Gemfile" with:
       """
       gem "cucumber-rails", :group => :test, :path => '../../..'
@@ -32,7 +12,7 @@ Feature: Mongoid
       gem "bson_ext", :group => :test
 
       """
-    And I successfully run `bundle exec rails generate cucumber:install`
+    And I successfully run `bundle exec rails generate cucumber:install --skip-database`
     And I successfully run `bundle exec rails generate mongoid:config`
     And I write to "features/tests.feature" with:
       """
@@ -43,6 +23,7 @@ Feature: Mongoid
     And I overwrite "features/support/env.rb" with:
       """
       require 'cucumber/rails'
+      DatabaseCleaner.orm = 'mongoid'
       DatabaseCleaner.strategy = :truncation
       """
     And I run `bundle exec rake cucumber`
