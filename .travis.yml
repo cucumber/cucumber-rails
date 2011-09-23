@@ -1,0 +1,10 @@
+rvm: 
+  - 1.9.3
+  - 1.9.2
+  - 1.8.7
+# whitelist
+branches:
+  only:
+    - master
+# Needed for selenium browser
+before_script: sh -e /etc/init.d/xvfb start

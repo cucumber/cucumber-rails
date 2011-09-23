@@ -6,4 +6,20 @@ Bundler::GemHelper.install_tasks
 
 $:.unshift(File.dirname(__FILE__) + '/lib')
 Dir["#{File.dirname(__FILE__)}/dev_tasks/*.rake"].sort.each { |ext| load ext }
-task :default => :cucumber
+
+
+# Needed for selenium browser
+# See http://about.travis-ci.org/docs/user/selenium-setup/
+task :travis do
+  ["rspec spec", "rake cucumber"].each do |cmd|
+    puts "Starting to run #{cmd}..."
+    system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+    raise "#{cmd} failed!" unless $?.exitstatus == 0
+  end
+end
+
+if ENV['TRAVIS']
+  task :default => :travis
+else
+  task :default => :cucumber
+end
