@@ -3,4 +3,5 @@ doc
 tmp
 coverage
 .bundle
+.rvmrc
 .yardoc/
