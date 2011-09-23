@@ -24,13 +24,15 @@ Feature: Run with Test::Unit
     And I write to "features/step_definitions/s.rb" with:
       """
       Given /^there is a widget named "([^"]*)"$/ do |name|
-        Factory(:widget, :name => name)
+        FactoryGirl.create(:widget, :name => name)
       end
       """
     And I write to "features/support/factories.rb" with:
       """
-      Factory.define :widget do |f| 
-        f.name 'testwidget'
+      FactoryGirl.define do
+        factory :widget do 
+          name 'testwidget'
+        end
       end
       """
     When I run `bundle exec rake db:migrate`
