@@ -9,6 +9,9 @@ Before do
   unset_bundler_env_vars
 end
 
+
+
+
 if(ENV['ARUBA_REPORT_DIR'])
   # Override reporting behaviour so we don't document all files, only the ones
   # that have been created after @aruba_report_start (a Time object). This is

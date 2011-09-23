@@ -39,7 +39,7 @@ Feature: Capybara Javascript Drivers
 
     Examples:
       | Gemfile extra                    | env.rb extra       |
-      | gem "capybara", :group => :test  | require 'capybara' |
+      | ''  | '' |
 
   Scenario Outline: Mixed DB access
     Given I write to "features/create_appointment.feature" with:
@@ -83,5 +83,5 @@ Feature: Capybara Javascript Drivers
 
     Examples:
       | Gemfile extra                    | env.rb extra       |
-      | gem "capybara", :group => :test  | require 'capybara' |
+      | ''  | '' |
 

@@ -1,4 +1,3 @@
-@announce
 Feature: No Database
   Allow Cucumber to work with a Rails app without a database
 
