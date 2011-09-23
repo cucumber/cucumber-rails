@@ -1,3 +1,4 @@
+@announce
 Feature: Mongoid
 
   Scenario: Keep Mongoid happy
