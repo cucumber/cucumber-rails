@@ -4,7 +4,7 @@ module Cucumber
   class InstallGenerator < ::Rails::Generators::Base
     source_root File.expand_path("../templates", __FILE__)
 
-    DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
+    DEFAULT_SHEBANG = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])
 
     argument     :language,      :type => :string,  :banner => "LANG", :optional => true
 
