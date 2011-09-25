@@ -2,6 +2,7 @@
 
 ### Bugfixes
 * Fix deprecation warnings ([#169](https://github.com/cucumber/cucumber-rails/issues/169), [#170](https://github.com/cucumber/cucumber-rails/pull/170) Micah Geisel)
+* Deprecate #tableish. The Capybara::Node::Finders API has obsoleted the need for it. ([#145](https://github.com/cucumber/cucumber-rails/issues/145) Aslak Hellesøy)
 
 ## [v1.0.5](https://github.com/cucumber/cucumber-rails/compare/v1.0.4...v1.0.5)
 

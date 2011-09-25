@@ -50,6 +50,7 @@ module Cucumber
       end
 
       def _tableish(html, row_selector, column_selectors) #:nodoc
+        STDERR.puts("#{caller[1]}: #tableish is deprecated and may be removed in the next major version. Use Capybara::Node::Finders instead.")
         doc = Nokogiri::HTML(html)
         spans = nil
         max_cols = 0
