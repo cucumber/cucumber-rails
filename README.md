@@ -1,6 +1,6 @@
 # Cucumber-Rails
 
-[![Build Status](https://secure.travis-ci.org/chaffeqa/cucumber-rails.png)](http://travis-ci.org/chaffeqa/cucumber-rails)
+[![Build Status](https://secure.travis-ci.org/cucumber/cucumber-rails.png)](http://travis-ci.org/cucumber/cucumber-rails)
 
 Cucumber-Rails brings Cucumber to Rails 3.x. For Rails 2x support, see the [Cucumber Wiki](https://github.com/cucumber/cucumber/wiki/Ruby-on-Rails). 
 
