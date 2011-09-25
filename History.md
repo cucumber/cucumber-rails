@@ -1,4 +1,4 @@
-## In Git
+## [v1.0.6](https://github.com/cucumber/cucumber-rails/compare/v1.0.5...v1.0.6)
 
 ### Bugfixes
 * Fix deprecation warnings ([#169](https://github.com/cucumber/cucumber-rails/issues/169), [#170](https://github.com/cucumber/cucumber-rails/pull/170) Micah Geisel)

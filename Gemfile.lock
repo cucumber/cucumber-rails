@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cucumber-rails (1.0.5)
+    cucumber-rails (1.0.6)
       capybara (>= 1.1.1)
       cucumber (>= 1.0.6)
       nokogiri (>= 1.5.0)
