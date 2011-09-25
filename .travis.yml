@@ -8,3 +8,7 @@ branches:
     - master
 # Needed for selenium browser
 before_script: sh -e /etc/init.d/xvfb start
+
+notifications:
+  email:
+    - cukes-devs@googlegroups.com
