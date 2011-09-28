@@ -1,3 +1,45 @@
+## [v1.1.0](https://github.com/cucumber/cucumber-rails/compare/v1.0.6...v1.1.0)
+
+### Removed features
+
+The following files will no longer be generated if you are running `rails generate cucumber:install`:
+
+* features/step_definitions/web_steps.rb
+* features/support/paths.rb
+* features/support/selectors.rb
+
+The reason behind this is that the steps defined in `web_steps.rb` leads people to write scenarios of a
+very imperative nature that are hard to read and hard to maintain. Cucumber scenarios should not be a series
+of steps that describe what a user clicks. Instead, they should express what a user *does*. Example:
+
+    Given I have signed up as "user@host.com"
+
+with a Step Definition that perhaps looks like this:
+
+    Given /^I have signed up as "([^"]*)"$/ do |email|
+      visit(signup_path)
+      fill_in('Email', :with => email)
+      fill_in('Email', :with => email)
+      fill_in('Password', :with => 's3cr3t')
+      fill_in('Password Confirmation', :with => 's3cr3t')
+      click_button('Sign up')
+    end
+
+Moving user interface details from the scenarios and down to the step definitions makes scenarios
+much easier to read. If you change the user interface you only have to change a step definition or two
+instead of a lot of scenarios that explicitly describe how to sign up.
+
+You can learn more about the reasoning behind this change at the following links:
+
+* [Cucumber mailing list: Removing web_steps.rb in Cucumber 1.1.0](http://groups.google.com/group/cukes/browse_thread/thread/26f80b93c94f2952)
+* [Cucumber-Rails issue #174: Remove web_steps.rb since it encourages people to write poor tests.](https://github.com/cucumber/cucumber-rails/issues/174)
+* [Refuctoring your Cukes by Matt Wynne](http://skillsmatter.com/podcast/home/refuctoring-your-cukes)
+* [Imperative vs Declarative Scenarios in User Stories by Ben Mabey](http://benmabey.com/2008/05/19/imperative-vs-declarative-scenarios-in-user-stories.html)
+* [Whose domain is it anyway? by Dan North](http://dannorth.net/2011/01/31/whose-domain-is-it-anyway/)
+* [You're Cuking it Wrong by Jonas Nicklas](http://elabs.se/blog/15-you-re-cuking-it-wrong)
+
+You can learn more about what Capybara has to offer in Capybara's [README](https://github.com/jnicklas/capybara).
+
 ## [v1.0.6](https://github.com/cucumber/cucumber-rails/compare/v1.0.5...v1.0.6)
 
 ### Bugfixes

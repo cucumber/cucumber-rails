@@ -3,6 +3,20 @@ Feature: Capybara Javascript Drivers
   Background: A simple calendar app
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
     And I successfully run `bundle exec rails g scaffold appointment name:string when:datetime`
+    And I write to "features/step_definitions/date_time_steps.rb" with:
+      """
+      When /^(?:|I )select "([^"]+)" as the "([^"]+)" time$/ do |time, selector|
+        select_time(selector, :with => time)
+      end
+      
+      When /^(?:|I )select "([^"]+)" as the "([^"]+)" date$/ do |date, selector|
+        select_date(selector, :with => date)
+      end
+      
+      When /^(?:|I )select "([^"]+)" as the "([^"]+)" date and time$/ do |datetime, selector|
+        select_datetime(selector, :with => datetime)
+      end
+      """
 
   Scenario Outline: Use a particular driver
     Given I write to "features/create_appointment.feature" with:

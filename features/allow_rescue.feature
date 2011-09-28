@@ -1,8 +1,7 @@
 Feature: Allow Cucumber to rescue exceptions
 
-  Background: A controller that raises an exception in a Rails app without web_steps.rb
+  Background: A controller that raises an exception
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
-    And I remove the file "features/step_definitions/web_steps.rb"
     And I write to "app/controllers/posts_controller.rb" with:
       """
       class PostsController < ApplicationController

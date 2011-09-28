@@ -6,14 +6,8 @@ module Cucumber
 
     DEFAULT_SHEBANG = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])
 
-    argument     :language,      :type => :string,  :banner => "LANG", :optional => true
-
-    class_option :rspec,         :type => :boolean, :desc => "Use RSpec"
-    class_option :testunit,      :type => :boolean, :desc => "Use Test::Unit"
     class_option :spork,         :type => :boolean, :desc => "Use Spork"
     class_option :skip_database, :type => :boolean, :desc => "Skip modification of database.yml", :aliases => '-D', :default => false
-
-    attr_reader :framework
 
     def create_templates
       template 'config/cucumber.yml.erb', 'config/cucumber.yml'
@@ -26,18 +20,10 @@ module Cucumber
 
     def create_step_definitions
       empty_directory 'features/step_definitions'
-
-      template "step_definitions/web_steps.rb.erb", 'features/step_definitions/web_steps.rb'
-      if language
-        template "step_definitions/web_steps_#{language}.rb.erb", "features/step_definitions/web_steps_#{language}.rb"
-      end
     end
 
     def create_feature_support
       empty_directory 'features/support'
-      copy_file       'support/paths.rb',     'features/support/paths.rb'
-      copy_file       'support/selectors.rb', 'features/support/selectors.rb'
-
       if spork?
         template 'support/rails_spork.rb.erb', 'features/support/env.rb'
       else
@@ -74,14 +60,6 @@ module Cucumber
     def embed_template(source, indent='')
       template = File.join(self.class.source_root, source)
       ERB.new(IO.read(template), nil, '-').result(binding).gsub(/^/, indent)
-    end
-
-    private
-
-    def framework_from_options
-      return 'rspec-rails' if options[:rspec]
-      return 'testunit' if options[:testunit]
-      return 'rspec-rails'
     end
 
   end

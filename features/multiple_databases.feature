@@ -5,7 +5,6 @@ Feature: Multiple Databases
 
   Background: A Rails 3 app utilizing multiple database repositories exists
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
-    And I remove the file "features/step_definitions/web_steps.rb"
     And I append to "config/database.yml" with:
       """
 

@@ -20,6 +20,12 @@ Feature: Mongoid
         Scenario: Tests
           When I go to the home page
       """
+    And I write to "features/step_definitions/web_steps.rb" with:
+      """
+      When /^I go to the home page$/ do
+        visit '/'
+      end
+      """
     And I overwrite "features/support/env.rb" with:
       """
       require 'cucumber/rails'
