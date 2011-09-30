@@ -15,9 +15,6 @@ module Cucumber
     def generate
       template 'feature.erb', "features/manage_#{plural_name}.feature"
       template 'steps.erb', "features/step_definitions/#{singular_name}_steps.rb"
-      gsub_file 'features/support/paths.rb', /'\/'/mi do |match|
-        "#{match}\n    when /the new #{singular_name} page/\n      new_#{singular_name}_path\n"
-      end
     end
   
     def self.banner
