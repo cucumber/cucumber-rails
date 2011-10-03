@@ -20,9 +20,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency('sqlite3', '>= 1.3.4')
   s.add_development_dependency('rspec', '>= 2.6.0')
   s.add_development_dependency('rspec-rails', '>= 2.6.1')
+  s.add_development_dependency('ammeter', '>= 0.1.2')
   s.add_development_dependency('factory_girl', '>= 2.1.0')
   s.add_development_dependency('database_cleaner', '>= 0.6.7')
-  s.add_development_dependency('mongoid', '>= 2.2.0')
+  s.add_development_dependency('mongoid', '>= 2.2.2')
   s.add_development_dependency('bson_ext', '>= 1.3.1')
 
   # Various Stuff that Rails 3.1 puts inside apps.
