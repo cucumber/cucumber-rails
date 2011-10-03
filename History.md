@@ -1,3 +1,10 @@
+## [v1.1.0](https://github.com/cucumber/cucumber-rails/compare/v1.1.0...v1.1.1)
+
+### Removed features
+
+The `cucumber:feature` generator has been removed. The reasoning behind this is the same as for
+removing `web_steps.rb`,  `paths.rb` and  `selectors.rb` in v1.1.0.
+
 ## [v1.1.0](https://github.com/cucumber/cucumber-rails/compare/v1.0.6...v1.1.0)
 
 ### Removed features

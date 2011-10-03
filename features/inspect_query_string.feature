@@ -2,8 +2,6 @@ Feature: Inspect query string
 
   Scenario: Inspect query string
     Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
-    And I successfully run `rails generate cucumber:feature post title:string body:text number:integer published:boolean`
-    And I successfully run `rails generate scaffold post title:string body:text number:integer published:boolean`
     And I successfully run `rails generate scaffold cuke name:string`
     And I overwrite "app/controllers/cukes_controller.rb" with:
       """
@@ -31,7 +29,7 @@ Feature: Inspect query string
     And I run `bundle exec rake cucumber`
     Then it should pass with:
        """
-       3 scenarios (3 passed)
-       16 steps (16 passed)
+       1 scenario (1 passed)
+       3 steps (3 passed)
        """
 

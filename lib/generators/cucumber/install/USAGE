@@ -4,8 +4,6 @@ Description:
     
     This also generates the necessary files in the features directory.
     
-    Also see the cucumber:feature generator.
-    
 Examples:
     `rails generate cucumber:install`
 

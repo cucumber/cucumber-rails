@@ -4,12 +4,6 @@
 
 Cucumber-Rails brings Cucumber to Rails 3.x. For Rails 2x support, see the [Cucumber Wiki](https://github.com/cucumber/cucumber/wiki/Ruby-on-Rails). 
 
-Cucumber-Rails contains 2 generators - one
-for bootstrapping your Rails app for Cucumber, and a second one for generating features.
-
-Cucumber-Rails also contains Cucumber Step Definitions that wrap Capybara,
-giving you a head start for writing Cucumber features against your Rails app.
-
 ## Installation
 
 Before you can use the generator, add the gem to your project's Gemfile as follows:
@@ -31,18 +25,6 @@ Learn about the various options:
 Finally, bootstrap your Rails app, for example:
 
     rails generate cucumber:install
-
-## Generating a Cucumber feature
-
-IMPORTANT: Only do this if you are new to Cucumber. We recommend you write your
-Cucumber features by hand once you get the hang of it.
-
-Example:
-
-    rails generate cucumber:feature post title:string body:text published:boolean
-    rails generate scaffold post title:string body:text published:boolean
-    rake db:migrate
-    rake cucumber
 
 ## Running Cucumber
 
