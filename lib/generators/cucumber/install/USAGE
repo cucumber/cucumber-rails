@@ -8,6 +8,3 @@ Examples:
     `rails generate cucumber:install`
 
     `rails generate cucumber:install --help`
-
-    You can also provide a language argument for localized web_steps:
-    `rails generate cucumber:install de`
