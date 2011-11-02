@@ -1,7 +1,7 @@
 Feature: Routing
 
   Scenario: Visit undefined route
-    Given a project without ActiveRecord
+    Given I have created a new Rails 3 app with cucumber-rails support but no database
     And I remove the file "public/index.html"
     And I write to "features/tests.feature" with:
       """
