@@ -30,6 +30,10 @@ module CucumberRailsHelper
       sleep(1)
     end
   end
+  
+  def fixture(path)
+    File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
+  end
 end
 World(CucumberRailsHelper)
 
@@ -59,14 +63,4 @@ Given /^I have created a new Rails 3 app with no database and installed cucumber
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps
-end
-
-Before('@bundler-pre') do
-  run_simple 'gem uninstall bundler'
-  run_simple 'gem install bundler --pre'
-end
-
-After('@bundler-pre') do
-  run_simple 'gem uninstall bundler'
-  run_simple 'gem install bundler'
 end
