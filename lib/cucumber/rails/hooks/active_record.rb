@@ -6,14 +6,16 @@ if defined?(ActiveRecord::Base)
       self.shared_connection || retrieve_connection
     end
   end
-  
+
   Before('@javascript') do
-    # Forces all threads to share a connection on a per-model basis,
-    # as connections may vary per model as per establish_connection. This works
-    # on Capybara because it starts the web server in a thread.
-    ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-    ActiveRecord::Base.descendants.each do |model|
-      model.shared_connection = model.connection
+    if Cucumber::Rails::World.use_transactional_fixtures
+      # Forces all threads to share a connection on a per-model basis,
+      # as connections may vary per model as per establish_connection. This works
+      # on Capybara because it starts the web server in a thread.
+      ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+      ActiveRecord::Base.descendants.each do |model|
+        model.shared_connection = model.connection
+      end
     end
   end
 
