@@ -1,7 +1,7 @@
 Feature: Detecting a field has errors on it
 
   Scenario: A form with some fields with errors
-    Given I have created a new Rails 3 app "enemies" with cucumber-rails support
+    Given I have created a new Rails 3 app and installed cucumber-rails
     And I successfully run `rails generate scaffold enemy name:string nickname:string`
     And I write to "app/models/enemy.rb" with:
       """
@@ -27,7 +27,7 @@ Feature: Detecting a field has errors on it
        """
 
   Scenario: A formtastic form with some fields with errors
-    Given I have created a new Rails 3 app "enemies" with cucumber-rails support
+  Given I have created a new Rails 3 app and installed cucumber-rails
     And I append to "Gemfile" with:
       """
       gem "formtastic"
