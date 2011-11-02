@@ -1,5 +1,6 @@
 module RailsHelper
-  def rails_new(app_name, options = '')
+  def rails_new(options = '')
+    app_name = 'test_app'
     run_simple "rails new #{app_name} --skip-bundle --skip-test-unit #{options}"
     assert_passing_with('README')
     cd app_name
@@ -15,8 +16,8 @@ module RailsHelper
 end
 World(RailsHelper)
 
-Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support and cucumber-rails is outside of test group$/ do |app_name|
-  rails_new app_name
+Given /^I have created a new Rails 3 app and installed cucumber\-rails, accidentally outside of the test group in my Gemfile$/ do
+  rails_new
   append_to_gemfile %{
 gem "cucumber-rails", :path => "#{File.expand_path('.')}"
 gem "capybara", :group => :test
@@ -32,8 +33,8 @@ gem 'factory_girl', :group => :test
   end
 end
 
-Given /^I have created a new Rails 3 app "([^"]*)" with cucumber\-rails support$/ do |app_name|
-  rails_new app_name
+Given /^I have created a new Rails 3 app with cucumber\-rails support$/ do
+  rails_new
   append_to_gemfile %{
 gem "cucumber-rails", :group => :test, :path => "#{File.expand_path('.')}"
 gem "capybara", :group => :test
@@ -51,7 +52,7 @@ gem 'factory_girl', :group => :test
 end
 
 Given /^I have created a new Rails 3 app with cucumber\-rails support but no database$/ do
-  rails_new 'rails-3-app', '--skip-active-record'
+  rails_new '--skip-active-record'
   append_to_gemfile %{
 gem "cucumber-rails", :group => :test, :path => "#{File.expand_path('.')}"
 gem "capybara", :group => :test
@@ -83,15 +84,11 @@ Given /^a cukes resource$/ do
 end
 
 Before('@bundler-pre') do
-  steps %Q{
-    Given I successfully run `gem uninstall bundler`
-    And I successfully run `gem install bundler --pre`
-  }
+  run_simple 'gem uninstall bundler'
+  run_simple 'gem install bundler --pre'
 end
 
 After('@bundler-pre') do
-  steps %Q{
-    Given I successfully run `gem uninstall bundler`
-    And I successfully run `gem install bundler`
-  }
+  run_simple 'gem uninstall bundler'
+  run_simple 'gem install bundler'
 end

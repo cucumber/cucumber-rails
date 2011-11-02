@@ -5,7 +5,7 @@ Feature: Fixing Bundler Pre
   
   @bundler-pre
   Scenario: Install Cucumber-Rails with bundler prerelease
-    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support and cucumber-rails is outside of test group
+    Given I have created a new Rails 3 app and installed cucumber-rails, accidentally outside of the test group in my Gemfile
     And I successfully run `rake db:migrate`
     And I write to "features/tests.feature" with:
       """

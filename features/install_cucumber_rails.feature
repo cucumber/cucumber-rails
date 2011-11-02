@@ -4,7 +4,7 @@ Feature: Rails 3
   of Rails 3 and Ruby, with Capybara, Spork and DatabaseCleaner
 
   Scenario: Install Cucumber-Rails
-    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
+    Given I have created a new Rails 3 app and installed cucumber-rails
     Then the following files should exist:
       | config/cucumber.yml                    |
       | script/cucumber                        |

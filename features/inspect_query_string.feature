@@ -1,7 +1,7 @@
 Feature: Inspect query string
 
   Scenario: Inspect query string
-    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
+    Given I have created a new Rails 3 app and installed cucumber-rails
     And I successfully run `rails generate scaffold cuke name:string`
     And I overwrite "app/controllers/cukes_controller.rb" with:
       """

@@ -1,7 +1,7 @@
 Feature: REST API
 
   Scenario: Compare JSON
-    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
+    Given I have created a new Rails 3 app and installed cucumber-rails
     And I write to "app/controllers/posts_controller.rb" with:
       """
       class PostsController < ApplicationController

@@ -1,7 +1,7 @@
 Feature: Capybara Javascript Drivers
 
   Background: A simple calendar app
-    Given I have created a new Rails 3 app "rails-3-app" with cucumber-rails support
+    Given I have created a new Rails 3 app and installed cucumber-rails
     And I successfully run `bundle exec rails g scaffold appointment name:string when:datetime`
     And I write to "features/step_definitions/date_time_steps.rb" with:
       """
