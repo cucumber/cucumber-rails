@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name        = 'cucumber-rails'
   s.version     = '1.2.0'
   s.authors     = ["Aslak Hellesøy", "Dennis Blöte", "Rob Holland"]
-  s.description = "Cucumber Generators and Runtime for Rails"
+  s.description = "Cucumber Generator and Runtime for Rails"
   s.summary     = "#{s.name}-#{s.version}"
   s.email       = 'cukes@googlegroups.com'
   s.homepage    = "http://cukes.info"
