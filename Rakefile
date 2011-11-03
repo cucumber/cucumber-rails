@@ -2,7 +2,7 @@
 CUCUMBER_RAILS_VERSION = Gem::Specification.load(File.dirname(__FILE__) + '/cucumber-rails.gemspec').version.version
 require 'rubygems'
 require 'rake/clean'
-require 'bundler/setup'
+require 'bundler'
 Bundler::GemHelper.install_tasks
 
 $:.unshift(File.dirname(__FILE__) + '/lib')
