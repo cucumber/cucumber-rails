@@ -49,7 +49,7 @@ If you know how to fix the bug yourself, make a second commit (after committing 
 
 ### Setting up your environment
 
-I strongly recommend rvm and ruby 1.9.2. When you have that, cd into your cucumber-rails repository and:
+I strongly recommend rvm and ruby 1.9.3. When you have that, cd into your cucumber-rails repository and:
 
     gem install bundler
     bundle install
