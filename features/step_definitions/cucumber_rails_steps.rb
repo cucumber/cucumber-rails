@@ -64,3 +64,12 @@ Given /^I have created a new Rails 3 app with no database and installed cucumber
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps
 end
+
+Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
+  run_simple("bundle exec rails g model #{name}")
+  run_simple("bundle exec rake db:migrate RAILS_ENV=test")
+end
+
+When /^I run the cukes$/ do
+  run_simple('bundle exec cucumber')
+end
