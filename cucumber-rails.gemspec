@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
 
   # For Documentation:
   s.add_development_dependency('yard', '~> 0.7.3')
+  s.add_development_dependency('rdoc', '~> 3.11')
   s.add_development_dependency('rdiscount', '~> 1.6.8')
   s.add_development_dependency('bcat', '~> 0.6.2')
 
