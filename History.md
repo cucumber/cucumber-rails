@@ -1,3 +1,11 @@
+## [v1.2.0](https://github.com/cucumber/cucumber-rails/compare/v1.1.1...v1.2.0)
+
+### Removed features
+* The (deprecated) tableish method has been removed. See https://gist.github.com/1299371 for an alternative. (Aslak Hellesøy)
+
+### Bugfixes
+* Non-threadsafe database connections shared between threads ([#166](https://github.com/cucumber/cucumber-rails/issues/166) Matt Wynne)
+
 ## [v1.1.1](https://github.com/cucumber/cucumber-rails/compare/v1.1.0...v1.1.1)
 
 ### Removed features
