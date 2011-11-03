@@ -18,7 +18,7 @@ Feature: Capybara Javascript Drivers
       end
       """
 
-  Scenario Outline: Use a particular driver
+  Scenario: Use a particular driver
     Given I write to "features/create_appointment.feature" with:
       """
       @javascript
@@ -32,17 +32,6 @@ Feature: Capybara Javascript Drivers
           And I should see "2009-02-20 15:10:00 UTC"
 
       """
-    And I append to "Gemfile" with:
-      """
-      <Gemfile extra>
-
-      """
-    And I append to "features/support/env.rb" with:
-      """
-      <env.rb extra>
-
-      """
-
     When I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
     Then it should pass with:
@@ -51,11 +40,7 @@ Feature: Capybara Javascript Drivers
       6 steps (6 passed)
       """
 
-    Examples:
-      | Gemfile extra                    | env.rb extra       |
-      | ''  | '' |
-
-  Scenario Outline: Mixed DB access
+  Scenario: Mixed DB access
     Given I write to "features/create_appointment.feature" with:
       """
       @javascript
@@ -76,16 +61,6 @@ Feature: Capybara Javascript Drivers
         visit appointment_path(@appointment)
       end
       """
-    And I append to "Gemfile" with:
-      """
-      <Gemfile extra>
-
-      """
-    And I append to "features/support/env.rb" with:
-      """
-      <env.rb extra>
-
-      """
 
     When I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
@@ -94,8 +69,3 @@ Feature: Capybara Javascript Drivers
       1 scenario (1 passed)
       3 steps (3 passed)
       """
-
-    Examples:
-      | Gemfile extra                    | env.rb extra       |
-      | ''  | '' |
-
