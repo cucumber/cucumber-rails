@@ -21,6 +21,7 @@ if env_caller
   require 'cucumber/rails/world'
   require 'cucumber/rails/hooks'
   require 'cucumber/rails/capybara'
+  require 'cucumber/rails/database'
 
   require 'cucumber/web/tableish'
 else
