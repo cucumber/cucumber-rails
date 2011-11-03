@@ -2,10 +2,10 @@
 Feature: Choose javascript database strategy
 
   When running a scenario with the @javascript tag, Capybara will fire up a web server 
-  in a separate thread to your cukes. By default, this means ActiveRecord will give it a
+  in the same process in a separate thread to your cukes. By default, this means ActiveRecord will give it a
   separate database connection, which in turn means data you put into your database from 
   Cucumber step definitions (e.g. using FactoryGirl) won't be visible to the web server
-  until the database transaction is commited.
+  until the database transaction is committed.
 
   So if you use a transaction strategy for cleaning up your database at the end of a scenario,
   it won't work for javascript scenarios by default.
@@ -30,7 +30,7 @@ Feature: Choose javascript database strategy
       Cucumber::Rails::Database.javascript_strategy = :truncation
       """
 
-  Scenario: Set the strategy to trunction and run a javascript scenario.
+  Scenario: Set the strategy to truncation and run a javascript scenario.
     Given I write to "features/widgets.feature" with:
       """
       @javascript
