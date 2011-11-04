@@ -60,8 +60,6 @@ module Cucumber
           @original_strategy = nil
         end
       end
-
-      self.javascript_strategy = :transaction
     end
   end
 end
