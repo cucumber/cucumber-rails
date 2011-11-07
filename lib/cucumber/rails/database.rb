@@ -1,11 +1,23 @@
 module Cucumber
   module Rails
     module Database
+
+      CUSTOM_STRATEGY_INTERFACE = %w{ before_js before_non_js }
+
       class << self
 
         def javascript_strategy=(strategy)
-          strategy_type = map[strategy] || raise("The strategy '#{strategy}' is not understood. Please use one of #{map.keys.join(',')}")
+          strategy_type =
+            case strategy
+            when Symbol
+              map[strategy] || raise("The strategy '#{strategy}' is not understood. Please use one of #{map.keys.join(',')}")
+            when Class
+              strategy
+            end
+
           @strategy = strategy_type.new
+
+          validate_interface!
         end
 
         def before_js
@@ -24,6 +36,12 @@ module Cucumber
             :shared_connection => SharedConnectionStrategy,
             :transaction => SharedConnectionStrategy
           }
+        end
+
+        def validate_interface!
+          unless CUSTOM_STRATEGY_INTERFACE.all? {|m| @strategy.respond_to?(m) }
+            raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map{|method| "##{method}" } * '  '} !")
+          end
         end
 
       end
