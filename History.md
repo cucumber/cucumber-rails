@@ -1,3 +1,8 @@
+## [v1.2.1](In git)
+
+### New features
+* Support custom JS strategies ([#184](https://github.com/cucumber/cucumber-rails/pull/184) Michael Pabst)
+
 ## [v1.2.0](https://github.com/cucumber/cucumber-rails/compare/v1.1.1...v1.2.0)
 
 ### Removed features
