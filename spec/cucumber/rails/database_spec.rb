@@ -1,35 +1,26 @@
 # -*- encoding: utf-8 -*-
-
-require 'spec_helper'
-require 'cucumber'
-
-require 'rails'
-require 'active_record'
 require 'cucumber/rails/database'
-
 
 describe Cucumber::Rails::Database do
 
-  class QuickCallback
-    @@callbacks = Hash.new {|h,k| h[k] = []}
-    def self.add_callback(name, block)
-      @@callbacks[name] << block
-    end
+  let(:strategy) { stub(:before_js => nil, :before_non_js => nil) }
 
-    def self.run!(name)
-      @@callbacks[name].map(&:call)
-    end
+  it 'forwards events to the selected strategy' do
+    Cucumber::Rails::Database::TruncationStrategy.stub(:new => strategy)
+    Cucumber::Rails::Database.javascript_strategy = :truncation
+
+    strategy.should_receive(:before_non_js).ordered
+    Cucumber::Rails::Database.before_non_js
+
+    strategy.should_receive(:before_js).ordered
+    Cucumber::Rails::Database.before_js
   end
 
-  class Object
-    def Before(name, &block)
-      QuickCallback.add_callback(name, block)
-    end
+  it 'raises an error if you use a non-understood strategy' do
+    expect { Cucumber::Rails::Database.javascript_strategy = :invalid }.to raise_error(Cucumber::Rails::Database::InvalidStrategy)
   end
 
-  it 'should accept custom JS DB strategies' do
-    require 'lib/cucumber/rails/hooks/active_record'
-
+  describe 'using a custom strategy' do
     class ValidStrategy
       def before_js
         # Anything
@@ -40,23 +31,27 @@ describe Cucumber::Rails::Database do
       end
     end
 
-    Cucumber::Rails::Database.javascript_strategy = ValidStrategy
-    # Fun Ruby fact (@frf): foo=(a) will ALWAYS return a (unless you do send(:foo=, a))
-    strategy = Cucumber::Rails::Database.instance_variable_get(:@strategy)
-    strategy.should_receive(:before_js).once
-    QuickCallback.run!('@javascript')
-
-    strategy.should_receive(:before_non_js).once
-    QuickCallback.run!('~@javascript')
-  end
-
-  it 'should reject invalid JS DB strategies' do
-    require 'lib/cucumber/rails/hooks/active_record'
-
     class InvalidStrategy
     end
 
-    lambda { Cucumber::Rails::Database.javascript_strategy = InvalidStrategy }.should raise_error(ArgumentError)
+    it 'raises an error if the strategy doens\'t support the protocol' do
+      expect { Cucumber::Rails::Database.javascript_strategy = InvalidStrategy }.to raise_error(ArgumentError)
+    end
+
+    it 'accepts a custom strategy with a valid interface' do
+      expect { Cucumber::Rails::Database.javascript_strategy = ValidStrategy }.not_to raise_error
+    end
+
+    it 'forwards events to a custom strategy' do
+      ValidStrategy.stub(:new => strategy)
+      Cucumber::Rails::Database.javascript_strategy = ValidStrategy
+
+      strategy.should_receive(:before_non_js).ordered
+      Cucumber::Rails::Database.before_non_js
+
+      strategy.should_receive(:before_js).ordered
+      Cucumber::Rails::Database.before_js
+    end
   end
 
 end

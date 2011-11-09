@@ -4,13 +4,15 @@ module Cucumber
 
       CUSTOM_STRATEGY_INTERFACE = %w{ before_js before_non_js }
 
+      class InvalidStrategy < ArgumentError;end
+
       class << self
 
         def javascript_strategy=(strategy)
           strategy_type =
             case strategy
             when Symbol
-              map[strategy] || raise("The strategy '#{strategy}' is not understood. Please use one of #{map.keys.join(',')}")
+              map[strategy] || raise(InvalidStrategy, "The strategy '#{strategy}' is not understood. Please use one of #{map.keys.join(',')}")
             when Class
               strategy
             end
