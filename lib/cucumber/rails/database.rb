@@ -80,6 +80,8 @@ module Cucumber
           @original_strategy = nil
         end
       end
+
+      Database.javascript_strategy = :truncation
     end
   end
 end

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = 'cukes@googlegroups.com'
   s.homepage    = "http://cukes.info"
 
-  s.add_runtime_dependency('cucumber', '>= 1.1.1')
+  s.add_runtime_dependency('cucumber', '>= 1.1.2')
   s.add_runtime_dependency('nokogiri', '>= 1.5.0')
   s.add_runtime_dependency('capybara', '>= 1.1.1')
   s.add_development_dependency('rails', '>= 3.1.1')
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('sass-rails', '>= 3.1.4')
   s.add_development_dependency('coffee-rails', '>= 3.1.1')
   s.add_development_dependency('uglifier', '>= 1.0.4')
-  s.add_development_dependency('jquery-rails', '>= 1.0.16')
+  s.add_development_dependency('jquery-rails', '>= 1.0.17')
 
   # For Documentation:
   s.add_development_dependency('yard', '~> 0.7.3')
