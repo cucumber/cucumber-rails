@@ -36,7 +36,8 @@ module Cucumber
           {
             :truncation => TruncationStrategy,
             :shared_connection => SharedConnectionStrategy,
-            :transaction => SharedConnectionStrategy
+            :transaction => SharedConnectionStrategy,
+            :deletion => DeletionStrategy
           }
         end
 
@@ -68,16 +69,28 @@ module Cucumber
         end
       end
 
-      class TruncationStrategy
-        def before_js
+      class Strategy
+        def before_js(strategy)
           @original_strategy = DatabaseCleaner.connections.first.strategy # that feels like a nasty hack
-          DatabaseCleaner.strategy = :truncation
+          DatabaseCleaner.strategy = strategy
         end
 
         def before_non_js
           return unless @original_strategy
           DatabaseCleaner.strategy = @original_strategy
           @original_strategy = nil
+        end
+      end
+
+      class TruncationStrategy < Strategy
+        def before_js
+          super :truncation
+        end
+      end
+
+      class DeletionStrategy < Strategy
+        def before_js
+          super :deletion
         end
       end
 
