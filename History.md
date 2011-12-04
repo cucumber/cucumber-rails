@@ -1,6 +1,8 @@
 ## [v1.2.1](In git)
 
 ### New features
+
+* Allow ability to use deletion as a javascript database strategy ([#185](https://github.com/cucumber/cucumber-rails/pull/185) Thijs de Vries)
 * Support custom JS strategies ([#184](https://github.com/cucumber/cucumber-rails/pull/184) Michael Pabst)
 
 ## [v1.2.0](https://github.com/cucumber/cucumber-rails/compare/v1.1.1...v1.2.0)
