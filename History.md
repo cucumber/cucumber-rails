@@ -1,4 +1,4 @@
-## [v1.2.1](In git)
+## [v1.2.1](https://github.com/cucumber/cucumber-rails/compare/v1.2.0...v1.2.1)
 
 ### New features
 
