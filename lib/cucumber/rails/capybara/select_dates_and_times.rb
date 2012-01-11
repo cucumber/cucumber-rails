@@ -3,32 +3,29 @@ module Cucumber
     module Capybara
       # This module defines methods for selecting dates and times
       module SelectDatesAndTimes
-        # Select a Rails date with label +field+
-        # The +options+ hash should contain a Date parseable date (as a string) 
-        def select_date(field, options)
-          date        = Date.parse(options[:with])
-          base_dom_id = get_base_dom_id_from_label_tag(field)
+        # Select a Rails date. Options has must include :from => +label+
+        def select_date(date, options)
+          date        = Date.parse(date)
+          base_dom_id = get_base_dom_id_from_label_tag(options[:from])
 
           find(:xpath, ".//select[@id='#{base_dom_id}_1i']").select(date.year.to_s)
           find(:xpath, ".//select[@id='#{base_dom_id}_2i']").select(I18n.l date, :format => '%B')
           find(:xpath, ".//select[@id='#{base_dom_id}_3i']").select(date.day.to_s)
         end
       
-        # Select a Rails time with label +field+
-        # The +options+ hash should contain a Time parseable time (as a string) 
-        def select_time(field, options)
-          time        = Time.zone.parse(options[:with])
-          base_dom_id = get_base_dom_id_from_label_tag(field)
+        # Select a Rails time. Options has must include :from => +label+
+        def select_time(time, options)
+          time        = Time.zone.parse(time)
+          base_dom_id = get_base_dom_id_from_label_tag(options[:from])
 
           find(:xpath, ".//select[@id='#{base_dom_id}_4i']").select(time.hour.to_s.rjust(2, '0'))
           find(:xpath, ".//select[@id='#{base_dom_id}_5i']").select(time.min.to_s.rjust(2,  '0'))
         end
       
-        # Select a Rails date and time with label +field+
-        # The +options+ hash should contain a Date/Time parseable time (as a string) 
-        def select_datetime(field, options)
-          select_date(field, options)
-          select_time(field, options)
+        # Select a Rails datetime. Options has must include :from => +label+
+        def select_datetime(datetime, options)
+          select_date(datetime, options)
+          select_time(datetime, options)
         end
 
         private

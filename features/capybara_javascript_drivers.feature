@@ -1,3 +1,4 @@
+@focus
 Feature: Capybara Javascript Drivers
 
   Background: A simple calendar app
@@ -6,15 +7,15 @@ Feature: Capybara Javascript Drivers
     And I write to "features/step_definitions/date_time_steps.rb" with:
       """
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" time$/ do |time, selector|
-        select_time(selector, :with => time)
+        select_time(time, :from => selector)
       end
       
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" date$/ do |date, selector|
-        select_date(selector, :with => date)
+        select_date(date, :from => selector)
       end
       
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" date and time$/ do |datetime, selector|
-        select_datetime(selector, :with => datetime)
+        select_datetime(datetime, :from => selector)
       end
       """
 
