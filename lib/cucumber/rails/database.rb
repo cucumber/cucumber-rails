@@ -8,7 +8,8 @@ module Cucumber
 
       class << self
 
-        def javascript_strategy=(strategy)
+        def javascript_strategy=(args)
+          strategy, *strategy_opts = args
           strategy_type =
             case strategy
             when Symbol
@@ -16,8 +17,8 @@ module Cucumber
             when Class
               strategy
             end
-
-          @strategy = strategy_type.new
+            
+          @strategy =  strategy_type.new(*strategy_opts)
 
           validate_interface!
         end
@@ -70,9 +71,13 @@ module Cucumber
       end
 
       class Strategy
+        def initialize(options={})
+          @options=options
+        end
+        
         def before_js(strategy)
           @original_strategy = DatabaseCleaner.connections.first.strategy # that feels like a nasty hack
-          DatabaseCleaner.strategy = strategy
+          DatabaseCleaner.strategy = strategy, @options
         end
 
         def before_non_js

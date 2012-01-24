@@ -100,3 +100,36 @@ Feature: Choose javascript database strategy
        2 scenarios (2 passed)
        5 steps (5 passed)
      """
+  Scenario: Set the strategy to truncation with an except option and run a javascript scenario.
+    Given I append to "features/env.rb" with:
+      """
+      Cucumber::Rails::Database.javascript_strategy = :truncation, {:except=>%w[widgets]} 
+      """
+    And I write to "features/widgets.feature" with:
+      """
+      @javascript
+      Feature:
+        Scenario:
+          When I create 3 widgets
+          Then I should have 3 widgets
+
+        Scenario:
+          Then I should have 3 widgets
+      """
+    And I write to "features/step_definitions/widget_steps.rb" with:
+      """
+      Given /created? (\d) widgets/ do |num|
+        num.to_i.times { Widget.create! }
+      end
+
+      Then /should have (\d) widgets/ do |num|
+        Widget.count.should == num.to_i
+      end
+      """
+    When I run the cukes
+    Then it should pass with:
+       """
+       2 scenarios (2 passed)
+       3 steps (3 passed)
+       """
+
