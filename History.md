@@ -1,3 +1,13 @@
+## [v1.3.0](https://github.com/cucumber/cucumber-rails/compare/v1.2.1...v1.3.0)
+
+### New Features
+
+* JavaScript database strategies should take options ([#192](https://github.com/cucumber/cucumber-rails/issues/192), [#195](https://github.com/cucumber/cucumber-rails/pull/195) Thomas Walpole)
+
+### Changed features
+
+* select_date arguments should be reversed ([#190](https://github.com/cucumber/cucumber-rails/issues/190), [#191](https://github.com/cucumber/cucumber-rails/pull/191) Gavin Hughes)
+
 ## [v1.2.1](https://github.com/cucumber/cucumber-rails/compare/v1.2.0...v1.2.1)
 
 ### New features
