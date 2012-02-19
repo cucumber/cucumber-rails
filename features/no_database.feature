@@ -1,8 +1,9 @@
+@announce
 Feature: No Database
   Allow Cucumber to work with a Rails app without a database
 
   Scenario: No ActiveRecord and DatabaseCleaner
-    Given I have created a new Rails 3 app "rails-3-app" and installed cucumber-rails
+    Given I have created a new Rails 3 app with no database and installed cucumber-rails
     # Turn off ActiveRecord
     And I write to "config/application.rb" with:
       """
@@ -15,14 +16,13 @@ Feature: No Database
 
       Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-      module Rails3App
+      module TestApp
         class Application < Rails::Application
           config.encoding = "utf-8"
           config.filter_parameters += [:password]
         end
       end
       """
-    And I remove the file "config/database.yml"
     And I overwrite "features/support/env.rb" with:
       """
       require 'cucumber/rails'
@@ -46,7 +46,7 @@ Feature: No Database
       """
     And I write to "config/routes.rb" with:
       """
-      Rails3App::Application.routes.draw do
+      TestApp::Application.routes.draw do
         resources :posts
       end
       """
