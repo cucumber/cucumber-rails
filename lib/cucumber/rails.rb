@@ -24,6 +24,6 @@ if env_caller
   require 'cucumber/rails/database'
 
 else
-  warn "WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being defered until env.rb is called.
+  warn "WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
   To avoid this warning, move 'gem cucumber-rails' under only group :test in your Gemfile"
 end
