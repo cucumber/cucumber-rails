@@ -10,7 +10,7 @@ Cucumber-Rails brings Cucumber to Rails 3.x. For Rails 2x support, see the [Cucu
 Before you can use the generator, add the gem to your project's Gemfile as follows:
 
     group :test do
-      gem 'cucumber-rails'
+      gem 'cucumber-rails', :require => false
       # database_cleaner is not required, but highly recommended
       gem 'database_cleaner'
     end
