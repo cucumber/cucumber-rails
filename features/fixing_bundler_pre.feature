@@ -20,5 +20,6 @@ Feature: Fixing Bundler Pre
       1 step (1 passed)
       """
     And the output should contain "WARNING:"
+    And the output should contain ":require => false"
 
 
