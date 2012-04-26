@@ -3,8 +3,8 @@ module Cucumber
     module CapybaraJavascriptEmulation
       def self.included(base)
         base.class_eval do
-          alias_method :click_without_javascript_emulation, :click
           alias_method :click, :click_with_javascript_emulation
+          alias_method :click_without_javascript_emulation, :click
         end
       end
   
