@@ -16,6 +16,8 @@ Feature: Multiple Databases
       """
       class Bear < ActiveRecord::Base
         establish_connection "ursidae"
+
+        attr_accessible :name
       end
       """
     And a directory named "db/migrate"
