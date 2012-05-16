@@ -1,1 +1,6 @@
 require 'cucumber/rails'
+require 'rake'
+require 'rails/tasks'
+# create tmp/cache folder (required for Rails 3)
+# https://github.com/rails/rails/issues/5376
+Rake::Task["tmp:create"].invoke
