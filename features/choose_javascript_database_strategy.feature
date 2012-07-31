@@ -18,9 +18,8 @@ Feature: Choose javascript database strategy
   your database, but you run the risk of the two threads stomping on one another as they
   talk to the database.
 
-  Right now, the default behavior which works for 80% of cucumber-rails users is to use
-  the shared connection patch, but you can override this by telling cucumber-rails which
-  strategy to use for javascript scenarios.
+  Right now, the default behavior is to use truncation, but you can override this by telling
+  cucumber-rails which strategy to use for javascript scenarios.
 
   The deletion strategy can be quicker for situations where truncation causes locks which
   has been reported by some Oracle users.
