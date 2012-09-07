@@ -18,7 +18,7 @@ Feature: Allow Cucumber to rescue exceptions
       """
 
   Scenario: Allow rescue
-    And I write to "features/posts.feature" with:
+    Given I write to "features/posts.feature" with:
       """
       Feature: posts
         @allow-rescue
