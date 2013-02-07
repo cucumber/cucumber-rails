@@ -31,6 +31,10 @@ module Cucumber
           @strategy.before_non_js
         end
 
+        def after
+          @strategy.after
+        end
+
       private
 
         def map
@@ -61,6 +65,10 @@ module Cucumber
         end
 
         def before_non_js
+          # no-op
+        end
+
+        def after
           return unless @original_strategy
           DatabaseCleaner.strategy = @original_strategy
           @original_strategy = nil
