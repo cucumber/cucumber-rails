@@ -17,7 +17,7 @@ module Cucumber
             when Class
               strategy
             end
-            
+
           @strategy =  strategy_type.new(*strategy_opts)
 
           validate_interface!
@@ -29,6 +29,10 @@ module Cucumber
 
         def before_non_js
           @strategy.before_non_js
+        end
+
+        def after
+          @strategy.after
         end
 
       private
@@ -50,7 +54,40 @@ module Cucumber
 
       end
 
-      class SharedConnectionStrategy
+      class Strategy
+        def initialize(options={})
+          @options=options
+        end
+
+        def before_js(strategy)
+          @original_strategy = DatabaseCleaner.connections.first.strategy # that feels like a nasty hack
+          DatabaseCleaner.strategy = strategy, @options
+        end
+
+        def before_non_js
+          # no-op
+        end
+
+        def after
+          return unless @original_strategy
+          DatabaseCleaner.strategy = @original_strategy
+          @original_strategy = nil
+        end
+      end
+
+      class TruncationStrategy < Strategy
+        def before_js
+          super :truncation
+        end
+      end
+
+      class DeletionStrategy < Strategy
+        def before_js
+          super :deletion
+        end
+      end
+
+      class SharedConnectionStrategy < Strategy
         def before_js
           # Forces all threads to share a connection on a per-model basis,
           # as connections may vary per model as per establish_connection. This works
@@ -67,35 +104,6 @@ module Cucumber
           ActiveRecord::Base.descendants.each do |model|
             model.shared_connection = nil
           end
-        end
-      end
-
-      class Strategy
-        def initialize(options={})
-          @options=options
-        end
-        
-        def before_js(strategy)
-          @original_strategy = DatabaseCleaner.connections.first.strategy # that feels like a nasty hack
-          DatabaseCleaner.strategy = strategy, @options
-        end
-
-        def before_non_js
-          return unless @original_strategy
-          DatabaseCleaner.strategy = @original_strategy
-          @original_strategy = nil
-        end
-      end
-
-      class TruncationStrategy < Strategy
-        def before_js
-          super :truncation
-        end
-      end
-
-      class DeletionStrategy < Strategy
-        def before_js
-          super :deletion
         end
       end
 

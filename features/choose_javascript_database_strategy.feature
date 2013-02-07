@@ -31,21 +31,29 @@ Feature: Choose javascript database strategy
   Scenario: Set the strategy to truncation and run a javascript scenario.
     Given I append to "features/env.rb" with:
       """
+      DatabaseCleaner.strategy = :transaction
       Cucumber::Rails::Database.javascript_strategy = :truncation
       """
     And I write to "features/widgets.feature" with:
       """
-      @javascript
       Feature:
         Background:
           Given I have created 2 widgets
 
+        @javascript
         Scenario:
+          Then the DatabaseCleaner strategy should be truncation
           When I create 3 widgets
           Then I should have 5 widgets
 
+        @javascript
         Scenario:
-          Then I should have 2 widgets
+          Then the DatabaseCleaner strategy should be truncation
+          And I should have 2 widgets
+
+        Scenario:
+          Then the DatabaseCleaner strategy should be transaction
+          And I should have 2 widgets
       """
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
@@ -56,12 +64,16 @@ Feature: Choose javascript database strategy
       Then /should have (\d) widgets/ do |num|
         Widget.count.should == num.to_i
       end
+
+      Then /^the DatabaseCleaner strategy should be (\w+)$/ do |strategy_name|
+        DatabaseCleaner.connections.first.strategy.to_s.should =~ /#{strategy_name}/i
+      end
       """
     When I run the cukes
     Then it should pass with:
        """
-       2 scenarios (2 passed)
-       5 steps (5 passed)
+       3 scenarios (3 passed)
+       10 steps (10 passed)
        """
 
   Scenario: Set the strategy to deletion and run a javascript scenario.
@@ -102,7 +114,7 @@ Feature: Choose javascript database strategy
   Scenario: Set the strategy to truncation with an except option and run a javascript scenario.
     Given I append to "features/env.rb" with:
       """
-      Cucumber::Rails::Database.javascript_strategy = :truncation, {:except=>%w[widgets]} 
+      Cucumber::Rails::Database.javascript_strategy = :truncation, {:except=>%w[widgets]}
       """
     And I write to "features/widgets.feature" with:
       """
