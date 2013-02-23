@@ -1,5 +1,6 @@
 rvm: 
   - 1.9.3
+  - 2.0.0
 # whitelist
 branches:
   only:
@@ -7,8 +8,11 @@ branches:
 # Needed for selenium browser
 before_script: sh -e /etc/init.d/xvfb start
 
-notifications:
-  email:
-    - cukes-devs@googlegroups.com
-  irc:
-    - "irc.freenode.org#cucumber"
+services:
+  - mongodb
+
+#notifications:
+#  email:
+#    - cukes-devs@googlegroups.com
+#  irc:
+#    - "irc.freenode.org#cucumber"
