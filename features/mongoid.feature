@@ -1,5 +1,8 @@
 Feature: Mongoid
 
+  Background:
+    Given mongodb is running on my machine
+
   Scenario: Keep Mongoid happy
     Given I successfully run `rails new cuke-app -O`
     And I cd to "cuke-app"
