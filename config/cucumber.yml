@@ -1,1 +1,1 @@
-default: --tags ~@broken
+default: --tags ~@broken --format progress
