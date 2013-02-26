@@ -1,1 +1,15 @@
-default: --tags ~@broken --format progress
+<%
+rerun_file = '.cucumber.rerun'
+failing_scenarios = IO.read(rerun_file) rescue ''
+path = if failing_scenarios.empty?
+  'features'
+else
+  puts "Running failed scenarios"
+  failing_scenarios
+end
+opts = [
+  "--format #{path == 'features' ? 'progress' : 'pretty'}",
+  "--format rerun -o #{rerun_file}"
+].join(' ')
+%>
+default: <%= path %> <%= opts %> --tags ~@broken
