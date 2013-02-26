@@ -1,4 +1,3 @@
-@announce
 Feature: Choose javascript database strategy
 
   When running a scenario with the @javascript tag, Capybara will fire up a web server
