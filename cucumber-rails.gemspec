@@ -13,25 +13,17 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('cucumber', '>= 1.2.0')
   s.add_runtime_dependency('nokogiri', '>= 1.5.0')
   s.add_runtime_dependency('capybara', '>= 1.1.2')
-  s.add_development_dependency('rails', '>= 3.2.3')
+  s.add_runtime_dependency('rails', '~> 3.0')
+
+  # Main development dependencies
   s.add_development_dependency('rake', '>= 0.9.2.2')
   s.add_development_dependency('bundler', '>= 1.1.0')
   s.add_development_dependency('aruba', '>= 0.4.11')
-  s.add_development_dependency('sqlite3', '>= 1.3.6')
   s.add_development_dependency('rspec', '~> 2.10.0')
-  s.add_development_dependency('rspec-rails', '~> 2.10.1')
   s.add_development_dependency('ammeter', '>= 0.2.5')
   s.add_development_dependency('factory_girl', '>= 3.2.0')
   s.add_development_dependency('database_cleaner', '>= 0.7.2')
-  s.add_development_dependency('mongoid', '>= 2.4.9')
-  s.add_development_dependency('bson_ext', '>= 1.6.2')
-
-  # Various Stuff that Rails 3.1 puts inside apps.
-  s.add_development_dependency('turn', '>= 0.9.5')
-  s.add_development_dependency('sass-rails', '>= 3.2.5')
-  s.add_development_dependency('coffee-rails', '>= 3.2.2')
-  s.add_development_dependency('uglifier', '>= 1.2.4')
-  s.add_development_dependency('jquery-rails', '>= 2.0.2')
+  s.add_development_dependency('appraisal', '~> 0.5.1')
 
   # For Documentation:
   s.add_development_dependency('yard', '~> 0.8.1')
