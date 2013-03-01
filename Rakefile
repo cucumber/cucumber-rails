@@ -41,7 +41,7 @@ namespace :gemfiles do
   end
 
   task :clean do
-    FileUtils.rm_rf("gemfiles/*.lock")
+    FileUtils.rm_rf("gemfiles/*")
   end
 
   desc "Rebuild generated gemfiles and install dependencies"
