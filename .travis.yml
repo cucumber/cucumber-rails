@@ -1,14 +1,35 @@
 rvm: 
   - 1.9.3
   - 2.0.0
+
 # whitelist
 branches:
   only:
     - master
-# Needed for selenium browser
-before_script: sh -e /etc/init.d/xvfb start
+
+gemfile:
+  - gemfiles/rails_3_0.gemfile
+  - gemfiles/rails_3_1.gemfile
+  - gemfiles/rails_3_2.gemfile
+  - gemfiles/capybara_1_1.gemfile
+
+matrix:
+  exclude:
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails_3_0.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails_3_1.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/capybara_1_1.gemfile
+
 services:
   - mongodb
+
+# Needed for selenium browser
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
 notifications:
   email:
     - cukes-devs@googlegroups.com

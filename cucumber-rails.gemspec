@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.email       = 'cukes@googlegroups.com'
   s.homepage    = "http://cukes.info"
 
+<<<<<<< HEAD
   s.add_runtime_dependency('cucumber', '>= 1.2.1')
   s.add_runtime_dependency('nokogiri', '>= 1.5.6')
   s.add_runtime_dependency('capybara', '>= 2.0.2')
@@ -32,6 +33,22 @@ Gem::Specification.new do |s|
   s.add_development_dependency('coffee-rails', '>= 3.2.2')
   s.add_development_dependency('uglifier', '>= 1.3.0')
   s.add_development_dependency('jquery-rails', '>= 2.2.1')
+=======
+  s.add_runtime_dependency('cucumber', '>= 1.2.0')
+  s.add_runtime_dependency('nokogiri', '>= 1.5.0')
+  s.add_runtime_dependency('capybara', '>= 1.1.2')
+  s.add_runtime_dependency('rails', '~> 3.0')
+
+  # Main development dependencies
+  s.add_development_dependency('rake', '>= 0.9.2.2')
+  s.add_development_dependency('bundler', '>= 1.1.0')
+  s.add_development_dependency('aruba', '>= 0.4.11')
+  s.add_development_dependency('rspec', '~> 2.10.0')
+  s.add_development_dependency('ammeter', '>= 0.2.5')
+  s.add_development_dependency('factory_girl', '>= 3.2.0')
+  s.add_development_dependency('database_cleaner', '>= 0.7.2')
+  s.add_development_dependency('appraisal', '~> 0.5.1')
+>>>>>>> 5b086662637c7c654f8c3a70aa07cfb3e7d7edf8
 
   # For Documentation:
   s.add_development_dependency('yard', '~> 0.8.5.2')
