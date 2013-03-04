@@ -6,7 +6,7 @@ end
 
 module Cucumber #:nodoc:
   module Rails #:nodoc:
-    class World < ActionController::IntegrationTest #:nodoc:
+    class World < ActionDispatch::IntegrationTest #:nodoc:
       include Rack::Test::Methods
       include ActiveSupport::Testing::SetupAndTeardown if ActiveSupport::Testing.const_defined?("SetupAndTeardown")
 
