@@ -54,10 +54,25 @@ I strongly recommend rvm and ruby 1.9.3. When you have that, cd into your cucumb
     gem install bundler
     bundle install
 
-### Running all features
+### Running all tests
 
-With all dependencies installed, all features should pass:
+With all dependencies installed, all specs and features should pass:
 
-    rake cucumber
+    rake
 
 One of the features uses MongoDB, which needs to be running in order to make features/mongoid.feature to pass.
+
+### Running Appraisal suite
+
+In order to test against multiple versions of key dependencies, the [Appraisal](https://github.com/thoughtbot/appraisal) is used to generate multiple gemfiles, stored in the `gemfiles/` directory. Normally these will only run on Travis; however, if you want to run the full test suite against all gemfiles, run the following commands:
+
+    rake gemfiles:install
+    rake test:all
+
+To run the suite against a named gemfile, use the following:
+
+    rake test:gemfile[rails_3_0]
+
+To remove and rebuild the different gemfiles (for example, to update a rails version or its dependencies), use the following:
+
+    rake gemfiles:rebuild
