@@ -2,14 +2,14 @@
 
 ### New Features
 
-* Multiple-gemfile testing and travis configuration ([#240] (https://github.com/cucumber/cucumber-rails/pull/240 Simon Coffey)
+* Multiple-gemfile testing and travis configuration ([#240](https://github.com/cucumber/cucumber-rails/pull/240) Simon Coffey)
 
 ### Changed Features
 
-* Fix a typo in a template ([#228] (https://github.com/cucumber/cucumber-rails/pull/228 Robin Dupret)
-* Depend upon the generic test:prepare task ([#230] (https://github.com/cucumber/cucumber-rails/pull/230 Graeme Mathieson)
-* Allow users to disable database_cleaner hooks ([#232] (https://github.com/cucumber/cucumber-rails/pull/232  Simon Coffey)
-* Rails 4.0.0-beta ActionController::Integration depreciation fix ([#234] (https://github.com/cucumber/cucumber-rails/pull/234 Daniel Bruns)
+* Fix a typo in a template ([#228](https://github.com/cucumber/cucumber-rails/pull/228) Robin Dupret)
+* Depend upon the generic test:prepare task ([#230](https://github.com/cucumber/cucumber-rails/pull/230) Graeme Mathieson)
+* Allow users to disable database_cleaner hooks ([#232](https://github.com/cucumber/cucumber-rails/pull/232)  Simon Coffey)
+* Rails 4.0.0-beta ActionController::Integration depreciation fix ([#234](https://github.com/cucumber/cucumber-rails/pull/234) Daniel Bruns)
 
 ## [v1.3.0](https://github.com/cucumber/cucumber-rails/compare/v1.2.1...v1.3.0)
 
