@@ -1,11 +1,11 @@
-== 0.3.2 2010-06-06
+## 0.3.2 2010-06-06
 
-== Changed features
+### Changed features
 * web_steps.rb uses "([^"]*)" instead of "([^\"]*)" (Aslak Hellesøy)
 * Renamed cucumber:skeleton to cucumber:install (Rails 3 generator). (Aslak Hellesøy)
 * Upgraded to be compatible with rspec 2.0.0.beta.10 (#35 Gabor Ratky, Pete Yandell)
 
-== 0.3.1 2010-05-03
+## 0.3.1 2010-05-03
 
 This release has a lot of bugfixes! The test suite (based on Aruba) verifies that Cucumber-Rails
 now works with various combinations of: 
@@ -19,7 +19,7 @@ now works with various combinations of:
 This one requires a special mention: The handy (but error prone) rerun functionality has moved to a 
 separate rerun profile, so all rerun.txt related issues should now be gone.
 
-== New features
+### New features
 * New Capybara Step Definitions for Dates. (Rob Holland)
 * Steps now recognise "Given I am on the users page" etc. (Solomon White)
 * Relegate rerun to its own profile and rake task (Mike Sassak)
@@ -29,47 +29,47 @@ separate rerun profile, so all rerun.txt related issues should now be gone.
 * Added @no-js-emulation, which turns off javascript emulation for delete links when not using browser testing. (Rob Holland, Aslak Hellesøy)
 * Korean translation (Shim Taewon)
 
-=== Bugfixes
+### Bugfixes
 * No longer need to install the test-unit gem on 1.9.1 (Aslak Hellesøy)
 * capybara rack-test field should contain step support for textarea (#28 Nicholas Rutherford)
 * "Rspec is not missing constant Matchers!" error. (#27 David Chelimsky, Aslak Hellesøy)
 * @culerity tag breaks Rails 3 RESTful helpers (#17 Aslak Hellesøy)
 
-== 0.3.0 2010-02-25
+## 0.3.0 2010-02-25
 
 This is a major release since we're now supporting both Rails 3 and RSpec 2. Older versions
 (Rails 2 and RSpec 1) are still supported.
 
-=== New Features
+### New Features
 * Support for both Rails-2.x and Rails-3.x (#10 Kristian Mandrup, Aleksey Gureiev, Ashley Moran, Aslak Hellesøy)
 * Support for both RSpec-1.x and RSpec-2.x (Louis Rose, Aslak Hellesøy)
 * Features will default to Javascript emulation unless you turn it off with @culerity,  (Aslak Hellesøy)
 * Japanese translation. (MOROHASHI Kyosuke)
 
-=== Bugfixes
+### Bugfixes
 * Support projects that don't use ActiveRecord (#14 Aslak Hellesøy)
 * Running test/unit tests when creating a skeleton (#12 Aleksey Gureiev)
 * Inform that config/database.yml is overwritten, be smarter about it and inform the user that it is forced. (#15 Aslak Hellesøy)
 * Reverts changes from issue #5 where verification of query string params was added to the step for being on a page.  Adds step discussed in issue #11 for verification of query string. (#5, #11 Eric Milford)
 * Fixed typos in Capybara's web steps (has_not_xpath? => has_no_xpath?) (Thorbjørn Hermansen, Carlos Antonio da Silva)
 
-== 0.2.5 2010-02-07
+## 0.2.5 2010-02-07
 
-=== New Features
+### New Features
 * Added Danish translation (Kristian Mandrup)
 * Using Gemfile for Rails 3. Tidies it up and adds cucumber gems only if not already present! (Kristian Mandrup)
 * Added Generators wrapper module for Rails 3 generators so they are now all in Cucumber::Generators (Kristian Mandrup)
 
-=== Bugfixes
+### Bugfixes
 * Started to work on solutions for generating suitable support files depending on Rails version
   - see skeleton_base.rb#create_feature_support and templates/support  
 
-== 0.2.4 2010-01-18
+## 0.2.4 2010-01-18
 
-=== New Features
+### New Features
 * Added Spanish translation (Gabriel)
 
-=== Bugfixes
+### Bugfixes
 * Fixed some broken Webrat/Test::Unit step definitions. (Aslak Hellesøy)
 * Better Javascript emulation with Capybara (#7 Thorbjørn Hermansen)
 * Removed stray quote in i18n web_steps.rb (Gabriel)
@@ -79,39 +79,39 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 * Capybara web_steps.rb with_scope didn't work in nested steps (Lenny Marks)
 * Fixed "should not see" steps in web_steps.rb to use the correct selector (Toni Tuominen)
 
-== 0.2.3 2010-01-03
+## 0.2.3 2010-01-03
 
-=== New Features
+### New Features
 * The #tableish Proc can return Strings as well as Nokogiri nodes now. (Aslak Hellesøy)
 
-=== Bugfixes
+### Bugfixes
 * Handle all types of URIs in "I should be on ..." steps. (#5 Andrew D. Smith)
 
-== 0.2.2 2009-12-21
+## 0.2.2 2009-12-21
 
-=== Bugfixes
+### Bugfixes
 * Fix bad link in gemspec. (Aslak Hellesøy)
 * Unified file attaching step names. (Jiří Zajpt)
 * Fix typos in variable names in several step definitions. (Jiří Zajpt)
 * cucumber.rake finds the wrong vendored cucumber when a plugin name starts with "cucumber" (#4 James Herdman, Paco Benavent, Aslak Hellesøy)
 
-=== New features
+### New features
 * Czech translations. (Jiří Zajpt)
 
-== 0.2.1 2009-12-15
+## 0.2.1 2009-12-15
 
 Small bugfix release
 
-=== Bugfixes
+### Bugfixes
 * Made sure database_cleaner is always set up as a dependency in config/environments/cucumber.rb. (Aslak Hellesøy)
 
-== 0.2.0 2009-12-14
+## 0.2.0 2009-12-14
 
 This is the first release of cucumber-rails, which was factored out of cucumber.
 We're calling it 0.2.0 just because we did some prereleases in the 0.1 series,
 and to celebrate that cucumber-rails now supports Capybara as an alternative to Webrat.
 
-=== UPGRADING FROM A PREVIOUS CUCUMBER SETUP
+### UPGRADING FROM A PREVIOUS CUCUMBER SETUP
 
 1) Remove your features/support/version_check.rb
 2) Remove your features/step_definitions/webrat_steps.rb
@@ -133,13 +133,13 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
    If you have a Spork setup, see the end of this thread:
    http://groups.google.com/group/cukes/browse_thread/thread/475385cc26377215
 
-=== New features
+### New features
 * Added an @emulate_rails_javascript tag that will emulate onclick with Capybara (Aslak Hellesøy, Rob Holland)
 * Added a smart config/cucumber.yml file that will rerun previously failing scenarios (Aslak Hellesøy)
 * Support for Capybara. Run "script/generate --capybara" if you want that. (Rob Holland, Aslak Hellesøy)
 * New #tableish method to extract table-like data from a HTML page. Pure Nokogiri/CSS3/XPath. (Aslak Hellesøy)
 
-=== Bugfixes
+### Bugfixes
 * Webrat step "Then I should be on" should use request_uri instead of path for missing query string parameters (ZhangJinzhu)
 * Added MIME type parameter to attach file step definition (Felix Flores)
 * Added check when including ActiveSupport::Testing::SetupAndTeardown for older Rails versions (Jeremy Durham)
