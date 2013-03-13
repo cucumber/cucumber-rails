@@ -4,8 +4,8 @@ rvm:
 
 # whitelist
 branches:
-  only:
-    - master
+  except:
+    - rails-2.3.x
 
 #gemfile:
 #  - gemfiles/rails_3_0.gemfile
