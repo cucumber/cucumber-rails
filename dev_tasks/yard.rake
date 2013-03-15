@@ -1,7 +1,7 @@
 require 'yard'
 require 'yard/rake/yardoc_task'
 
-SITE_DIR = File.expand_path(File.dirname(__FILE__) + '/../../cucumber.github.com')
+SITE_DIR = File.expand_path(File.dirname(__FILE__) + '/../cucumber-rails.github.com')
 API_DIR = File.join(SITE_DIR, 'api', 'cucumber-rails', 'ruby', 'yardoc')
 
 namespace :api do
