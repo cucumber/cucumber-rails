@@ -1,13 +1,13 @@
 require 'yard'
 require 'yard/rake/yardoc_task'
 
-SITE_DIR = File.expand_path(File.dirname(__FILE__) + '/../cucumber-rails.github.com')
+SITE_DIR = File.expand_path(File.dirname(__FILE__) + '/../cucumber.github.com')
 API_DIR = File.join(SITE_DIR, 'api', 'cucumber-rails', 'ruby', 'yardoc')
 
 namespace :api do
   file :dir do
     unless File.directory?(SITE_DIR)
-      raise "You need to git clone git@github.com:cucumber/cucumber-rails.git #{SITE_DIR}"
+      raise "You need to git clone git@github.com:cucumber/cucumber.github.com.git #{SITE_DIR}"
     end
     sh('git pull origin master')
     mkdir_p API_DIR
