@@ -1,17 +1,34 @@
 require 'yard'
 require 'yard/rake/yardoc_task'
 
-YARD::Templates::Engine.register_template_path(File.expand_path(File.join(File.dirname(__FILE__), 'yard')))
-YARD::Rake::YardocTask.new(:yard) do |t|
-  t.options = %w{--no-private --title Cucumber-Rails}
-  t.files = %w{lib - README.md History.md LICENSE}
-end
+SITE_DIR = File.expand_path(File.dirname(__FILE__) + '/../../cucumber.github.com')
+API_DIR = File.join(SITE_DIR, 'api', 'cucumber-rails', 'ruby', 'yardoc')
 
-desc "Push yardoc to http://cukes.info/cucumber-rails/api/#{CUCUMBER_RAILS_VERSION}"
-task :push_yard => :yard do
-  sh("tar czf tmp/api-#{CUCUMBER_RAILS_VERSION}.tgz -C doc .")
-  sh("scp tmp/api-#{CUCUMBER_RAILS_VERSION}.tgz cukes.info:/var/www/cucumber-rails/api")
-  sh("ssh cukes.info 'cd /var/www/cucumber-rails/api && rm -rf #{CUCUMBER_RAILS_VERSION} && mkdir #{CUCUMBER_RAILS_VERSION} && tar xzf api-#{CUCUMBER_RAILS_VERSION}.tgz -C #{CUCUMBER_RAILS_VERSION} && rm -f latest && ln -s #{CUCUMBER_RAILS_VERSION} latest'")
-end
+namespace :api do
+  file :dir do
+    unless File.directory?(SITE_DIR)
+      raise "You need to git clone git@github.com:cucumber/cucumber-rails.github.com.git #{SITE_DIR}"
+    end
+    sh('git pull -u')
+    mkdir_p API_DIR
+  end
 
-task :release => :push_yard
+  template_path = File.expand_path(File.join(File.dirname(__FILE__), 'yard'))
+  YARD::Templates::Engine.register_template_path(template_path)
+  YARD::Rake::YardocTask.new(:yard) do |yard|
+    dir = API_DIR
+    mkdir_p dir
+    yard.options = ["--out", dir]
+  end
+  task :yard => :dir
+
+  task :release do
+    Dir.chdir(SITE_DIR) do
+      sh('git add .')
+      sh("git commit -m 'Update API docs for cucumber-rails v#{cucumber-rails::VERSION}'")
+      sh('git push')
+    end
+  end
+
+  desc "Generate YARD docs for Cucumber-Rails' API"
+  task :doc => [:yard, :release]
