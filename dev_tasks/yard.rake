@@ -9,7 +9,7 @@ namespace :api do
     unless File.directory?(SITE_DIR)
       raise "You need to git clone git@github.com:cucumber/cucumber-rails.git #{SITE_DIR}"
     end
-    sh('git pull -u')
+    sh('git pull origin master')
     mkdir_p API_DIR
   end
 
