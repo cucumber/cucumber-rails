@@ -32,3 +32,4 @@ namespace :api do
 
   desc "Generate YARD docs for Cucumber-Rails' API"
   task :doc => [:yard, :release]
+end
