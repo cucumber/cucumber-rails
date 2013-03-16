@@ -43,6 +43,19 @@ Now release it
     bundle exec rake
     git commit -m "Release X.Y.Z"
     rake release
+    
+### NOTE:
+
+If after running the rake release task you get an eror similiar to this:
+
+    rake aborted!
+    Couldn't git push. `git push  2>&1' failed with the following output:
+
+    To git@github.com:cucumber/cucumber-rails.git
+    ! [rejected]        rails-2.3.x -> rails-2.3.x (non-fast-forward)
+    error: failed to push some refs to 'git@github.com:cucumber/cucumber-rails.git'
+    
+make sure that you have pulled all the recent changes from both the master and the rails-2.3.x branch
 
 ## Gaining Release Karma
 
