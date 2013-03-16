@@ -4,14 +4,14 @@
 
 * Changes for the rails 2.3.x branch ([#242](https://github.com/cucumber/cucumber-rails/pull/242) John Yani)
 
-## [v0.3.2] (2010-06-06)
+## [v0.3.2](2010-06-06)
 
 ### Changed features
 * web_steps.rb uses "([^"]*)" instead of "([^\"]*)" (Aslak Hellesøy)
 * Renamed cucumber:skeleton to cucumber:install (Rails 3 generator). (Aslak Hellesøy)
 * Upgraded to be compatible with rspec 2.0.0.beta.10 (#35 Gabor Ratky, Pete Yandell)
 
-## [v0.3.1] (2010-05-03)
+## [v0.3.1](2010-05-03)
 
 This release has a lot of bugfixes! The test suite (based on Aruba) verifies that Cucumber-Rails
 now works with various combinations of: 
@@ -41,7 +41,7 @@ separate rerun profile, so all rerun.txt related issues should now be gone.
 * "Rspec is not missing constant Matchers!" error. (#27 David Chelimsky, Aslak Hellesøy)
 * @culerity tag breaks Rails 3 RESTful helpers (#17 Aslak Hellesøy)
 
-## [v0.3.0] (2010-02-25)
+## [v0.3.0](2010-02-25)
 
 This is a major release since we're now supporting both Rails 3 and RSpec 2. Older versions
 (Rails 2 and RSpec 1) are still supported.
@@ -59,7 +59,7 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 * Reverts changes from issue #5 where verification of query string params was added to the step for being on a page.  Adds step discussed in issue #11 for verification of query string. (#5, #11 Eric Milford)
 * Fixed typos in Capybara's web steps (has_not_xpath? => has_no_xpath?) (Thorbjørn Hermansen, Carlos Antonio da Silva)
 
-## [0.2.5] (2010-02-07)
+## [0.2.5](2010-02-07)
 
 ### New Features
 * Added Danish translation (Kristian Mandrup)
@@ -70,7 +70,7 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 * Started to work on solutions for generating suitable support files depending on Rails version
   - see skeleton_base.rb#create_feature_support and templates/support  
 
-## [0.2.4] (2010-01-18)
+## [0.2.4](2010-01-18)
 
 ### New Features
 * Added Spanish translation (Gabriel)
@@ -85,7 +85,7 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 * Capybara web_steps.rb with_scope didn't work in nested steps (Lenny Marks)
 * Fixed "should not see" steps in web_steps.rb to use the correct selector (Toni Tuominen)
 
-## [0.2.3] (2010-01-03)
+## [0.2.3](2010-01-03)
 
 ### New Features
 * The #tableish Proc can return Strings as well as Nokogiri nodes now. (Aslak Hellesøy)
@@ -93,7 +93,7 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 ### Bugfixes
 * Handle all types of URIs in "I should be on ..." steps. (#5 Andrew D. Smith)
 
-## [0.2.2] (2009-12-21)
+## [0.2.2](2009-12-21)
 
 ### Bugfixes
 * Fix bad link in gemspec. (Aslak Hellesøy)
@@ -104,14 +104,14 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 ### New features
 * Czech translations. (Jiří Zajpt)
 
-## [0.2.1] (2009-12-15)
+## [0.2.1](2009-12-15)
 
 Small bugfix release
 
 ### Bugfixes
 * Made sure database_cleaner is always set up as a dependency in config/environments/cucumber.rb. (Aslak Hellesøy)
 
-## [0.2.0] (2009-12-14)
+## [0.2.0](2009-12-14)
 
 This is the first release of cucumber-rails, which was factored out of cucumber.
 We're calling it 0.2.0 just because we did some prereleases in the 0.1 series,
