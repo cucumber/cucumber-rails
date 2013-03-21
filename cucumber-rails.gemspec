@@ -14,14 +14,14 @@ Gem::Specification.new do |s|
   s.email = %q{cukes@googlegroups.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.md"
   ]
   s.files = [
     ".gitignore",
      "HACKING.rdoc",
-     "History.txt",
+     "History.md",
      "LICENSE",
-     "README.rdoc",
+     "README.md",
      "Rakefile",
      "VERSION",
      "config/.gitignore",
