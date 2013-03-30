@@ -20,9 +20,8 @@ module CucumberRailsHelper
     run_simple 'bundle exec rails generate cucumber:install'
   end
   
-  def gem(name, options, version = nil)
-    line = version ? %{gem "#{name}", "#{version}", #{options.inspect}\n} : 
-                     %{gem "#{name}", #{options.inspect}\n}
+  def gem(name, options)
+    line = %{gem "#{name}", #{options.inspect}\n}
     append_to_file('Gemfile', line)
   end
   
