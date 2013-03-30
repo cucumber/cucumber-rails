@@ -13,4 +13,3 @@ opts = [
 ].join(' ')
 %>
 default: <%= path %> <%= opts %> --tags ~@broken
-wip: --tags @wip:3 --wip features
