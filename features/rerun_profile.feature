@@ -4,7 +4,7 @@ Feature: Rerun profile
   I want to rerun only failing features
 
   Scenario: Rerun
-    Given I have created a new Rails 3 app and installed cucumber-rails
+    Given I have created a new Rails 4 app and installed cucumber-rails
     And a file named "rerun.txt" with:
       """
       features/rerun_test.feature:2

@@ -10,11 +10,12 @@ Feature: Mongoid
       """
       gem "cucumber-rails", :group => :test, :path => '../../..'
       gem "capybara", :group => :test
-      gem "database_cleaner", :group => :test
-      gem "mongoid", :group => :test
+      gem "database_cleaner", "~> 1.0.0.RC1", :group => :test
+      gem "mongoid", git: "git://github.com/mongoid/mongoid.git", :group => :test
       gem "bson_ext", :group => :test
 
       """
+    And I successfully run `bundle install`
     And I successfully run `bundle exec rails generate cucumber:install --skip-database`
     And I successfully run `bundle exec rails generate mongoid:config`
     And I write to "features/tests.feature" with:
@@ -22,6 +23,23 @@ Feature: Mongoid
       Feature: Tests
         Scenario: Tests
           When I go to the home page
+      """
+    And I write to "app/controllers/home_controller.rb" with:
+      """
+      class HomeController < ActionController::Base
+        def index
+        end
+      end
+      """
+    And I write to "config/routes.rb" with:
+      """
+      CukeApp::Application.routes.draw do
+        root to: 'home#index'
+      end
+      """
+    And I write to "app/views/home/index.html.erb" with: 
+      """
+      h1 Test App
       """
     And I write to "features/step_definitions/web_steps.rb" with:
       """
@@ -32,8 +50,7 @@ Feature: Mongoid
     And I overwrite "features/support/env.rb" with:
       """
       require 'cucumber/rails'
-      DatabaseCleaner.orm = 'mongoid'
-      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner[:mongoid].strategy = :truncation
       """
     And I run `bundle exec rake cucumber`
     Then it should pass with:

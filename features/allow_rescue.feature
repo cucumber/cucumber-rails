@@ -1,7 +1,7 @@
 Feature: Allow Cucumber to rescue exceptions
 
   Background: A controller that raises an exception
-    Given I have created a new Rails 3 app "rails-3-app" and installed cucumber-rails
+    Given I have created a new Rails 4 app "rails-4-app" and installed cucumber-rails
     And I write to "app/controllers/posts_controller.rb" with:
       """
       class PostsController < ApplicationController
@@ -12,11 +12,11 @@ Feature: Allow Cucumber to rescue exceptions
       """
     And I write to "config/routes.rb" with:
       """
-      Rails3App::Application.routes.draw do
+      Rails4App::Application.routes.draw do
         resources :posts
       end
       """
-
+      
   Scenario: Allow rescue
     Given I write to "features/posts.feature" with:
       """

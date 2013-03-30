@@ -11,7 +11,7 @@ Feature: Disable automatic database cleaning
   control the invocation of database_cleaner explicitly.
 
   Scenario: Disabling automatic cleaning
-    Given I have created a new Rails 3 app and installed cucumber-rails
+    Given I have created a new Rails 4 app and installed cucumber-rails
     And I append to "features/env.rb" with:
       """
       Cucumber::Rails::Database.autorun_database_cleaner = false
