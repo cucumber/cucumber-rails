@@ -14,7 +14,7 @@ module CucumberRailsHelper
     end
     gem "capybara", :group => :test
     gem "rspec-rails", :group => :test
-    gem "database_cleaner", { git: "git://github.com/bmabey/database_cleaner.git", :group => :test } unless options.include?(:no_database_cleaner)
+    gem "database_cleaner", { git: "git@github.com:davebrace/database_cleaner.git", :group => :test } unless options.include?(:no_database_cleaner)
     gem 'factory_girl', :group => :test unless options.include?(:no_factory_girl)
     run_simple 'bundle install'
     run_simple 'bundle exec rails generate cucumber:install'
