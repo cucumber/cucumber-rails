@@ -3,8 +3,8 @@ Feature: Multiple Databases
   As an engineer
   I want to specify explicit strategies for each
 
-  Background: A Rails 3 app utilizing multiple database repositories exists
-    Given I have created a new Rails 3 app and installed cucumber-rails
+  Background: A Rails app utilizing multiple database repositories exists
+    Given I have created a new Rails app and installed cucumber-rails
     And I append to "config/database.yml" with:
       """
 
@@ -15,9 +15,7 @@ Feature: Multiple Databases
     And I write to "app/models/bear.rb" with:
       """
       class Bear < ActiveRecord::Base
-        establish_connection "ursidae"
-
-        attr_accessible :name
+        establish_connection :ursidae
       end
       """
     And a directory named "db/migrate"
@@ -40,7 +38,7 @@ Feature: Multiple Databases
       """
       require 'cucumber/rails'
       DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner[:active_record, {:connection => "ursidae"}].strategy = :truncation
+      DatabaseCleaner[:active_record, {:connection => :ursidae }].strategy = :truncation
       """
     And I write to "features/create_bear.feature" with:
       """
@@ -58,7 +56,6 @@ Feature: Multiple Databases
         Bear.transaction { Bear.find_by_name("yogi").lock! }
       end
       """
-
   Scenario: Default transactional strategy is not attempted on second database
     When I run `bundle exec rake cucumber FEATURE=features/create_bear.feature`
     Then it should pass with:

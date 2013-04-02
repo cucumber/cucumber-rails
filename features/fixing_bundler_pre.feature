@@ -5,8 +5,25 @@ Feature: Fixing Bundler Pre
   
   @bundler-pre
   Scenario: Install Cucumber-Rails with bundler prerelease
-    Given I have created a new Rails 3 app and installed cucumber-rails, accidentally outside of the test group in my Gemfile
+    Given I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile
     And I successfully run `rake db:migrate`
+    And I write to "app/controllers/home_controller.rb" with:
+      """
+      class HomeController < ActionController::Base
+        def index
+        end
+      end
+      """
+    And I write to "config/routes.rb" with:
+      """
+      TestApp::Application.routes.draw do
+        root to: 'home#index'
+      end
+      """
+    And I write to "app/views/home/index.html.erb" with: 
+      """
+      h1 Test App
+      """
     And I write to "features/tests.feature" with:
       """
       Feature: Tests

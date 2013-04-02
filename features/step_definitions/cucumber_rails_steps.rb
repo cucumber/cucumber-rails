@@ -14,8 +14,9 @@ module CucumberRailsHelper
     end
     gem "capybara", :group => :test
     gem "rspec-rails", :group => :test
-    gem "database_cleaner", :group => :test unless options.include?(:no_database_cleaner)
+    gem "database_cleaner", { git: "git://github.com/davebrace/database_cleaner.git", :group => :test } unless options.include?(:no_database_cleaner)
     gem 'factory_girl', :group => :test unless options.include?(:no_factory_girl)
+    run_simple 'bundle install'
     run_simple 'bundle exec rails generate cucumber:install'
   end
   
@@ -37,28 +38,28 @@ module CucumberRailsHelper
 end
 World(CucumberRailsHelper)
 
-Given /^I have created a new Rails 3 app and installed cucumber\-rails, accidentally outside of the test group in my Gemfile$/ do
+Given /^I have created a new Rails app and installed cucumber\-rails, accidentally outside of the test group in my Gemfile$/ do
   rails_new
   install_cucumber_rails :not_in_test_group
   create_web_steps
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails 3 app "([^"]*)" and installed cucumber\-rails$/ do |app_name|
+Given /^I have created a new Rails app "([^"]*)" and installed cucumber\-rails$/ do |app_name|
   rails_new :name => app_name
   install_cucumber_rails
   create_web_steps
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails 3 app and installed cucumber\-rails$/ do
+Given /^I have created a new Rails app and installed cucumber\-rails$/ do
   rails_new
   install_cucumber_rails
   create_web_steps
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails 3 app with no database and installed cucumber-rails$/ do
+Given /^I have created a new Rails app with no database and installed cucumber-rails$/ do
   rails_new :args => '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")

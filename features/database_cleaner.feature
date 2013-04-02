@@ -1,7 +1,7 @@
 Feature: DatabaseCleaner
 
   Scenario: Create records in background
-    Given I have created a new Rails 3 app and installed cucumber-rails
+    Given I have created a new Rails app and installed cucumber-rails
     And I write to "features/widgets.feature" with:
       """
       Feature: Create widgets
