@@ -1,7 +1,7 @@
 Feature: Routing
 
   Scenario: Visit undefined route
-    Given I have created a new Rails 4 app with no database and installed cucumber-rails
+    Given I have created a new Rails app with no database and installed cucumber-rails
     And I write to "features/tests.feature" with:
       """
       Feature: Tests

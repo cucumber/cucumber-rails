@@ -1,10 +1,10 @@
-Feature: Rails 4
+Feature: Rails
   In order to take over the world
   Cucumber-Rails should work on major versions
-  of Rails 4 and Ruby, with Capybara, Spork and DatabaseCleaner
+  of Rails and Ruby, with Capybara, Spork and DatabaseCleaner
 
   Scenario: Install Cucumber-Rails
-    Given I have created a new Rails 4 app and installed cucumber-rails
+    Given I have created a new Rails app and installed cucumber-rails
     Then the following files should exist:
       | config/cucumber.yml                    |
       | script/cucumber                        |

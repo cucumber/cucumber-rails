@@ -24,7 +24,7 @@ Feature: Choose javascript database strategy
   has been reported by some Oracle users.
 
   Background:
-    Given I have created a new Rails 4 app and installed cucumber-rails
+    Given I have created a new Rails app and installed cucumber-rails
     And I have a "Widget" ActiveRecord model object
   
   Scenario: Set the strategy to truncation and run a javascript scenario.

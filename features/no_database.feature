@@ -2,7 +2,7 @@ Feature: No Database
   Allow Cucumber to work with a Rails app without a database
 
   Scenario: No ActiveRecord and DatabaseCleaner
-    Given I have created a new Rails 4 app with no database and installed cucumber-rails
+    Given I have created a new Rails app with no database and installed cucumber-rails
     # Turn off ActiveRecord
     And I write to "config/application.rb" with:
       """

@@ -3,8 +3,8 @@ Feature: Multiple Databases
   As an engineer
   I want to specify explicit strategies for each
 
-  Background: A Rails 4 app utilizing multiple database repositories exists
-    Given I have created a new Rails 4 app and installed cucumber-rails
+  Background: A Rails app utilizing multiple database repositories exists
+    Given I have created a new Rails app and installed cucumber-rails
     And I append to "config/database.yml" with:
       """
 
