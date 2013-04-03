@@ -1,7 +1,7 @@
 Feature: Emulate Javascript
 
   Scenario: See a widget
-    Given I have created a new Rails app and installed cucumber-rails
+    Given I have created a new Rails 3 app and installed cucumber-rails
     And I successfully run `rails generate scaffold widget name:string`
     And I write to "features/f.feature" with:
       """
@@ -35,7 +35,7 @@ Feature: Emulate Javascript
        """
 
   Scenario: Pass on the CSRF token
-    Given I have created a new Rails app and installed cucumber-rails
+    Given I have created a new Rails 3 app and installed cucumber-rails
     And I successfully run `rails generate scaffold widget name:string`
     And I successfully run `sed -i -e 's/forgery_protection *= false/forgery_protection = true/' config/environments/test.rb`
     And I successfully run `rails generate controller session establish`

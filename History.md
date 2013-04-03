@@ -1,9 +1,3 @@
-## [master](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...master) (2013-04-02)
-
-### New Features
-
-* Fixed tests so they pass in Rails 4 and updated gemspc ([#247](https://github.com/cucumber/cucumber-rails/pull247) Dave Brace)
-
 ## [v1.3.1](https://github.com/cucumber/cucumber-rails/compare/v1.3.0...v1.3.1) (2013-03-15)
 
 ### New Features

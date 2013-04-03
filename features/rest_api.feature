@@ -1,7 +1,7 @@
 Feature: REST API
 
   Scenario: Compare JSON
-    Given I have created a new Rails app "rails-app" and installed cucumber-rails
+    Given I have created a new Rails 3 app "rails-3-app" and installed cucumber-rails
     And I write to "app/controllers/posts_controller.rb" with:
       """
       class PostsController < ApplicationController
@@ -12,7 +12,7 @@ Feature: REST API
       """
     And I write to "config/routes.rb" with:
       """
-      RailsApp::Application.routes.draw do
+      Rails3App::Application.routes.draw do
         resources :posts
       end
       """
