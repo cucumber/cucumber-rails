@@ -6,8 +6,6 @@ source "https://rubygems.org"
 gem 'rails'
 gem 'turn'
 gem 'rspec-rails'
-gem 'sass-rails'
-gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'sqlite3'
