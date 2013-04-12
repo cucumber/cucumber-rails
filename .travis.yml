@@ -5,7 +5,7 @@ rvm:
 # whitelist
 branches:
   only:
-    - master
+    - master_rails4_test
 
 gemfile:
   - gemfiles/rails_3_0.gemfile
@@ -32,6 +32,7 @@ before_script:
 
 notifications:
   email:
-    - cukes-devs@googlegroups.com
-  irc:
-    - "irc.freenode.org#cucumber"
+    - kosmas@machx7.com
+#    - cukes-devs@googlegroups.com
+#  irc:
+#    - "irc.freenode.org#cucumber"
