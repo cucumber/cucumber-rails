@@ -1,7 +1,7 @@
 module CucumberRailsHelper
   def rails_new(options={})
     options[:name] ||= 'test_app'
-    run_simple "rails new #{options[:name]} --skip-bundle --skip-test-unit #{options[:args]}"
+    run_simple "bundle exec rails new #{options[:name]} --skip-test-unit #{options[:args]}"
     assert_passing_with('README')
     cd options[:name]
   end
