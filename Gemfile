@@ -6,7 +6,7 @@ source "https://rubygems.org"
 #gem 'rails', '~> 3.2.12'
 gem 'turn'
 gem 'rspec-rails'
-gem 'sass-rails'
+#gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-rails'
