@@ -64,6 +64,6 @@ appraise "rails_4_0" do
   gem 'jquery-rails'
   gem 'sqlite3'
   gem 'bson_ext'
-  gem 'mongoid'
+  gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
   #gem 'database_cleaner', git: "git://github.com/davebrace/database_cleaner.git"
 end
