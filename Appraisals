@@ -65,5 +65,5 @@ appraise "rails_4_0" do
   gem 'sqlite3'
   gem 'bson_ext'
   gem 'mongoid'
-  gem 'database_cleaner', git: "git://github.com/davebrace/database_cleaner.git"
+  #gem 'database_cleaner', git: "git://github.com/davebrace/database_cleaner.git"
 end
