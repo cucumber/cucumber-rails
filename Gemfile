@@ -7,7 +7,7 @@ source "https://rubygems.org"
 gem 'turn'
 gem 'rspec-rails'
 #gem 'sass-rails'
-gem 'coffee-rails'
+#gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'sqlite3'
