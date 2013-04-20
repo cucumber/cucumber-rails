@@ -13,7 +13,6 @@ gem "uglifier"
 gem "jquery-rails"
 gem "sqlite3"
 gem "bson_ext"
-gem "mongoid", :git=>"git://github.com/mongoid/mongoid.git"
-gem "database_cleaner", :git=>"git://github.com/davebrace/database_cleaner.git"
+gem "mongoid", "~> 4.0.0", :github=>"mongoid/mongoid"
 
 gemspec :path=>"../"
