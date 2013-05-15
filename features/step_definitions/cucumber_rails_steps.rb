@@ -44,14 +44,14 @@ Given /^I have created a new Rails 3 app and installed cucumber\-rails, accident
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails 3 app "([^"]*)" and installed cucumber\-rails$/ do |app_name|
+Given /^I have created a new Rails app "([^"]*)" and installed cucumber\-rails$/ do |app_name|
   rails_new :name => app_name
   install_cucumber_rails
   create_web_steps
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails 3 app and installed cucumber\-rails$/ do
+Given /^I have created a new Rails app and installed cucumber\-rails$/ do
   rails_new
   install_cucumber_rails
   create_web_steps
