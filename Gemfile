@@ -10,8 +10,8 @@ source "https://rubygems.org"
 #gem 'coffee-rails'
 #gem 'uglifier'
 #gem 'jquery-rails'
-gem 'sqlite3'
-gem 'bson_ext'
-gem 'mongoid'
+#gem 'sqlite3'
+#gem 'bson_ext'
+#gem 'mongoid'
 
 gemspec
