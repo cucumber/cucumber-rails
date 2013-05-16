@@ -37,7 +37,7 @@ module CucumberRailsHelper
 end
 World(CucumberRailsHelper)
 
-Given /^I have created a new Rails 3 app and installed cucumber\-rails, accidentally outside of the test group in my Gemfile$/ do
+Given /^I have created a new Rails app and installed cucumber\-rails, accidentally outside of the test group in my Gemfile$/ do
   rails_new
   install_cucumber_rails :not_in_test_group
   create_web_steps
@@ -58,7 +58,7 @@ Given /^I have created a new Rails app and installed cucumber\-rails$/ do
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails 3 app with no database and installed cucumber-rails$/ do
+Given /^I have created a new Rails app with no database and installed cucumber-rails$/ do
   rails_new :args => '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
