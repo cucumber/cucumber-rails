@@ -40,7 +40,7 @@ Feature: Multiple Databases
       """
       require 'cucumber/rails'
       DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner[:active_record, {:connection => "ursidae"}].strategy = :truncation
+      DatabaseCleaner[:active_record, {:connection => :ursidae}].strategy = :truncation
       """
     And I write to "features/create_bear.feature" with:
       """
