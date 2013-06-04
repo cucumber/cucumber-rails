@@ -20,6 +20,7 @@ module Cucumber
 
     def create_step_definitions
       empty_directory 'features/step_definitions'
+      create_file 'features/step_definitions/.gitkeep'
     end
 
     def create_feature_support
