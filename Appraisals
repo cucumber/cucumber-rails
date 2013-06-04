@@ -15,7 +15,7 @@ appraise "rails_3_1" do
   gem "capybara", "~> 2.0.2"
   gem 'turn'
   gem 'rspec-rails'
-  gem 'sass-rails'
+  gem 'sass-rails', "~ 3.1.7"
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'jquery-rails'
