@@ -76,4 +76,5 @@ appraise "rails_4_0" do
   gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
   gem 'database_cleaner', "~> 1.0.1"
   #gem 'database_cleaner', git: "git://github.com/davebrace/database_cleaner.git"
+  gem "protected_attributes", "~> 1.0.1"
 end
