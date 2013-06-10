@@ -63,7 +63,7 @@ end
 appraise "rails_4_0" do
   gem "rails", "~> 4.0.0.rc1"
   gem "railties", "~> 4.0.0.rc1"
-  gem "capybara", "~> 2.0.2"
+  gem "capybara", "~> 2.1.0"
   gem 'turn', "~> 0.9.6"
 #  gem "rspec", "~> 2.13.0"
   gem "rspec-rails"
