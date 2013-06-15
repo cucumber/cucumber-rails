@@ -61,13 +61,13 @@ appraise "capybara_1_1" do
 end
 
 appraise "rails_4_0" do
-  gem "rails", "~> 4.0.0.rc1"
-  gem "railties", "~> 4.0.0.rc1"
+  gem "rails", "~> 4.0.0.rc2"
+  gem "railties", "~> 4.0.0.rc2"
   gem "capybara", "~> 2.1.0"
   gem 'turn', "~> 0.9.6"
 #  gem "rspec", "~> 2.13.0"
   gem "rspec-rails"
-  gem 'sass-rails', "~> 4.0.0.rc1"
+  gem 'sass-rails', "~> 4.0.0.rc2"
   gem 'coffee-rails', "~> 4.0.0"
   gem 'jquery-rails', "~> 2.2.1"
   gem "uglifier", "~> 2.1.0"
