@@ -65,6 +65,13 @@ Given /^I have created a new Rails app with no database and installed cucumber-r
   create_web_steps
 end
 
+Given(/^I have created a new Rails app "(.*?)" with no database and installed cucumber\-rails$/) do |app_name|
+  rails_new :name => app_name, :args => '--skip-active-record'
+  install_cucumber_rails
+  create_web_steps
+  prepare_aruba_report
+end
+
 Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
   run_simple("bundle exec rails g model #{name}")
   run_simple("bundle exec rake db:migrate RAILS_ENV=test")
