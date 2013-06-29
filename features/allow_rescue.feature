@@ -1,7 +1,7 @@
 Feature: Allow Cucumber to rescue exceptions
 
   Background: A controller that raises an exception
-    Given I have created a new Rails 3 app "rails-3-app" and installed cucumber-rails
+    Given I have created a new Rails 3 app with no database and installed cucumber-rails
     And I write to "app/controllers/posts_controller.rb" with:
       """
       class PostsController < ApplicationController
@@ -12,7 +12,7 @@ Feature: Allow Cucumber to rescue exceptions
       """
     And I write to "config/routes.rb" with:
       """
-      Rails3App::Application.routes.draw do
+      TestApp::Application.routes.draw do
         resources :posts
       end
       """
@@ -31,7 +31,6 @@ Feature: Allow Cucumber to rescue exceptions
         visit '/posts'
       end
       """
-    And I run `bundle exec rake db:migrate`
     And I run `bundle exec cucumber`
     Then it should pass with:
       """
@@ -52,7 +51,6 @@ Feature: Allow Cucumber to rescue exceptions
         visit '/posts'
       end
       """
-    And I run `bundle exec rake db:migrate`
     And I run `bundle exec cucumber`
     Then it should fail with:
        """
