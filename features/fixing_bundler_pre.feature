@@ -1,4 +1,4 @@
-Feature: Fixing Bundler Pre
+Feature: Fixing Bundler Pre @fails-on-travis
   In order to keep fix a problem with bundler and rails
   As a user with cucumber-rails outside of test group in my Gemfile
   I want run features without errors
