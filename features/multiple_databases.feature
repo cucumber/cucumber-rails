@@ -59,6 +59,7 @@ Feature: Multiple Databases
       end
       """
 
+  @fails-on-travis
   Scenario: Default transactional strategy is not attempted on second database
     When I run `bundle exec rake cucumber FEATURE=features/create_bear.feature`
     Then it should pass with:
@@ -68,6 +69,7 @@ Feature: Multiple Databases
       """
     And the output should not contain "cannot rollback - no transaction is active"
 
+  @fails-on-travis
   Scenario: Truncation strategy is used on the second database
     Given I successfully run `bundle exec rails runner 'Bear.create(:name => "boo boo")'`
     And I successfully run `bundle exec rake cucumber FEATURE=features/create_bear.feature`
