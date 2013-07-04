@@ -1,8 +1,13 @@
-Before('@allow-rescue') do
-  @__orig_allow_rescue = ActionController::Base.allow_rescue
-  ActionController::Base.allow_rescue = true
+Before do
+  Rails.application.env_config.merge!(
+    "action_dispatch.show_exceptions" => !!ActionController::Base.allow_rescue,
+    "action_dispatch.show_detailed_exceptions" => true
+  )
 end
 
-After('@allow-rescue') do
-  ActionController::Base.allow_rescue = @__orig_allow_rescue
+Before('@allow-rescue') do
+  Rails.application.env_config.merge!(
+    "action_dispatch.show_exceptions" => true,
+    "action_dispatch.show_detailed_exceptions" => false
+  )
 end

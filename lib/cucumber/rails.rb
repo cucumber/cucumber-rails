@@ -1,7 +1,6 @@
 env_caller = File.dirname(caller.detect{|f| f =~ /\/env\.rb:/}) if caller.detect{|f| f =~ /\/env\.rb:/}
 if env_caller
   require 'rails'
-  require 'cucumber/rails/application'
   ENV["RAILS_ENV"] ||= "test"
   ENV["RAILS_ROOT"] ||= File.expand_path(env_caller + "/../..")
   require File.expand_path(ENV["RAILS_ROOT"] + '/config/environment')
