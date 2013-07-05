@@ -3,7 +3,7 @@ Feature: Fixing Bundler Pre
   As a user with cucumber-rails outside of test group in my Gemfile
   I want run features without errors
   
-  @bundler-pre
+  @bundler-pre  @fails-on-travis
   Scenario: Install Cucumber-Rails with bundler prerelease
     Given I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile
     And I successfully run `rake db:migrate`
