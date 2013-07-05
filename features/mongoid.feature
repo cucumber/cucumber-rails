@@ -12,7 +12,6 @@
 #      gem "capybara", :group => :test
 #      gem "database_cleaner", :group => :test
 #      gem "mongoid", git: "https://github.com/mongoid/mongoid.git", :group => :test
-#      gem "mongoid", "~> 3.1.4", :group => :test
 #      gem "bson_ext", :group => :test
 #
 #      """
