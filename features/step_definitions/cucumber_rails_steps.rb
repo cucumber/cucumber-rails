@@ -10,7 +10,7 @@ module CucumberRailsHelper
     if options.include?(:not_in_test_group)
       gem "cucumber-rails", :path => "#{File.expand_path('.')}"
     else
-      gem "cucumber-rails", :group => :test, :path => "#{File.expand_path('.')}"
+      gem "cucumber-rails", :group => :test, :require => false, :path => "#{File.expand_path('.')}"
     end
     gem "capybara", :group => :test
     gem "rspec-rails", :group => :test
