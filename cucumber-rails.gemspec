@@ -17,10 +17,10 @@ Gem::Specification.new do |s|
 
   # Main development dependencies
   s.add_development_dependency('rake', '>= 0.9.2.2')
-  s.add_development_dependency('bundler', '>= 1.1.0')
+  s.add_development_dependency('bundler', '>= 1.3.5')
   s.add_development_dependency('aruba', '>= 0.4.11')
-  s.add_development_dependency('rspec', '~> 2.10.0')
-  s.add_development_dependency('ammeter', '>= 0.2.5')
+  s.add_development_dependency('rspec', '>= 2.2')
+  s.add_development_dependency('ammeter', '>= 0.2.9')
   s.add_development_dependency('factory_girl', '>= 3.2.0')
   s.add_development_dependency('database_cleaner', '>= 0.7.2')
   s.add_development_dependency('appraisal', '~> 0.5.1')
