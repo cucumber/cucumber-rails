@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('cucumber', '>= 1.2.0')
   s.add_runtime_dependency('nokogiri', '>= 1.5.0')
   s.add_runtime_dependency('capybara', '>= 1.1.2')
-  s.add_runtime_dependency('rails', '~> 3.0')
+  s.add_runtime_dependency('rails', '>= 3.0')
 
   # Main development dependencies
   s.add_development_dependency('rake', '>= 0.9.2.2')
