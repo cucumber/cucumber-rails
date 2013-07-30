@@ -8,7 +8,7 @@ if env_caller
   require 'cucumber/rails/action_controller'
 
   if defined?(ActiveRecord::Base)
-    require 'rails/test_help'
+    require 'cucumber/rails/test_help'
   else
     require 'action_dispatch/testing/test_process'
     require 'action_dispatch/testing/integration'
