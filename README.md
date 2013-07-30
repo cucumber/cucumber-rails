@@ -35,6 +35,14 @@ With Rake:
 Without Rake:
 
     [bundle exec] cucumber
+    
+## Configuration options
+
+By default, cucumber-rails runs `DatabaseCleaner.start` and `DatabaseCleaner.clean` before and after your scenarios. You can disable this behaviour like so:
+
+    # features/support/env.rb
+    # ...
+    Cucumber::Rails::Database.autorun_database_cleaner = false
 
 ## Bugs and feature requests
 
