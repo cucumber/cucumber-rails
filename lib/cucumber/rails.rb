@@ -7,21 +7,11 @@ if env_caller
   require File.expand_path(ENV["RAILS_ROOT"] + '/config/environment')
   require 'cucumber/rails/action_controller'
 
-  require 'action_dispatch/testing/integration'
-
   if defined?(ActiveRecord::Base)
-    class ActiveSupport::TestCase
-      include ActiveRecord::TestFixtures
-      self.fixture_path = "#{Rails.root}/test/fixtures/"
-    end
-
-    ActionDispatch::IntegrationTest.fixture_path = ActiveSupport::TestCase.fixture_path
-
-    def create_fixtures(*fixture_set_names, &block)
-      FixtureSet.create_fixtures(ActiveSupport::TestCase.fixture_path, fixture_set_names, {}, &block)
-    end
+    require 'rails/test_help'
   else
     require 'action_dispatch/testing/test_process'
+    require 'action_dispatch/testing/integration'
   end
 
   if !Rails.application.config.cache_classes
