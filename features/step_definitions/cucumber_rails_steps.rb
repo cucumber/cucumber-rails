@@ -16,6 +16,7 @@ module CucumberRailsHelper
     gem "rspec-rails", :group => :test
     gem "database_cleaner", :group => :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', :group => :test unless options.include?(:no_factory_girl)
+    gem "selenium-webdriver", :group => :test
     run_simple 'bundle exec rails generate cucumber:install'
   end
   
