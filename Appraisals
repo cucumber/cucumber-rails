@@ -54,6 +54,7 @@ appraise "capybara_1_1" do
 end
 
 appraise "rails_4_0" do
+  gem "protected_attributes", "~> 1.0.3"
   gem "rails", "~> 4.0.0"
   gem "railties", "~> 4.0.0"
   gem "capybara", "~> 2.0.2"
@@ -67,5 +68,4 @@ appraise "rails_4_0" do
   gem "bson_ext", "~> 1.8.5"
   gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
   gem 'database_cleaner', "~> 1.0.1"
-  gem "protected_attributes", "~> 1.0.3"
 end
