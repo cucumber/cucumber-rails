@@ -67,5 +67,5 @@ appraise "rails_4_0" do
   gem "bson_ext", "~> 1.8.5"
   gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
   gem 'database_cleaner', "~> 1.0.1"
-  gem "protected_attributes", "~> 1.0.1"
+  gem "protected_attributes", "~> 1.0.3"
 end
