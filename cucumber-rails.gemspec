@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   # Main development dependencies
   s.add_development_dependency('rake', '>= 0.9.2.2')
-  s.add_development_dependency('bundler', '>= 1.3.5')
+  s.add_development_dependency('bundler', '~> 1.3.5')
   s.add_development_dependency('aruba', '>= 0.4.11')
   s.add_development_dependency('rspec', '>= 2.2')
   s.add_development_dependency('ammeter', '>= 0.2.9')
