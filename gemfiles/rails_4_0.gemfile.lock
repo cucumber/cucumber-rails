@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mongoid/mongoid.git
-  revision: 29672adc7ccbe51c7dce49934432d391a4a0b13a
+  revision: f4be91d037fd9048872f847a71286f9512aa862a
   specs:
     mongoid (4.0.0)
       activemodel (~> 4.0.0)
@@ -201,7 +201,7 @@ DEPENDENCIES
   aruba (>= 0.4.11)
   bcat (~> 0.6.2)
   bson_ext (~> 1.8.5)
-  bundler (>= 1.3.5)
+  bundler (~> 1.3.5)
   capybara (~> 2.0.2)
   coffee-rails (~> 4.0.0)
   cucumber-rails!
