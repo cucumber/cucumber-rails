@@ -8,3 +8,4 @@ coverage
 .rvmrc
 .cucumber.rerun
 gemfiles/*.lock
+Gemfile.lock
