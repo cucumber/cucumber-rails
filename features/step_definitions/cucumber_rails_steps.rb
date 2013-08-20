@@ -66,11 +66,11 @@ Given /^I have created a new Rails app with no database and installed cucumber-r
   create_web_steps
 end
 
-Given(/^I have created a new Rails app "(.*?)" with no database and installed cucumber\-rails$/) do |app_name|
+Given /^I have created a new Rails app "(.*?)" with no database and installed cucumber\-rails$/ do |app_name|
   rails_new :name => app_name, :args => '--skip-active-record'
-  install_cucumber_rails
+  install_cucumber_rails :no_database_cleaner, :no_factory_girl
+  overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps
-  prepare_aruba_report
 end
 
 Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
