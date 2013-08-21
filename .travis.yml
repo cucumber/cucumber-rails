@@ -5,13 +5,14 @@ rvm:
 # whitelist
 branches:
   only:
-    - master
+    - master_rails4_test
 
 gemfile:
   - gemfiles/rails_3_0.gemfile
   - gemfiles/rails_3_1.gemfile
   - gemfiles/rails_3_2.gemfile
   - gemfiles/capybara_1_1.gemfile
+  - gemfiles/rails_4_0.gemfile
 
 matrix:
   exclude:
@@ -21,6 +22,11 @@ matrix:
       gemfile: gemfiles/rails_3_1.gemfile
     - rvm: 2.0.0
       gemfile: gemfiles/capybara_1_1.gemfile
+  allow_failures:
+    - rvm: 1.9.3
+      gemfile: gemfiles/rails_4_0.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails_4_0.gemfile
 
 services:
   - mongodb
@@ -32,6 +38,7 @@ before_script:
 
 notifications:
   email:
-    - cukes-devs@googlegroups.com
-  irc:
-    - "irc.freenode.org#cucumber"
+    - kosmas@mach7x.com
+#    - cukes-devs@googlegroups.com
+#  irc:
+#    - "irc.freenode.org#cucumber"

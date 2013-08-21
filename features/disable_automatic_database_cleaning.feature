@@ -11,7 +11,7 @@ Feature: Disable automatic database cleaning
   control the invocation of database_cleaner explicitly.
 
   Scenario: Disabling automatic cleaning
-    Given I have created a new Rails 3 app and installed cucumber-rails
+    Given I have created a new Rails app and installed cucumber-rails
     And I append to "features/env.rb" with:
       """
       Cucumber::Rails::Database.autorun_database_cleaner = false
@@ -45,7 +45,7 @@ Feature: Disable automatic database cleaning
       Then /^I should have (\d+) widgets$/ do |n|
         Widget.count.should == n.to_i
       end
-      """
+     """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
     Then it should pass with:

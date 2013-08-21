@@ -2,18 +2,18 @@
 Feature: Capybara Javascript Drivers
 
   Background: A simple calendar app
-    Given I have created a new Rails 3 app and installed cucumber-rails
+    Given I have created a new Rails app and installed cucumber-rails
     And I successfully run `bundle exec rails g scaffold appointment name:string when:datetime`
     And I write to "features/step_definitions/date_time_steps.rb" with:
       """
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" time$/ do |time, selector|
         select_time(time, :from => selector)
       end
-      
+
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" date$/ do |date, selector|
         select_date(date, :from => selector)
       end
-      
+
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" date and time$/ do |datetime, selector|
         select_datetime(datetime, :from => selector)
       end

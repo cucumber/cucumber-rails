@@ -24,7 +24,7 @@ Feature: Choose javascript database strategy
   has been reported by some Oracle users.
 
   Background:
-    Given I have created a new Rails 3 app and installed cucumber-rails
+    Given I have created a new Rails app and installed cucumber-rails
     And I have a "Widget" ActiveRecord model object
 
   Scenario: Set the strategy to truncation and run a javascript scenario.
@@ -64,7 +64,7 @@ Feature: Choose javascript database strategy
         Widget.count.should == num.to_i
       end
 
-      Then /^the DatabaseCleaner strategy should be (\w+)$/ do |strategy_name|
+     Then /^the DatabaseCleaner strategy should be (\w+)$/ do |strategy_name|
         DatabaseCleaner.connections.first.strategy.to_s.should =~ /#{strategy_name}/i
       end
       """
@@ -75,7 +75,7 @@ Feature: Choose javascript database strategy
        10 steps (10 passed)
        """
 
-  Scenario: Set the strategy to deletion and run a javascript scenario.
+ Scenario: Set the strategy to deletion and run a javascript scenario.
     Given I append to "features/env.rb" with:
       """
       Cucumber::Rails::Database.javascript_strategy = :deletion
@@ -113,7 +113,7 @@ Feature: Choose javascript database strategy
   Scenario: Set the strategy to truncation with an except option and run a javascript scenario.
     Given I append to "features/env.rb" with:
       """
-      Cucumber::Rails::Database.javascript_strategy = :truncation, {:except=>%w[widgets]}
+     Cucumber::Rails::Database.javascript_strategy = :truncation, {:except=>%w[widgets]}
       """
     And I write to "features/widgets.feature" with:
       """
@@ -142,4 +142,3 @@ Feature: Choose javascript database strategy
        2 scenarios (2 passed)
        3 steps (3 passed)
        """
-
