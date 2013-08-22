@@ -1,4 +1,4 @@
-## [v1.3.2](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.3.2) (2013-08-22)
+## [Git master](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...master) (Not yet released)
 
 ### New Features
 
