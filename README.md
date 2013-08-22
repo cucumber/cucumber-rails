@@ -43,6 +43,12 @@ By default, cucumber-rails runs `DatabaseCleaner.start` and `DatabaseCleaner.cle
     # features/support/env.rb
     # ...
     Cucumber::Rails::Database.autorun_database_cleaner = false
+    
+## Upgrading from a previous version
+
+When upgrading from a previous version it is recommended that you rerun:
+
+    rails generate cucumber install
 
 ## Bugs and feature requests
 
