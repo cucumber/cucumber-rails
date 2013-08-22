@@ -1,3 +1,12 @@
+## [v1.3.2](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.3.2) (2013-08-22)
+
+### New Features
+
+ * Rails 4 compatibility
+ * Removal of unused tests (routing, multiple_databases, pre_bundler and mongo)
+ * New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
+
+
 ## [v1.3.1](https://github.com/cucumber/cucumber-rails/compare/v1.3.0...v1.3.1) (2013-03-15)
 
 ### New Features
