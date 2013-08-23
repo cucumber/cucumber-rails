@@ -2,11 +2,27 @@
 
 ### New Features
 
- * Rails 4 compatibility
- * Removal of unused tests (routing, multiple_databases, pre_bundler and mongo)
  * New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
  * Added recommendation in README.md for running install scripts after upgrading (Joost Baaij)
+ * Describe configuration option 'autorun_database_cleaner' in README ([=255](https://github.com/cucumber/cucumber-rails/pull/255) Martin Eismann)
+ 
+### Changed Features
 
+ * Gemspec in 1.3.1 doesn't allow usage with rails 4 ([=244](https://github.com/cucumber/cucumber-rails/issues/244) Fabian Schwahn)
+
+### Removed Features
+
+ * routing.feature code was actually testing the raising of errors so it was renamed to raising_errors.feature and slightly changed to deal with rails 4 changes in public folder
+ * multiple_databases.feature was removed as it was actually testing DatabaseCleaner behaviour 
+ * pre_bundler.feature was removed as it is no longer relevant
+ * mongodb feature was removed as is there is no mongodb code in cucumber-rails codebase
+ 
+### Bugfixes
+
+ * Fixed tests so they pass in Rails 4 and updated gemspec ([=247](https://github.com/cucumber/cucumber-rails/pull/247) Dave Brace)
+ * Allow use with Rails 4 ([=254](https://github.com/cucumber/cucumber-rails/pull/254) Marnen Laibow-Koser)
+ * (dumb) Fix for Rails4 ([=256](https://github.com/cucumber/cucumber-rails/pull/256) Jon Rowe)
+ * Revert "Merge pull request #256 from JonRowe/dumb_fix_for_rails4_test_he... ([=258](https://github.com/cucumber/cucumber-rails/pull/258) Kosmas Chatzimichalis
 
 ## [v1.3.1](https://github.com/cucumber/cucumber-rails/compare/v1.3.0...v1.3.1) (2013-03-15)
 
