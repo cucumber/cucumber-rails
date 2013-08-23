@@ -22,7 +22,7 @@
  * Fixed tests so they pass in Rails 4 and updated gemspec ([#247](https://github.com/cucumber/cucumber-rails/pull/247) Dave Brace)
  * Allow use with Rails 4 ([#254](https://github.com/cucumber/cucumber-rails/pull/254) Marnen Laibow-Koser)
  * (dumb) Fix for Rails4 ([#256](https://github.com/cucumber/cucumber-rails/pull/256) Jon Rowe)
- * Revert "Merge pull request #256 from JonRowe/dumb_fix_for_rails4_test_he... ([#258](https://github.com/cucumber/cucumber-rails/pull/258) Kosmas Chatzimichalis
+ * Revert "Merge pull request #256 from JonRowe/dumb_fix_for_rails4_test_he... ([#258](https://github.com/cucumber/cucumber-rails/pull/258) Kosmas Chatzimichalis)
 
 ## [v1.3.1](https://github.com/cucumber/cucumber-rails/compare/v1.3.0...v1.3.1) (2013-03-15)
 
