@@ -1,6 +1,6 @@
 ## [master](https://github.com/cucumber/cucumber-rails/compare/v1.4.0...master) (Not yet released)
 
- ### New Features
+### New Features
  
  * Added MIT licence in gemspec ([#261] (https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
 
