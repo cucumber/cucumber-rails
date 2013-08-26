@@ -1,3 +1,9 @@
+## [master](https://github.com/cucumber/cucumber-rails/compare/v1.4.0...master) (Not yet released)
+
+ ### New Features
+ 
+ * Added MIT licence in gemspec ([#261] (https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
+
 ## [v1.4.0](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.4.0) (2013-08-23)
 
 ### New Features
@@ -5,7 +11,6 @@
  * New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
  * Added recommendation in README.md for running install scripts after upgrading (Joost Baaij)
  * Describe configuration option 'autorun_database_cleaner' in README ([#255](https://github.com/cucumber/cucumber-rails/pull/255) Martin Eismann)
- * Added MIT licence in gemspec ([#261] (https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
  
 ### Changed Features
 
