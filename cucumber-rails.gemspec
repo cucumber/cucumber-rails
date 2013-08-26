@@ -10,6 +10,8 @@ Gem::Specification.new do |s|
   s.email       = 'cukes@googlegroups.com'
   s.homepage    = "http://cukes.info"
 
+  s.license = 'MIT'
+
   s.add_runtime_dependency('cucumber', '>= 1.2.0')
   s.add_runtime_dependency('nokogiri', '>= 1.5.0')
   s.add_runtime_dependency('capybara', '>= 1.1.2')
