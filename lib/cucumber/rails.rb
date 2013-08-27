@@ -23,6 +23,7 @@ if env_caller
   require 'cucumber/rails/capybara'
   require 'cucumber/rails/database'
 
+  MultiTest.disable_autorun
 else
   warn "WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
   To avoid this warning, move 'gem \'cucumber-rails\', :require => false' under only group :test in your Gemfile. 
