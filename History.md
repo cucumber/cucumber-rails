@@ -5,7 +5,9 @@
  * Added MIT licence in gemspec ([#261] (https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
 
 ### Bugfixes
+
  * Prevent MiniTest running `at_exit` when running cucumber ([#253](https://github.com/cucumber/cucumber-rails/issues/253) Steve Tooke)
+ * `bundle exec rake` runs minitest with cucumber options and raises exception ([#252] (https://github.com/cucumber/cucumber-rails/issues/252) Peter Bollenbeck)
 
 ## [v1.4.0](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.4.0) (2013-08-23)
 
