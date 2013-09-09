@@ -4,6 +4,9 @@
  
  * Added MIT licence in gemspec ([#261] (https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
 
+### Removed Features
+ * Mongo step definition ([#263] (https://github.com/cucumber/cucumber-rails/issues/263) Aslak Hellesøy )
+
 ### Bugfixes
 
  * Prevent MiniTest running `at_exit` when running cucumber ([#253](https://github.com/cucumber/cucumber-rails/issues/253) Steve Tooke)
