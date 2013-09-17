@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('bcat', '~> 0.6.2')
   s.add_development_dependency('rdiscount', '~> 2.0.7')
   s.add_development_dependency('rdoc', '~> 3.12.2')
-  s.add_development_dependency('yard', '~> 0.8.5.2')
+  s.add_development_dependency('yard', '>= 0.8.7')
 
   s.rubygems_version = ">= 1.6.1"
   s.files            = `git ls-files`.split("\n")
