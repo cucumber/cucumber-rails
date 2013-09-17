@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
 
   # For Documentation:
   s.add_development_dependency('bcat', '~> 0.6.2')
-  s.add_development_dependency('rdiscount', '~> 2.0.7')
+  s.add_development_dependency('rdiscount', '>= 2.0.7')
   s.add_development_dependency('rdoc', '>= 3.4')
   s.add_development_dependency('yard', '>= 0.8.7')
 
