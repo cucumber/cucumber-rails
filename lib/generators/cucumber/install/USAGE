@@ -1,9 +1,9 @@
 Description:
     Sets up Cucumber in your Rails project. After running this generator you will
     get a new rake task called cucumber.
-    
+
     This also generates the necessary files in the features directory.
-    
+
 Examples:
     `rails generate cucumber:install`
 

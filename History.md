@@ -1,7 +1,7 @@
 ## [master](https://github.com/cucumber/cucumber-rails/compare/v1.4.0...master) (Not yet released)
 
 ### New Features
- 
+
  * Added MIT licence in gemspec ([#261] (https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
 
 ### Removed Features
@@ -19,7 +19,7 @@
  * New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
  * Added recommendation in README.md for running install scripts after upgrading (Joost Baaij)
  * Describe configuration option 'autorun_database_cleaner' in README ([#255](https://github.com/cucumber/cucumber-rails/pull/255) Martin Eismann)
- 
+
 ### Changed Features
 
  * Gemspec in 1.3.1 doesn't allow usage with rails 4 ([#244](https://github.com/cucumber/cucumber-rails/issues/244) Fabian Schwahn)
@@ -27,10 +27,10 @@
 ### Removed Features
 
  * routing.feature code was actually testing the raising of errors so it was renamed to raising_errors.feature and slightly changed to deal with rails 4 changes in public folder
- * multiple_databases.feature was removed as it was actually testing DatabaseCleaner behaviour 
+ * multiple_databases.feature was removed as it was actually testing DatabaseCleaner behaviour
  * pre_bundler.feature was removed as it is no longer relevant
  * mongodb feature was removed as is there is no mongodb code in cucumber-rails codebase
- 
+
 ### Bugfixes
 
  * Fixed tests so they pass in Rails 4 and updated gemspec ([#247](https://github.com/cucumber/cucumber-rails/pull/247) Dave Brace)
@@ -237,7 +237,7 @@ You can learn more about what Capybara has to offer in Capybara's [README](https
 ## [v0.3.1](https://github.com/cucumber/cucumber-rails/compare/v0.3.0...v0.3.1) (2010-05-04)
 
 This release has a lot of bugfixes! The test suite (based on Aruba) verifies that Cucumber-Rails
-now works with various combinations of: 
+now works with various combinations of:
 
 * Cucumber 0.6.x/0.7.2
 * Rails2/Rails3
@@ -245,7 +245,7 @@ now works with various combinations of:
 * Webrat/CapyBara
 * MRI 1.8.6/1.8.7/1.9.1
 
-This one requires a special mention: The handy (but error prone) rerun functionality has moved to a 
+This one requires a special mention: The handy (but error prone) rerun functionality has moved to a
 separate rerun profile, so all rerun.txt related issues should now be gone.
 
 * New Capybara Step Definitions for Dates. (Rob Holland)
@@ -289,7 +289,7 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 
 ### Bugfixes
 * Started to work on solutions for generating suitable support files depending on Rails version
-  - see skeleton_base.rb#create_feature_support and templates/support  
+  - see skeleton_base.rb#create_feature_support and templates/support
 
 ## [v0.2.4](https://github.com/cucumber/cucumber-rails/compare/v0.2.3...v0.2.4) (2010-01-18)
 
@@ -351,11 +351,11 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
    in a temporary file and reapply after you have overwritten the file. ALso consider
    adding your custom code to another file that won't be overwritten the next time
    you upgrade.
-   
+
    Many people have edits in their env.rb file. This is something you should try
    to avoid in the future. Instead, keep your custom setup in a different file
    under features/support - Cucumber loads all files under features/**/*.rb anyway.
-   
+
    If you have a Spork setup, see the end of this thread:
    http://groups.google.com/group/cukes/browse_thread/thread/475385cc26377215
 

@@ -6,7 +6,7 @@ require 'rails/application'
 # toggle whether or not exceptions are raised.
 class Rails::Application
   alias __cucumber_orig_initialize__ initialize!
-  
+
   def initialize!
     ad = config.action_dispatch
     def ad.show_exceptions
