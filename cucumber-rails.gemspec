@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('ammeter', '>= 0.2.9')
   s.add_development_dependency('appraisal', '~> 0.5.1')
   s.add_development_dependency('aruba', '>= 0.4.11')
+  s.add_development_dependency('builder', ['>= 2.1.2', '< 3.2'])
   s.add_development_dependency('bundler', '~> 1.3.5')
   s.add_development_dependency('database_cleaner', '>= 0.7.2')
   s.add_development_dependency('factory_girl', '>= 3.2.0')
