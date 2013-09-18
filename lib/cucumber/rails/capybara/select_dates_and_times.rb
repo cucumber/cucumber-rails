@@ -12,7 +12,7 @@ module Cucumber
           find(:xpath, ".//select[@id='#{base_dom_id}_2i']").select(I18n.l date, :format => '%B')
           find(:xpath, ".//select[@id='#{base_dom_id}_3i']").select(date.day.to_s)
         end
-      
+
         # Select a Rails time. Options has must include :from => +label+
         def select_time(time, options)
           time        = Time.zone.parse(time)
@@ -21,7 +21,7 @@ module Cucumber
           find(:xpath, ".//select[@id='#{base_dom_id}_4i']").select(time.hour.to_s.rjust(2, '0'))
           find(:xpath, ".//select[@id='#{base_dom_id}_5i']").select(time.min.to_s.rjust(2,  '0'))
         end
-      
+
         # Select a Rails datetime. Options has must include :from => +label+
         def select_datetime(datetime, options)
           select_date(datetime, options)

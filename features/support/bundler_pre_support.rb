@@ -2,11 +2,11 @@ module BundlerPreHelper
   def bundler
     fixture 'bundler-1.0.21.gem'
   end
-  
+
   def bundler_pre
     fixture 'bundler-1.1.rc.gem'
   end
-  
+
   def gem_install(path)
     run_simple("gem install #{path} --no-ri --no-rdoc")
   end

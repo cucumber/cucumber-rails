@@ -4,7 +4,7 @@ end
 
 class ActionDispatch::ShowExceptions
   alias __cucumber_orig_call__ call
-  
+
   def call(env)
     env['action_dispatch.show_exceptions'] = !!ActionController::Base.allow_rescue
     __cucumber_orig_call__(env)

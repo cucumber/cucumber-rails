@@ -235,7 +235,7 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')} 
+  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
 
   if actual_params.respond_to? :should
     actual_params.should == expected_params
@@ -248,7 +248,7 @@ Then /^show me the page$/ do
   save_and_open_page
 end
     EOF
-    
+
     write_file('features/support/paths.rb', <<-EOF)
 module NavigationHelpers
   # Maps a name to a path. Used by the

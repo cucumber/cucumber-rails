@@ -19,19 +19,19 @@ module CucumberRailsHelper
     gem "selenium-webdriver", :group => :test
     run_simple "bundle exec rails generate cucumber:install"
   end
-  
+
   def gem(name, options)
     line = %{gem "#{name}", #{options.inspect}\n}
     append_to_file('Gemfile', line)
   end
-  
+
   def prepare_aruba_report
     if(ENV['ARUBA_REPORT_DIR'])
       @aruba_report_start = Time.new
       sleep(1)
     end
   end
-  
+
   def fixture(path)
     File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
   end

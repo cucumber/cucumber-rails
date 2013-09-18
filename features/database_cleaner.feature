@@ -7,7 +7,7 @@ Feature: DatabaseCleaner
       Feature: Create widgets
         Background: some widdgets
           Given I have 2 widgets
-      
+
         Scenario: Add 3
           When I create 3 more widgets
           Then I should have 5 widgets
