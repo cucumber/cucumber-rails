@@ -8,7 +8,7 @@ module Cucumber
             alias_method :click, :click_with_javascript_emulation
           end
         end
-  
+
         def click_with_javascript_emulation
           if link_with_non_get_http_method?
             ::Capybara::RackTest::Form.new(driver, js_form(element_node.document, self[:href], emulated_method)).submit(self)
@@ -61,7 +61,7 @@ module Cucumber
             input['value'] = csrf_token
             js_form.add_child(input)
           end
-        
+
           js_form
         end
 

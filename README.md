@@ -3,7 +3,7 @@
 [![Build Status](https://secure.travis-ci.org/cucumber/cucumber-rails.png?branch=master)](http://travis-ci.org/cucumber/cucumber-rails)
 [![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.png)](https://codeclimate.com/github/cucumber/cucumber-rails)
 
-Cucumber-Rails brings Cucumber to Rails 3.x and 4.x. For Rails 2.3.x support, see the [rails-2.3.x branch](https://github.com/cucumber/cucumber-rails/tree/rails-2.3.x). 
+Cucumber-Rails brings Cucumber to Rails 3.x and 4.x. For Rails 2.3.x support, see the [rails-2.3.x branch](https://github.com/cucumber/cucumber-rails/tree/rails-2.3.x).
 
 ## Installation
 
@@ -36,7 +36,7 @@ With Rake:
 Without Rake:
 
     [bundle exec] cucumber
-    
+
 ## Configuration options
 
 By default, cucumber-rails runs `DatabaseCleaner.start` and `DatabaseCleaner.clean` before and after your scenarios. You can disable this behaviour like so:
@@ -44,7 +44,7 @@ By default, cucumber-rails runs `DatabaseCleaner.start` and `DatabaseCleaner.cle
     # features/support/env.rb
     # ...
     Cucumber::Rails::Database.autorun_database_cleaner = false
-    
+
 ## Upgrading from a previous version
 
 When upgrading from a previous version it is recommended that you rerun:

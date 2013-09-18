@@ -34,4 +34,4 @@ Feature: Rerun profile
       1 scenario (1 passed)
       1 step (1 passed)
       """
-    And the file "rerun.txt" should not contain "features/rerun_test.feature:2"    
+    And the file "rerun.txt" should not contain "features/rerun_test.feature:2"

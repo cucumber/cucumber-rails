@@ -17,16 +17,16 @@ if(ENV['ARUBA_REPORT_DIR'])
     module Reporting
       def children(dir)
         children = Dir["#{dir}/*"].sort
-        
+
         # include
         children = children.select do |child|
-          File.directory?(child) || 
+          File.directory?(child) ||
           (@aruba_report_start && File.stat(child).mtime > @aruba_report_start)
         end
-        
+
         # exclude
         children = children.reject do |child|
-          child =~ /Gemfile/ || 
+          child =~ /Gemfile/ ||
           child =~ /\.log$/
         end
 
