@@ -19,17 +19,17 @@ Gem::Specification.new do |s|
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 0.2.9')
-  s.add_development_dependency('appraisal', '~> 0.5.1')
+  s.add_development_dependency('appraisal', '>= 0.5.1')
   s.add_development_dependency('aruba', '>= 0.4.11')
   s.add_development_dependency('builder', ['>= 2.1.2', '< 3.2'])
-  s.add_development_dependency('bundler', '~> 1.3.5')
+  s.add_development_dependency('bundler', '>= 1.3.5')
   s.add_development_dependency('database_cleaner', '>= 0.7.2')
   s.add_development_dependency('factory_girl', '>= 3.2')
   s.add_development_dependency('rake', '>= 0.9.2.2')
   s.add_development_dependency('rspec', '>= 2.2')
 
   # For Documentation:
-  s.add_development_dependency('bcat', '~> 0.6.2')
+  s.add_development_dependency('bcat', '>= 0.6.2')
   s.add_development_dependency('rdiscount', '>= 2.0.7')
   s.add_development_dependency('rdoc', '>= 3.4')
   s.add_development_dependency('yard', '>= 0.8.7')
