@@ -3,7 +3,7 @@ require 'cucumber/rails/database'
 
 describe Cucumber::Rails::Database do
 
-  let(:strategy) { stub(:before_js => nil, :before_non_js => nil) }
+  let(:strategy) { double(:before_js => nil, :before_non_js => nil) }
 
   it 'forwards events to the selected strategy' do
     Cucumber::Rails::Database::TruncationStrategy.stub(:new => strategy)
