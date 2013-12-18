@@ -13,6 +13,7 @@
  * `bundle exec rake` runs minitest with cucumber options and raises exception ([#252] (https://github.com/cucumber/cucumber-rails/issues/252) Peter Bollenbeck)
  * Various bundler related fixes ([#264] (https://github.com/cucumber/cucumber-rails/pull/264) Erik Michaels-Ober )
  * Additional gemspec cleanup ([#265] (https://github.com/cucumber/cucumber-rails/pull/265) Erik Michaels-Ober )
+ * Added mime-types runtime dependency to fix bundle install issue ([#273] (https://github.com/cucumber/cucumber-rails/pull/273) Kosmas Chatzimichalis)
 
 ## [v1.4.0](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.4.0) (2013-08-23)
 
