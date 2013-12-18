@@ -7,7 +7,6 @@ appraise "rails_3_0" do
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
   gem "bson_ext", "~> 1.8.5"
-  gem "mongoid", "~> 2.2.6"
   gem "database_cleaner", "~> 1.0.1"
 end
 
@@ -66,6 +65,5 @@ appraise "rails_4_0" do
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
   gem "bson_ext", "~> 1.8.5"
-  gem "mongoid", :git => "https://github.com/mongoid/mongoid.git"
   gem "database_cleaner", "~> 1.0.1"
 end
