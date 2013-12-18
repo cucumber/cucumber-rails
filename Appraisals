@@ -6,7 +6,6 @@ appraise "rails_3_0" do
   gem "jquery-rails", "~> 2.2.1"
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
-  gem "bson_ext", "~> 1.8.5"
   gem "database_cleaner", "~> 1.0.1"
 end
 
@@ -20,7 +19,6 @@ appraise "rails_3_1" do
   gem "jquery-rails", "~> 2.2.1"
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
-  gem "bson_ext", "~> 1.8.5"
   gem "database_cleaner", "~> 1.0.1"
 end
 
@@ -34,7 +32,6 @@ appraise "rails_3_2" do
   gem "jquery-rails", "~> 2.2.1"
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
-  gem "bson_ext", "~> 1.8.5"
   gem "database_cleaner", "~> 1.0.1"
 end
 
@@ -48,7 +45,6 @@ appraise "capybara_1_1" do
   gem "jquery-rails", "~> 2.2.1"
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
-  gem "bson_ext", "~> 1.8.5"
   gem "database_cleaner", "~> 1.0.1"
 end
 
@@ -64,6 +60,5 @@ appraise "rails_4_0" do
   gem "jquery-rails", "~> 2.2.1"
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
-  gem "bson_ext", "~> 1.8.5"
   gem "database_cleaner", "~> 1.0.1"
 end
