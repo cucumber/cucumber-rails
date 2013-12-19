@@ -15,7 +15,7 @@
  * Additional gemspec cleanup ([#265] (https://github.com/cucumber/cucumber-rails/pull/265) Erik Michaels-Ober )
  * Added mime-types runtime dependency to fix bundle install issue ([#273] (https://github.com/cucumber/cucumber-rails/pull/273) Kosmas Chatzimichalis)
  * Removed mongoid gem from Appraisal ([#274] (https://github.com/cucumber/cucumber-rails/pull/274) Kosmas Chatzimichalis)
- * Amend typo in select_dates_and_times.rb comments ([#] (https://github.com/cucumber/cucumber-rails/pull/268)  Erik Eide)
+ * Amend typo in select_dates_and_times.rb comments ([#268] (https://github.com/cucumber/cucumber-rails/pull/268)  Erik Eide)
 
 ## [v1.4.0](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.4.0) (2013-08-23)
 
