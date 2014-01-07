@@ -24,6 +24,7 @@
  * New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
  * Added recommendation in README.md for running install scripts after upgrading (Joost Baaij)
  * Describe configuration option 'autorun_database_cleaner' in README ([#255](https://github.com/cucumber/cucumber-rails/pull/255) Martin Eismann)
+ * Ensure dependency on DatabaseCleaner is not required ([#276] (https://github.com/cucumber/cucumber-rails/pull/276) Matthew O'Riordan)
 
 ### Changed Features
 
