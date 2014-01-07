@@ -3,6 +3,7 @@
 ### New Features
 
  * Added MIT licence in gemspec ([#261] (https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
+ * Ensure dependency on DatabaseCleaner is not required ([#276] (https://github.com/cucumber/cucumber-rails/pull/276) Matthew O'Riordan)
 
 ### Removed Features
  * Mongo step definition ([#263] (https://github.com/cucumber/cucumber-rails/issues/263) Aslak Hellesøy )
@@ -24,7 +25,7 @@
  * New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
  * Added recommendation in README.md for running install scripts after upgrading (Joost Baaij)
  * Describe configuration option 'autorun_database_cleaner' in README ([#255](https://github.com/cucumber/cucumber-rails/pull/255) Martin Eismann)
- * Ensure dependency on DatabaseCleaner is not required ([#276] (https://github.com/cucumber/cucumber-rails/pull/276) Matthew O'Riordan)
+
 
 ### Changed Features
 
