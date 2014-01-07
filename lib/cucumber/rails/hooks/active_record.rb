@@ -8,14 +8,14 @@ if defined?(ActiveRecord::Base)
   end
 
   Before('@javascript') do
-    Cucumber::Rails::Database.before_js
+    Cucumber::Rails::Database.before_js if Cucumber::Rails::Database.autorun_database_cleaner
   end
 
   Before('~@javascript') do
-    Cucumber::Rails::Database.before_non_js
+    Cucumber::Rails::Database.before_non_js if Cucumber::Rails::Database.autorun_database_cleaner
   end
 
   After do
-    Cucumber::Rails::Database.after
+    Cucumber::Rails::Database.after if Cucumber::Rails::Database.autorun_database_cleaner
   end
 end
