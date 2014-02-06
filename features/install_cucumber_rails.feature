@@ -9,5 +9,6 @@ Feature: Rails
       | config/cucumber.yml                    |
       | script/cucumber                        |
       | features/support/env.rb                |
+      | features/step_definitions/.gitkeep     |
       | lib/tasks/cucumber.rake                |
     And the file "features/support/env.rb" should contain "require 'cucumber/rails'"
