@@ -75,8 +75,6 @@ With all dependencies installed, all specs and features should pass:
 
     rake
 
-One of the features uses MongoDB, which needs to be running in order to make features/mongoid.feature to pass.
-
 ### Running Appraisal suite
 
 In order to test against multiple versions of key dependencies, the [Appraisal](https://github.com/thoughtbot/appraisal) is used to generate multiple gemfiles, stored in the `gemfiles/` directory. Normally these will only run on Travis; however, if you want to run the full test suite against all gemfiles, run the following commands:
@@ -101,3 +99,15 @@ To support the multiple-gemfile testing, when adding a new dependency the follow
 3. If it's a dependency of a generated rails app in a test, add it to the Gemfile (for local test runs) and each appraisal section (if necessary).
 
 For example, rspec is a primary development dependency, so it lives in the gemspec. By contrast, coffee-rails is a dependency of apps generated with rails 3.1 and 3.2, so lives in the main Gemfile and the rails 3.1 and 3.2 appraisal sections.
+
+### NOTE
+
+If you get an error while trying to run the tests locally, similar to the one below:
+
+    Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
+    
+you would need to install a javascript runtime.
+
+You can do that in ubuntu by using:
+
+    sudo apt-get install nodejs
