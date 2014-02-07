@@ -18,6 +18,7 @@
  * Removed mongoid gem from Appraisal ([#274] (https://github.com/cucumber/cucumber-rails/pull/274) Kosmas Chatzimichalis)
  * Amend typo in select_dates_and_times.rb comments ([#268] (https://github.com/cucumber/cucumber-rails/pull/268)  Erik Eide)
  * Keep empty step_definitions directories ([#249] (https://github.com/cucumber/cucumber-rails/pull/249) Iain D Broadfoot)
+ * Remove obsolete link for config.cache_classes to false ([#271] (https://github.com/cucumber/cucumber-rails/issues/271) Andrew Premdas )
 
 ## [v1.4.0](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.4.0) (2013-08-23)
 
