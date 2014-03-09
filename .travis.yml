@@ -1,6 +1,8 @@
 rvm:
   - 1.9.3
   - 2.0.0
+  - 2.1.0
+  - 2.1.1
 
 # whitelist
 branches:
@@ -16,12 +18,14 @@ gemfile:
 
 matrix:
   exclude:
-    - rvm: 2.0.0
-      gemfile: gemfiles/capybara_1_1.gemfile
-    - rvm: 2.0.0
-      gemfile: gemfiles/rails_3_1.gemfile
-    - rvm: 2.0.0
-      gemfile: gemfiles/rails_3_0.gemfile
+    rvm: 
+      - 2.0.0
+      - 2.1.0
+      - 2.1.1
+    gemfile: 
+      - gemfiles/capybara_1_1.gemfile
+      - gemfiles/rails_3_1.gemfile
+      - gemfiles/rails_3_0.gemfile
 
 # Needed for selenium browser
 before_script:
