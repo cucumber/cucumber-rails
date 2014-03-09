@@ -4,11 +4,6 @@ rvm:
   - 2.1.0
   - 2.1.1
 
-# whitelist
-branches:
-  only:
-    - master
-
 gemfile:
   - gemfiles/capybara_1_1.gemfile
   - gemfiles/rails_4_0.gemfile
