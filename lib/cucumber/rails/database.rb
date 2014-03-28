@@ -1,13 +1,11 @@
 module Cucumber
   module Rails
     module Database
-
       CUSTOM_STRATEGY_INTERFACE = %w{ before_js before_non_js }
 
       class InvalidStrategy < ArgumentError;end
 
       class << self
-
         attr_accessor :autorun_database_cleaner
 
         def javascript_strategy=(args)
@@ -53,7 +51,6 @@ module Cucumber
             raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map{|method| "##{method}" } * '  '} !")
           end
         end
-
       end
 
       class Strategy

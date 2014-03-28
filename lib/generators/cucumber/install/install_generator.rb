@@ -62,6 +62,5 @@ module Cucumber
       template = File.join(self.class.source_root, source)
       ERB.new(IO.read(template), nil, '-').result(binding).gsub(/^/, indent)
     end
-
   end
 end
