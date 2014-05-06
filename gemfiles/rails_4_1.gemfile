@@ -3,8 +3,8 @@
 source "https://rubygems.org"
 
 gem "protected_attributes", "~> 1.0.3"
-gem "rails", "~> 4.0.0"
-gem "railties", "~> 4.0.0"
+gem "rails", "~> 4.1.0"
+gem "railties", "~> 4.1.0"
 gem "capybara", "~> 2.0.2"
 gem "turn", "~> 0.9.6"
 gem "rspec-rails", "~> 2.14.2"
