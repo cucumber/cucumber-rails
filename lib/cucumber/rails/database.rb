@@ -3,7 +3,7 @@ module Cucumber
     module Database
       CUSTOM_STRATEGY_INTERFACE = %w{ before_js before_non_js }
 
-      class InvalidStrategy < ArgumentError;end
+      class InvalidStrategy < ArgumentError; end
 
       class << self
         attr_accessor :autorun_database_cleaner
@@ -47,15 +47,15 @@ module Cucumber
         end
 
         def validate_interface!
-          unless CUSTOM_STRATEGY_INTERFACE.all? {|m| @strategy.respond_to?(m) }
-            raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map{|method| "##{method}" } * '  '} !")
+          unless CUSTOM_STRATEGY_INTERFACE.all? { |m| @strategy.respond_to?(m) }
+            raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map{ |method| "##{method}" } * '  ' } !")
           end
         end
       end
 
       class Strategy
-        def initialize(options={})
-          @options=options
+        def initialize(options = {})
+          @options = options
         end
 
         def before_js(strategy)

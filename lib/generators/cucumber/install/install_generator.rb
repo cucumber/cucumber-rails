@@ -54,11 +54,11 @@ module Cucumber
       options[:spork]
     end
 
-    def embed_file(source, indent='')
+    def embed_file(source, indent = '')
       IO.read(File.join(self.class.source_root, source)).gsub(/^/, indent)
     end
 
-    def embed_template(source, indent='')
+    def embed_template(source, indent = '')
       template = File.join(self.class.source_root, source)
       ERB.new(IO.read(template), nil, '-').result(binding).gsub(/^/, indent)
     end
