@@ -16,15 +16,6 @@ CLEAN.include('doc', 'tmp')
 
 task :default => :test
 
-if ENV['TRAVIS']
-  ENV['SIMPLECOV'] = 'ci'
-
-  require 'coveralls/rake/task'
-  Coveralls::RakeTask.new
-
-  task :default => [:test, 'coveralls:push']
-end
-
 task :test => [:spec, :cucumber]
 
 namespace :test do

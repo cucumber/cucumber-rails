@@ -7,7 +7,6 @@
  * Added Rails 4.1 support ([#287] (https://github.com/cucumber/cucumber-rails/pull/287) Felix Bünemann)
  * Modified appraisal instructions in README.md (Kosmas Chatzimichalis)
  * Added Gemnasium support (Kosmas Chatzimichalis)
- * Added Coveralls support (Kosmas Chatzimichalis)
 
 ### Removed Features
  * Mongo step definition ([#263] (https://github.com/cucumber/cucumber-rails/issues/263) Aslak Hellesøy )
