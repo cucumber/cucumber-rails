@@ -2,12 +2,12 @@ require 'rbconfig'
 
 module Cucumber
   class InstallGenerator < ::Rails::Generators::Base
-    source_root File.expand_path("../templates", __FILE__)
+    source_root File.expand_path('../templates', __FILE__)
 
     DEFAULT_SHEBANG = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])
 
-    class_option :spork,         :type => :boolean, :desc => "Use Spork"
-    class_option :skip_database, :type => :boolean, :desc => "Skip modification of database.yml", :aliases => '-D', :default => false
+    class_option :spork,         :type => :boolean, :desc => 'Use Spork'
+    class_option :skip_database, :type => :boolean, :desc => 'Skip modification of database.yml', :aliases => '-D', :default => false
 
     def create_templates
       template 'config/cucumber.yml.erb', 'config/cucumber.yml'
@@ -44,7 +44,7 @@ module Cucumber
         gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test"
 
         # Since gsub_file doesn't ask the user, just inform user that the file was overwritten.
-        puts "       force  config/database.yml"
+        puts '       force  config/database.yml'
       end
     end
 

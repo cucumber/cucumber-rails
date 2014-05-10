@@ -8,16 +8,16 @@ module CucumberRailsHelper
 
   def install_cucumber_rails(*options)
     if options.include?(:not_in_test_group)
-      gem "cucumber-rails", :path => "#{File.expand_path('.')}"
+      gem 'cucumber-rails', :path => "#{File.expand_path('.')}"
     else
-      gem "cucumber-rails", :group => :test, :require => false, :path => "#{File.expand_path('.')}"
+      gem 'cucumber-rails' , :group => :test, :require => false, :path => "#{File.expand_path('.')}"
     end
-    gem "capybara", :group => :test
-    gem "rspec-rails", :group => :test
-    gem "database_cleaner", :group => :test unless options.include?(:no_database_cleaner)
+    gem 'capybara', :group => :test
+    gem 'rspec-rails', :group => :test
+    gem 'database_cleaner', :group => :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', :group => :test unless options.include?(:no_factory_girl)
-    gem "selenium-webdriver", :group => :test
-    run_simple "bundle exec rails generate cucumber:install"
+    gem 'selenium-webdriver', :group => :test
+    run_simple 'bundle exec rails generate cucumber:install'
   end
 
   def gem(name, options)
@@ -75,7 +75,7 @@ end
 
 Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
   run_simple("bundle exec rails g model #{name}")
-  run_simple("bundle exec rake db:migrate RAILS_ENV=test")
+  run_simple('bundle exec rake db:migrate RAILS_ENV=test')
 end
 
 When /^I run the cukes$/ do
