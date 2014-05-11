@@ -14,7 +14,7 @@ module Cucumber #:nodoc:
         @_result = Test::Unit::TestResult.new if defined?(Test::Unit::TestResult)
       end
 
-      if !defined?(ActiveRecord::Base)
+      unless defined?(ActiveRecord::Base)
         def self.fixture_table_names; []; end # Workaround for projects that don't use ActiveRecord
       end
     end
