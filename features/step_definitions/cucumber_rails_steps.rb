@@ -8,7 +8,7 @@ module CucumberRailsHelper
 
   def install_cucumber_rails(*options)
     if options.include?(:not_in_test_group)
-      gem 'cucumber-rails', piath: "#{File.expand_path('.')}"
+      gem 'cucumber-rails', path: "#{File.expand_path('.')}"
     else
       gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
