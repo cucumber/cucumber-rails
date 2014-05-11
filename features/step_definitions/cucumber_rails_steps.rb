@@ -8,15 +8,15 @@ module CucumberRailsHelper
 
   def install_cucumber_rails(*options)
     if options.include?(:not_in_test_group)
-      gem 'cucumber-rails', :path => "#{File.expand_path('.')}"
+      gem 'cucumber-rails', piath: "#{File.expand_path('.')}"
     else
-      gem 'cucumber-rails' , :group => :test, :require => false, :path => "#{File.expand_path('.')}"
+      gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
-    gem 'capybara', :group => :test
-    gem 'rspec-rails', :group => :test
-    gem 'database_cleaner', :group => :test unless options.include?(:no_database_cleaner)
-    gem 'factory_girl', :group => :test unless options.include?(:no_factory_girl)
-    gem 'selenium-webdriver', :group => :test
+    gem 'capybara', group: :test
+    gem 'rspec-rails', group: :test
+    gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
+    gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
+    gem 'selenium-webdriver', group: :test
     run_simple 'bundle exec rails generate cucumber:install'
   end
 
@@ -46,7 +46,7 @@ Given /^I have created a new Rails app and installed cucumber\-rails, accidental
 end
 
 Given /^I have created a new Rails app "([^"]*)" and installed cucumber\-rails$/ do |app_name|
-  rails_new :name => app_name
+  rails_new name: app_name
   install_cucumber_rails
   create_web_steps
   prepare_aruba_report
@@ -60,14 +60,14 @@ Given /^I have created a new Rails app and installed cucumber\-rails$/ do
 end
 
 Given /^I have created a new Rails app with no database and installed cucumber-rails$/ do
-  rails_new :args => '--skip-active-record'
+  rails_new args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps
 end
 
 Given /^I have created a new Rails app "(.*?)" with no database and installed cucumber\-rails$/ do |app_name|
-  rails_new :name => app_name, :args => '--skip-active-record'
+  rails_new name: app_name, args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps

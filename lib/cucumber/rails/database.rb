@@ -39,10 +39,10 @@ module Cucumber
 
         def map
           {
-            :truncation => TruncationStrategy,
-            :shared_connection => SharedConnectionStrategy,
-            :transaction => SharedConnectionStrategy,
-            :deletion => DeletionStrategy
+            truncation: TruncationStrategy,
+            shared_connection: SharedConnectionStrategy,
+            transaction: SharedConnectionStrategy,
+            deletion: DeletionStrategy
           }
         end
 
