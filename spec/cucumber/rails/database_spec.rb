@@ -6,13 +6,13 @@ describe Cucumber::Rails::Database do
   let(:strategy) { double(before_js: nil, before_non_js: nil) }
 
   it 'forwards events to the selected strategy' do
-    Cucumber::Rails::Database::TruncationStrategy.stub(new: strategy)
+    allow(Cucumber::Rails::Database::TruncationStrategy).to receive_messages(new: strategy)
     Cucumber::Rails::Database.javascript_strategy = :truncation
 
-    strategy.should_receive(:before_non_js).ordered
+    expect(strategy).to receive(:before_non_js).ordered
     Cucumber::Rails::Database.before_non_js
 
-    strategy.should_receive(:before_js).ordered
+    expect(strategy).to receive(:before_js).ordered
     Cucumber::Rails::Database.before_js
   end
 
@@ -43,13 +43,13 @@ describe Cucumber::Rails::Database do
     end
 
     it 'forwards events to a custom strategy' do
-      ValidStrategy.stub(new: strategy)
+      allow(ValidStrategy).to receive_messages(new: strategy)
       Cucumber::Rails::Database.javascript_strategy = ValidStrategy
 
-      strategy.should_receive(:before_non_js).ordered
+      expect(strategy).to receive(:before_non_js).ordered
       Cucumber::Rails::Database.before_non_js
 
-      strategy.should_receive(:before_js).ordered
+      expect(strategy).to receive(:before_js).ordered
       Cucumber::Rails::Database.before_js
     end
   end
