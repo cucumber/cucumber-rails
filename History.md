@@ -1,6 +1,7 @@
 ## [master](https://github.com/cucumber/cucumber-rails/compare/1.4.1...master) (Not yet released)
 
  * Update mime-types dependency to >= 1.16, < 3 ([#289] (https://github.com/cucumber/cucumber-rails/pull/289) Erik Michaels-Ober )
+ * Upgrade to RSpec 3 ([#290] (https://github.com/cucumber/cucumber-rails/pull/290) Tamir Duberstein )
 
 ## [v1.4.1](https://github.com/cucumber/cucumber-rails/compare/v1.4.0...v1.4.1) (2014-05-10)
 
