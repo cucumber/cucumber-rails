@@ -1,5 +1,5 @@
 ## [master](https://github.com/cucumber/cucumber-rails/compare/1.4.1...master) (Not yet released)
-
+ * Updated appraisal dependencies to rspec-rails 3.1.0, gemspec dependency to rspec <= 3.1, and removed turn from rails_4_1 appraisal (Kosmas Chatzimichalis)
  * Update mime-types dependency to >= 1.16, < 3 ([#289] (https://github.com/cucumber/cucumber-rails/pull/289) Erik Michaels-Ober )
  * Upgrade to RSpec 3 ([#290] (https://github.com/cucumber/cucumber-rails/pull/290) Tamir Duberstein )
 
