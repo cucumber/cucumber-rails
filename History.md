@@ -1,3 +1,7 @@
+## [master](https://github.com/cucumber/cucumber-rails/compare/1.4.2...master) (Not yet released)
+
+ * Added gem version badge (Kosmas Chatzimichalis)
+
 ## [v1.4.2](https://github.com/cucumber/cucumber-rails/compare/1.4.1...v1.4.2) (2014-10-09)
 
  * Updated appraisal dependencies to rspec-rails 3.1.0, gemspec dependency to rspec <= 3.1, and removed turn from rails_4_1 appraisal (Kosmas Chatzimichalis)

@@ -1,5 +1,6 @@
 # Cucumber-Rails
 
+[![Gem Version](https://badge.fury.io/rb/cucumber-rails.svg)](http://badge.fury.io/rb/cucumber-rails)
 [![Build Status](https://secure.travis-ci.org/cucumber/cucumber-rails.png?branch=master)](http://travis-ci.org/cucumber/cucumber-rails)
 [![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.png)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Dependency Status](https://gemnasium.com/Kosmas/cucumber-rails.svg)](https://gemnasium.com/Kosmas/cucumber-rails)
