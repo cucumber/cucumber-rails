@@ -76,3 +76,17 @@ appraise "rails_4_1" do
   gem "sqlite3", "~> 1.3.7"
   gem "database_cleaner", "~> 1.0.1"
 end
+
+appraise "rails_4_2" do
+  gem "rails", "~> 4.2.1"
+  gem "railties", "~> 4.2.1"
+  gem "capybara", "~> 2.4.4"
+  gem "selenium-webdriver", "~> 2.0"
+  gem "rspec-rails", "~> 3.1.0"
+  gem "sass-rails", "~> 5.0"
+  gem "coffee-rails", "~> 4.1.0"
+  gem "jquery-rails"
+  gem "uglifier", "~> 2.1.0"
+  gem "sqlite3", "~> 1.3.7"
+  gem "database_cleaner", "~> 1.0.1"
+end
