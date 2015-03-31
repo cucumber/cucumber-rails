@@ -25,8 +25,13 @@ matrix:
       gemfile: gemfiles/rails_3_1.gemfile
     - rvm: 2.0.0
       gemfile: gemfiles/rails_3_0.gemfile
+
     - rvm: 2.2.1
       gemfile: gemfiles/capybara_1_1.gemfile
+    - rvm: 2.2.1
+      gemfile: gemfiles/rails_4_0.gemfile
+    - rvm: 2.2.1
+      gemfile: gemfiles/rails_3_2.gemfile
     - rvm: 2.2.1
       gemfile: gemfiles/rails_3_1.gemfile
     - rvm: 2.2.1
