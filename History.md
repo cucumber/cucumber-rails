@@ -4,6 +4,7 @@
  * Fix a failing test due to rails date selectors only showing 5 years into the past by default ( [#293] (https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole )
  * Allow cucumber 2 ( [#293] (https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole )
  * Add rails 4.2 to test matrix ( [#293] (https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole )
+ * Depend on railties instead of rails ( [#294] (https://github.com/cucumber/cucumber-rails/pull/294) Alexander Lang )
 
 ## [v1.4.2](https://github.com/cucumber/cucumber-rails/compare/1.4.1...v1.4.2) (2014-10-09)
 
