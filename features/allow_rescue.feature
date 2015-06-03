@@ -23,12 +23,17 @@ Feature: Allow Cucumber to rescue exceptions
       Feature: posts
         @allow-rescue
         Scenario: See posts
-          When I look at the posts
+        When I look at the posts
+        Then I should see the public error page
       """
     And I write to "features/step_definitions/posts_steps.rb" with:
       """
       When /^I look at the posts$/ do
         visit '/posts'
+      end
+      Then /^I should see the public error page$/ do
+        expect(page).to have_content "We're sorry, but something went wrong. \
+          If you are the application owner check the logs for more information."
       end
       """
     And I run `bundle exec rake db:migrate`
@@ -36,7 +41,7 @@ Feature: Allow Cucumber to rescue exceptions
     Then the feature run should pass with:
       """
       1 scenario (1 passed)
-      1 step (1 passed)
+      2 steps (2 passed)
       """
 
   Scenario: Don't allow rescue
