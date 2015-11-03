@@ -1,12 +1,17 @@
-module CucumberRailsHelper
-  def run(cmd, timeout = nil, io_wait_timeout = nil)
+module CucumberRailsHelper  
+  def run(*args)
     Bundler.with_clean_env { super }
   end
   
   def rails_new(options = {})
     options[:name] ||= 'test_app'
-    command = run "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"
-    expect(command).to have_output /README/
+    command = run "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"    
+    if self.respond_to?(:have_output)
+      expect(command).to have_output /README/
+    else
+      # deprecated in Aruba 0.10.0
+      assert_passing_with('README')      
+    end    
     cd options[:name]
   end
 
