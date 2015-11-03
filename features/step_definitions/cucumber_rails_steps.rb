@@ -7,7 +7,6 @@ module CucumberRailsHelper
     options[:name] ||= 'test_app'
     command = run "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"
     expect(command).to have_output /README/
-    expect(command).to be_successfully_executed
     cd options[:name]
   end
 
@@ -22,8 +21,7 @@ module CucumberRailsHelper
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
     gem 'selenium-webdriver', group: :test
-    command = run 'bundle exec rails generate cucumber:install'
-    expect(command).to be_successfully_executed
+    run_simple 'bundle exec rails generate cucumber:install'    
   end
 
   def gem(name, options)
