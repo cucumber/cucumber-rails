@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 3.0.20"
-gem "capybara", "~> 2.0.2"
+gem "capybara", "~> 2.4"
 gem "turn", "~> 0.9.6"
 gem "rspec-rails", "~> 3.1.0"
 gem "jquery-rails", "~> 2.2.1"
