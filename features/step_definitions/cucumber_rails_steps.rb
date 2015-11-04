@@ -1,8 +1,13 @@
-module CucumberRailsHelper
+module CucumberRailsHelper    
   def rails_new(options = {})
     options[:name] ||= 'test_app'
-    run_simple "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"
-    assert_passing_with('README')
+    command = run "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"    
+    if self.respond_to?(:have_output)
+      expect(command).to have_output /README/
+    else
+      # deprecated in Aruba 0.10.0
+      assert_passing_with('README')      
+    end    
     cd options[:name]
   end
 
@@ -17,7 +22,7 @@ module CucumberRailsHelper
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
     gem 'selenium-webdriver', group: :test
-    run_simple 'bundle exec rails generate cucumber:install'
+    run_simple 'bundle exec rails generate cucumber:install'    
   end
 
   def gem(name, options)
