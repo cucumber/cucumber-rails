@@ -5,6 +5,7 @@ module CucumberRailsHelper
     assert_partial_output('README', all_output)
     assert_success(true)
     cd options[:name]
+    set_environment_variable 'BUNDLE_GEMFILE', 'Gemfile'
   end
 
   def install_cucumber_rails(*options)
