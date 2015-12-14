@@ -37,6 +37,8 @@ matrix:
     - rvm: 2.2.1
       gemfile: gemfiles/rails_3_0.gemfile
 
+before_install: gem update --remote bundler
+
 # Needed for selenium browser
 before_script:
   - "export DISPLAY=:99.0"
