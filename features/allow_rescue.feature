@@ -33,7 +33,7 @@ Feature: Allow Cucumber to rescue exceptions
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec cucumber`
-    Then it should pass with:
+    Then the feature run should pass with:
       """
       1 scenario (1 passed)
       1 step (1 passed)

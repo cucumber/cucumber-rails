@@ -35,7 +35,7 @@ Feature: Capybara Javascript Drivers
       """
     When I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
-    Then it should pass with:
+    Then the feature run should pass with:
       """
       1 scenario (1 passed)
       6 steps (6 passed)
@@ -65,7 +65,7 @@ Feature: Capybara Javascript Drivers
 
     When I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
-    Then it should pass with:
+    Then the feature run should pass with:
       """
       1 scenario (1 passed)
       3 steps (3 passed)

@@ -40,7 +40,7 @@ Feature: REST API
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
-    Then it should pass with:
+    Then the feature run should pass with:
        """
        1 scenario (1 passed)
        2 steps (2 passed)
