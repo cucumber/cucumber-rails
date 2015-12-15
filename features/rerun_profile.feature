@@ -29,7 +29,7 @@ Feature: Rerun profile
       end
       """
     When I successfully run `bundle exec cucumber -p rerun`
-    Then it should pass with:
+    Then the feature run should pass with:
       """
       1 scenario (1 passed)
       1 step (1 passed)

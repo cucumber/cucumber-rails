@@ -37,7 +37,7 @@ Feature: DatabaseCleaner
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
-    Then it should pass with:
+    Then the feature run should pass with:
        """
        2 scenarios (2 passed)
        6 steps (6 passed)

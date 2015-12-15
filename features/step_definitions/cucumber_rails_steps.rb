@@ -1,9 +1,11 @@
 module CucumberRailsHelper
   def rails_new(options = {})
     options[:name] ||= 'test_app'
-    run_simple "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"
-    assert_passing_with('README')
+    command = run "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"
+    assert_partial_output('README', all_output)
+    assert_success(true)
     cd options[:name]
+    set_environment_variable 'BUNDLE_GEMFILE', 'Gemfile'
   end
 
   def install_cucumber_rails(*options)
@@ -80,4 +82,12 @@ end
 
 When /^I run the cukes$/ do
   run_simple('bundle exec cucumber')
+end
+
+# Copied from Aruba
+Then /^the feature run should pass with:$/ do |string|
+  step 'the output should not contain " failed)"'
+  step 'the output should not contain " undefined)"'
+  step 'the exit status should be 0'
+  step 'the output should contain:', string
 end
