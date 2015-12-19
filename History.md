@@ -9,6 +9,7 @@
  * Allow any cucumber < 3 ( [#306] (https://github.com/cucumber/cucumber-rails/pull/306) Matijs van Zuijlen )
  * Add annotations configuration in generator ( [#292] (https://github.com/cucumber/cucumber-rails/pull/292) Bob Showalter )
  * Expand support to include mime-types 3 ( [#304] (https://github.com/cucumber/cucumber-rails/pull/304) Austin Ziegler )
+ * Replace badges with SVG versions ( [#307] (https://github.com/cucumber/cucumber-rails/pull/307) Kevin Goslar )
 
 ## [v1.4.2](https://github.com/cucumber/cucumber-rails/compare/1.4.1...v1.4.2) (2014-10-09)
 
