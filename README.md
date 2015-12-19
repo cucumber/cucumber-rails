@@ -1,8 +1,8 @@
 # Cucumber-Rails
 
 [![Gem Version](https://badge.fury.io/rb/cucumber-rails.svg)](http://badge.fury.io/rb/cucumber-rails)
-[![Build Status](https://secure.travis-ci.org/cucumber/cucumber-rails.png?branch=master)](http://travis-ci.org/cucumber/cucumber-rails)
-[![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.png)](https://codeclimate.com/github/cucumber/cucumber-rails)
+[![Build Status](https://secure.travis-ci.org/cucumber/cucumber-rails.svg?branch=master)](http://travis-ci.org/cucumber/cucumber-rails)
+[![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.svg)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Dependency Status](https://gemnasium.com/Kosmas/cucumber-rails.svg)](https://gemnasium.com/Kosmas/cucumber-rails)
 [![PullReview stats](https://www.pullreview.com/github/cucumber/cucumber-rails/badges/master.svg?)](https://www.pullreview.com/github/cucumber/cucumber-rails/reviews/master)
 
