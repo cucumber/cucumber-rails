@@ -4,10 +4,6 @@ require 'bundler/setup'
 require 'rspec/expectations'
 require 'aruba/cucumber'
 
-Before do
-  @aruba_timeout_seconds = 120 # A long time needed some times
-end
-
 if(ENV['ARUBA_REPORT_DIR'])
   # Override reporting behaviour so we don't document all files, only the ones
   # that have been created after @aruba_report_start (a Time object). This is
