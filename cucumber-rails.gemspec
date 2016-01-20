@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   # Main development dependencies
   s.add_development_dependency('ammeter', ['>= 0.2.9', '< 1.1.3'])
   s.add_development_dependency('appraisal', '>= 0.5.1')
-  s.add_development_dependency('aruba', '>= 0.4.11')
+  s.add_development_dependency('aruba', '~> 0.8.0')
   s.add_development_dependency('builder', ['>= 2.1.2', '< 4'])
   s.add_development_dependency('bundler', '>= 1.3.5')
   s.add_development_dependency('selenium-webdriver', '>= 2.45.0')
