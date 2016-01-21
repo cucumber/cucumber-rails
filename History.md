@@ -1,4 +1,6 @@
-## [master](https://github.com/cucumber/cucumber-rails/compare/1.4.2...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/1.4.3...master) (Not yet released)
+
+## [v1.4.3](https://github.com/cucumber/cucumber-rails/compare/1.4.2...1.4.3) (2016-01-21)
 
  * Added gem version badge (Kosmas Chatzimichalis)
  * Fix a failing test due to rails date selectors only showing 5 years into the past by default ( [#293] (https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole )
