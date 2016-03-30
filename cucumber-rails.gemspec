@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('factory_girl', '>= 3.2')
   s.add_development_dependency('rake', '>= 0.9.2.2')
   s.add_development_dependency('rspec', '>= 2.2', '<= 3.1')
-  s.add_development_dependency('rails')
+  s.add_development_dependency('railties')
 
   # For Documentation:
   s.add_development_dependency('bcat', '>= 0.6.2')
