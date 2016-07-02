@@ -21,9 +21,10 @@ module CucumberRailsHelper
     gem 'selenium-webdriver', group: :test
 
     # Include these gems: otherwise the asset pipeline isn't enabled
-    gem 'sass-rails', {}
-    gem 'uglifier', {}
-    gem 'jquery-rails', {}
+    gem 'sass-rails', group: :test # '~> 5.0'
+    gem 'coffee-rails', group: :test # '~> 4.2'
+    gem 'jquery-rails', group: :test # '~> 4.1'
+    gem 'uglifier', group: :test # '~> 3.0'
 
     run_simple 'bundle exec rails generate cucumber:install'
   end
