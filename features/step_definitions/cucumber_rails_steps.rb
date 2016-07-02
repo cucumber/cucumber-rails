@@ -19,6 +19,13 @@ module CucumberRailsHelper
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
     gem 'selenium-webdriver', group: :test
+
+    # Include these gems: otherwise the asset pipeline isn't enabled
+    gem 'sass-rails', group: :test # '~> 5.0'
+    gem 'coffee-rails', group: :test # '~> 4.2'
+    gem 'jquery-rails', group: :test # '~> 4.1'
+    gem 'uglifier', group: :test # '~> 3.0'
+
     run_simple 'bundle exec rails generate cucumber:install'
   end
 
