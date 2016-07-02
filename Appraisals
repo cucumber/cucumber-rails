@@ -92,8 +92,8 @@ appraise "rails_4_2" do
 end
 
 appraise "rails_5_0" do
-  gem "rails", "~> 5.0.0.beta1"
-  gem "railties", "~> 5.0.0.beta1"
+  gem "rails", "~> 5.0.0"
+  gem "railties", "~> 5.0.0"
   gem "capybara", "~> 2.6.0"
   gem "selenium-webdriver", "~> 2.49"
   gem "rspec-rails", :github => "rspec/rspec-rails"
