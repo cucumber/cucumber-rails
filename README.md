@@ -6,7 +6,7 @@
 [![Dependency Status](https://gemnasium.com/Kosmas/cucumber-rails.svg)](https://gemnasium.com/Kosmas/cucumber-rails)
 [![PullReview stats](https://www.pullreview.com/github/cucumber/cucumber-rails/badges/master.svg?)](https://www.pullreview.com/github/cucumber/cucumber-rails/reviews/master)
 
-Cucumber-Rails brings Cucumber to Rails 3.x and 4.x. For Rails 2.3.x support, see the [rails-2.3.x branch](https://github.com/cucumber/cucumber-rails/tree/rails-2.3.x).
+Cucumber-Rails brings Cucumber to Rails 3.x, 4.x and 5.x. For Rails 2.3.x support, see the [rails-2.3.x branch](https://github.com/cucumber/cucumber-rails/tree/rails-2.3.x).
 
 ## Installation
 
