@@ -1,4 +1,8 @@
-## [master](https://github.com/cucumber/cucumber-rails/compare/1.4.3...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/1.4.4...master) (Not yet released)
+
+## [v1.4.4](https://github.com/cucumber/cucumber-rails/compare/1.4.3...1.4.4) (2016-08-05)
+
+ * Ensure support for Rails 5
 
 ## [v1.4.3](https://github.com/cucumber/cucumber-rails/compare/1.4.2...1.4.3) (2016-01-21)
 
