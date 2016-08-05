@@ -110,6 +110,7 @@ Feature: Choose javascript database strategy
        2 scenarios (2 passed)
        5 steps (5 passed)
      """
+
   Scenario: Set the strategy to truncation with an except option and run a javascript scenario.
     Given I append to "features/env.rb" with:
       """
