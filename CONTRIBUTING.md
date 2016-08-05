@@ -62,12 +62,11 @@ make sure that you have pulled all the recent changes from both the master and t
 To become a release manager, create a pull request adding your name to the list below, and include your Rubygems email address in the ticket. One of the existing Release managers will then add you.
 
 Current release managers:
-  * Matt Wynne
-  * Aslak Hellesøy
   * Kosmas Chatzimichalis
+  * Matt Wynne
   * Mathieu Jobin
 
 To grant release karma, issue the following command:
 
-    gem owner cucumber --add <NEW OWNER RUBYGEMS EMAIL>
+    gem owner cucumber-rails --add <NEW OWNER RUBYGEMS EMAIL>
 
