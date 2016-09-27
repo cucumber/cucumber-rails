@@ -3,7 +3,7 @@ $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'cucumber-rails'
-  s.version     = '1.4.4'
+  s.version     = '1.4.5'
   s.authors     = ["Aslak Hellesøy", "Dennis Blöte", "Rob Holland"]
   s.description = "Cucumber Generator and Runtime for Rails"
   s.summary     = "#{s.name}-#{s.version}"
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
 
   s.add_runtime_dependency('capybara', ['>= 1.1.2', '< 3'])
-  s.add_runtime_dependency('cucumber', ['>= 1.3.8', '< 3'])
+  s.add_runtime_dependency('cucumber', ['>= 1.3.8', '< 4'])
   s.add_runtime_dependency('nokogiri', '~> 1.5')
   s.add_runtime_dependency('railties', ['>= 3', '< 5.1'])
   s.add_runtime_dependency('mime-types', ['>= 1.16', '< 4'])
