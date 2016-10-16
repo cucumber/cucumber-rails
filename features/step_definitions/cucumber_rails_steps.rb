@@ -2,8 +2,8 @@ module CucumberRailsHelper
   def rails_new(options = {})
     options[:name] ||= 'test_app'
     command = run "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"
-    assert_partial_output('README', all_output)
-    assert_success(true)
+    expect(command).to have_output /README/
+    expect(last_command_started).to be_successfully_executed
     cd options[:name]
     delete_environment_variable 'RUBYOPT'
     delete_environment_variable 'BUNDLE_BIN_PATH'
