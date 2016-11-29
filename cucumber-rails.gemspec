@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('mime-types', ['>= 1.17', '< 4'])
 
   # Main development dependencies
-  s.add_development_dependency('ammeter', ['>= 1.0.0', '< 1.1.3'])
+  s.add_development_dependency('ammeter', ['>= 1.0.0', '!= 1.1.3'])
   s.add_development_dependency('appraisal', '>= 0.5.1')
   s.add_development_dependency('aruba', '~> 0.14.2')
   s.add_development_dependency('builder', ['>= 3.1.0', '< 4'])
