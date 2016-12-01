@@ -18,12 +18,12 @@ appraise "lowest_version_bounds" do
   gem "sqlite3", "~> 1.3.7"
 
   # Development dependencies of cucumber-rails
-  gem "ammeter", "~> 0.2.9"
+  gem "ammeter", "~> 1.0.0"
   gem "builder", "~> 3.1.0"
   gem "selenium-webdriver", "~> 2.45.0"
   gem "database_cleaner", "~> 0.7.2"
   gem "factory_girl", "~> 3.2.0"
-  gem "rspec-rails", "~> 2.99.0"
+  gem "rspec-rails", "~> 3.0.0"
 end
 
 appraise "rails_4_0" do
