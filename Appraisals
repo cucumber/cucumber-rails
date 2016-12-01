@@ -1,3 +1,31 @@
+appraise "lowest_version_bounds" do
+  # Runtime dependencies of cucumber-rails
+  gem "capybara", "~> 1.1.2"
+  gem "cucumber", "~> 1.3.8"
+  gem "nokogiri", "~> 1.5.0"
+  gem "railties", "~> 4.0.0"
+  gem "mime-types", "~> 1.17.0"
+
+  # Other Rails dependencies
+  gem "rails", "~> 4.0.0"
+  gem "protected_attributes", "~> 1.0.3"
+
+  gem "turn", "~> 0.9.6"
+  gem "sass-rails", "~> 4.0.0"
+  gem "coffee-rails", "~> 4.0.0"
+  gem "jquery-rails", "~> 2.2.1"
+  gem "uglifier", "~> 2.1.0"
+  gem "sqlite3", "~> 1.3.7"
+
+  # Development dependencies of cucumber-rails
+  gem "ammeter", "~> 0.2.9"
+  gem "builder", "~> 3.1.0"
+  gem "selenium-webdriver", "~> 2.45.0"
+  gem "database_cleaner", "~> 0.7.2"
+  gem "factory_girl", "~> 3.2.0"
+  gem "rspec-rails", "~> 2.99.0"
+end
+
 appraise "rails_4_0" do
   gem "protected_attributes", "~> 1.0.3"
   gem "rails", "~> 4.0.0"
