@@ -24,6 +24,7 @@ appraise "lowest_version_bounds" do
   gem "database_cleaner", "~> 0.7.2"
   gem "factory_girl", "~> 3.2.0"
   gem "rspec-rails", "~> 3.0.0"
+  gem "rake", "~> 0.9.2.2"
 end
 
 appraise "rails_4_0" do
