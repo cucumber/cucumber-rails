@@ -5,7 +5,9 @@ module CucumberRailsHelper
     assert_partial_output('README', all_output)
     assert_success(true)
     cd options[:name]
-    set_environment_variable 'BUNDLE_GEMFILE', 'Gemfile'
+    delete_environment_variable 'RUBYOPT'
+    delete_environment_variable 'BUNDLE_BIN_PATH'
+    delete_environment_variable 'BUNDLE_GEMFILE'
   end
 
   def install_cucumber_rails(*options)
