@@ -105,3 +105,18 @@ appraise "rails_5_0" do
   # Rails 5 requires database cleaner 1.1
   gem "database_cleaner", ">= 1.1.0"
 end
+
+appraise "cucumber_3" do
+  gem "cucumber", ">= 3.0.0.pre.1"
+  gem "rails", "~> 5.0.0"
+  gem "railties", "~> 5.0.0"
+  gem "capybara", "~> 2.7.1"
+  gem "selenium-webdriver", "~> 2.0"
+  gem "rspec-rails", "~> 3.5.0"
+  gem "sass-rails", "~> 5.0"
+  gem "coffee-rails", "~> 4.2.0"
+  gem "jquery-rails"
+  gem "uglifier", "~> 2.7.2"
+  gem "sqlite3", "~> 1.3.7"
+  gem "database_cleaner", ">= 1.1.0"
+end
