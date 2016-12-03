@@ -1,4 +1,6 @@
 ## [master](https://github.com/cucumber/cucumber-rails/compare/1.4.5...master) (Not yet released)
+ 
+ * Drop rails 3 support ( [#334] (https://github.com/cucumber/cucumber-rails/pull/334) Matijs van Zuijlen )
 
 ## [v1.4.5](https://github.com/cucumber/cucumber-rails/compare/1.4.4...1.4.5) (2016-09-27)
 
