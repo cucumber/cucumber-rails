@@ -1,51 +1,30 @@
-appraise "rails_3_0" do
-  gem "rails", "~> 3.0.20"
-  gem "capybara", "~> 2.0.2"
-  gem "turn", "~> 0.9.6"
-  gem "rspec-rails", "~> 3.1.0"
-  gem "jquery-rails", "~> 2.2.1"
-  gem "uglifier", "~> 2.1.0"
-  gem "sqlite3", "~> 1.3.7"
-  gem "database_cleaner", "~> 1.0.1"
-end
-
-appraise "rails_3_1" do
-  gem "rails", "~> 3.1.11"
-  gem "capybara", "~> 2.0.2"
-  gem "turn", "~> 0.9.6"
-  gem "rspec-rails", "~> 3.1.0"
-  gem "sass-rails", "~> 3.1.7"
-  gem "coffee-rails", "~> 3.1.1"
-  gem "jquery-rails", "~> 2.2.1"
-  gem "uglifier", "~> 2.1.0"
-  gem "sqlite3", "~> 1.3.7"
-  gem "database_cleaner", "~> 1.0.1"
-end
-
-appraise "rails_3_2" do
-  gem "rails", "~> 3.2.12"
-  gem "capybara", "~> 2.0.2"
-  gem "turn", "~> 0.9.6"
-  gem "rspec-rails", "~> 3.1.0"
-  gem "sass-rails", "~> 3.2.6"
-  gem "coffee-rails", "~> 3.2.2"
-  gem "jquery-rails", "~> 2.2.1"
-  gem "uglifier", "~> 2.1.0"
-  gem "sqlite3", "~> 1.3.7"
-  gem "database_cleaner", "~> 1.0.1"
-end
-
-appraise "capybara_1_1" do
+appraise "lowest_version_bounds" do
+  # Runtime dependencies of cucumber-rails
   gem "capybara", "~> 1.1.2"
-  gem "rails", "~> 3.2.12"
+  gem "cucumber", "~> 1.3.8"
+  gem "nokogiri", "~> 1.5.0"
+  gem "railties", "~> 4.0.0"
+  gem "mime-types", "~> 1.17.0"
+
+  # Other Rails dependencies
+  gem "rails", "~> 4.0.0"
+  gem "protected_attributes", "~> 1.0.3"
+
   gem "turn", "~> 0.9.6"
-  gem "rspec-rails", "~> 3.1.0"
-  gem "sass-rails", "~> 3.2.6"
-  gem "coffee-rails", "~> 3.2.2"
+  gem "sass-rails", "~> 4.0.0"
+  gem "coffee-rails", "~> 4.0.0"
   gem "jquery-rails", "~> 2.2.1"
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
-  gem "database_cleaner", "~> 1.0.1"
+
+  # Development dependencies of cucumber-rails
+  gem "ammeter", "~> 1.0.0"
+  gem "builder", "~> 3.1.0"
+  gem "selenium-webdriver", "~> 2.45.0"
+  gem "database_cleaner", "~> 1.0.0"
+  gem "factory_girl", "~> 3.2.0"
+  gem "rspec-rails", "~> 3.0.0"
+  gem "rake", "~> 0.9.2.2"
 end
 
 appraise "rails_4_0" do

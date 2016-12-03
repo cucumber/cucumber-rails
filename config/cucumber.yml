@@ -10,6 +10,11 @@ end
 opts = [
   "--format #{path == 'features' ? 'progress' : 'pretty'}",
   "--format rerun -o #{rerun_file}"
-].join(' ')
+]
+rails_version = `bundle exec rails --version`.match(/[\d.]+$/).to_s
+if Gem::Version.new(rails_version) < Gem::Version.new('4.2')
+  opts << '--tags ~@requires-rails-version-42'
+end
+optlist = opts.join(' ')
 %>
-default: <%= path %> <%= opts %> --tags ~@broken
+default: <%= path %> <%= optlist %> --tags ~@broken
