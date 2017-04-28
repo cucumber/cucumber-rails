@@ -84,3 +84,16 @@ appraise "rails_5_0" do
   # Rails 5 requires database cleaner 1.1
   gem "database_cleaner", ">= 1.1.0"
 end
+
+appraise "rails_5_1" do
+  gem "rails", "~> 5.1.0"
+  gem "railties", "~> 5.1.0"
+  gem "selenium-webdriver", "~> 2.0"
+  gem "rspec-rails", "~> 3.5.0"
+  gem "sass-rails", "~> 5.0"
+  gem "coffee-rails", "~> 4.2.0"
+  gem "uglifier", "~> 3.2.0"
+  gem "sqlite3", "~> 1.3.13"
+  # Rails 5 requires database cleaner 1.1
+  gem "database_cleaner", ">= 1.1.0"
+end
