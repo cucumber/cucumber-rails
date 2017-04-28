@@ -40,6 +40,7 @@ appraise "rails_4_0" do
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
   gem "database_cleaner", "~> 1.0.1"
+  gem "rake", "< 11.0"
 end
 
 appraise "rails_4_1" do
@@ -54,6 +55,7 @@ appraise "rails_4_1" do
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
   gem "database_cleaner", "~> 1.0.1"
+  gem "rake", "< 11.0"
 end
 
 appraise "rails_4_2" do
@@ -68,6 +70,7 @@ appraise "rails_4_2" do
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
   gem "database_cleaner", "~> 1.0.1"
+  gem "rake", "< 11.0"
 end
 
 appraise "rails_5_0" do
