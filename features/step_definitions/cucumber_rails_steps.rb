@@ -16,7 +16,8 @@ module CucumberRailsHelper
     else
       gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
-    gem 'capybara', group: :test
+    # From Rails 5.1 capybara is already part of the Gemfile
+    gem 'capybara', group: :test if Gem.latest_spec_for('rails').version < Gem::Version.new('5.1.0')
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
