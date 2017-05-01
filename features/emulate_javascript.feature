@@ -51,7 +51,7 @@ Feature: Emulate Javascript
       """
       class ApplicationController < ActionController::Base
         protect_from_forgery
-        before_filter :except => :establish do
+        before_action :except => :establish do
           render :text => "denied", :status => :forbidden and return false unless session[:verified]
         end
       end
