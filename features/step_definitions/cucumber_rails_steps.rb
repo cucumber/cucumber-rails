@@ -1,13 +1,16 @@
 module CucumberRailsHelper
   def rails_new(options = {})
     options[:name] ||= 'test_app'
-    command = run "bundle exec rails new #{options[:name]} --skip-test-unit --skip-spring #{options[:args]}"
+    command = run "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring #{options[:args]}"
     expect(command).to have_output /README/
     expect(last_command_started).to be_successfully_executed
     cd options[:name]
     delete_environment_variable 'RUBYOPT'
     delete_environment_variable 'BUNDLE_BIN_PATH'
     delete_environment_variable 'BUNDLE_GEMFILE'
+    # Force older version of nokogiri on older Rubies
+    gem 'nokogiri', '~> 1.6.8' if RUBY_VERSION < '2.1.0'
+    run_simple 'bundle install'
   end
 
   def install_cucumber_rails(*options)
@@ -21,6 +24,12 @@ module CucumberRailsHelper
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
     gem 'selenium-webdriver', group: :test
+    # Newer versions of rake remove a method used by RSpec older versions
+    # See https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11#35893625
+    if Gem::Version.new(RSpec::Support::Version::STRING) < Gem::Version.new('3.4.4')
+      gem 'rake', '< 11.0'
+      run_simple 'bundle update rake --local'
+    end
     run_simple 'bundle exec rails generate cucumber:install'
   end
 
