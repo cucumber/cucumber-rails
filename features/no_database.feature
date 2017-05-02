@@ -37,7 +37,6 @@ Feature: No Database
       if RUBY_VERSION >= '2.0.0'
         gem 'sass-rails'
         gem 'uglifier'
-        gem 'jquery-rails'
       end
       """
     And I write to "app/controllers/posts_controller.rb" with:
