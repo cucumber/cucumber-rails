@@ -19,12 +19,20 @@ module CucumberRailsHelper
     else
       gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
-    # From Rails 5.1 capybara is already part of the Gemfile
-    gem 'capybara', group: :test if Gem.latest_spec_for('rails').version < Gem::Version.new('5.1.0')
+    # From Rails 5.1 some gems are already part of the Gemfile
+    if Gem.loaded_specs['rails'].version < Gem::Version.new('5.1.0')
+      gem 'capybara', group: :test
+      gem 'selenium-webdriver', group: :test
+    else
+      # Make sure to restrict the selected selenium-webdriver version
+      # Since version 3 geckodriver is required to be installed
+      gemfile_text = File.read(expand_path('Gemfile'))
+      gemfile_text.gsub!("gem 'selenium-webdriver'", "gem 'selenium-webdriver', '~> 2.0'")
+      overwrite_file('Gemfile', gemfile_text)
+    end
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
-    gem 'selenium-webdriver', group: :test
     # Newer versions of rake remove a method used by RSpec older versions
     # See https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11#35893625
     if Gem::Version.new(RSpec::Support::Version::STRING) < Gem::Version.new('3.4.4')
