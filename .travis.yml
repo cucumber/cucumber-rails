@@ -11,6 +11,7 @@ branches:
 
 gemfile:
   - gemfiles/lowest_version_bounds.gemfile
+  - gemfiles/rails_5_1.gemfile
   - gemfiles/rails_5_0.gemfile
   - gemfiles/rails_4_2.gemfile
   - gemfiles/rails_4_1.gemfile
@@ -21,9 +22,13 @@ matrix:
   exclude:
     - rvm: 2.0.0
       gemfile: gemfiles/rails_5_0.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails_5_1.gemfile
 
     - rvm: 2.1.9
       gemfile: gemfiles/rails_5_0.gemfile
+    - rvm: 2.1.9
+      gemfile: gemfiles/rails_5_1.gemfile
 
     - rvm: 2.2.5
       gemfile: gemfiles/rails_4_0.gemfile
