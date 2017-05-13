@@ -1,5 +1,7 @@
 ## [master](https://github.com/cucumber/cucumber-rails/compare/1.5.0...master) (Not yet released)
 
+ * Update .travis.yml with ruby versions ( [#341] (https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga )
+
 ## [v1.5.0](https://github.com/cucumber/cucumber-rails/compare/1.4.5...1.5.0) (2017-05-12)
 
  * Drop rails 3 support ( [#334] (https://github.com/cucumber/cucumber-rails/pull/334) Matijs van Zuijlen )
