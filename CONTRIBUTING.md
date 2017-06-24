@@ -46,7 +46,7 @@ Now release it
 
 ### NOTE:
 
-If after running the rake release task you get an eror similiar to this:
+If after running the rake release task you get an error similar to this:
 
     rake aborted!
     Couldn't git push. `git push  2>&1' failed with the following output:
