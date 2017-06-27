@@ -1,6 +1,7 @@
 ## [master](https://github.com/cucumber/cucumber-rails/compare/1.5.0...master) (Not yet released)
 
  * Update .travis.yml with ruby versions ( [#341] (https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga )
+ * Fix type ( [#343] (https://github.com/cucumber/cucumber-rails/pull/343) Olle Jonssson )
 
 ## [v1.5.0](https://github.com/cucumber/cucumber-rails/compare/1.4.5...1.5.0) (2017-05-12)
 
