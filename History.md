@@ -1,12 +1,12 @@
 ## [master](https://github.com/cucumber/cucumber-rails/compare/1.5.0...master) (Not yet released)
 
- * Update .travis.yml with ruby versions ( [#341] (https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga )
- * Fix typo ( [#343] (https://github.com/cucumber/cucumber-rails/pull/343) Olle Jonssson )
+ * Update .travis.yml with ruby versions ([#341](https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga)
+ * Fix typo ([#343](https://github.com/cucumber/cucumber-rails/pull/343) Olle Jonsson)
 
 ## [v1.5.0](https://github.com/cucumber/cucumber-rails/compare/1.4.5...1.5.0) (2017-05-12)
 
- * Drop rails 3 support ( [#334] (https://github.com/cucumber/cucumber-rails/pull/334) Matijs van Zuijlen )
- * Add rals 5.1 support ( [#337] (https://github.com/cucumber/cucumber-rails/pull/337) Matijs van Zuijlen - Rafael Reggiani Manzo )
+ * Drop rails 3 support ([#334](https://github.com/cucumber/cucumber-rails/pull/334) Matijs van Zuijlen)
+ * Add rals 5.1 support ([#337](https://github.com/cucumber/cucumber-rails/pull/337) Matijs van Zuijlen - Rafael Reggiani Manzo)
 
 ## [v1.4.5](https://github.com/cucumber/cucumber-rails/compare/1.4.4...1.4.5) (2016-09-27)
 
@@ -19,48 +19,48 @@
 ## [v1.4.3](https://github.com/cucumber/cucumber-rails/compare/1.4.2...1.4.3) (2016-01-21)
 
  * Added gem version badge (Kosmas Chatzimichalis)
- * Fix a failing test due to rails date selectors only showing 5 years into the past by default ( [#293] (https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole )
- * Allow cucumber 2 ( [#293] (https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole )
- * Add rails 4.2 to test matrix ( [#293] (https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole )
- * Depend on railties instead of rails ( [#294] (https://github.com/cucumber/cucumber-rails/pull/294) Alexander Lang )
- * Fix failing Travis CI tests ( [#305] (https://github.com/cucumber/cucumber-rails/pull/305) Matijs van Zuijlen )
- * Allow any cucumber < 3 ( [#306] (https://github.com/cucumber/cucumber-rails/pull/306) Matijs van Zuijlen )
- * Add annotations configuration in generator ( [#292] (https://github.com/cucumber/cucumber-rails/pull/292) Bob Showalter )
- * Expand support to include mime-types 3 ( [#304] (https://github.com/cucumber/cucumber-rails/pull/304) Austin Ziegler )
- * Replace badges with SVG versions ( [#307] (https://github.com/cucumber/cucumber-rails/pull/307) Kevin Goslar )
- * Add new line to end of generated database.yml ( [#302] (https://github.com/cucumber/cucumber-rails/pull/302) Kevin Carmody)
+ * Fix a failing test due to rails date selectors only showing 5 years into the past by default ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
+ * Allow cucumber 2 ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
+ * Add rails 4.2 to test matrix ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
+ * Depend on railties instead of rails ([#294](https://github.com/cucumber/cucumber-rails/pull/294) Alexander Lang)
+ * Fix failing Travis CI tests ([#305](https://github.com/cucumber/cucumber-rails/pull/305) Matijs van Zuijlen)
+ * Allow any cucumber < 3 ([#306](https://github.com/cucumber/cucumber-rails/pull/306) Matijs van Zuijlen)
+ * Add annotations configuration in generator ([#292](https://github.com/cucumber/cucumber-rails/pull/292) Bob Showalter)
+ * Expand support to include mime-types 3 ([#304](https://github.com/cucumber/cucumber-rails/pull/304) Austin Ziegler)
+ * Replace badges with SVG versions ([#307](https://github.com/cucumber/cucumber-rails/pull/307) Kevin Goslar)
+ * Add new line to end of generated database.yml ([#302](https://github.com/cucumber/cucumber-rails/pull/302) Kevin Carmody)
 
 ## [v1.4.2](https://github.com/cucumber/cucumber-rails/compare/1.4.1...v1.4.2) (2014-10-09)
 
  * Updated appraisal dependencies to rspec-rails 3.1.0, gemspec dependency to rspec <= 3.1, and removed turn from rails_4_1 appraisal (Kosmas Chatzimichalis)
- * Update mime-types dependency to >= 1.16, < 3 ([#289] (https://github.com/cucumber/cucumber-rails/pull/289) Erik Michaels-Ober )
- * Upgrade to RSpec 3 ([#290] (https://github.com/cucumber/cucumber-rails/pull/290) Tamir Duberstein )
+ * Update mime-types dependency to >= 1.16, < 3 ([#289](https://github.com/cucumber/cucumber-rails/pull/289) Erik Michaels-Ober)
+ * Upgrade to RSpec 3 ([#290](https://github.com/cucumber/cucumber-rails/pull/290) Tamir Duberstein)
 
 ## [v1.4.1](https://github.com/cucumber/cucumber-rails/compare/v1.4.0...v1.4.1) (2014-05-10)
 
 ### New Features
 
- * Added MIT licence in gemspec ([#261] (https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
- * Ensure dependency on DatabaseCleaner is not required ([#276] (https://github.com/cucumber/cucumber-rails/pull/276) Matthew O'Riordan)
- * Added Rails 4.1 support ([#287] (https://github.com/cucumber/cucumber-rails/pull/287) Felix Bünemann)
+ * Added MIT licence in gemspec ([#261](https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
+ * Ensure dependency on DatabaseCleaner is not required ([#276](https://github.com/cucumber/cucumber-rails/pull/276) Matthew O'Riordan)
+ * Added Rails 4.1 support ([#287](https://github.com/cucumber/cucumber-rails/pull/287) Felix Bünemann)
  * Modified appraisal instructions in README.md (Kosmas Chatzimichalis)
  * Added Gemnasium support (Kosmas Chatzimichalis)
  * Various code enhancements based on PullReview suggestions (Kosmas Chatzimichalis)
 
 ### Removed Features
- * Mongo step definition ([#263] (https://github.com/cucumber/cucumber-rails/issues/263) Aslak Hellesøy )
+ * Mongo step definition ([#263](https://github.com/cucumber/cucumber-rails/issues/263) Aslak Hellesøy)
 
 ### Bugfixes
 
  * Prevent MiniTest running `at_exit` when running cucumber ([#253](https://github.com/cucumber/cucumber-rails/issues/253) Steve Tooke)
- * `bundle exec rake` runs minitest with cucumber options and raises exception ([#252] (https://github.com/cucumber/cucumber-rails/issues/252) Peter Bollenbeck)
- * Various bundler related fixes ([#264] (https://github.com/cucumber/cucumber-rails/pull/264) Erik Michaels-Ober )
- * Additional gemspec cleanup ([#265] (https://github.com/cucumber/cucumber-rails/pull/265) Erik Michaels-Ober )
- * Added mime-types runtime dependency to fix bundle install issue ([#273] (https://github.com/cucumber/cucumber-rails/pull/273) Kosmas Chatzimichalis)
- * Removed mongoid gem from Appraisal ([#274] (https://github.com/cucumber/cucumber-rails/pull/274) Kosmas Chatzimichalis)
- * Amend typo in select_dates_and_times.rb comments ([#268] (https://github.com/cucumber/cucumber-rails/pull/268)  Erik Eide)
- * Keep empty step_definitions directories ([#249] (https://github.com/cucumber/cucumber-rails/pull/249) Iain D Broadfoot)
- * Remove obsolete link for config.cache_classes to false ([#271] (https://github.com/cucumber/cucumber-rails/issues/271) Andrew Premdas )
+ * `bundle exec rake` runs minitest with cucumber options and raises exception ([#252](https://github.com/cucumber/cucumber-rails/issues/252) Peter Bollenbeck)
+ * Various bundler related fixes ([#264](https://github.com/cucumber/cucumber-rails/pull/264) Erik Michaels-Ober)
+ * Additional gemspec cleanup ([#265](https://github.com/cucumber/cucumber-rails/pull/265) Erik Michaels-Ober)
+ * Added mime-types runtime dependency to fix bundle install issue ([#273](https://github.com/cucumber/cucumber-rails/pull/273) Kosmas Chatzimichalis)
+ * Removed mongoid gem from Appraisal ([#274](https://github.com/cucumber/cucumber-rails/pull/274) Kosmas Chatzimichalis)
+ * Amend typo in select_dates_and_times.rb comments ([#268](https://github.com/cucumber/cucumber-rails/pull/268)  Erik Eide)
+ * Keep empty step_definitions directories ([#249](https://github.com/cucumber/cucumber-rails/pull/249) Iain D Broadfoot)
+ * Remove obsolete link for config.cache_classes to false ([#271](https://github.com/cucumber/cucumber-rails/issues/271) Andrew Premdas)
 
 ## [v1.4.0](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.4.0) (2013-08-23)
 
