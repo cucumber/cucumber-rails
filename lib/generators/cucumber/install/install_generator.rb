@@ -14,8 +14,14 @@ module Cucumber
     end
 
     def create_scripts
-      copy_file 'script/cucumber', 'script/cucumber'
-      chmod     'script/cucumber', 0755
+      if ::Rails::VERSION::MAJOR >= 4
+        destination = 'bin/cucumber'
+      else
+        destination = 'script/cucumber'
+      end
+
+      copy_file 'bin/cucumber', destination
+      chmod     destination, 0755
     end
 
     def create_step_definitions

@@ -37,11 +37,11 @@ describe Cucumber::InstallGenerator do
       it { is_expected.to contain "task :cucumber => 'cucumber:ok'" }
     end
 
-    describe 'script/cucumber' do
-      subject { file('script/cucumber') }
+    describe 'bin/cucumber' do
+      subject { Rails::VERSION::MAJOR >= 4 ? file('bin/cucumber') : file('script/cucumber') }
+
       it { is_expected.to exist }
       it { is_expected.to contain 'load Cucumber::BINARY' }
     end
-
   end
 end
