@@ -11,7 +11,7 @@ if defined?(ActiveRecord::Base)
     Cucumber::Rails::Database.before_js if Cucumber::Rails::Database.autorun_database_cleaner
   end
 
-  Before('~@javascript') do
+  Before('not @javascript') do
     Cucumber::Rails::Database.before_non_js if Cucumber::Rails::Database.autorun_database_cleaner
   end
 
