@@ -6,6 +6,7 @@ if env_caller
   ENV['RAILS_ROOT'] ||= File.expand_path(env_caller + '/../..')
   require File.expand_path(ENV['RAILS_ROOT'] + '/config/environment')
   require 'cucumber/rails/action_controller'
+  require 'cucumber/rails/configuration'
 
   if defined?(ActiveRecord::Base)
     require 'rails/test_help'
