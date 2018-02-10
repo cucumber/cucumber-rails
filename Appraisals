@@ -93,6 +93,7 @@ appraise "rails_5_1" do
   gem "railties", "~> 5.1.0"
   gem "capybara", "~> 2.4.1"
   gem "selenium-webdriver", "~> 2.53.1"
+  gem "headless", "~> 2.3.1"
   gem "rspec-rails", "~> 3.5.0"
   gem "sass-rails", "~> 5.0"
   gem "coffee-rails", "~> 4.2.0"
