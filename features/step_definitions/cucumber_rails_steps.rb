@@ -24,11 +24,7 @@ module CucumberRailsHelper
       gem 'capybara', group: :test
       gem 'selenium-webdriver', group: :test
     else
-      # Make sure to restrict the selected selenium-webdriver version
-      # Since version 3 geckodriver is required to be installed
-      gemfile_text = File.read(expand_path('Gemfile'))
-      gemfile_text.gsub!("gem 'selenium-webdriver'", "gem 'selenium-webdriver', '~> 2.0'")
-      overwrite_file('Gemfile', gemfile_text)
+      gem 'geckodriver-helper', group: :test
     end
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
@@ -98,6 +94,19 @@ end
 Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
   run_simple("bundle exec rails g model #{name}")
   run_simple('bundle exec rake db:migrate RAILS_ENV=test')
+end
+
+Given /^I force selenium to run Firefox in headless mode$/ do
+  selenium_config = %{
+    Capybara.register_driver :selenium do |app|
+      browser_options = ::Selenium::WebDriver::Firefox::Options.new()
+      browser_options.args << '--headless'
+  
+      Capybara::Selenium::Driver.new(app, :browser => :firefox, options: browser_options)
+    end
+  }
+
+  step 'I append to "features/support/env.rb" with:', selenium_config
 end
 
 When /^I run the cukes$/ do

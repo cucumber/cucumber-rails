@@ -2,6 +2,7 @@ Feature: Emulate Javascript
 
   Scenario: See a widget
     Given I have created a new Rails app and installed cucumber-rails
+    And I force selenium to run Firefox in headless mode
     And I run `rails generate scaffold widget name:string`
     And I write to "features/f.feature" with:
       """
@@ -90,3 +91,4 @@ Feature: Emulate Javascript
        1 scenario (1 passed)
        8 steps (8 passed)
        """
+       

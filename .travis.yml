@@ -59,8 +59,3 @@ matrix:
     - rvm: ruby-head
 
 before_install: gem update --remote bundler
-
-# Needed for selenium browser
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
