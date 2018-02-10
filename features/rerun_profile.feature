@@ -28,7 +28,7 @@ Feature: Rerun profile
         puts "I've always been passing"
       end
       """
-    When I successfully run `bundle exec cucumber -p rerun`
+    When I run `bundle exec cucumber -p rerun`
     Then the feature run should pass with:
       """
       1 scenario (1 passed)
