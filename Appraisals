@@ -1,6 +1,6 @@
 appraise "lowest_version_bounds" do
   # Runtime dependencies of cucumber-rails
-  gem "capybara", "~> 1.1.2"
+  gem "capybara", "~> 2.7.1"
   gem "cucumber", "~> 1.3.8"
   gem "nokogiri", "~> 1.5.0"
   gem "railties", "~> 4.0.0"
@@ -20,7 +20,7 @@ appraise "lowest_version_bounds" do
   # Development dependencies of cucumber-rails
   gem "ammeter", "~> 1.0.0"
   gem "builder", "~> 3.1.0"
-  gem "selenium-webdriver", "~> 2.0"
+  gem "selenium-webdriver", "~> 3.9.0"
   gem "geckodriver-helper", "~> 0.0.4"
   gem "database_cleaner", "~> 1.0.0"
   gem "factory_girl", "~> 3.2.0"
