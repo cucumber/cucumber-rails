@@ -23,9 +23,9 @@ module CucumberRailsHelper
     if Gem.loaded_specs['rails'].version < Gem::Version.new('5.1.0')
       gem 'capybara', group: :test
       gem 'selenium-webdriver', group: :test
-    else
-      gem 'geckodriver-helper', group: :test
     end
+
+    gem 'geckodriver-helper', group: :test
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
