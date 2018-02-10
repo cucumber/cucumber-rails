@@ -30,12 +30,3 @@ if(ENV['ARUBA_REPORT_DIR'])
     end
   end
 end
-
-# Require headless, if in Travis CI environment
-Before do
-  if ENV['TRAVIS']
-    require 'headless'
-    headless = Headless.new
-    headless.start
-  end
-end
