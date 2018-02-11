@@ -10,6 +10,11 @@ module CucumberRailsHelper
     delete_environment_variable 'BUNDLE_GEMFILE'
     # Force older version of nokogiri on older Rubies
     gem 'nokogiri', '~> 1.6.8' if RUBY_VERSION < '2.1.0'
+
+    remove_byebug_from_gem_file if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.2.0')
+   
+    gem 'rdoc', '~> 4.0' if RUBY_VERSION < '2.2.2'
+
     run_simple 'bundle install'
   end
 
@@ -84,6 +89,14 @@ module CucumberRailsHelper
       overwrite_file('features/support/env.rb', new_content)
     end
   end
+end
+
+def remove_byebug_from_gem_file
+  gemfile = File.read(expand_path('Gemfile'))
+  
+  gemfile.gsub!(/^\s*gem\s+(\"|\')byebug(\"|\')/, "#gem 'byebug'")
+
+  overwrite_file('Gemfile', gemfile)
 end
 World(CucumberRailsHelper)
 
