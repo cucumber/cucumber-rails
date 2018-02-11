@@ -38,10 +38,30 @@ module CucumberRailsHelper
     run_simple 'bundle exec rails generate cucumber:install'
 
 
-    # Ruby 2.0 has issues with Turbolinks 5.0.1, due to Turbolinks calling ActionDispatch::Assertions.include()
-    # (This results in a 'private method `include` called for ActionDispatch::Assertions' error).
-    # So we'll need to monkey-patch a method_missing method into ActionDispatch::Assertions.
-    # We put this at the top of features/support/env.rb, so that it is before `require 'cucumber/rails'`.
+    monkey_patch_action_dispatch_assertions_module_if_ruby_2_0_0
+  end
+
+  def gem(name, options)
+    line = %{gem "#{name}", #{options.inspect}\n}
+    append_to_file('Gemfile', line)
+  end
+
+  def prepare_aruba_report
+    if(ENV['ARUBA_REPORT_DIR'])
+      @aruba_report_start = Time.new
+      sleep(1)
+    end
+  end
+
+  def fixture(path)
+    File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
+  end
+
+  # Ruby 2.0 has issues with Turbolinks 5.0.1, due to Turbolinks calling ActionDispatch::Assertions.include()
+  # (This results in a 'private method `include` called for ActionDispatch::Assertions' error).
+  # So we'll need to monkey-patch a method_missing method into ActionDispatch::Assertions.
+  # We put this at the top of features/support/env.rb, so that it is before `require 'cucumber/rails'`.
+  def monkey_patch_action_dispatch_assertions_module_if_ruby_2_0_0
     if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.1.0')
       env_file_content = File.read(expand_path('features/support/env.rb'))
 
@@ -63,22 +83,6 @@ module CucumberRailsHelper
 
       overwrite_file('features/support/env.rb', new_content)
     end
-  end
-
-  def gem(name, options)
-    line = %{gem "#{name}", #{options.inspect}\n}
-    append_to_file('Gemfile', line)
-  end
-
-  def prepare_aruba_report
-    if(ENV['ARUBA_REPORT_DIR'])
-      @aruba_report_start = Time.new
-      sleep(1)
-    end
-  end
-
-  def fixture(path)
-    File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
   end
 end
 World(CucumberRailsHelper)
@@ -108,6 +112,7 @@ Given /^I have created a new Rails app with no database and installed cucumber-r
   rails_new args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
+  monkey_patch_action_dispatch_assertions_module_if_ruby_2_0_0
   create_web_steps
 end
 
@@ -115,6 +120,7 @@ Given /^I have created a new Rails app "(.*?)" with no database and installed cu
   rails_new name: app_name, args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
+  monkey_patch_action_dispatch_assertions_module_if_ruby_2_0_0
   create_web_steps
 end
 
