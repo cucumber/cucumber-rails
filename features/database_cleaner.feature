@@ -16,7 +16,7 @@ Feature: DatabaseCleaner
           When I create 7 more widgets
           Then I should have 9 widgets
       """
-    And I successfully run `rails generate model widget name:string`
+    And I run `rails generate model widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
       Given /^I have (\d+) widgets$/ do |n|

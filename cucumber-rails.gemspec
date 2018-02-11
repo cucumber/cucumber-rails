@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('aruba', '~> 0.14.2')
   s.add_development_dependency('builder', ['>= 3.1.0', '< 4'])
   s.add_development_dependency('bundler', '>= 1.3.5')
-  s.add_development_dependency('selenium-webdriver', '>= 2.45.0')
+  s.add_development_dependency('selenium-webdriver', '>= 3.4.1')
   s.add_development_dependency('database_cleaner', '>= 1.0.0')
   s.add_development_dependency('factory_girl', '>= 3.2')
   s.add_development_dependency('rake', '>= 0.9.2.2')

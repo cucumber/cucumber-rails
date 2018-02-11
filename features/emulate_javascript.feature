@@ -2,7 +2,8 @@ Feature: Emulate Javascript
 
   Scenario: See a widget
     Given I have created a new Rails app and installed cucumber-rails
-    And I successfully run `rails generate scaffold widget name:string`
+    And I force selenium to run Firefox in headless mode
+    And I run `rails generate scaffold widget name:string`
     And I write to "features/f.feature" with:
       """
       @javascript
@@ -36,9 +37,9 @@ Feature: Emulate Javascript
 
   Scenario: Pass on the CSRF token
     Given I have created a new Rails app and installed cucumber-rails
-    And I successfully run `rails generate scaffold widget name:string`
-    And I successfully run `sed -i -e 's/forgery_protection *= false/forgery_protection = true/' config/environments/test.rb`
-    And I successfully run `rails generate controller session establish`
+    And I run `rails generate scaffold widget name:string`
+    And I run `sed -i -e 's/forgery_protection *= false/forgery_protection = true/' config/environments/test.rb`
+    And I run `rails generate controller session establish`
     And I write to "app/controllers/session_controller.rb" with:
       """
       class SessionController < ApplicationController
@@ -90,3 +91,4 @@ Feature: Emulate Javascript
        1 scenario (1 passed)
        8 steps (8 passed)
        """
+       

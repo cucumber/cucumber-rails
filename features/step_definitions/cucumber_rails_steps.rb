@@ -23,13 +23,9 @@ module CucumberRailsHelper
     if Gem.loaded_specs['rails'].version < Gem::Version.new('5.1.0')
       gem 'capybara', group: :test
       gem 'selenium-webdriver', group: :test
-    else
-      # Make sure to restrict the selected selenium-webdriver version
-      # Since version 3 geckodriver is required to be installed
-      gemfile_text = File.read(expand_path('Gemfile'))
-      gemfile_text.gsub!("gem 'selenium-webdriver'", "gem 'selenium-webdriver', '~> 2.0'")
-      overwrite_file('Gemfile', gemfile_text)
     end
+
+    gem 'geckodriver-helper', group: :test
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
@@ -40,6 +36,9 @@ module CucumberRailsHelper
       run_simple 'bundle update rake --local'
     end
     run_simple 'bundle exec rails generate cucumber:install'
+
+
+    monkey_patch_action_dispatch_assertions_module_if_ruby_2_0_0
   end
 
   def gem(name, options)
@@ -56,6 +55,34 @@ module CucumberRailsHelper
 
   def fixture(path)
     File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
+  end
+
+  # Ruby 2.0 has issues with Turbolinks 5.0.1, due to Turbolinks calling ActionDispatch::Assertions.include()
+  # (This results in a 'private method `include` called for ActionDispatch::Assertions' error).
+  # So we'll need to monkey-patch a method_missing method into ActionDispatch::Assertions.
+  # We put this at the top of features/support/env.rb, so that it is before `require 'cucumber/rails'`.
+  def monkey_patch_action_dispatch_assertions_module_if_ruby_2_0_0
+    if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.1.0')
+      env_file_content = File.read(expand_path('features/support/env.rb'))
+
+      new_content = %{
+        module ActionDispatch
+          module Assertions
+            def self.method_missing(method_name_sym, *args)
+              if method_name_sym == :include
+                self.send(:include, *args)
+              else
+                super
+              end
+            end
+          end
+        end
+      }
+
+      new_content << env_file_content
+
+      overwrite_file('features/support/env.rb', new_content)
+    end
   end
 end
 World(CucumberRailsHelper)
@@ -85,6 +112,7 @@ Given /^I have created a new Rails app with no database and installed cucumber-r
   rails_new args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
+  monkey_patch_action_dispatch_assertions_module_if_ruby_2_0_0
   create_web_steps
 end
 
@@ -92,12 +120,26 @@ Given /^I have created a new Rails app "(.*?)" with no database and installed cu
   rails_new name: app_name, args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_girl
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
+  monkey_patch_action_dispatch_assertions_module_if_ruby_2_0_0
   create_web_steps
 end
 
 Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
   run_simple("bundle exec rails g model #{name}")
   run_simple('bundle exec rake db:migrate RAILS_ENV=test')
+end
+
+Given /^I force selenium to run Firefox in headless mode$/ do
+  selenium_config = %{
+    Capybara.register_driver :selenium do |app|
+      browser_options = ::Selenium::WebDriver::Firefox::Options.new()
+      browser_options.args << '--headless'
+  
+      Capybara::Selenium::Driver.new(app, :browser => :firefox, options: browser_options)
+    end
+  }
+
+  step 'I append to "features/support/env.rb" with:', selenium_config
 end
 
 When /^I run the cukes$/ do
