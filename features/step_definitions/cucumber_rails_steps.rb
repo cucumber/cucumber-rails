@@ -36,6 +36,33 @@ module CucumberRailsHelper
       run_simple 'bundle update rake --local'
     end
     run_simple 'bundle exec rails generate cucumber:install'
+
+
+    # Ruby 2.0 has issues with Turbolinks 5.0.1, due to Turbolinks calling ActionDispatch::Assertions.include()
+    # (This results in a 'private method `include` called for ActionDispatch::Assertions' error).
+    # So we'll need to monkey-patch a method_missing method into ActionDispatch::Assertions.
+    # We put this at the top of features/support/env.rb, so that it is before `require 'cucumber/rails'`.
+    if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.1.0')
+      env_file_content = File.read(expand_path('features/support/env.rb'))
+
+      new_content = %{
+        module ActionDispatch
+          module Assertions
+            def self.method_missing(method_name_sym, *args)
+              if method_name_sym == :include
+                self.send(:include, *args)
+              else
+                super
+              end
+            end
+          end
+        end
+      }
+
+      new_content << env_file_content
+
+      overwrite_file('features/support/env.rb', new_content)
+    end
   end
 
   def gem(name, options)

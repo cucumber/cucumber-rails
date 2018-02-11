@@ -57,6 +57,5 @@ matrix:
       gemfile: gemfiles/lowest_version_bounds.gemfile
   allow_failures:
     - rvm: ruby-head
-    - rvm: 2.0.0
 
 before_install: gem update --remote bundler
