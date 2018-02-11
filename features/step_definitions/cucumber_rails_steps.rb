@@ -13,6 +13,8 @@ module CucumberRailsHelper
 
     remove_byebug_from_gem_file if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.2.0')
    
+    gem 'rdoc', '~> 4.0' if RUBY_VERSION < '2.2.2'
+
     run_simple 'bundle install'
   end
 
