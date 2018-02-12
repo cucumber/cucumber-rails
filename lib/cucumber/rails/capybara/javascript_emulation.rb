@@ -98,7 +98,7 @@ class Capybara::RackTest::Node
   include ::Cucumber::Rails::Capybara::JavascriptEmulation
 end
 
-Before('not @no-js-emulation') do
+Before('~@no-js-emulation, not @no-js-emulation') do
   # Enable javascript emulation
   ::Capybara::RackTest::Node.class_eval do
     alias_method :click, :click_with_javascript_emulation
