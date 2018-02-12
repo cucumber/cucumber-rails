@@ -5,6 +5,7 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 ### Changed
  * Renamed History.md to CHANGELOG.md, added contributing note, and this line in accordance with [cucumber/cucumber #251](https://github.com/cucumber/cucumber/issues/251) ([#345](https://github.com/cucumber/cucumber-rails/pull/345) [jaysonesmith](https://github.com/jaysonesmith))
  * Update .travis.yml with ruby versions ([#341](https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga)
+ * Updated syntax to support both new and deprecated forms of tag negation. ([#348](https://github.com/cucumber/cucumber-rails/pull/348) [mirelon](https://github.com/mirelon), [#355](https://github.com/cucumber/cucumber-rails/pull/359) [xtrasimplicity](https://github.com/xtrasimplicity))
 
 ### Fixed
 
