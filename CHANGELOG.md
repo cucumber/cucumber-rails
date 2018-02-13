@@ -5,7 +5,8 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 ### Changed
  * Renamed History.md to CHANGELOG.md, added contributing note, and this line in accordance with [cucumber/cucumber #251](https://github.com/cucumber/cucumber/issues/251) ([#345](https://github.com/cucumber/cucumber-rails/pull/345) [jaysonesmith](https://github.com/jaysonesmith))
  * Update .travis.yml with ruby versions ([#341](https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga)
-
+ * Removed support for Ruby <= 2.1, to keep in line with [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/master/CHANGELOG.md#302-2017-11-11).
+ 
 ### Fixed
 
  * Fix typo ([#343](https://github.com/cucumber/cucumber-rails/pull/343) Olle Jonsson)
