@@ -68,7 +68,7 @@ If you know how to fix the bug yourself, make a second commit (after committing 
 
 ### Setting up your environment
 
-I strongly recommend rvm and ruby 1.9.3. When you have that, cd into your cucumber-rails repository and:
+We strongly recommend that you use `rvm` or `rbenv` and ruby `2.3.0`. When you have that, cd into your cucumber-rails repository and:
 
     gem install bundler
     bundle install
@@ -77,22 +77,28 @@ I strongly recommend rvm and ruby 1.9.3. When you have that, cd into your cucumb
 
 With all dependencies installed, all specs and features should pass:
 
-    rake
+    [bundle exec] rake
 
 ### Running Appraisal suite
 
 In order to test against multiple versions of key dependencies, the [Appraisal](https://github.com/thoughtbot/appraisal) is used to generate multiple gemfiles, stored in the `gemfiles/` directory. Normally these will only run on Travis; however, if you want to run the full test suite against all gemfiles, run the following commands:
 
-    appraisal install
-    appraisal rake test
+    [bundle exec] appraisal install
+    [bundle exec] appraisal rake test
 
 To run the suite against a named gemfile, use the following:
 
-    appraisal rails_4_1 rake test
+    [bundle exec] appraisal rails_4_1 rake test
 
 To remove and rebuild the different gemfiles (for example, to update a rails version or its dependencies), use the following:
 
-    appraisal install
+    [bundle exec] appraisal install
+
+If you've changed versions of the dependencies, you may find it helpful to forcefully clean each appraisal's gem lock file in `gemfiles/`. You can do this using:
+
+    [bundle exec] rake clean
+
+
 
 ### Adding dependencies
 
