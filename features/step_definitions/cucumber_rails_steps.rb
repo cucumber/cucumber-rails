@@ -8,10 +8,9 @@ module CucumberRailsHelper
     delete_environment_variable 'RUBYOPT'
     delete_environment_variable 'BUNDLE_BIN_PATH'
     delete_environment_variable 'BUNDLE_GEMFILE'
-    # Force older version of nokogiri on older Rubies
-    gem 'nokogiri', '~> 1.6.8' if RUBY_VERSION < '2.1.0'
 
-    gem 'minitest' if RUBY_VERSION < '2.3.0'
+ #   gem 'minitest' if RUBY_VERSION < '2.3.0'
+    gem 'test-unit' if RUBY_VERSION < '2.3.0'
    
     gem 'rdoc', '~> 4.0' if RUBY_VERSION < '2.2.2'
 
