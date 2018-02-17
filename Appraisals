@@ -6,6 +6,7 @@ appraise "rails_4_0" do
   gem "selenium-webdriver", "~> 3.4.1"
   gem "geckodriver-helper", "~> 0.0.4"
   gem "turn", "~> 0.9.6"
+  gem "test-unit", '~> 3.1.5'
   gem "rspec-rails", "~> 3.1.0"
   gem "sass-rails", "~> 4.0.0"
   gem "coffee-rails", "~> 4.0.0"
