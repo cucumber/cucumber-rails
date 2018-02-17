@@ -10,10 +10,8 @@ module CucumberRailsHelper
     delete_environment_variable 'BUNDLE_GEMFILE'
 
  #   gem 'minitest' if RUBY_VERSION < '2.3.0'
-    gem 'test-unit' if RUBY_VERSION < '2.3.0'
+    gem 'test-unit-minitest' if RUBY_VERSION < '2.3.0'
    
-    gem 'rdoc', '~> 4.0' if RUBY_VERSION < '2.2.2'
-
     run_simple 'bundle install'
   end
 
