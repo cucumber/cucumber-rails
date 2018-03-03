@@ -4,7 +4,6 @@
 [![Build Status](https://secure.travis-ci.org/cucumber/cucumber-rails.svg?branch=master)](http://travis-ci.org/cucumber/cucumber-rails)
 [![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.svg)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Dependency Status](https://gemnasium.com/Kosmas/cucumber-rails.svg)](https://gemnasium.com/Kosmas/cucumber-rails)
-[![PullReview stats](https://www.pullreview.com/github/cucumber/cucumber-rails/badges/master.svg?)](https://www.pullreview.com/github/cucumber/cucumber-rails/reviews/master)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
 
 Cucumber-Rails brings Cucumber to Rails 4.x and 5.x. For Rails 3.x support, use version 1.4.5. For Rails 2.3.x support, see the [rails-2.3.x branch](https://github.com/cucumber/cucumber-rails/tree/rails-2.3.x).
