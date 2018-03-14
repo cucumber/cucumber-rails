@@ -1,9 +1,12 @@
-require 'rubygems'
-
-require 'rails/version'
 require 'rspec/rails/fixture_support'
-# Avoid load order issues in activesupport
-require 'active_support/deprecation'
-# Ensure Rails stuff is present before ammeter needs it
 require 'rails/all'
+
+module CucumberRails
+  class Application < ::Rails::Application
+    self.config.secret_key_base = 'ASecretString' if config.respond_to? :secret_key_base
+  end
+end
+
+require 'rspec/support/spec'
+require 'rspec/rails'
 require 'ammeter/init'
