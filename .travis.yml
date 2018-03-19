@@ -1,7 +1,8 @@
 rvm:
-  - 2.2.7
-  - 2.3.4
-  - 2.4.1
+  - 2.2.9
+  - 2.3.6
+  - 2.4.3
+  - 2.5.0
   - ruby-head
 
 # whitelist
@@ -19,9 +20,13 @@ gemfile:
 matrix:
   fast_finish: true
   exclude:
-    - rvm: 2.4.1
+    - rvm: 2.4.3
       gemfile: gemfiles/rails_4_0.gemfile
-    - rvm: 2.4.1
+    - rvm: 2.4.3
+      gemfile: gemfiles/rails_4_1.gemfile
+    - rvm: 2.5.0
+      gemfile: gemfiles/rails_4_0.gemfile
+    - rvm: 2.5.0
       gemfile: gemfiles/rails_4_1.gemfile
 
     - rvm: ruby-head
