@@ -5,7 +5,7 @@ path = if failing_scenarios.empty?
   'features'
 else
   puts "Running failed scenarios"
-  failing_scenarios
+  failing_scenarios.gsub /\s/, ' '
 end
 opts = [
   "--format #{path == 'features' ? 'progress' : 'pretty'}",
