@@ -101,7 +101,7 @@ Given /^I force selenium to run Firefox in headless mode$/ do
       browser_options = ::Selenium::WebDriver::Firefox::Options.new()
       browser_options.args << '--headless'
   
-      Capybara::Selenium::Driver.new(app, :browser => :firefox, options: browser_options)
+      Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
     end
   }
 
