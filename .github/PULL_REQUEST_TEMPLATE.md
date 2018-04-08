@@ -1,5 +1,4 @@
-<!-- NAMING YOUR PULL REQUEST: Please prefix your PR with the name of the sub-project -->
-<!-- e.g. `tag-expressions: Refactor checks` -->
+<!-- NAMING YOUR PULL REQUEST: Please choose a concise, descriptive name for your pull request. -->
 <!-- This makes it easier to get some context when reading the names of issues -->
 
 <!-- These sections are meant as guidance for you. If something doesn't fit, you can just skip it. -->
