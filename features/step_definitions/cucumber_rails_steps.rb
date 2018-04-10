@@ -24,6 +24,10 @@ module CucumberRailsHelper
       gem 'selenium-webdriver', group: :test
     end
 
+    # if Gem.loaded_specs['rails'].version >= Gem::Version.new('5.2.0')
+    #   gem 'bootsnap', require: false
+    # end
+
     gem 'geckodriver-helper', group: :test
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
@@ -100,7 +104,7 @@ Given /^I force selenium to run Firefox in headless mode$/ do
     Capybara.register_driver :selenium do |app|
       browser_options = ::Selenium::WebDriver::Firefox::Options.new()
       browser_options.args << '--headless'
-  
+
       Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
     end
   }
