@@ -21,13 +21,13 @@ Feature: DatabaseCleaner
       """
       Given /^I have (\d+) widgets$/ do |n|
         n.to_i.times do |i|
-          Widget.create! :name => "Widget #{Widget.count + i}"
+          Widget.create! name: "Widget #{Widget.count + i}"
         end
       end
 
       When /^I create (\d+) more widgets$/ do |n|
         n.to_i.times do |i|
-          Widget.create! :name => "Widget #{Widget.count + i}"
+          Widget.create! name: "Widget #{Widget.count + i}"
         end
       end
 

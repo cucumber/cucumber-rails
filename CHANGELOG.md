@@ -163,9 +163,9 @@ with a Step Definition that perhaps looks like this:
 
     Given /^I have signed up as "([^"]*)"$/ do |email|
       visit(signup_path)
-      fill_in('Email', :with => email)
-      fill_in('Password', :with => 's3cr3t')
-      fill_in('Password Confirmation', :with => 's3cr3t')
+      fill_in('Email', with: email)
+      fill_in('Password', with: 's3cr3t')
+      fill_in('Password Confirmation', with: 's3cr3t')
       click_button('Sign up')
     end
 

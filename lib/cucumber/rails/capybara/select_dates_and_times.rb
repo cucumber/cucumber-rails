@@ -3,7 +3,7 @@ module Cucumber
     module Capybara
       # This module defines methods for selecting dates and times
       module SelectDatesAndTimes
-        # Select a Rails date. Options hash must include :from => +label+
+        # Select a Rails date. Options hash must include from: +label+
         def select_date(date, options)
           date        = Date.parse(date)
           base_dom_id = get_base_dom_id_from_label_tag(options[:from])
@@ -13,7 +13,7 @@ module Cucumber
           find(:xpath, ".//select[@id='#{base_dom_id}_3i']").select(date.day.to_s)
         end
 
-        # Select a Rails time. Options hash must include :from => +label+
+        # Select a Rails time. Options hash must include from: +label+
         def select_time(time, options)
           time        = Time.zone.parse(time)
           base_dom_id = get_base_dom_id_from_label_tag(options[:from])
@@ -22,7 +22,7 @@ module Cucumber
           find(:xpath, ".//select[@id='#{base_dom_id}_5i']").select(time.min.to_s.rjust(2,  '0'))
         end
 
-        # Select a Rails datetime. Options hash must include :from => +label+
+        # Select a Rails datetime. Options hash must include from: +label+
         def select_datetime(datetime, options)
           select_date(datetime, options)
           select_time(datetime, options)
