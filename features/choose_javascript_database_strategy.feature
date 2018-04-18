@@ -3,7 +3,7 @@ Feature: Choose javascript database strategy
   When running a scenario with the @javascript tag, Capybara will fire up a web server
   in the same process in a separate thread to your cukes. By default, this means ActiveRecord will give it a
   separate database connection, which in turn means data you put into your database from
-  Cucumber step definitions (e.g. using FactoryGirl) won't be visible to the web server
+  Cucumber step definitions (e.g. using FactoryBot) won't be visible to the web server
   until the database transaction is committed.
 
   So if you use a transaction strategy for cleaning up your database at the end of a scenario,

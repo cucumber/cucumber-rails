@@ -20,7 +20,7 @@ namespace :api do
     mkdir_p dir
     yard.options = ["--out", dir]
   end
-  task :yard => :dir
+  task yard: :dir
 
   task :release do
     Dir.chdir(SITE_DIR) do
@@ -31,5 +31,5 @@ namespace :api do
   end
 
   desc "Generate YARD docs for Cucumber-Rails' API"
-  task :doc => [:yard, :release]
+  task doc: [:yard, :release]
 end

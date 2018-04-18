@@ -8,15 +8,15 @@ Feature: Capybara Javascript Drivers
     And I write to "features/step_definitions/date_time_steps.rb" with:
       """
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" time$/ do |time, selector|
-        select_time(time, :from => selector)
+        select_time(time, from: selector)
       end
 
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" date$/ do |date, selector|
-        select_date(date, :from => selector)
+        select_date(date, from: selector)
       end
 
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" date and time$/ do |datetime, selector|
-        select_datetime(datetime, :from => selector)
+        select_datetime(datetime, from: selector)
       end
       """
 
@@ -56,7 +56,7 @@ Feature: Capybara Javascript Drivers
     And I write to "features/step_definitions/custom_steps.rb" with:
       """
       Given /^a random appointment$/ do
-        @appointment = Appointment.create!(:name => 'Random appointment', :when => DateTime.now)
+        @appointment = Appointment.create!(name: 'Random appointment', when: DateTime.now)
       end
 
       Given /^I am viewing random appointment$/ do

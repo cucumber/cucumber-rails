@@ -32,13 +32,13 @@ Feature: Disable automatic database cleaning
       """
       Given /^I have (\d+) widgets$/ do |n|
         n.to_i.times do |i|
-          Widget.create! :name => "Widget #{Widget.count + i}"
+          Widget.create! name: "Widget #{Widget.count + i}"
         end
       end
 
       When /^I create (\d+) widgets$/ do |n|
         n.to_i.times do |i|
-          Widget.create! :name => "Widget #{Widget.count + i}"
+          Widget.create! name: "Widget #{Widget.count + i}"
         end
       end
 

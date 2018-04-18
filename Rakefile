@@ -14,9 +14,9 @@ Dir["#{File.dirname(__FILE__)}/dev_tasks/*.rake"].sort.each { |ext| load ext }
 
 CLEAN.include('doc', 'tmp')
 
-task :default => :test
+task default: :test
 
-task :test => [:spec, :cucumber]
+task test: [:spec, :cucumber]
 
 namespace :test do
   desc "Run tests against all gemfiles"
@@ -45,5 +45,5 @@ namespace :gemfiles do
   end
 
   desc "Rebuild generated gemfiles and install dependencies"
-  task :rebuild => [:clean, :install]
+  task rebuild: [:clean, :install]
 end
