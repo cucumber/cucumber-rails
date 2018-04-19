@@ -27,7 +27,7 @@ module CucumberRailsHelper
     gem 'geckodriver-helper', group: :test
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
-    gem 'factory_girl', group: :test unless options.include?(:no_factory_girl)
+    gem 'factory_bot', group: :test unless options.include?(:no_factory_bot)
     # Newer versions of rake remove a method used by RSpec older versions
     # See https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11#35893625
     if Gem::Version.new(RSpec::Support::Version::STRING) < Gem::Version.new('3.4.4')
@@ -78,14 +78,14 @@ end
 
 Given /^I have created a new Rails app with no database and installed cucumber-rails$/ do
   rails_new args: '--skip-active-record'
-  install_cucumber_rails :no_database_cleaner, :no_factory_girl
+  install_cucumber_rails :no_database_cleaner, :no_factory_bot
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps
 end
 
 Given /^I have created a new Rails app "(.*?)" with no database and installed cucumber\-rails$/ do |app_name|
   rails_new name: app_name, args: '--skip-active-record'
-  install_cucumber_rails :no_database_cleaner, :no_factory_girl
+  install_cucumber_rails :no_database_cleaner, :no_factory_bot
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps
 end
@@ -100,7 +100,6 @@ Given /^I force selenium to run Firefox in headless mode$/ do
     Capybara.register_driver :selenium do |app|
       browser_options = ::Selenium::WebDriver::Firefox::Options.new()
       browser_options.args << '--headless'
-  
       Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
     end
   }
@@ -118,4 +117,21 @@ Then /^the feature run should pass with:$/ do |string|
   step 'the output should not contain " undefined)"'
   step 'the exit status should be 0'
   step 'the output should contain:', string
+end
+
+Given("I remove the {string} gem from the Gemfile") do |gem_name|
+  run 'pwd'
+  app_path = last_command_started.output.strip
+  gemfile_path = File.join(app_path, 'Gemfile')
+
+  content = File.open(gemfile_path, 'r').readlines
+  new_content = []
+
+  content.each do |line|
+    next if line =~ /gem ["|']#{gem_name}["|'].*/
+    
+    new_content << line
+  end
+
+  overwrite_file(gemfile_path, new_content.join("\r\n"))
 end
