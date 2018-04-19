@@ -39,3 +39,4 @@ matrix:
     - rvm: ruby-head
 
 before_install: gem update --remote bundler
+before_script: geckodriver -V
