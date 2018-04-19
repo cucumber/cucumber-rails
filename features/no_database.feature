@@ -26,19 +26,8 @@ Feature: No Database
       """
       require 'cucumber/rails'
       """
-    # Remove DatabaseCleaner and SQLite
-    And I write to "Gemfile" with:
-      """
-      source 'http://rubygems.org'
-      gem 'rails'
-      gem "cucumber-rails", group: :test, path: "../../.."
-      gem "capybara", group: :test
-      gem "rspec-rails", group: :test
-      if RUBY_VERSION >= '2.0.0'
-        gem 'sass-rails'
-        gem 'uglifier'
-      end
-      """
+    And I remove the 'database_cleaner' gem from the Gemfile
+    And I remove the 'sqlite' gem from the Gemfile
     And I write to "app/controllers/posts_controller.rb" with:
       """
       class PostsController < ApplicationController
