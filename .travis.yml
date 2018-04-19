@@ -4,6 +4,9 @@ rvm:
   - 2.5.1
   - ruby-head
 
+addons:
+  firefox: latest
+
 # whitelist
 branches:
   only:
