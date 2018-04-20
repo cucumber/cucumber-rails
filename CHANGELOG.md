@@ -7,6 +7,10 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
  * Update .travis.yml with ruby versions ([#341](https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga)
  * Removed support for Ruby <= 2.1, to keep in line with [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/master/CHANGELOG.md#302-2017-11-11) ([#360](https://github.com/cucumber/cucumber-rails/pull/360) [xtrasimplicity](https://github.com/xtrasimplicity)).
  * Updated syntax to support both new and deprecated forms of tag negation. ([#348](https://github.com/cucumber/cucumber-rails/pull/348) [mirelon](https://github.com/mirelon), [#359](https://github.com/cucumber/cucumber-rails/pull/359) [xtrasimplicity](https://github.com/xtrasimplicity))
+ * Switched to Ruby 1.9 hash syntax. ([#371](https://github.com/cucumber/cucumber-rails/pull/371) [mvz](https://github.com/mvz))
+ * Fixed tag deprecation warnings. ([#373](https://github.com/cucumber/cucumber-rails/pull/373) [mvz](https://github.com/mvz))
+ * Added support to handle rerun files with multiple lines. ([#c6d3d7e](https://github.com/cucumber/cucumber-rails/commit/c6d3d7e77febb758ae17bd154b9d4da7a8847c3d) [mvz](https://github.com/mvz))
+ * Added support for Rails 5.2 and Capybara 3. ([#378](https://github.com/cucumber/cucumber-rails/pull/378/) [gobijan](https://github.com/gobijan), [radar](https://github.com/radar), [xtrasimplicity](https://github.com/xtrasimplicity))
  
 ### Fixed
 
