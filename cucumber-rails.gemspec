@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rdoc', '>= 3.4')
   s.add_development_dependency('yard', '>= 0.8.7')
 
-  s.required_ruby_version = '>= 2.3.0'
+  s.required_ruby_version = '>= 2.2.0'
   s.rubygems_version = ">= 1.6.1"
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
