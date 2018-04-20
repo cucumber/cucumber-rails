@@ -16,12 +16,12 @@ Feature: Emulate Javascript
     And I write to "features/step_definitions/s.rb" with:
       """
       Given /^there is a widget named "([^"]*)"$/ do |name|
-        FactoryGirl.create(:widget, name: name)
+        FactoryBot.create(:widget, name: name)
       end
       """
     And I write to "features/support/factories.rb" with:
       """
-      FactoryGirl.define do
+      FactoryBot.define do
         factory :widget do
           name 'testwidget'
         end
@@ -73,12 +73,12 @@ Feature: Emulate Javascript
     And I write to "features/step_definitions/s.rb" with:
       """
       Given /^there is a widget named "([^"]*)"$/ do |name|
-        FactoryGirl.create(:widget, name: name)
+        FactoryBot.create(:widget, name: name)
       end
       """
     And I write to "features/support/factories.rb" with:
       """
-      FactoryGirl.define do
+      FactoryBot.define do
         factory :widget do
           name 'testwidget'
         end
@@ -91,4 +91,4 @@ Feature: Emulate Javascript
        1 scenario (1 passed)
        8 steps (8 passed)
        """
-       
+
