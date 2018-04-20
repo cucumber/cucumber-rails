@@ -4,6 +4,9 @@ rvm:
   - 2.5.1
   - ruby-head
 
+addons:
+  firefox: latest
+
 # whitelist
 branches:
   only:
@@ -36,3 +39,4 @@ matrix:
     - rvm: ruby-head
 
 before_install: gem update --remote bundler
+before_script: geckodriver -V
