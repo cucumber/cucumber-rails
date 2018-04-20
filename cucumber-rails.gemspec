@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('database_cleaner', '>= 1.0.0')
   s.add_development_dependency('factory_bot', '>= 3.2')
   s.add_development_dependency('rake', '>= 0.9.2.2')
-  s.add_development_dependency('rspec', '~> 3')
+  s.add_development_dependency('rspec', '~> 3.0')
   s.add_development_dependency('rails')
   s.add_development_dependency('sqlite3')
 
