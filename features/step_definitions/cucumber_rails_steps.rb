@@ -118,3 +118,20 @@ Then /^the feature run should pass with:$/ do |string|
   step 'the exit status should be 0'
   step 'the output should contain:', string
 end
+
+Given("I remove the {string} gem from the Gemfile") do |gem_name|
+  run 'pwd'
+  app_path = last_command_started.output.strip
+  gemfile_path = File.join(app_path, 'Gemfile')
+
+  content = File.open(gemfile_path, 'r').readlines
+  new_content = []
+
+  content.each do |line|
+    next if line =~ /gem ["|']#{gem_name}["|'].*/
+    
+    new_content << line
+  end
+
+  overwrite_file(gemfile_path, new_content.join("\r\n"))
+end
