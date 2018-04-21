@@ -1,16 +1,22 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md) on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/1.5.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v1.5.0...master) (Not yet released)
 
 ### Changed
  * Renamed History.md to CHANGELOG.md, added contributing note, and this line in accordance with [cucumber/cucumber #251](https://github.com/cucumber/cucumber/issues/251) ([#345](https://github.com/cucumber/cucumber-rails/pull/345) [jaysonesmith](https://github.com/jaysonesmith))
  * Update .travis.yml with ruby versions ([#341](https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga)
  * Removed support for Ruby <= 2.1, to keep in line with [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/master/CHANGELOG.md#302-2017-11-11) ([#360](https://github.com/cucumber/cucumber-rails/pull/360) [xtrasimplicity](https://github.com/xtrasimplicity)).
  * Updated syntax to support both new and deprecated forms of tag negation. ([#348](https://github.com/cucumber/cucumber-rails/pull/348) [mirelon](https://github.com/mirelon), [#359](https://github.com/cucumber/cucumber-rails/pull/359) [xtrasimplicity](https://github.com/xtrasimplicity))
+ * Dependencies: Allowed `Ammeter` versions greater than 1.1.3. ([#368](https://github.com/cucumber/cucumber-rails/pull/368) [mvz](https://github.com/mvz))
+ * Switched to Ruby 1.9 hash syntax. ([#371](https://github.com/cucumber/cucumber-rails/pull/371) [mvz](https://github.com/mvz))
+ * Added support to handle rerun files with multiple lines. ([#c6d3d7e](https://github.com/cucumber/cucumber-rails/commit/c6d3d7e77febb758ae17bd154b9d4da7a8847c3d) [mvz](https://github.com/mvz))
+ * Added support for Rails 5.2 and Capybara 3. ([#378](https://github.com/cucumber/cucumber-rails/pull/378/) [gobijan](https://github.com/gobijan), [radar](https://github.com/radar), [xtrasimplicity](https://github.com/xtrasimplicity))
  
 ### Fixed
 
  * Fix typo ([#343](https://github.com/cucumber/cucumber-rails/pull/343) Olle Jonsson)
+ * History.md: Fixed markdown formatting ([#344](https://github.com/cucumber/cucumber-rails/pull/344) [Kosmas](https://github.com/Kosmas))
+ * Fixed tag deprecation warnings. ([#373](https://github.com/cucumber/cucumber-rails/pull/373) [mvz](https://github.com/mvz))
 
 ## [v1.5.0](https://github.com/cucumber/cucumber-rails/compare/1.4.5...1.5.0) (2017-05-12)
 
