@@ -65,7 +65,7 @@ Current release managers:
   * Kosmas Chatzimichalis
   * Matt Wynne
   * Mathieu Jobin
-  * Andrew Walter
+  * Andrew Walter
 
 To grant release karma, issue the following command:
 
