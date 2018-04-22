@@ -1,6 +1,10 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md) on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v1.5.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...master) (Not yet released)
+There are currently no unreleased changes.
+
+
+## [v1.6.0](https://github.com/cucumber/cucumber-rails/compare/v1.5.0...v1.6.0) (2018-04-23)
 
 ### Changed
  * Renamed History.md to CHANGELOG.md, added contributing note, and this line in accordance with [cucumber/cucumber #251](https://github.com/cucumber/cucumber/issues/251) ([#345](https://github.com/cucumber/cucumber-rails/pull/345) [jaysonesmith](https://github.com/jaysonesmith))
