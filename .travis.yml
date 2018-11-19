@@ -40,6 +40,7 @@ matrix:
     - rvm: ruby-head
 
 before_install:
+  - gem update --system
   - gem update --remote bundler
   - bin/install_geckodriver.sh
 
