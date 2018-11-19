@@ -12,9 +12,6 @@ opts = [
   "--format rerun -o #{rerun_file}"
 ]
 rails_version = `bundle exec rails --version`.match(/[\d.]+$/).to_s
-if Gem::Version.new(rails_version) < Gem::Version.new('4.2')
-  opts << "--tags 'not @requires-rails-version-42'"
-end
 optlist = opts.join(' ')
 %>
 default: <%= path %> <%= optlist %> --tags 'not @broken'

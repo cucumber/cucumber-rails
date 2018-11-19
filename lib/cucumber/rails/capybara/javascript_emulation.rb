@@ -66,19 +66,11 @@ module Cucumber
         end
 
         def link_with_non_get_http_method?
-          if ::Rails.version.to_f >= 3.0
-            tag_name == 'a' && element_node['data-method'] && element_node['data-method'] =~ /(?:delete|put|post)/
-          else
-            tag_name == 'a' && element_node['onclick'] && element_node['onclick'] =~ /var f = document\.createElement\('form'\); f\.style\.display = 'none';/
-          end
+          tag_name == 'a' && element_node['data-method'] && element_node['data-method'] =~ /(?:delete|put|post)/
         end
 
         def emulated_method
-          if ::Rails.version.to_f >= 3.0
-            element_node['data-method']
-          else
-            element_node['onclick'][/m\.setAttribute\('value', '([^']*)'\)/, 1]
-          end
+          element_node['data-method']
         end
 
         def element_node
