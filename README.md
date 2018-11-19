@@ -107,7 +107,7 @@ To support the multiple-gemfile testing, when adding a new dependency the follow
 2. If it's a primary development dependency, add it to the gemspec
 3. If it's a dependency of a generated rails app in a test, add it to the Gemfile (for local test runs) and each appraisal section (if necessary).
 
-For example, rspec is a primary development dependency, so it lives in the gemspec. By contrast, coffee-rails is a dependency of apps generated with rails 3.1 and 3.2, so lives in the main Gemfile and the rails 3.1 and 3.2 appraisal sections.
+For example, rspec is a primary development dependency, so it lives in the gemspec.
 
 ### NOTE
 
