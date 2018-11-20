@@ -107,3 +107,4 @@ appraise "rails_edge" do
   gem "sqlite3", "~> 1.3.13"
   gem "database_cleaner", ">= 1.1"
 end
+
