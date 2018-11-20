@@ -2,8 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "~> 5.2"
-gem "railties", "~> 5.2"
+gem "rails", git: "https://github.com/rails/rails.git"
 gem "capybara", "~> 3"
 gem "selenium-webdriver", "~> 3.11"
 gem "geckodriver-helper", "~> 0.20.2"

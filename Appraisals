@@ -94,3 +94,16 @@ appraise "rails_5_2" do
   gem "sqlite3", "~> 1.3.13"
   gem "database_cleaner", ">= 1.1"
 end
+
+appraise "rails_edge" do
+  gem "rails", git: "https://github.com/rails/rails.git"
+  gem "capybara", "~> 3"
+  gem "selenium-webdriver", "~> 3.11"
+  gem "geckodriver-helper", "~> 0.20.2"
+  gem "rspec-rails", "~> 3.7"
+  gem "sass-rails", "~> 5.0"
+  gem "coffee-rails", "~> 4.2.0"
+  gem "uglifier", "~> 4.1"
+  gem "sqlite3", "~> 1.3.13"
+  gem "database_cleaner", ">= 1.1"
+end
