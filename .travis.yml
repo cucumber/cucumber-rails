@@ -37,6 +37,10 @@ matrix:
       gemfile: gemfiles/rails_4_0.gemfile
     - rvm: ruby-head
       gemfile: gemfiles/rails_4_1.gemfile
+    - rvm: 2.2.9
+      gemfile: gemfiles/rails_edge.gemfile
+    - rvm: 2.3.7
+      gemfile: gemfiles/rails_edge.gemfile
   allow_failures:
     - rvm: ruby-head
 
