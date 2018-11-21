@@ -102,7 +102,7 @@ appraise "rails_edge" do
   gem "geckodriver-helper", "~> 0.20.2"
   gem "rspec-rails", "~> 3.7"
   gem "sass-rails", "~> 5.0"
-  gem "coffee-rails", "~> 4.2.0"
+  gem "coffee-rails", "~> 4.2"
   gem "uglifier", "~> 4.1"
   gem "sqlite3", "~> 1.3.13"
   gem "database_cleaner", ">= 1.1"
