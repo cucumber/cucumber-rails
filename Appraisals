@@ -97,7 +97,7 @@ end
 
 appraise "rails_edge" do
   gem "rails", git: "https://github.com/rails/rails.git"
-  gem "capybara", "~> 3"
+  gem "capybara", "~> 3.0"
   gem "selenium-webdriver", "~> 3.11"
   gem "geckodriver-helper", "~> 0.20.2"
   gem "rspec-rails", "~> 3.7"
