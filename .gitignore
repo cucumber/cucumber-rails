@@ -9,5 +9,4 @@ coverage
 .cucumber.rerun
 gemfiles/*.lock
 Gemfile.lock
-Gemfile.appraisal.lock
 spec/examples.txt
