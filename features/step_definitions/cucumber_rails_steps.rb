@@ -27,12 +27,6 @@ module CucumberRailsHelper
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_bot', group: :test unless options.include?(:no_factory_bot)
-    # Newer versions of rake remove a method used by RSpec older versions
-    # See https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11#35893625
-    if Gem::Version.new(RSpec::Support::Version::STRING) < Gem::Version.new('3.4.4')
-      gem 'rake', '< 11.0'
-      run_simple 'bundle update rake --local'
-    end
     run_simple 'bundle exec rails generate cucumber:install'
   end
 
