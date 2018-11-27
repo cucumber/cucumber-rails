@@ -9,7 +9,7 @@ appraise "rails_4_2" do
   gem "jquery-rails"
   gem "uglifier", "~> 2.1.0"
   gem "sqlite3", "~> 1.3.7"
-  gem "database_cleaner", "~> 1.0.1"
+  gem "database_cleaner", ">= 1.1"
   gem "rake", "< 11.0"
 end
 
@@ -24,8 +24,7 @@ appraise "rails_5_0" do
   gem "jquery-rails"
   gem "uglifier", "~> 2.7.2"
   gem "sqlite3", "~> 1.3.7"
-  # Rails 5 requires database cleaner 1.1
-  gem "database_cleaner", ">= 1.1.0"
+  gem "database_cleaner", ">= 1.1"
 end
 
 appraise "rails_5_1" do
@@ -38,8 +37,7 @@ appraise "rails_5_1" do
   gem "coffee-rails", "~> 4.2.0"
   gem "uglifier", "~> 3.2.0"
   gem "sqlite3", "~> 1.3.13"
-  # Rails 5 requires database cleaner 1.1
-  gem "database_cleaner", ">= 1.1.0"
+  gem "database_cleaner", ">= 1.1"
 end
 
 appraise "rails_5_2" do
