@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('capybara', ['>= 1.1.2', '< 4'])
   s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 4'])
   s.add_runtime_dependency('nokogiri', '~> 1.8')
-  s.add_runtime_dependency('railties', ['>= 4', '< 6'])
+  s.add_runtime_dependency('railties', ['>= 4.2', '< 6'])
   s.add_runtime_dependency('mime-types', ['>= 1.17', '< 4'])
 
   # Main development dependencies
