@@ -21,7 +21,7 @@ module CucumberRailsHelper
     gem 'selenium-webdriver', '~> 3.11', group: :test
 
     gem 'rspec-rails', '~> 3.7', group: :test
-    gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
+    gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_bot', group: :test unless options.include?(:no_factory_bot)
     run_simple 'bundle install'
     run_simple 'bundle exec rails generate cucumber:install'
