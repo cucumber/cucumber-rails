@@ -135,5 +135,5 @@ Given("I remove the {string} gem from the Gemfile") do |gem_name|
     new_content << line
   end
 
-  overwrite_file(gemfile_path, new_content.join("\r\n"))
+  overwrite_file('Gemfile', new_content.join("\r\n"))
 end
