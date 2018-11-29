@@ -29,8 +29,14 @@ module CucumberRailsHelper
     run_simple 'bundle exec rails generate cucumber:install'
   end
 
-  def gem(name, options)
-    line = %{gem "#{name}", #{options.inspect}\n}
+  def gem(name, *args)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+
+    parts = ["'#{name}'"]
+    parts << args.map(&:inspect) if args.any?
+    parts << options.inspect[1..-2] if options.any?
+
+    line = "gem #{parts.join(', ')}\n"
     append_to_file('Gemfile', line)
   end
 
