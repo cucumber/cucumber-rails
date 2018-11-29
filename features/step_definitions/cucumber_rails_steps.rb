@@ -16,11 +16,9 @@ module CucumberRailsHelper
     else
       gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
-    # From Rails 5.1 some gems are already part of the Gemfile
-    if Gem.loaded_specs['rails'].version < Gem::Version.new('5.1.0')
-      gem 'capybara', group: :test
-      gem 'selenium-webdriver', group: :test
-    end
+
+    gem 'capybara', group: :test
+    gem 'selenium-webdriver', group: :test
 
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
@@ -37,7 +35,16 @@ module CucumberRailsHelper
     parts << options.inspect[1..-2] if options.any?
 
     line = "gem #{parts.join(', ')}\n"
-    append_to_file('Gemfile', line)
+
+    gem_regexp = /gem ["']#{name}["'].*$/
+    gemfile_content = File.read(expand_path('Gemfile'))
+
+    if gemfile_content =~ gem_regexp
+      gemfile_content.gsub!(gem_regexp, line)
+      overwrite_file('Gemfile', gemfile_content)
+    else
+      append_to_file('Gemfile', line)
+    end
   end
 
   def prepare_aruba_report
