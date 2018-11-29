@@ -18,7 +18,7 @@ module CucumberRailsHelper
     end
 
     gem 'capybara', group: :test
-    gem 'selenium-webdriver', group: :test
+    gem 'selenium-webdriver', '~> 3.11', group: :test
 
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
