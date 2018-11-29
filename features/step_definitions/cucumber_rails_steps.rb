@@ -8,8 +8,6 @@ module CucumberRailsHelper
     delete_environment_variable 'RUBYOPT'
     delete_environment_variable 'BUNDLE_BIN_PATH'
     delete_environment_variable 'BUNDLE_GEMFILE'
-
-    run_simple 'bundle install'
   end
 
   def install_cucumber_rails(*options)
@@ -27,6 +25,7 @@ module CucumberRailsHelper
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_bot', group: :test unless options.include?(:no_factory_bot)
+    run_simple 'bundle install'
     run_simple 'bundle exec rails generate cucumber:install'
   end
 
