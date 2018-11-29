@@ -24,7 +24,6 @@ module CucumberRailsHelper
       gem 'selenium-webdriver', group: :test
     end
 
-    gem 'geckodriver-helper', group: :test
     gem 'rspec-rails', group: :test
     gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_bot', group: :test unless options.include?(:no_factory_bot)
