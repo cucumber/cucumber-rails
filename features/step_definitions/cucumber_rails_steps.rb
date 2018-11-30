@@ -98,6 +98,8 @@ Given /^I force selenium to run Firefox in headless mode$/ do
       browser_options.args << '--headless'
       Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options, http_client: http_client)
     end
+
+    Capybara.server = :webrick
   }
 
   step 'I append to "features/support/env.rb" with:', selenium_config
