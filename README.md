@@ -105,9 +105,11 @@ To support the multiple-gemfile testing, when adding a new dependency the follow
 
 1. If it's a runtime dependency of the gem, add it to the gemspec
 2. If it's a primary development dependency, add it to the gemspec
-3. If it's a dependency of a generated rails app in a test, add it to the Gemfile (for local test runs) and each appraisal section (if necessary).
+3. If it's a dependency of a generated rails app in a test, add it to [the helper] that modifies that Gemfile.
 
 For example, rspec is a primary development dependency, so it lives in the gemspec.
+
+[the helper]: https://github.com/cucumber/cucumber-rails/blob/5e37c530560ae1c1a79521c38a54bae0be94242b/features/step_definitions/cucumber_rails_steps.rb#L15
 
 ### NOTE
 
