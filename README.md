@@ -66,7 +66,7 @@ If you know how to fix the bug yourself, make a second commit (after committing 
 
 ### Setting up your environment
 
-We strongly recommend that you use `rvm` or `rbenv` and ruby `2.2.0`. When you have that, cd into your cucumber-rails repository and:
+Make sure you have a supported ruby installed, cd into your cucumber-rails repository and:
 
     gem install bundler
     bundle install
