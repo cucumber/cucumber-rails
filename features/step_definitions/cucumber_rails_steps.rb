@@ -20,7 +20,7 @@ module CucumberRailsHelper
     gem 'capybara', '~> 3.0', group: :test
     gem 'selenium-webdriver', '~> 3.11', group: :test
 
-    gem 'rspec-rails', '~> 3.7', group: :test
+    gem 'rspec-expectations', '~> 3.7', group: :test
     gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
     run_simple 'bundle install'
