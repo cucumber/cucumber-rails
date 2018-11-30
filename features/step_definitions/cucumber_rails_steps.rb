@@ -17,7 +17,7 @@ module CucumberRailsHelper
       gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
 
-    gem 'capybara', '~> 3.0', group: :test
+    gem 'capybara', group: :test
     gem 'selenium-webdriver', '~> 3.11', group: :test
 
     gem 'rspec-expectations', '~> 3.7', group: :test
