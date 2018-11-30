@@ -1,8 +1,8 @@
 rvm:
   - 2.2.9
-  - 2.3.7
-  - 2.4.4
-  - 2.5.1
+  - 2.3.8
+  - 2.4.5
+  - 2.5.3
   - ruby-head
 
 addons:
@@ -24,13 +24,13 @@ gemfile:
 matrix:
   fast_finish: true
   exclude:
-    - rvm: 2.4.4
+    - rvm: 2.4.5
       gemfile: gemfiles/rails_4_0.gemfile
-    - rvm: 2.4.4
+    - rvm: 2.4.5
       gemfile: gemfiles/rails_4_1.gemfile
-    - rvm: 2.5.1
+    - rvm: 2.5.3
       gemfile: gemfiles/rails_4_0.gemfile
-    - rvm: 2.5.1
+    - rvm: 2.5.3
       gemfile: gemfiles/rails_4_1.gemfile
     - rvm: ruby-head
       gemfile: gemfiles/rails_4_0.gemfile
@@ -40,6 +40,7 @@ matrix:
     - rvm: ruby-head
 
 before_install:
+  - gem update --system
   - gem update --remote bundler
   - bin/install_geckodriver.sh
 
