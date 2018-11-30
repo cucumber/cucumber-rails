@@ -122,11 +122,7 @@ Then /^the feature run should pass with:$/ do |string|
 end
 
 Given("I remove the {string} gem from the Gemfile") do |gem_name|
-  run 'pwd'
-  app_path = last_command_started.output.strip
-  gemfile_path = File.join(app_path, 'Gemfile')
-
-  content = File.open(gemfile_path, 'r').readlines
+  content = File.open(expand_path('Gemfile'), 'r').readlines
   new_content = []
 
   content.each do |line|
@@ -135,5 +131,5 @@ Given("I remove the {string} gem from the Gemfile") do |gem_name|
     new_content << line
   end
 
-  overwrite_file(gemfile_path, new_content.join("\r\n"))
+  overwrite_file('Gemfile', new_content.join("\r\n"))
 end
