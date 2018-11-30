@@ -1,4 +1,3 @@
-@requires-rails-version-42
 Feature: Annotations
 
   I order to track my development progress

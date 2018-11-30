@@ -6,7 +6,7 @@
 [![Dependency Status](https://gemnasium.com/Kosmas/cucumber-rails.svg)](https://gemnasium.com/Kosmas/cucumber-rails)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
 
-Cucumber-Rails brings Cucumber to Rails 4.x and 5.x. For Rails 3.x support, use version 1.4.5. For Rails 2.3.x support, see the [rails-2.3.x branch](https://github.com/cucumber/cucumber-rails/tree/rails-2.3.x).
+Cucumber-Rails brings Cucumber to Rails 4.2 and Rails 5.x.
 
 ## Installation
 
@@ -107,7 +107,7 @@ To support the multiple-gemfile testing, when adding a new dependency the follow
 2. If it's a primary development dependency, add it to the gemspec
 3. If it's a dependency of a generated rails app in a test, add it to the Gemfile (for local test runs) and each appraisal section (if necessary).
 
-For example, rspec is a primary development dependency, so it lives in the gemspec. By contrast, coffee-rails is a dependency of apps generated with rails 3.1 and 3.2, so lives in the main Gemfile and the rails 3.1 and 3.2 appraisal sections.
+For example, rspec is a primary development dependency, so it lives in the gemspec.
 
 ### NOTE
 
