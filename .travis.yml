@@ -39,5 +39,8 @@ matrix:
   allow_failures:
     - rvm: ruby-head
 
-before_install: gem update --remote bundler
+before_install:
+  - gem update --remote bundler
+  - bin/install_geckodriver.sh
+
 before_script: geckodriver -V
