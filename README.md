@@ -87,7 +87,7 @@ In order to test against multiple versions of key dependencies, the [Appraisal](
 
 To run the suite against a named gemfile, use the following:
 
-    [bundle exec] appraisal rails_4_1 rake test
+    [bundle exec] appraisal rails_4_2 rake test
 
 To remove and rebuild the different gemfiles (for example, to update a rails version or its dependencies), use the following:
 
