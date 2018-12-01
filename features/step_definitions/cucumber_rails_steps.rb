@@ -8,8 +8,6 @@ module CucumberRailsHelper
     delete_environment_variable 'RUBYOPT'
     delete_environment_variable 'BUNDLE_BIN_PATH'
     delete_environment_variable 'BUNDLE_GEMFILE'
-
-    run_simple 'bundle install'
   end
 
   def install_cucumber_rails(*options)
@@ -18,27 +16,35 @@ module CucumberRailsHelper
     else
       gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
-    # From Rails 5.1 some gems are already part of the Gemfile
-    if Gem.loaded_specs['rails'].version < Gem::Version.new('5.1.0')
-      gem 'capybara', group: :test
-      gem 'selenium-webdriver', group: :test
-    end
 
-    gem 'rspec-rails', group: :test
-    gem 'database_cleaner', group: :test unless options.include?(:no_database_cleaner)
-    gem 'factory_bot', group: :test unless options.include?(:no_factory_bot)
-    # Newer versions of rake remove a method used by RSpec older versions
-    # See https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11#35893625
-    if Gem::Version.new(RSpec::Support::Version::STRING) < Gem::Version.new('3.4.4')
-      gem 'rake', '< 11.0'
-      run_simple 'bundle update rake --local'
-    end
+    gem 'capybara', group: :test
+    gem 'selenium-webdriver', '~> 3.11', group: :test
+
+    gem 'rspec-expectations', '~> 3.7', group: :test
+    gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
+    gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
+    run_simple 'bundle install'
     run_simple 'bundle exec rails generate cucumber:install'
   end
 
-  def gem(name, options)
-    line = %{gem "#{name}", #{options.inspect}\n}
-    append_to_file('Gemfile', line)
+  def gem(name, *args)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+
+    parts = ["'#{name}'"]
+    parts << args.map(&:inspect) if args.any?
+    parts << options.inspect[1..-2] if options.any?
+
+    line = "gem #{parts.join(', ')}\n"
+
+    gem_regexp = /gem ["']#{name}["'].*$/
+    gemfile_content = File.read(expand_path('Gemfile'))
+
+    if gemfile_content =~ gem_regexp
+      gemfile_content.gsub!(gem_regexp, line)
+      overwrite_file('Gemfile', gemfile_content)
+    else
+      append_to_file('Gemfile', line)
+    end
   end
 
   def prepare_aruba_report
@@ -104,6 +110,8 @@ Given /^I force selenium to run Firefox in headless mode$/ do
       browser_options.args << '--headless'
       Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options, http_client: http_client)
     end
+
+    Capybara.server = :webrick
   }
 
   step 'I append to "features/support/env.rb" with:', selenium_config

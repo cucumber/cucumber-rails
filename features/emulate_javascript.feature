@@ -23,7 +23,7 @@ Feature: Emulate Javascript
       """
       FactoryBot.define do
         factory :widget do
-          name 'testwidget'
+          name { 'testwidget' }
         end
       end
       """
@@ -80,7 +80,7 @@ Feature: Emulate Javascript
       """
       FactoryBot.define do
         factory :widget do
-          name 'testwidget'
+          name { 'testwidget' }
         end
       end
       """

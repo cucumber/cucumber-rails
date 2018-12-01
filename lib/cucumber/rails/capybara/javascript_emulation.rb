@@ -74,12 +74,7 @@ module Cucumber
         end
 
         def element_node
-          if self.respond_to? :native
-            self.native
-          else
-            warn 'DEPRECATED: cucumber-rails loves you, just not your version of Capybara. Please update Capybara to >= 0.4.0'
-            self.node
-          end
+          self.native
         end
       end
     end
