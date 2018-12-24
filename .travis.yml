@@ -23,9 +23,6 @@ matrix:
   fast_finish: true
   allow_failures:
     - rvm: ruby-head
-  exclude:
-    - rvm: ruby-head
-      gemfile: gemfiles/rails_4_2.gemfile
 
 before_install:
   - gem update --remote bundler
