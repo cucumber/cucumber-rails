@@ -3,5 +3,6 @@
 source "https://rubygems.org"
 
 gem "railties", "~> 6.0.0.beta1"
+gem "rails", "~> 6.0.0.beta1"
 
 gemspec path: "../"
