@@ -34,7 +34,7 @@ matrix:
       gemfile: gemfiles/rails_6_0.gemfile
 
 before_install:
-  - gem update --remote bundler
+  - gem install --remote bundler -v '~> 1.17'
   - bin/install_geckodriver.sh
   - bin/install_webpacker.sh
 
