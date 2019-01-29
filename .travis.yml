@@ -36,8 +36,6 @@ matrix:
 before_install:
   - gem update --remote bundler
   - bin/install_geckodriver.sh
-  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  - echo 'deb https://dl.yarnpkg.com/debian/ stable main' | sudo tee /etc/apt/sources.list.d/yarn.list
-  - sudo apt update && sudo apt install yarn
+  - bin/install_webpacker.sh
 
 before_script: geckodriver -V
