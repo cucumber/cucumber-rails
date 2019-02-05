@@ -13,3 +13,8 @@ end
 appraise "rails_5_2" do
   gem "railties", "~> 5.2"
 end
+
+appraise "rails_6_0" do
+  gem "railties", "~> 6.0.0.beta1"
+  gem "rails",    "~> 6.0.0.beta1"
+end

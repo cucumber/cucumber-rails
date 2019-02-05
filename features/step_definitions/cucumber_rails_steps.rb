@@ -24,6 +24,11 @@ module CucumberRailsHelper
     gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
     run_simple 'bundle install'
+
+    if `bundle exec rails -v`.split("\n").last.strip =~ /\ARails 6\./
+      run_simple 'bundle exec rails webpacker:install'
+    end
+
     run_simple 'bundle exec rails generate cucumber:install'
   end
 
