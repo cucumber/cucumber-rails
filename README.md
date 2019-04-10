@@ -71,6 +71,7 @@ Make sure you have a supported ruby installed, cd into your cucumber-rails repos
     gem install bundler
     bundle install
     bin/install_geckodriver.sh
+    bin/install_webpacker.sh
 
 ### Running all tests
 
