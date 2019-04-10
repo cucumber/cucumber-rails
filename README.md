@@ -11,11 +11,13 @@ Cucumber-Rails brings Cucumber to Rails 4.2 and Rails 5.x.
 
 Before you can use the generator, add the gem to your project's Gemfile as follows:
 
-    group :test do
-      gem 'cucumber-rails', require: false
-      # database_cleaner is not required, but highly recommended
-      gem 'database_cleaner'
-    end
+```ruby
+group :test do
+  gem 'cucumber-rails', require: false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+end
+```
 
 Then install it by running:
 
@@ -43,9 +45,11 @@ Without Rake:
 
 By default, cucumber-rails runs `DatabaseCleaner.start` and `DatabaseCleaner.clean` before and after your scenarios. You can disable this behaviour like so:
 
-    # features/support/env.rb
-    # ...
-    Cucumber::Rails::Database.autorun_database_cleaner = false
+```ruby
+# features/support/env.rb
+# ...
+Cucumber::Rails::Database.autorun_database_cleaner = false
+```
 
 ## Upgrading from a previous version
 
