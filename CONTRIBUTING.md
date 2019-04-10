@@ -30,6 +30,7 @@ This document is a guide for those maintaining cucumber-Rails, and others who wo
     gem install bundler
     bundle install
     bin/install_geckodriver.sh
+    bin/install_webpacker.sh
     bundle exec rake
 
 ## Release Process
