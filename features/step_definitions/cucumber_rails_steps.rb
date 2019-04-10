@@ -17,6 +17,7 @@ module CucumberRailsHelper
       gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
 
+    gem 'sqlite3', '~> 1.3.13'
     gem 'capybara', group: :test
     gem 'selenium-webdriver', '~> 3.11', group: :test
 
