@@ -17,7 +17,12 @@ module CucumberRailsHelper
       gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
     end
 
-    gem 'capybara', group: :test
+    gem 'sqlite3', '~> 1.3.13'
+    if RUBY_VERSION < '2.4.0'
+      gem 'capybara', '< 3.16.0', group: :test
+    else
+      gem 'capybara', group: :test
+    end
     gem 'selenium-webdriver', '~> 3.11', group: :test
 
     gem 'rspec-expectations', '~> 3.7', group: :test
