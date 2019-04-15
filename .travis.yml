@@ -1,9 +1,9 @@
 rvm:
-  - 2.2.10
-  - 2.3.8
-  - 2.4.6
-  - 2.5.5
-  - 2.6.2
+  - 2.2
+  - 2.3
+  - 2.4
+  - 2.5
+  - 2.6
   - ruby-head
 
 addons:
@@ -26,15 +26,15 @@ matrix:
   allow_failures:
     - rvm: ruby-head
   exclude:
-    - rvm: 2.2.10
+    - rvm: 2.2
       gemfile: gemfiles/rails_6_0.gemfile
-    - rvm: 2.3.8
+    - rvm: 2.3
       gemfile: gemfiles/rails_6_0.gemfile
-    - rvm: 2.4.6
+    - rvm: 2.4
       gemfile: gemfiles/rails_6_0.gemfile
-    - rvm: 2.4.6
+    - rvm: 2.4
       gemfile: gemfiles/rails_4_2.gemfile
-    - rvm: 2.5.5
+    - rvm: 2.5
       gemfile: gemfiles/rails_4_2.gemfile
 
 before_install:
