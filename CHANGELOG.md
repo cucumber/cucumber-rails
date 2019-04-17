@@ -3,7 +3,7 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 ## [master](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...master) (Not yet released)
 There are currently no unreleased changes.
 
-## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-XX)
+## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-17)
 
 ### Changed
 
@@ -17,7 +17,7 @@ There are currently no unreleased changes.
  
 ### Fixed
 
- * Appraisals fixes (Up-to-date geckodriver, standardised gemfiles)
+ * Appraisals fixes (Up-to-date `geckodriver`, standardised the various `.gemfile`s)
  [#389](https://github.com/cucumber/cucumber-rails/pull/389) /
  [#394](https://github.com/cucumber/cucumber-rails/pull/394) /
  [#395](https://github.com/cucumber/cucumber-rails/pull/395) /
