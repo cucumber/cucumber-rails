@@ -3,10 +3,40 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 ## [master](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...master) (Not yet released)
 There are currently no unreleased changes.
 
+## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-XX)
+
+### Changed
+
+ * Drop rails `4.0` / `4.1` support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez](https://github.com/deivid-rodriguez))
+ 
+ * Allow Ruby `2.6` users to `ERB.new` ([#399](https://github.com/cucumber/cucumber-rails/pull/399) [koic](https://github.com/koic))
+ 
+ * Allow Rails to be used in the `6.x` series (Currently as of release only beta1 is supported) ([#405](https://github.com/cucumber/cucumber-rails/pull/405) [kotovalexarian](https://github.com/kotovalexarian)
+ 
+ * Update CI to test most relevant Rubies ([olleolleolle](https://github.com/olleolleolle))
+ 
+### Fixed
+
+ * Appraisals fixes (Up-to-date geckodriver, standardised gemfiles)
+ [#389](https://github.com/cucumber/cucumber-rails/pull/389) /
+ [#394](https://github.com/cucumber/cucumber-rails/pull/394) /
+ [#395](https://github.com/cucumber/cucumber-rails/pull/395) /
+ [#408](https://github.com/cucumber/cucumber-rails/pull/408)
+ [xtrasimplicity](https://github.com/xtrasimplicity) /
+ [deivid-rodriguez](https://github.com/deivid-rodriguez) /
+ [mvz](https://github.com/mvz)
+ 
+ * Various build issues that had built up over the previous year
+  [#403](https://github.com/cucumber/cucumber-rails/pull/403) /
+  [#404](https://github.com/cucumber/cucumber-rails/pull/404) /
+  [#410](https://github.com/cucumber/cucumber-rails/pull/410)
+  [koic](https://github.com/koic) /
+  [mvz](https://github.com/mvz)
 
 ## [v1.6.0](https://github.com/cucumber/cucumber-rails/compare/v1.5.0...v1.6.0) (2018-04-23)
 
 ### Changed
+
  * Renamed History.md to CHANGELOG.md, added contributing note, and this line in accordance with [cucumber/cucumber #251](https://github.com/cucumber/cucumber/issues/251) ([#345](https://github.com/cucumber/cucumber-rails/pull/345) [jaysonesmith](https://github.com/jaysonesmith))
  * Update .travis.yml with ruby versions ([#341](https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga)
  * Removed support for Ruby <= 2.1, to keep in line with [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/master/CHANGELOG.md#302-2017-11-11) ([#360](https://github.com/cucumber/cucumber-rails/pull/360) [xtrasimplicity](https://github.com/xtrasimplicity)).
@@ -67,6 +97,7 @@ There are currently no unreleased changes.
  * Various code enhancements based on PullReview suggestions (Kosmas Chatzimichalis)
 
 ### Removed Features
+
  * Mongo step definition ([#263](https://github.com/cucumber/cucumber-rails/issues/263) Aslak Hellesøy)
 
 ### Bugfixes
@@ -88,7 +119,6 @@ There are currently no unreleased changes.
  * New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
  * Added recommendation in README.md for running install scripts after upgrading (Joost Baaij)
  * Describe configuration option 'autorun_database_cleaner' in README ([#255](https://github.com/cucumber/cucumber-rails/pull/255) Martin Eismann)
-
 
 ### Changed Features
 
@@ -141,9 +171,11 @@ There are currently no unreleased changes.
 ## [v1.2.0](https://github.com/cucumber/cucumber-rails/compare/v1.1.1...v1.2.0) (2011-11-03)
 
 ### Removed features
+
 * The (deprecated) tableish method has been removed. See https://gist.github.com/1299371 for an alternative. (Aslak Hellesøy)
 
 ### Bugfixes
+
 * Non-threadsafe database connections shared between threads ([#166](https://github.com/cucumber/cucumber-rails/issues/166) Matt Wynne)
 
 ## [v1.1.1](https://github.com/cucumber/cucumber-rails/compare/v1.1.0...v1.1.1) (2011-10-03)
@@ -197,22 +229,26 @@ You can learn more about what Capybara has to offer in Capybara's [README](https
 ## [v1.0.6](https://github.com/cucumber/cucumber-rails/compare/v1.0.5...v1.0.6) (2011-09-25)
 
 ### Bugfixes
+
 * Fix deprecation warnings ([#169](https://github.com/cucumber/cucumber-rails/issues/169), [#170](https://github.com/cucumber/cucumber-rails/pull/170) Micah Geisel)
 * Deprecate #tableish. The Capybara::Node::Finders API has obsoleted the need for it. ([#145](https://github.com/cucumber/cucumber-rails/issues/145) Aslak Hellesøy)
 
 ## [v1.0.5](https://github.com/cucumber/cucumber-rails/compare/v1.0.4...v1.0.5) (2011-09-14)
 
 ### Bugfixes
+
 * No = dependencies in gemspec, since rubies with old YAML (sych) can't read them. (Aslak Hellesøy)
 
 ## [v1.0.4](https://github.com/cucumber/cucumber-rails/compare/v1.0.3...v1.0.4) (2011-09-12)
 
 ### Bugfixes
+
 * Active_record hook prevents features that access multiple database from running correctly ([#152](https://github.com/cucumber/cucumber-rails/issues/152) winnipegtransit)
 
 ## [v1.0.3](https://github.com/cucumber/cucumber-rails/compare/v1.0.2...v1.0.3) (2011-09-11)
 
 ### Bugfixes
+
 * sqlite3-ruby is now sqlite3 ([#158](https://github.com/cucumber/cucumber-rails/pull/158) Trung Le)
 * Broken link in the USAGE file of the features generator ([#156](https://github.com/cucumber/cucumber-rails/pull/156) Pablo Alonso García)
 * Rails destroy cucumber:feature deletes the steps folder, even though it's not empty. ([#154](https://github.com/cucumber/cucumber-rails/pull/154]), [#111](https://github.com/cucumber/cucumber-rails/issues/111) mblake)
@@ -223,28 +259,33 @@ You can learn more about what Capybara has to offer in Capybara's [README](https
 ## [v1.0.2](https://github.com/cucumber/cucumber-rails/compare/v1.0.1...v1.0.2) (2011-06-26)
 
 ### Bugfixes
+
 * Removed the dependency on rack-test, since it is not used directly. v1.0.1 was incompatible with Rails 3.0.9. (Aslak Hellesøy)
 
 ## [v1.0.1](https://github.com/cucumber/cucumber-rails/compare/v1.0.0...v1.0.1) (2011-06-25)
 
 ### New Features
-* Added a @no-database-cleaner tag you can add if you don't want to run DatabaseCleaner. Useful for debugging if you want to leave data in the database. Typical use case is to run `rails server --environment test` to look at/try app with data from test. (Aslak Hellesøy)
+
+* Added a `@no-database-cleaner` tag you can add if you don't want to run DatabaseCleaner. Useful for debugging if you want to leave data in the database. Typical use case is to run `rails server --environment test` to look at/try app with data from test. (Aslak Hellesøy)
 * History file is now in Markdown format. (Aslak Hellesøy)
 
 ## [v1.0.0](https://github.com/cucumber/cucumber-rails/compare/v0.5.2...v1.0.0) (2011-06-20)
 
 ### New Features
-* Upgraded Cucumber dependency to 1.0.0. (Aslak Hellesøy)
+
+* Upgraded Cucumber dependency to `1.0.0` (Aslak Hellesøy)
 
 ## [v0.5.2](https://github.com/cucumber/cucumber-rails/compare/v0.5.1...v0.5.2) (2011-06-07)
 
 ### New Features
+
 * Upgraded to Capybara 1.0.0.rc1 (Aslak Hellesøy)
 * Add stats to generator (#144 Aslak Hellesøy)
 
 ## [v0.5.1](https://github.com/cucumber/cucumber-rails/compare/v0.5.0...v0.5.1) (2011-05-25)
 
 ### Bugfixes
+
 * Mixed DB access feature for @javascript drivers (#142 Alexander Mankuta)
 * cucumber:feature and integers. not creating feature correctly (#30 John Ivanoff, Aslak Hellesøy)
 * New project can't find capybara's "visit" (#143 Aslak Hellesøy)
@@ -253,6 +294,7 @@ You can learn more about what Capybara has to offer in Capybara's [README](https
 ## [v0.5.0](https://github.com/cucumber/cucumber-rails/compare/v0.5.0.beta1...v0.5.0) (2011-05-17)
 
 ### Bugfixes
+
 * undefined method `add_assertion' for nil:NilClass (#96, #97, #98 Aslak Hellesøy)
 * Capybara name error from env.rb (#125 Aslak Hellesøy)
 * Fixed date-localization bug (#138 Michael Opitz)
@@ -260,11 +302,13 @@ You can learn more about what Capybara has to offer in Capybara's [README](https
 ## [v0.5.0.beta1](https://github.com/cucumber/cucumber-rails/compare/v0.4.1...v0.5.0.beta1) (2011-05-09)
 
 ### Removed features
+
 * Dropped support for Rails 2 (Aslak Hellesøy)
 * Dropped support for Webrat (Aslak Hellesøy)
 * Removed database cleaner strategy overrides (#134 Daniel Morrison, Daniel Duvall)
 
 ### Improvements
+
 * Upgrade to Capybara 1.0.0.beta1 or newer (#129, #130 Simon Menke, Klaus Hartl, Aslak Hellesøy)
 * Generated paths.rb cleanup (#133 Tim Pope)
 * Allow css pseudo-classes in scopers (#122 twalpole)
@@ -272,6 +316,7 @@ You can learn more about what Capybara has to offer in Capybara's [README](https
 ## [v0.4.1](https://github.com/cucumber/cucumber-rails/compare/v0.4.0...v0.4.1) (2011-04-05)
 
 ### Bugfixes
+
 * Fixed incorrect warning in generated files. (#115 Emanuele Vicentini)
 * Fixed incorrect hooks for DatabaseCleaner (#113 Markus Bengts)
 * Throw an error if the user forgot to add DatabaseCleaner to the Gemfile, allowing them to decide whether or not to use it. (#36 Aslak Hellesøy, Ryan Bigg)
@@ -279,11 +324,13 @@ You can learn more about what Capybara has to offer in Capybara's [README](https
 ## [v0.4.0](https://github.com/cucumber/cucumber-rails/compare/v0.3.2...v0.4.0) (2011-03-20)
 
 ### New Features
+
 * Add selectors helper (#63 Bodaniel Jeanes)
 * Capybara date stepdefs (#66 Rob Holland)
 * The World now includes Rack::Test::Methods, allowing get, post, put delete (Aslak Hellesøy)
 
 ### Bugfixes
+
 * Allow setting rails root (#102, #103, Fabio Kreusch)
 * Fix Date selection steps and helpers (#93, #99, #100, #101, #109 James Herdman, John Ferlito, twalpole, Geoff Drake, Ricky Robinson, Michael Fleet)
 * Can not run cucumber-rails (0.4.0.beta.1) with cucumber (0.10.0) (#89 Aslak Hellesøy)
@@ -294,6 +341,7 @@ You can learn more about what Capybara has to offer in Capybara's [README](https
 * Gem dependency on Nokogiri (for #tableish). (#53 Aslak Hellesøy)
 
 ### Removed Features
+
 * Automatic detection of RSpec, Capybara and Webrat for install generator. Set gems explicitly in your Gemfile (Rails3) or environment.rb (Rails2)
 * Then /^(?:|I )should see JSON:$/. Use #get and #last_response instead. See features/rails3.feature. (Aslak Hellesøy)
 * Cucumber::Rails::World.use_transactional_fixtures. TODO: Explain what to do instead.
@@ -339,34 +387,39 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 (Rails 2 and RSpec 1) are still supported.
 
 ### New Features
+
 * Support for both Rails-2.x and Rails-3.x (#10 Kristian Mandrup, Aleksey Gureiev, Ashley Moran, Aslak Hellesøy)
 * Support for both RSpec-1.x and RSpec-2.x (Louis Rose, Aslak Hellesøy)
 * Features will default to Javascript emulation unless you turn it off with @culerity,  (Aslak Hellesøy)
 * Japanese translation. (MOROHASHI Kyosuke)
 
 ### Bugfixes
+
 * Support projects that don't use ActiveRecord (#14 Aslak Hellesøy)
 * Running test/unit tests when creating a skeleton (#12 Aleksey Gureiev)
 * Inform that config/database.yml is overwritten, be smarter about it and inform the user that it is forced. (#15 Aslak Hellesøy)
 * Reverts changes from issue #5 where verification of query string params was added to the step for being on a page.  Adds step discussed in issue #11 for verification of query string. (#5, #11 Eric Milford)
 * Fixed typos in Capybara's web steps (has_not_xpath? => has_no_xpath?) (Thorbjørn Hermansen, Carlos Antonio da Silva)
 
-
 ### New Features
+
 * Added Danish translation (Kristian Mandrup)
 * Using Gemfile for Rails 3. Tidies it up and adds cucumber gems only if not already present! (Kristian Mandrup)
 * Added Generators wrapper module for Rails 3 generators so they are now all in Cucumber::Generators (Kristian Mandrup)
 
 ### Bugfixes
+
 * Started to work on solutions for generating suitable support files depending on Rails version
   - see skeleton_base.rb#create_feature_support and templates/support
 
 ## [v0.2.4](https://github.com/cucumber/cucumber-rails/compare/v0.2.3...v0.2.4) (2010-01-18)
 
 ### New Features
+
 * Added Spanish translation (Gabriel)
 
 ### Bugfixes
+
 * Fixed some broken Webrat/Test::Unit step definitions. (Aslak Hellesøy)
 * Better Javascript emulation with Capybara (#7 Thorbjørn Hermansen)
 * Removed stray quote in i18n web_steps.rb (Gabriel)
@@ -379,9 +432,11 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 ## [v0.2.3](https://github.com/cucumber/cucumber-rails/compare/v0.2.2...v0.2.3) (2010-01-03)
 
 ### New Features
+
 * The #tableish Proc can return Strings as well as Nokogiri nodes now. (Aslak Hellesøy)
 
 ### Bugfixes
+
 * Handle all types of URIs in "I should be on ..." steps. (#5 Andrew D. Smith)
 
 ## [v0.2.2](https://github.com/cucumber/cucumber-rails/compare/v0.2.1...v0.2.2) (2009-12-21)
@@ -393,6 +448,7 @@ This is a major release since we're now supporting both Rails 3 and RSpec 2. Old
 * cucumber.rake finds the wrong vendored cucumber when a plugin name starts with "cucumber" (#4 James Herdman, Paco Benavent, Aslak Hellesøy)
 
 ### New features
+
 * Czech translations. (Jiří Zajpt)
 
 ## [v0.2.1](https://github.com/cucumber/cucumber-rails/compare/v0.2.0...v0.2.1) (2009-12-16)
@@ -409,12 +465,12 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 
 ### UPGRADING FROM A PREVIOUS CUCUMBER SETUP
 
-1. Remove your features/support/version_check.rb
-1. Remove your features/step_definitions/webrat_steps.rb
+1. Remove your `features/support/version_check.rb`
+2. Remove your `features/step_definitions/webrat_steps.rb`
    If you have added your own custom step definitions to this file,
    put them in a different file under features/step_definitions
-1. run "ruby script/generate cucumber --help" to see what options you have.
-1. run "ruby script/generate cucumber" - plus whatever options you think fit for you.
+3. run `ruby script/generate cucumber --help` to see what options you have.
+4. run `ruby script/generate cucumber` - plus whatever options you think fit for you.
    Answer "n" (no) when asked to overwrite paths.rb.
    Answer "y" (yes) when asked to overwrite other files, but do "d" (diff) first.
    If you have edits in some of these files that you want to keep, store the diff
@@ -422,9 +478,9 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
    adding your custom code to another file that won't be overwritten the next time
    you upgrade.
 
-   Many people have edits in their env.rb file. This is something you should try
+   Many people have edits in their `env.rb` file. This is something you should try
    to avoid in the future. Instead, keep your custom setup in a different file
-   under features/support - Cucumber loads all files under features/**/*.rb anyway.
+   under `features/support` - Cucumber loads all files under `features/**/*.rb` anyway.
 
    If you have a Spork setup, see the end of this thread:
    http://groups.google.com/group/cukes/browse_thread/thread/475385cc26377215
