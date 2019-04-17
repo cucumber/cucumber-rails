@@ -16,7 +16,7 @@ CLEAN.include('doc', 'tmp')
 
 task default: :test
 
-task test: [:spec, :cucumber]
+task test: %i[spec cucumber]
 
 namespace :test do
   desc "Run tests against all gemfiles"
@@ -25,7 +25,7 @@ namespace :test do
   end
 
   desc "Run tests against specified gemfile, e.g. rake test:gemfile[rails_3_0]"
-  task :gemfile, :name do |task, args|
+  task :gemfile, :name do |_task, args|
     unless args.name && Pathname.new("gemfiles/#{args.name}.gemfile").exist?
       raise ArgumentError "You must provide the name of an existing Appraisal gemfile, e.g. 'rake test:gemfile[rails_3_2]'"
     end
@@ -45,5 +45,5 @@ namespace :gemfiles do
   end
 
   desc "Rebuild generated gemfiles and install dependencies"
-  task rebuild: [:clean, :install]
+  task rebuild: %i[clean install]
 end

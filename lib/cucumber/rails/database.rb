@@ -1,7 +1,7 @@
 module Cucumber
   module Rails
     module Database
-      CUSTOM_STRATEGY_INTERFACE = %w{ before_js before_non_js }
+      CUSTOM_STRATEGY_INTERFACE = %w[ before_js before_non_js ].freeze
 
       class InvalidStrategy < ArgumentError; end
 

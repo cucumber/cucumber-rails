@@ -42,6 +42,5 @@ describe Cucumber::InstallGenerator do
       it { is_expected.to exist }
       it { is_expected.to contain 'load Cucumber::BINARY' }
     end
-
   end
 end

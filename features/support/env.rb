@@ -16,13 +16,13 @@ if(ENV['ARUBA_REPORT_DIR'])
         # include
         children = children.select do |child|
           File.directory?(child) ||
-          (@aruba_report_start && File.stat(child).mtime > @aruba_report_start)
+            (@aruba_report_start && File.stat(child).mtime > @aruba_report_start)
         end
 
         # exclude
         children = children.reject do |child|
           child =~ /Gemfile/ ||
-          child =~ /\.log$/
+            child =~ /\.log$/
         end
 
         children
@@ -32,9 +32,9 @@ if(ENV['ARUBA_REPORT_DIR'])
 end
 
 After do |scenario|
-  if scenario.failed?
-    puts last_command_stopped.stdout
-    puts last_command_stopped.stderr
-  end
+   if scenario.failed?
+     puts last_command_stopped.stdout
+     puts last_command_stopped.stderr
+   end
  end
  
