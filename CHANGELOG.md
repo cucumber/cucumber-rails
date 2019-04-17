@@ -8,13 +8,10 @@ There are currently no unreleased changes.
 ### Changed
 
  * Drop rails `4.0` / `4.1` support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez](https://github.com/deivid-rodriguez))
- 
  * Allow Ruby `2.6` users to `ERB.new` ([#399](https://github.com/cucumber/cucumber-rails/pull/399) [koic](https://github.com/koic))
- 
- * Allow Rails to be used in the `6.x` series (Currently as of release only beta1 is supported) ([#405](https://github.com/cucumber/cucumber-rails/pull/405) [kotovalexarian](https://github.com/kotovalexarian)
- 
+ * Allow Rails to be used in the `6.x` series (Currently as of release only beta1 is supported) ([#405](https://github.com/cucumber/cucumber-rails/pull/405) [kotovalexarian](https://github.com/kotovalexarian))
  * Update CI to test most relevant Rubies ([#411](https://github.com/cucumber/cucumber-rails/pull/411) [olleolleolle](https://github.com/olleolleolle))
- 
+
 ### Fixed
 
  * Appraisals fixes (Up-to-date `geckodriver`, standardised the various `.gemfile`s)
