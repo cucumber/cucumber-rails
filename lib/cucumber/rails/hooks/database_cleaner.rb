@@ -8,5 +8,6 @@ begin
   After('not @no-database-cleaner') do
     DatabaseCleaner.clean if Cucumber::Rails::Database.autorun_database_cleaner
   end
-rescue LoadError => ignore_if_database_cleaner_not_present
+rescue LoadError
+  # database_cleaner gem not present
 end

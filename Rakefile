@@ -26,7 +26,7 @@ namespace :test do
   desc 'Run tests against specified gemfile, e.g. rake test:gemfile[rails_3_0]'
   task :gemfile, :name do |_task, args|
     unless args.name && Pathname.new("gemfiles/#{args.name}.gemfile").exist?
-      raise ArgumentError "You must provide the name of an existing Appraisal gemfile, e.g. 'rake test:gemfile[rails_3_2]'"
+      raise ArgumentError "You must provide the name of an existing Appraisal gemfile, e.g. 'rake test:gemfile[rails_4_2]'"
     end
 
     Rake::Task["appraisal:#{args.name}"].invoke('test')

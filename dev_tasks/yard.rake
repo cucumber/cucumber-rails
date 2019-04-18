@@ -6,9 +6,7 @@ API_DIR = File.join(SITE_DIR, 'api', 'cucumber-rails', 'ruby', 'yardoc')
 
 namespace :api do
   file :dir do
-    unless File.directory?(SITE_DIR)
-      raise "You need to git clone git@github.com:cucumber/cucumber.github.com.git #{SITE_DIR}"
-    end
+    raise "You need to git clone git@github.com:cucumber/cucumber.github.com.git #{SITE_DIR}" unless File.directory?(SITE_DIR)
 
     sh('git pull origin master')
     mkdir_p API_DIR

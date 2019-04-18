@@ -30,9 +30,7 @@ module CucumberRailsHelper
     gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
     run_simple 'bundle install'
 
-    if `bundle exec rails -v`.split("\n").last.strip =~ /\ARails 6\./
-      run_simple 'bundle exec rails webpacker:install'
-    end
+    run_simple 'bundle exec rails webpacker:install' if rails6?
 
     run_simple 'bundle exec rails generate cucumber:install'
   end
@@ -58,19 +56,26 @@ module CucumberRailsHelper
   end
 
   def prepare_aruba_report
-    if ENV['ARUBA_REPORT_DIR']
-      @aruba_report_start = Time.new
-      sleep(1)
-    end
+    return unless ENV['ARUBA_REPORT_DIR']
+
+    @aruba_report_start = Time.new
+    sleep(1)
   end
 
   def fixture(path)
     File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
   end
+
+  private
+
+  def rails6?
+    `bundle exec rails -v`.split("\n").last.strip.start_with?('Rails 6')
+  end
 end
+
 World(CucumberRailsHelper)
 
-Given /^I have created a new Rails app and installed cucumber\-rails, accidentally outside of the test group in my Gemfile$/ do
+Given 'I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile' do
   rails_new
   install_cucumber_rails :not_in_test_group
   create_web_steps
@@ -84,14 +89,14 @@ Given /^I have created a new Rails app "([^"]*)" and installed cucumber\-rails$/
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails app and installed cucumber\-rails$/ do
+Given 'I have created a new Rails app and installed cucumber-rails' do
   rails_new
   install_cucumber_rails
   create_web_steps
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails app with no database and installed cucumber-rails$/ do
+Given 'I have created a new Rails app with no database and installed cucumber-rails' do
   rails_new args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_bot
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
@@ -110,7 +115,7 @@ Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
   run_simple('bundle exec rake db:migrate RAILS_ENV=test')
 end
 
-Given /^I force selenium to run Firefox in headless mode$/ do
+Given 'I force selenium to run Firefox in headless mode' do
   selenium_config = %{
     Capybara.register_driver :selenium do |app|
       http_client = Selenium::WebDriver::Remote::Http::Default.new
@@ -127,7 +132,7 @@ Given /^I force selenium to run Firefox in headless mode$/ do
   step 'I append to "features/support/env.rb" with:', selenium_config
 end
 
-When /^I run the cukes$/ do
+When 'I run the cukes' do
   run_simple('bundle exec cucumber')
 end
 

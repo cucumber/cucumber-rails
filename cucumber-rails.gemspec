@@ -11,8 +11,6 @@ Gem::Specification.new do |s|
 
   s.license = 'MIT'
 
-  s.required_ruby_version = '>= 2.2'
-
   s.add_runtime_dependency('capybara', ['>= 2.3.0', '< 4'])
   s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 4'])
   s.add_runtime_dependency('mime-types', ['>= 1.17', '< 4'])
