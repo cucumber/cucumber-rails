@@ -2,7 +2,7 @@ require 'rbconfig'
 
 module Cucumber
   class InstallGenerator < ::Rails::Generators::Base
-    source_root File.expand_path('../templates', __FILE__)
+    source_root File.expand_path('templates', __dir__)
 
     DEFAULT_SHEBANG = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])
 
@@ -39,6 +39,7 @@ module Cucumber
 
     def create_database
       return unless File.exist?('config/database.yml')
+
       unless File.read('config/database.yml').include? 'cucumber:'
         gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
         gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test\n"

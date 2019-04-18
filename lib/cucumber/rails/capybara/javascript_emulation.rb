@@ -44,7 +44,7 @@ module Cucumber
           js_form['action'] = action
           js_form['method'] = method
 
-          if emulated_method and emulated_method.downcase != method.downcase
+          if emulated_method && !emulated_method.casecmp(method).zero?
             input = document.create_element('input')
             input['type'] = 'hidden'
             input['name'] = '_method'
@@ -54,7 +54,7 @@ module Cucumber
 
           # rails will wipe the session if the CSRF token is not sent
           # with non-GET requests
-          if csrf? && emulated_method.downcase != 'get'
+          if csrf? && !emulated_method.casecmp('get').zero?
             input = document.create_element('input')
             input['type'] = 'hidden'
             input['name'] = csrf_param
@@ -74,7 +74,7 @@ module Cucumber
         end
 
         def element_node
-          self.native
+          native
         end
       end
     end

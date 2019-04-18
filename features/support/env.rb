@@ -1,10 +1,10 @@
-$:.unshift(File.dirname(__FILE__) + '/../../lib')
+$LOAD_PATH.unshift(File.dirname(__FILE__) + '/../../lib')
 require 'rubygems'
 require 'bundler/setup'
 require 'rspec/expectations'
 require 'aruba/cucumber'
 
-if(ENV['ARUBA_REPORT_DIR'])
+if ENV['ARUBA_REPORT_DIR']
   # Override reporting behaviour so we don't document all files, only the ones
   # that have been created after @aruba_report_start (a Time object). This is
   # given a value after the Rails app is generated (see cucumber_rails_steps.rb)
@@ -16,13 +16,13 @@ if(ENV['ARUBA_REPORT_DIR'])
         # include
         children = children.select do |child|
           File.directory?(child) ||
-          (@aruba_report_start && File.stat(child).mtime > @aruba_report_start)
+            (@aruba_report_start && File.stat(child).mtime > @aruba_report_start)
         end
 
         # exclude
         children = children.reject do |child|
           child =~ /Gemfile/ ||
-          child =~ /\.log$/
+            child =~ /\.log$/
         end
 
         children
@@ -36,5 +36,4 @@ After do |scenario|
     puts last_command_stopped.stdout
     puts last_command_stopped.stderr
   end
- end
- 
+end

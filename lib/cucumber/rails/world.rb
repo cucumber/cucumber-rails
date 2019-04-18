@@ -15,7 +15,10 @@ module Cucumber #:nodoc:
       end
 
       unless defined?(ActiveRecord::Base)
-        def self.fixture_table_names; []; end # Workaround for projects that don't use ActiveRecord
+        # Workaround for projects that don't use ActiveRecord
+        def self.fixture_table_names
+          []
+        end
       end
     end
   end

@@ -12,9 +12,9 @@ module CucumberRailsHelper
 
   def install_cucumber_rails(*options)
     if options.include?(:not_in_test_group)
-      gem 'cucumber-rails', path: "#{File.expand_path('.')}"
+      gem 'cucumber-rails', path: File.expand_path('.').to_s
     else
-      gem 'cucumber-rails' , group: :test, require: false, path: "#{File.expand_path('.')}"
+      gem 'cucumber-rails', group: :test, require: false, path: File.expand_path('.').to_s
     end
 
     gem 'sqlite3', '~> 1.3.13'
@@ -58,7 +58,7 @@ module CucumberRailsHelper
   end
 
   def prepare_aruba_report
-    if(ENV['ARUBA_REPORT_DIR'])
+    if ENV['ARUBA_REPORT_DIR']
       @aruba_report_start = Time.new
       sleep(1)
     end
@@ -145,7 +145,7 @@ Given("I remove the {string} gem from the Gemfile") do |gem_name|
 
   content.each do |line|
     next if line =~ /gem ["|']#{gem_name}["|'].*/
-    
+
     new_content << line
   end
 
