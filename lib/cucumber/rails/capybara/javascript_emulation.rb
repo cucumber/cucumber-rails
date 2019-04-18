@@ -44,7 +44,7 @@ module Cucumber
           js_form['action'] = action
           js_form['method'] = method
 
-          if emulated_method and !emulated_method.casecmp(method).zero?
+          if emulated_method && !emulated_method.casecmp(method).zero?
             input = document.create_element('input')
             input['type'] = 'hidden'
             input['name'] = '_method'

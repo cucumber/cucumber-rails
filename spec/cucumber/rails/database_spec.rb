@@ -1,8 +1,6 @@
-# -*- encoding: utf-8 -*-
 require 'cucumber/rails/database'
 
 describe Cucumber::Rails::Database do
-
   let(:strategy) { double(before_js: nil, before_non_js: nil) }
 
   it 'forwards events to the selected strategy' do
@@ -53,5 +51,4 @@ describe Cucumber::Rails::Database do
       Cucumber::Rails::Database.before_js
     end
   end
-
 end

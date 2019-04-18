@@ -1,10 +1,10 @@
-$:.unshift(File.dirname(__FILE__) + '/../../lib')
+$LOAD_PATH.unshift(File.dirname(__FILE__) + '/../../lib')
 require 'rubygems'
 require 'bundler/setup'
 require 'rspec/expectations'
 require 'aruba/cucumber'
 
-if(ENV['ARUBA_REPORT_DIR'])
+if ENV['ARUBA_REPORT_DIR']
   # Override reporting behaviour so we don't document all files, only the ones
   # that have been created after @aruba_report_start (a Time object). This is
   # given a value after the Rails app is generated (see cucumber_rails_steps.rb)
@@ -32,9 +32,8 @@ if(ENV['ARUBA_REPORT_DIR'])
 end
 
 After do |scenario|
-   if scenario.failed?
-     puts last_command_stopped.stdout
-     puts last_command_stopped.stderr
-   end
- end
- 
+  if scenario.failed?
+    puts last_command_stopped.stdout
+    puts last_command_stopped.stderr
+  end
+end

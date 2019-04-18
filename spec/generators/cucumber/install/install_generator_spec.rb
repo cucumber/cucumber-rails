@@ -5,12 +5,12 @@ require 'generators/cucumber/install/install_generator'
 
 describe Cucumber::InstallGenerator do
   # Tell the generator where to put its output (what it thinks of as Rails.root)
-  destination File.expand_path('../../../../../tmp', __FILE__)
+  destination File.expand_path('../../../../tmp', __dir__)
 
   before { prepare_destination }
 
   describe 'no arguments' do
-    before { run_generator  }
+    before { run_generator }
 
     describe 'config/cucumber.yml' do
       subject { file('config/cucumber.yml') }

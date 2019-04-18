@@ -18,7 +18,7 @@ module Cucumber
               strategy
             end
 
-          @strategy =  strategy_type.new(*strategy_opts)
+          @strategy = strategy_type.new(*strategy_opts)
 
           validate_interface!
         end
@@ -48,7 +48,7 @@ module Cucumber
 
         def validate_interface!
           unless CUSTOM_STRATEGY_INTERFACE.all? { |m| @strategy.respond_to?(m) }
-            raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map{ |method| "##{method}" } * '  ' } !")
+            raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map { |method| "##{method}" } * '  '} !")
           end
         end
       end
@@ -69,6 +69,7 @@ module Cucumber
 
         def after
           return unless @original_strategy
+
           DatabaseCleaner.strategy = @original_strategy
           @original_strategy = nil
         end
