@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 gem "railties", "~> 5.2"
-gem "i18n", "< 1.6.0", platform: :mri_22
-gem "capybara", "< 3.16.0", platform: %i[mri_23 mri_22]
+gem "i18n", "< 1.5.1", platform: :mri_22
+gem "nokogiri", "< 1.9.1", platform: [:mri_23, :mri_22]
 
 gemspec path: "../"
