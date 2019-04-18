@@ -13,16 +13,14 @@ We appreciate that. But before you do, please learn our basic rules:
 
 # Contributing to cucumber-rails
 
-This document is a guide for those maintaining cucumber-Rails, and others who would like to submit patches.
+This document is a guide for those maintaining Cucumber-Rails, and others who would like to submit patches.
 
 ## Note on Patches/Pull Requests
 
 * Fork the project. Make a branch for your change.
 * Make your feature addition or bug fix.
-* Make sure your patch is well covered by tests. We don't accept changes to cucumber-rails that aren't tested.
-* Please do not change the Rakefile, version, or history.
-  (if you want to have your own version, that is fine but
-  bump version in a commit by itself so we can ignore when we merge your change)
+* Make sure your patch is well covered by tests. We don't accept changes to `cucumber-rails` that aren't tested.
+* Please do not change the Rakefile, version, or CHANGELOG.
 * Send us a pull request.
 
 ## Running tests
@@ -35,9 +33,9 @@ This document is a guide for those maintaining cucumber-Rails, and others who wo
 
 ## Release Process
 
-* Make sure `History.md` is updated with the upcoming version number, and has entries for all fixes.
-* No need to add a `History.md` header at this point - this should be done when a new change is made, later.
-* Make sure you have up-to-date and clean copy of cucumber/cucumber.github.com.git at the same level as cucumber repo.
+* Make sure `CHANGELOG.md` is updated with the upcoming version number, and has entries for all fixes.
+* No need to add a new version header at this point - this should be done when a new release is made, later.
+* Make sure you have up-to-date and clean copy of `cucumber/cucumber.github.com.git` at the same level as cucumber repo.
 
 Now release it
 
@@ -57,11 +55,12 @@ If after running the rake release task you get an error similar to this:
     ! [rejected]        rails-2.3.x -> rails-2.3.x (non-fast-forward)
     error: failed to push some refs to 'git@github.com:cucumber/cucumber-rails.git'
 
-make sure that you have pulled all the recent changes from both the master and the rails-2.3.x branch
+make sure that you have pulled all the recent changes from the master branch
 
 ## Gaining Release Karma
 
-To become a release manager, create a pull request adding your name to the list below, and include your Rubygems email address in the ticket. One of the existing Release managers will then add you.
+To become a release manager, create a pull request adding your name to the list below, including
+your Rubygems email address in the ticket. One of the existing Release managers will then add you.
 
 Current release managers:
   * Kosmas Chatzimichalis
@@ -72,4 +71,3 @@ Current release managers:
 To grant release karma, issue the following command:
 
     gem owner cucumber-rails --add <NEW OWNER RUBYGEMS EMAIL>
-

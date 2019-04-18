@@ -5,7 +5,8 @@
 [![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.svg)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
 
-Cucumber-Rails brings Cucumber to Rails 4.2 and Rails 5.x.
+Cucumber-Rails brings Cucumber to Rails 4.2 and Rails 5.x. This gem is also compatible with Rails 6.0+
+but this is currently in a beta phase, so there may be issues.
 
 ## Installation
 
