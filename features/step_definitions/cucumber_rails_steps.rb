@@ -139,7 +139,7 @@ Then /^the feature run should pass with:$/ do |string|
   step 'the output should contain:', string
 end
 
-Given("I remove the {string} gem from the Gemfile") do |gem_name|
+Given('I remove the {string} gem from the Gemfile') do |gem_name|
   content = File.open(expand_path('Gemfile'), 'r').readlines
   new_content = []
 

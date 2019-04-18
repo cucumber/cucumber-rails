@@ -63,7 +63,7 @@ When upgrading from a previous version it is recommended that you rerun:
 The *only* way to have a bug fixed or a new feature accepted is to describe it with a Cucumber feature. Let's say you think you have found a bug in the cucumber:install generator. Fork this project, clone it to your workstation and check out a branch with a descriptive name:
 
     git clone git@github.com:you/cucumber-rails.git
-    git checkout -b bug-install-generator
+    git checkout -b bugfix/generator-fails-on-ruby-25
 
 Start by making sure you can run the existing features. Now, create a feature that demonstrates what's wrong. See the existing features for examples. When you have a failing feature that reproduces the bug, commit, push and send a pull request. Someone from the Cucumber-Rails team will review it and hopefully create a fix.
 

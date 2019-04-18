@@ -19,7 +19,7 @@ namespace :api do
   YARD::Rake::YardocTask.new(:yard) do |yard|
     dir = API_DIR
     mkdir_p dir
-    yard.options = ["--out", dir]
+    yard.options = ['--out', dir]
   end
   task yard: :dir
 

@@ -35,7 +35,7 @@ module Cucumber
           @strategy.after
         end
 
-      private
+        private
 
         def map
           {
