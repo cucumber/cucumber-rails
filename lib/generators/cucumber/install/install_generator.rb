@@ -6,8 +6,15 @@ module Cucumber
 
     DEFAULT_SHEBANG = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])
 
-    class_option :spork,         type: :boolean, desc: 'Use Spork'
-    class_option :skip_database, type: :boolean, desc: 'Skip modification of database.yml', aliases: '-D', default: false
+    class_option :spork,
+                 type: :boolean,
+                 desc: 'Use Spork'
+
+    class_option :skip_database,
+                 type: :boolean,
+                 desc: 'Skip modification of database.yml',
+                 aliases: '-D',
+                 default: false
 
     def create_templates
       template 'config/cucumber.yml.erb', 'config/cucumber.yml'

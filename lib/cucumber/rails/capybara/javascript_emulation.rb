@@ -11,7 +11,9 @@ module Cucumber
 
         def click_with_javascript_emulation(*)
           if link_with_non_get_http_method?
-            ::Capybara::RackTest::Form.new(driver, js_form(element_node.document, self[:href], emulated_method)).submit(self)
+            ::Capybara::RackTest::Form.new(
+              driver, js_form(element_node.document, self[:href], emulated_method)
+            ).submit(self)
           else
             click_without_javascript_emulation
           end
@@ -66,7 +68,9 @@ module Cucumber
         end
 
         def link_with_non_get_http_method?
-          tag_name == 'a' && element_node['data-method'] && element_node['data-method'] =~ /(?:delete|put|post)/
+          tag_name == 'a' &&
+            element_node['data-method'] &&
+            element_node['data-method'] =~ /(?:delete|put|post)/
         end
 
         def emulated_method

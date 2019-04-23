@@ -15,7 +15,8 @@ describe Cucumber::Rails::Database do
   end
 
   it 'raises an error if you use a non-understood strategy' do
-    expect { Cucumber::Rails::Database.javascript_strategy = :invalid }.to raise_error(Cucumber::Rails::Database::InvalidStrategy)
+    expect { Cucumber::Rails::Database.javascript_strategy = :invalid }
+      .to raise_error(Cucumber::Rails::Database::InvalidStrategy)
   end
 
   describe 'using a custom strategy' do
@@ -33,11 +34,13 @@ describe Cucumber::Rails::Database do
     end
 
     it 'raises an error if the strategy doens\'t support the protocol' do
-      expect { Cucumber::Rails::Database.javascript_strategy = InvalidStrategy }.to raise_error(ArgumentError)
+      expect { Cucumber::Rails::Database.javascript_strategy = InvalidStrategy }
+        .to raise_error(ArgumentError)
     end
 
     it 'accepts a custom strategy with a valid interface' do
-      expect { Cucumber::Rails::Database.javascript_strategy = ValidStrategy }.not_to raise_error
+      expect { Cucumber::Rails::Database.javascript_strategy = ValidStrategy }
+        .not_to raise_error
     end
 
     it 'forwards events to a custom strategy' do

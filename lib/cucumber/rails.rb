@@ -1,4 +1,7 @@
-env_caller = File.dirname(caller.detect { |f| f =~ /\/env\.rb:/ }) if caller.detect { |f| f =~ /\/env\.rb:/ }
+if caller.detect { |f| f =~ /\/env\.rb:/ }
+  env_caller = File.dirname(caller.detect { |f| f =~ /\/env\.rb:/ })
+end
+
 if env_caller
   require 'rails'
   require 'cucumber/rails/application'
@@ -15,7 +18,9 @@ if env_caller
   end
 
   unless Rails.application.config.cache_classes
-    warn "WARNING: You have set Rails' config.cache_classes to false (most likely in config/environments/cucumber.rb).  This setting is known to cause problems with database transactions. Set config.cache_classes to true if you want to use transactions."
+    warn "WARNING: You have set Rails' config.cache_classes to false
+    (most likely in config/environments/cucumber.rb). This setting is known to cause problems
+    with database transactions. Set config.cache_classes to true if you want to use transactions."
   end
 
   require 'cucumber/rails/world'
@@ -25,7 +30,8 @@ if env_caller
 
   MultiTest.disable_autorun
 else
-  warn "WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
-  To avoid this warning, move 'gem \'cucumber-rails\', require: false' under only group :test in your Gemfile.
-  If already in the :test group, be sure you are specifying 'require: false'."
+  warn "WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred
+  until env.rb is called. To avoid this warning, move 'gem \'cucumber-rails\', require: false'
+  under only group :test in your Gemfile. If already in the :test group, be sure you are
+  specifying 'require: false'."
 end
