@@ -69,7 +69,7 @@ module CucumberRailsHelper
   private
 
   def rails6?
-    `bundle exec rails -v`.split("\n").last.strip.start_with?('Rails 6')
+    `bundle exec rails -v`.start_with?('Rails 6')
   end
 end
 

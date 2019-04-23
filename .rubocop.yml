@@ -1,5 +1,15 @@
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    # This file is something which we aren't advising people to use
+    # Probably need to consider deleting this fully at some point
+    - 'features/support/legacy_web_steps_support.rb'
+    # This file is auto-generated from a load of features that need
+    # some love and updates to conform to rubocop
+    - 'tmp/aruba/rails-app/features/step_definitions/web_steps.rb'
+
 Style/Documentation:
   Enabled: false
 
@@ -16,12 +26,3 @@ Style/RegexpLiteral:
 BlockLength:
   Exclude:
     - 'cucumber-rails.gemspec'
-
-AllCops:
-  Exclude:
-    # This file is something which we aren't advising people to use
-    # Probably need to consider deleting this fully at some point
-    - 'features/support/legacy_web_steps_support.rb'
-    # This file is auto-generated from a load of features that need
-    # some love and updates to conform to rubocop
-    - 'tmp/aruba/rails-app/features/step_definitions/web_steps.rb'

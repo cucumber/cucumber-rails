@@ -1,8 +1,8 @@
-if caller.detect { |f| f =~ /\/env\.rb:/ }
-  env_caller = File.dirname(caller.detect { |f| f =~ /\/env\.rb:/ })
-end
+called_from_env_rb = caller.detect { |f| f =~ /\/env\.rb:/ }
 
-if env_caller
+if called_from_env_rb
+  env_caller = File.dirname(called_from_env_rb) if called_from_env_rb
+
   require 'rails'
   require 'cucumber/rails/application'
   ENV['RAILS_ENV'] ||= 'test'
