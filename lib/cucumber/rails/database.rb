@@ -47,7 +47,7 @@ module Cucumber
         end
 
         def validate_interface!
-          return unless CUSTOM_STRATEGY_INTERFACE.all? { |m| @strategy.respond_to?(m) }
+          return if CUSTOM_STRATEGY_INTERFACE.all? { |m| @strategy.respond_to?(m) }
 
           raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map { |method| "##{method}" } * '  '} !")
         end
