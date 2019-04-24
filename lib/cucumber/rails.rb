@@ -1,7 +1,7 @@
 called_from_env_rb = caller.detect { |f| f =~ /\/env\.rb:/ }
 
 if called_from_env_rb
-  env_caller = File.dirname(called_from_env_rb) if called_from_env_rb
+  env_caller = File.dirname(called_from_env_rb)
 
   require 'rails'
   require 'cucumber/rails/application'
