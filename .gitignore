@@ -11,3 +11,4 @@ gemfiles/*.lock
 Gemfile.lock
 spec/examples.txt
 .idea
+.ruby-version
