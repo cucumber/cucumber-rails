@@ -75,47 +75,33 @@ end
 
 World(CucumberRailsHelper)
 
-Given 'I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile' do
+Given('I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile') do
   rails_new
   install_cucumber_rails :not_in_test_group
   create_web_steps
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails app "([^"]*)" and installed cucumber\-rails$/ do |app_name|
-  rails_new name: app_name
-  install_cucumber_rails
-  create_web_steps
-  prepare_aruba_report
-end
-
-Given 'I have created a new Rails app and installed cucumber-rails' do
+Given('I have created a new Rails app and installed cucumber-rails') do
   rails_new
   install_cucumber_rails
   create_web_steps
   prepare_aruba_report
 end
 
-Given 'I have created a new Rails app with no database and installed cucumber-rails' do
+Given('I have created a new Rails app with no database and installed cucumber-rails') do
   rails_new args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_bot
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps
 end
 
-Given /^I have created a new Rails app "(.*?)" with no database and installed cucumber\-rails$/ do |app_name|
-  rails_new name: app_name, args: '--skip-active-record'
-  install_cucumber_rails :no_database_cleaner, :no_factory_bot
-  overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
-  create_web_steps
-end
-
-Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
+Given('I have a {string} ActiveRecord model object') do |name|
   run_simple("bundle exec rails g model #{name}")
   run_simple('bundle exec rake db:migrate RAILS_ENV=test')
 end
 
-Given 'I force selenium to run Firefox in headless mode' do
+Given('I force selenium to run Firefox in headless mode') do
   selenium_config = %{
     Capybara.register_driver :selenium do |app|
       http_client = Selenium::WebDriver::Remote::Http::Default.new
@@ -137,12 +123,12 @@ Given 'I force selenium to run Firefox in headless mode' do
   step 'I append to "features/support/env.rb" with:', selenium_config
 end
 
-When 'I run the cukes' do
+When('I run the cukes') do
   run_simple('bundle exec cucumber')
 end
 
 # Copied from Aruba
-Then /^the feature run should pass with:$/ do |string|
+Then(/^the feature run should pass with:$/) do |string|
   step 'the output should not contain " failed)"'
   step 'the output should not contain " undefined)"'
   step 'the exit status should be 0'

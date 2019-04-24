@@ -1,7 +1,7 @@
 Feature: Allow Cucumber to rescue exceptions
 
   Background: A controller that raises an exception
-    Given I have created a new Rails app "rails-app" and installed cucumber-rails
+    Given I have created a new Rails app and installed cucumber-rails
     And I write to "app/controllers/posts_controller.rb" with:
       """
       class PostsController < ApplicationController
