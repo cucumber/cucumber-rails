@@ -1,6 +1,6 @@
 Feature: Choose javascript database strategy
 
-  When running a scenario with the @javascript tag, Capybara will fire up a web server
+  Whilst running a scenario with the @javascript tag, Capybara will fire up a web server
   in the same process in a separate thread to your cukes. By default, this means ActiveRecord will give it a
   separate database connection, which in turn means data you put into your database from
   Cucumber step definitions (e.g. using FactoryBot) won't be visible to the web server
@@ -28,7 +28,7 @@ Feature: Choose javascript database strategy
     And I have a "Widget" ActiveRecord model object
 
   Scenario: Set the strategy to truncation and run a javascript scenario.
-    Given I append to "features/env.rb" with:
+    When I append to "features/env.rb" with:
       """
       DatabaseCleaner.strategy = :transaction
       Cucumber::Rails::Database.javascript_strategy = :truncation
@@ -64,19 +64,19 @@ Feature: Choose javascript database strategy
         Widget.count.should == num.to_i
       end
 
-     Then /^the DatabaseCleaner strategy should be (\w+)$/ do |strategy_name|
+      Then /^the DatabaseCleaner strategy should be (\w+)$/ do |strategy_name|
         DatabaseCleaner.connections.first.strategy.to_s.should =~ /#{strategy_name}/i
       end
       """
-    When I run the cukes
+    And I run the cukes
     Then the feature run should pass with:
-       """
-       3 scenarios (3 passed)
-       10 steps (10 passed)
-       """
+      """
+      3 scenarios (3 passed)
+      10 steps (10 passed)
+      """
 
- Scenario: Set the strategy to deletion and run a javascript scenario.
-    Given I append to "features/env.rb" with:
+  Scenario: Set the strategy to deletion and run a javascript scenario.
+    When I append to "features/env.rb" with:
       """
       Cucumber::Rails::Database.javascript_strategy = :deletion
       """
@@ -104,17 +104,17 @@ Feature: Choose javascript database strategy
         Widget.count.should == num.to_i
       end
       """
-    When I run the cukes
+    And I run the cukes
     Then the feature run should pass with:
-       """
-       2 scenarios (2 passed)
-       5 steps (5 passed)
-     """
+      """
+      2 scenarios (2 passed)
+      5 steps (5 passed)
+      """
 
   Scenario: Set the strategy to truncation with an except option and run a javascript scenario.
-    Given I append to "features/env.rb" with:
+    When I append to "features/env.rb" with:
       """
-     Cucumber::Rails::Database.javascript_strategy = :truncation, {:except=>%w[widgets]}
+      Cucumber::Rails::Database.javascript_strategy = :truncation, {:except=>%w[widgets]}
       """
     And I write to "features/widgets.feature" with:
       """
@@ -137,9 +137,9 @@ Feature: Choose javascript database strategy
         Widget.count.should == num.to_i
       end
       """
-    When I run the cukes
+    And I run the cukes
     Then the feature run should pass with:
-       """
-       2 scenarios (2 passed)
-       3 steps (3 passed)
-       """
+      """
+      2 scenarios (2 passed)
+      3 steps (3 passed)
+      """

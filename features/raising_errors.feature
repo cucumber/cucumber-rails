@@ -2,7 +2,7 @@ Feature: Raise Errors
 
   Scenario: Raise error for undefined route
     Given I have created a new Rails app with no database and installed cucumber-rails
-    And I write to "features/tests.feature" with:
+    When I write to "features/tests.feature" with:
       """
       Feature: Tests
         Scenario: Tests
