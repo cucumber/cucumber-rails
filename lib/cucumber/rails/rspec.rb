@@ -8,7 +8,7 @@ begin
       include RSpec::Matchers
     end
   end
-rescue LoadError => try_rspec_1
+rescue LoadError
   require 'spec/expectations'
   require 'spec/rails'
 

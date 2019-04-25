@@ -283,7 +283,7 @@ module NavigationHelpers
 end
 
 World(NavigationHelpers)
-EOF
+    EOF
   end
 end
 World(WebSteps)

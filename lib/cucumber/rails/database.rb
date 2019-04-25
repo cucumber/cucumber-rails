@@ -1,7 +1,7 @@
 module Cucumber
   module Rails
     module Database
-      CUSTOM_STRATEGY_INTERFACE = %w[ before_js before_non_js ].freeze
+      CUSTOM_STRATEGY_INTERFACE = %w[before_js before_non_js].freeze
 
       class InvalidStrategy < ArgumentError; end
 
@@ -35,7 +35,7 @@ module Cucumber
           @strategy.after
         end
 
-      private
+        private
 
         def map
           {
@@ -47,9 +47,9 @@ module Cucumber
         end
 
         def validate_interface!
-          unless CUSTOM_STRATEGY_INTERFACE.all? { |m| @strategy.respond_to?(m) }
-            raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map { |method| "##{method}" } * '  '} !")
-          end
+          return if CUSTOM_STRATEGY_INTERFACE.all? { |m| @strategy.respond_to?(m) }
+
+          raise(ArgumentError, "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map { |method| "##{method}" } * '  '} !")
         end
       end
 

@@ -18,15 +18,16 @@ task default: :test
 task test: %i[spec cucumber]
 
 namespace :test do
-  desc "Run tests against all gemfiles"
+  desc 'Run tests against all gemfiles'
   task :all do
     Rake::Task['appraisal'].invoke('test')
   end
 
-  desc "Run tests against specified gemfile, e.g. rake test:gemfile[rails_3_0]"
+  desc 'Run tests against specified gemfile, e.g. rake test:gemfile[rails_3_0]'
   task :gemfile, :name do |_task, args|
     unless args.name && Pathname.new("gemfiles/#{args.name}.gemfile").exist?
-      raise ArgumentError "You must provide the name of an existing Appraisal gemfile, e.g. 'rake test:gemfile[rails_3_2]'"
+      raise ArgumentError "You must provide the name of an existing Appraisal gemfile,
+        e.g. 'rake test:gemfile[rails_4_2]'"
     end
 
     Rake::Task["appraisal:#{args.name}"].invoke('test')
@@ -34,16 +35,16 @@ namespace :test do
 end
 
 namespace :gemfiles do
-  desc "Install dependencies for all gemfiles"
+  desc 'Install dependencies for all gemfiles'
   task :install do
-    ENV['BUNDLE_GEMFILE'] = "Gemfile.appraisal"
+    ENV['BUNDLE_GEMFILE'] = 'Gemfile.appraisal'
     Rake::Task['appraisal:install'].invoke
   end
 
   task :clean do
-    FileUtils.rm_rf("gemfiles/*")
+    FileUtils.rm_rf('gemfiles/*')
   end
 
-  desc "Rebuild generated gemfiles and install dependencies"
+  desc 'Rebuild generated gemfiles and install dependencies'
   task rebuild: %i[clean install]
 end

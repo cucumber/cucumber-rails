@@ -6,8 +6,15 @@ module Cucumber
 
     DEFAULT_SHEBANG = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])
 
-    class_option :spork,         type: :boolean, desc: 'Use Spork'
-    class_option :skip_database, type: :boolean, desc: 'Skip modification of database.yml', aliases: '-D', default: false
+    class_option :spork,
+                 type: :boolean,
+                 desc: 'Use Spork'
+
+    class_option :skip_database,
+                 type: :boolean,
+                 desc: 'Skip modification of database.yml',
+                 aliases: '-D',
+                 default: false
 
     def create_templates
       template 'config/cucumber.yml.erb', 'config/cucumber.yml'
@@ -39,14 +46,13 @@ module Cucumber
 
     def create_database
       return unless File.exist?('config/database.yml')
+      return unless File.read('config/database.yml').include? 'cucumber:'
 
-      unless File.read('config/database.yml').include? 'cucumber:'
-        gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
-        gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test\n"
+      gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
+      gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test\n"
 
-        # Since gsub_file doesn't ask the user, just inform user that the file was overwritten.
-        puts '       force  config/database.yml'
-      end
+      # Since gsub_file doesn't ask the user, just inform user that the file was overwritten.
+      puts '       force  config/database.yml'
     end
 
     protected
