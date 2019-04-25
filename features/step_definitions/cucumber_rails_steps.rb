@@ -17,21 +17,24 @@ module CucumberRailsHelper
       gem 'cucumber-rails', group: :test, require: false, path: File.expand_path('.').to_s
     end
 
-    gem 'sqlite3', '~> 1.3.13'
+    if rails6?
+      gem 'sqlite3', '~> 1.4'
+    else
+      gem 'sqlite3', '~> 1.3.13'
+    end
+
     if RUBY_VERSION < '2.4.0'
       gem 'capybara', '< 3.16.0', group: :test
     else
       gem 'capybara', group: :test
     end
     gem 'selenium-webdriver', '~> 3.11', group: :test
-
     gem 'rspec-expectations', '~> 3.7', group: :test
     gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
+
     run_simple 'bundle install'
-
     run_simple 'bundle exec rails webpacker:install' if rails6?
-
     run_simple 'bundle exec rails generate cucumber:install'
   end
 

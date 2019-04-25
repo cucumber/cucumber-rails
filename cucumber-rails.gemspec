@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
   s.add_development_dependency('rubocop', '~> 0.66.0')
-  s.add_development_dependency('sqlite3', '~> 1.3.13')
+  s.add_development_dependency('sqlite3', '~> 1.3')
 
   # For Documentation:
   s.add_development_dependency('rdiscount', '>= 2.2')
