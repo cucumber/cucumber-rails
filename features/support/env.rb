@@ -15,17 +15,13 @@ if ENV['ARUBA_REPORT_DIR']
 
         # include
         children = children.select do |child|
-          File.directory?(child) ||
-            (@aruba_report_start && File.stat(child).mtime > @aruba_report_start)
+          File.directory?(child) || (@aruba_report_start && File.stat(child).mtime > @aruba_report_start)
         end
 
         # exclude
-        children = children.reject do |child|
-          child =~ /Gemfile/ ||
-            child =~ /\.log$/
+        children.reject do |child|
+          child =~ /Gemfile/ || child =~ /\.log$/
         end
-
-        children
       end
     end
   end
