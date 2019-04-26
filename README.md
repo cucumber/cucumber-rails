@@ -75,8 +75,8 @@ Make sure you have a supported ruby installed, cd into your cucumber-rails repos
 
     gem install bundler
     bundle install
-    bin/install_geckodriver.sh
-    bin/install_webpacker.sh
+    ./bin/install_geckodriver.sh
+    ./bin/install_webpacker.sh
 
 ### Running all tests
 
@@ -86,9 +86,10 @@ With all dependencies installed, all specs and features should pass:
 
 ### Running Appraisal suite
 
-In order to test against multiple versions of key dependencies, the [Appraisal](https://github.com/thoughtbot/appraisal) is used to generate multiple gemfiles, stored in the `gemfiles/` directory. Normally these will only run on Travis; however, if you want to run the full test suite against all gemfiles, run the following commands:
+In order to test against multiple versions of key dependencies, the [Appraisal](https://github.com/thoughtbot/appraisal) gem is used to generate multiple gemfiles.
 
-    [bundle exec] appraisal install
+These are stored in the `gemfiles/` directory. Normally these will only run on Travis; however, if you want to run the full test suite against all gemfiles, run the following command:
+
     [bundle exec] appraisal rake test
 
 To run the suite against a named gemfile, use the following:
@@ -96,14 +97,13 @@ To run the suite against a named gemfile, use the following:
     [bundle exec] appraisal rails_4_2 rake test
 
 To remove and rebuild the different gemfiles (for example, to update a rails version or its dependencies), use the following:
+Note only a maintainer of the repo is likely to want to do this (As it will potentially change version dependencies).
 
     [bundle exec] appraisal install
 
-If you've changed versions of the dependencies, you may find it helpful to forcefully clean each appraisal's gem lock file in `gemfiles/`. You can do this using:
+If you've changed versions of the dependencies, you may find it helpful to forcefully clean each appraisal's gem lock file in `gemfiles/`.
 
     [bundle exec] rake clean
-
-
 
 ### Adding dependencies
 

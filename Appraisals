@@ -26,7 +26,7 @@ appraise 'rails_5_2' do
   gem 'capybara', '< 3.16.0', platform: %i[mri_23 mri_22]
   gem 'i18n', '< 1.5.1', platform: :mri_22
   gem 'nokogiri', '< 1.9.1', platform: %i[mri_23 mri_22]
-  gem 'railties', '~> 5.2'
+  gem 'railties', '~> 5.2.3'
   gem 'sqlite3', '~> 1.3.13'
 end
 
