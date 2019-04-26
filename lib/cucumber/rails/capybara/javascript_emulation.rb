@@ -85,8 +85,12 @@ module Cucumber
   end
 end
 
-class Capybara::RackTest::Node
-  include ::Cucumber::Rails::Capybara::JavascriptEmulation
+module Capybara
+  module RackTest
+    class Node
+      include ::Cucumber::Rails::Capybara::JavascriptEmulation
+    end
+  end
 end
 
 Before('not @no-js-emulation') do
