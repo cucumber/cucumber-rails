@@ -4,5 +4,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 6.0.0.beta1'
 gem 'railties', '~> 6.0.0.beta1'
+gem 'sqlite3', '~> 1.4'
 
 gemspec path: '../'
