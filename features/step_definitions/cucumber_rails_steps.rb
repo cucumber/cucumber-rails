@@ -1,8 +1,9 @@
 module CucumberRailsHelper
   def rails_new(options = {})
     options[:name] ||= 'test_app'
-    command = run "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring #{options[:args]}"
-    expect(command).to have_output /README/
+    command_result =
+      run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring #{options[:args]}"
+    expect(command_result).to have_output /README/
     expect(last_command_started).to be_successfully_executed
     cd options[:name]
     delete_environment_variable 'RUBYOPT'
@@ -33,9 +34,9 @@ module CucumberRailsHelper
     gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
     gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
 
-    run_simple 'bundle install'
-    run_simple 'bundle exec rails webpacker:install' if rails6?
-    run_simple 'bundle exec rails generate cucumber:install'
+    run_command_and_stop 'bundle install'
+    run_command_and_stop 'bundle exec rails webpacker:install' if rails6?
+    run_command_and_stop 'bundle exec rails generate cucumber:install'
   end
 
   def gem(name, *args)
@@ -114,8 +115,8 @@ Given /^I have created a new Rails app "(.*?)" with no database and installed cu
 end
 
 Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
-  run_simple("bundle exec rails g model #{name}")
-  run_simple('bundle exec rake db:migrate RAILS_ENV=test')
+  run_command_and_stop "bundle exec rails g model #{name}"
+  run_command_and_stop 'bundle exec rake db:migrate RAILS_ENV=test'
 end
 
 Given 'I force selenium to run Firefox in headless mode' do
@@ -141,7 +142,7 @@ Given 'I force selenium to run Firefox in headless mode' do
 end
 
 When 'I run the cukes' do
-  run_simple('bundle exec cucumber')
+  run_command_and_stop 'bundle exec cucumber'
 end
 
 # Copied from Aruba

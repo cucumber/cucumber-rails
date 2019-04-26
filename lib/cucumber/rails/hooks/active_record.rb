@@ -1,9 +1,11 @@
 if defined?(ActiveRecord::Base)
-  class ActiveRecord::Base
-    class_attribute :shared_connection
+  module ActiveRecord
+    class Base
+      class_attribute :shared_connection
 
-    def self.connection
-      shared_connection || retrieve_connection
+      def self.connection
+        shared_connection || retrieve_connection
+      end
     end
   end
 
