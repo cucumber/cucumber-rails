@@ -1,4 +1,5 @@
-CUCUMBER_RAILS_VERSION = Gem::Specification.load(File.dirname(__FILE__) + '/cucumber-rails.gemspec').version.version
+CUCUMBER_RAILS_VERSION =
+  Gem::Specification.load(File.dirname(__FILE__) + '/cucumber-rails.gemspec').version.version
 require 'rubygems'
 require 'bundler'
 require 'bundler/setup'
