@@ -12,7 +12,7 @@ Feature: REST API
       """
     And I write to "config/routes.rb" with:
       """
-      RailsApp::Application.routes.draw do
+      TestApp::Application.routes.draw do
         resources :posts
       end
       """
