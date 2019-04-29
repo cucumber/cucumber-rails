@@ -37,13 +37,13 @@ Feature: Choose javascript database strategy
       """
       Feature:
         Background:
-          Given I have created 2 widgets
+          When I create 2 widgets
 
         @javascript
         Scenario:
-          Then the DatabaseCleaner strategy should be truncation
           When I create 3 widgets
-          Then I should have 5 widgets
+          Then the DatabaseCleaner strategy should be truncation
+          And I should have 5 widgets
 
         @javascript
         Scenario:
@@ -56,16 +56,16 @@ Feature: Choose javascript database strategy
       """
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
-      Given /created? (\d) widgets/ do |num|
+      When(/^I create (\d+) widgets/) do |num|
         num.to_i.times { Widget.create! }
       end
 
-      Then /should have (\d) widgets/ do |num|
-        Widget.count.should == num.to_i
+      Then(/^I should have (\d+) widgets$/) do |num|
+        expect(Widget.count).to eq(num.to_i)
       end
 
-      Then /^the DatabaseCleaner strategy should be (\w+)$/ do |strategy_name|
-        DatabaseCleaner.connections.first.strategy.to_s.should =~ /#{strategy_name}/i
+      Then(/^the DatabaseCleaner strategy should be (\w+)$/) do |strategy_name|
+        expect(DatabaseCleaner.connections.first.strategy.to_s).to match(/#{strategy_name}/i)
       end
       """
     And I run the cukes
@@ -85,7 +85,7 @@ Feature: Choose javascript database strategy
       @javascript
       Feature:
         Background:
-          Given I have created 2 widgets
+          When I create 2 widgets
 
         Scenario:
           When I create 3 widgets
@@ -96,12 +96,12 @@ Feature: Choose javascript database strategy
       """
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
-      Given /created? (\d) widgets/ do |num|
+      When(/^I create (\d+) widgets/) do |num|
         num.to_i.times { Widget.create! }
       end
 
-      Then /should have (\d) widgets/ do |num|
-        Widget.count.should == num.to_i
+      Then(/^I should have (\d+) widgets$/) do |num|
+        expect(Widget.count).to eq(num.to_i)
       end
       """
     And I run the cukes
@@ -129,12 +129,12 @@ Feature: Choose javascript database strategy
       """
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
-      Given /created? (\d) widgets/ do |num|
+      When(/^I create (\d+) widgets/) do |num|
         num.to_i.times { Widget.create! }
       end
 
-      Then /should have (\d) widgets/ do |num|
-        Widget.count.should == num.to_i
+      Then(/^I should have (\d+) widgets$/) do |num|
+        expect(Widget.count).to eq(num.to_i)
       end
       """
     And I run the cukes

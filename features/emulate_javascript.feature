@@ -15,7 +15,7 @@ Feature: Emulate Javascript
       """
     And I write to "features/step_definitions/s.rb" with:
       """
-      Given /^there is a widget named "([^"]*)"$/ do |name|
+      Given(/^there is a widget named "([^"]*)"$/) do |name|
         FactoryBot.create(:widget, name: name)
       end
       """
@@ -52,6 +52,7 @@ Feature: Emulate Javascript
       """
       class ApplicationController < ActionController::Base
         protect_from_forgery
+
         before_action except: :establish do
           render text: "denied", status: :forbidden and return false unless session[:verified]
         end
@@ -72,7 +73,7 @@ Feature: Emulate Javascript
       """
     And I write to "features/step_definitions/s.rb" with:
       """
-      Given /^there is a widget named "([^"]*)"$/ do |name|
+      Given(/^there is a widget named "([^"]*)"$/) do |name|
         FactoryBot.create(:widget, name: name)
       end
       """

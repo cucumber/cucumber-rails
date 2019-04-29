@@ -24,15 +24,15 @@ Feature: Rerun profile
       """
     And a file named "features/step_definitions/rerun_steps.rb" with:
       """
-      Given /fixed now/ do
+      Given(/^fixed now$/) do
         puts "All fixed now"
       end
 
-      Given /broken/ do
+      Given(/^broken$/) do
         raise "I'm broken"
       end
 
-      Given /passing/ do
+      Given(/^passing$/) do
         puts "I've always been passing"
       end
       """

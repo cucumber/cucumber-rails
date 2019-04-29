@@ -30,12 +30,12 @@ Feature: REST API
       """
     And I write to "features/step_definitions/rest_steps.rb" with:
       """
-      When /^the client requests GET (.*)$/ do |path|
+      When(/^the client requests GET (.*)$/) do |path|
         get(path)
       end
 
-      Then /^the response should be JSON:$/ do |json|
-        JSON.parse(last_response.body).should == JSON.parse(json)
+      Then(/^the response should be JSON:$/) do |json|
+        expect(JSON.parse(last_response.body)).to eq(JSON.parse(json))
       end
       """
     And I run `bundle exec rake db:migrate`

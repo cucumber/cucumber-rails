@@ -23,12 +23,12 @@ Feature: Allow Cucumber to rescue exceptions
       Feature: posts
         @allow-rescue
         Scenario: See posts
-        When I look at the posts
-        Then I should see the public error page
+          When I look at the posts
+          Then I should see the public error page
       """
     And I write to "features/step_definitions/posts_steps.rb" with:
       """
-      When /^I look at the posts$/ do
+      When(/^I look at the posts$/) do
         visit '/posts'
       end
       Then /^I should see the public error page$/ do
@@ -52,7 +52,7 @@ Feature: Allow Cucumber to rescue exceptions
       """
     And I write to "features/step_definitions/posts_steps.rb" with:
       """
-      When /^I look at the posts$/ do
+      When(/^I look at the posts$/) do
         visit '/posts'
       end
       """

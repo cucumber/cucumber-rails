@@ -46,11 +46,11 @@ Feature: No Database
       """
       Feature: posts
         Scenario: See them
-          When I do it
+          When I view the posts
       """
     And I write to "features/step_definitions/posts_steps.rb" with:
       """
-      When /^I do it$/ do
+      When(/^I view the posts$/) do
         visit '/posts'
       end
       """
