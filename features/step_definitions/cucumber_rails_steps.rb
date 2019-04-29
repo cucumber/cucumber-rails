@@ -20,8 +20,8 @@ Given('I have created a new Rails app with no database and installed cucumber-ra
 end
 
 Given('I have a {string} ActiveRecord model object') do |name|
-  run_simple("bundle exec rails g model #{name}")
-  run_simple('bundle exec rake db:migrate RAILS_ENV=test')
+  run_command_and_stop("bundle exec rails g model #{name}")
+  run_command_and_stop('bundle exec rake db:migrate RAILS_ENV=test')
 end
 
 Given('I force selenium to run Firefox in headless mode') do
@@ -47,7 +47,7 @@ Given('I force selenium to run Firefox in headless mode') do
 end
 
 When('I run the cukes') do
-  run_simple('bundle exec cucumber')
+  run_command_and_stop('bundle exec cucumber')
 end
 
 # Copied from Aruba
