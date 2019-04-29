@@ -103,8 +103,6 @@ If you've changed versions of the dependencies, you may find it helpful to force
 
     [bundle exec] rake clean
 
-
-
 ### Adding dependencies
 
 To support the multiple-gemfile testing, when adding a new dependency the following rules apply:
