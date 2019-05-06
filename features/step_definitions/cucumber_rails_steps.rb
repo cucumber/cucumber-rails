@@ -1,125 +1,30 @@
-module CucumberRailsHelper
-  def rails_new(options = {})
-    options[:name] ||= 'test_app'
-    command_result =
-      run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring #{options[:args]}"
-    expect(command_result).to have_output /README/
-    expect(last_command_started).to be_successfully_executed
-    cd options[:name]
-    delete_environment_variable 'RUBYOPT'
-    delete_environment_variable 'BUNDLE_BIN_PATH'
-    delete_environment_variable 'BUNDLE_GEMFILE'
-  end
-
-  def install_cucumber_rails(*options)
-    if options.include?(:not_in_test_group)
-      gem 'cucumber-rails', path: File.expand_path('.').to_s
-    else
-      gem 'cucumber-rails', group: :test, require: false, path: File.expand_path('.').to_s
-    end
-
-    if rails6?
-      gem 'sqlite3', '~> 1.4'
-    else
-      gem 'sqlite3', '~> 1.3.13'
-    end
-
-    if RUBY_VERSION < '2.4.0'
-      gem 'capybara', '< 3.16.0', group: :test
-    else
-      gem 'capybara', group: :test
-    end
-    gem 'selenium-webdriver', '~> 3.11', group: :test
-    gem 'rspec-expectations', '~> 3.7', group: :test
-    gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
-    gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
-
-    run_command_and_stop 'bundle install'
-    run_command_and_stop 'bundle exec rails webpacker:install' if rails6?
-    run_command_and_stop 'bundle exec rails generate cucumber:install'
-  end
-
-  def gem(name, *args)
-    options = args.last.is_a?(Hash) ? args.pop : {}
-
-    parts = ["'#{name}'"]
-    parts << args.map(&:inspect) if args.any?
-    parts << options.inspect[1..-2] if options.any?
-
-    line = "gem #{parts.join(', ')}\n"
-
-    gem_regexp = /gem ["']#{name}["'].*$/
-    gemfile_content = File.read(expand_path('Gemfile'))
-
-    if gemfile_content =~ gem_regexp
-      gemfile_content.gsub!(gem_regexp, line)
-      overwrite_file('Gemfile', gemfile_content)
-    else
-      append_to_file('Gemfile', line)
-    end
-  end
-
-  def prepare_aruba_report
-    return unless ENV['ARUBA_REPORT_DIR']
-
-    @aruba_report_start = Time.new
-    sleep(1)
-  end
-
-  def fixture(path)
-    File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
-  end
-
-  private
-
-  def rails6?
-    `bundle exec rails -v`.start_with?('Rails 6')
-  end
-end
-
-World(CucumberRailsHelper)
-
-Given 'I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile' do
+Given('I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile') do
   rails_new
   install_cucumber_rails :not_in_test_group
   create_web_steps
   prepare_aruba_report
 end
 
-Given /^I have created a new Rails app "([^"]*)" and installed cucumber\-rails$/ do |app_name|
-  rails_new name: app_name
-  install_cucumber_rails
-  create_web_steps
-  prepare_aruba_report
-end
-
-Given 'I have created a new Rails app and installed cucumber-rails' do
+Given('I have created a new Rails app and installed cucumber-rails') do
   rails_new
   install_cucumber_rails
   create_web_steps
   prepare_aruba_report
 end
 
-Given 'I have created a new Rails app with no database and installed cucumber-rails' do
+Given('I have created a new Rails app with no database and installed cucumber-rails') do
   rails_new args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_bot
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
   create_web_steps
 end
 
-Given /^I have created a new Rails app "(.*?)" with no database and installed cucumber\-rails$/ do |app_name|
-  rails_new name: app_name, args: '--skip-active-record'
-  install_cucumber_rails :no_database_cleaner, :no_factory_bot
-  overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
-  create_web_steps
+Given('I have a {string} ActiveRecord model object') do |name|
+  run_command_and_stop("bundle exec rails g model #{name}")
+  run_command_and_stop('bundle exec rake db:migrate RAILS_ENV=test')
 end
 
-Given /^I have a "([^"]*)" ActiveRecord model object$/ do |name|
-  run_command_and_stop "bundle exec rails g model #{name}"
-  run_command_and_stop 'bundle exec rake db:migrate RAILS_ENV=test'
-end
-
-Given 'I force selenium to run Firefox in headless mode' do
+Given('I force selenium to run Firefox in headless mode') do
   selenium_config = %{
     Capybara.register_driver :selenium do |app|
       http_client = Selenium::WebDriver::Remote::Http::Default.new
@@ -141,12 +46,12 @@ Given 'I force selenium to run Firefox in headless mode' do
   step 'I append to "features/support/env.rb" with:', selenium_config
 end
 
-When 'I run the cukes' do
-  run_command_and_stop 'bundle exec cucumber'
+When('I run the cukes') do
+  run_command_and_stop('bundle exec cucumber')
 end
 
 # Copied from Aruba
-Then /^the feature run should pass with:$/ do |string|
+Then(/^the feature run should pass with:$/) do |string|
   step 'the output should not contain " failed)"'
   step 'the output should not contain " undefined)"'
   step 'the exit status should be 0'

@@ -5,7 +5,7 @@ Feature: No Database
   Scenario: No ActiveRecord and DatabaseCleaner
     Given I have created a new Rails app with no database and installed cucumber-rails
     # Turn off ActiveRecord
-    And I write to "config/application.rb" with:
+    When I write to "config/application.rb" with:
       """
       require File.expand_path('../boot', __FILE__)
 

@@ -3,7 +3,7 @@ Feature: Emulate Javascript
   Scenario: See a widget
     Given I have created a new Rails app and installed cucumber-rails
     And I force selenium to run Firefox in headless mode
-    And I run `rails generate scaffold widget name:string`
+    When I run `rails generate scaffold widget name:string`
     And I write to "features/f.feature" with:
       """
       @javascript
@@ -27,17 +27,17 @@ Feature: Emulate Javascript
         end
       end
       """
-    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
     Then the feature run should pass with:
-       """
-       1 scenario (1 passed)
-       3 steps (3 passed)
-       """
+      """
+      1 scenario (1 passed)
+      3 steps (3 passed)
+      """
 
   Scenario: Pass on the CSRF token
     Given I have created a new Rails app and installed cucumber-rails
-    And I run `rails generate scaffold widget name:string`
+    When I run `rails generate scaffold widget name:string`
     And I run `sed -i -e 's/forgery_protection *= false/forgery_protection = true/' config/environments/test.rb`
     And I run `rails generate controller session establish`
     And I write to "app/controllers/session_controller.rb" with:
@@ -84,11 +84,10 @@ Feature: Emulate Javascript
         end
       end
       """
-    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
     Then the feature run should pass with:
-       """
-       1 scenario (1 passed)
-       8 steps (8 passed)
-       """
-
+      """
+      1 scenario (1 passed)
+      8 steps (8 passed)
+      """

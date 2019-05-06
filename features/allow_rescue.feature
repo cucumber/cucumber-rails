@@ -1,8 +1,8 @@
 Feature: Allow Cucumber to rescue exceptions
 
   Background: A controller that raises an exception
-    Given I have created a new Rails app "rails-app" and installed cucumber-rails
-    And I write to "app/controllers/posts_controller.rb" with:
+    Given I have created a new Rails app and installed cucumber-rails
+    When I write to "app/controllers/posts_controller.rb" with:
       """
       class PostsController < ApplicationController
         def index
@@ -12,13 +12,13 @@ Feature: Allow Cucumber to rescue exceptions
       """
     And I write to "config/routes.rb" with:
       """
-      RailsApp::Application.routes.draw do
+      TestApp::Application.routes.draw do
         resources :posts
       end
       """
 
   Scenario: Allow rescue
-    Given I write to "features/posts.feature" with:
+    When I write to "features/posts.feature" with:
       """
       Feature: posts
         @allow-rescue
@@ -44,7 +44,7 @@ Feature: Allow Cucumber to rescue exceptions
       """
 
   Scenario: Don't allow rescue
-    Given I write to "features/posts.feature" with:
+    When I write to "features/posts.feature" with:
       """
       Feature: posts
         Scenario: See them

@@ -2,7 +2,7 @@ Feature: DatabaseCleaner
 
   Scenario: Create records in background
     Given I have created a new Rails app and installed cucumber-rails
-    And I write to "features/widgets.feature" with:
+    When I write to "features/widgets.feature" with:
       """
       Feature: Create widgets
         Background: some widdgets
@@ -38,7 +38,7 @@ Feature: DatabaseCleaner
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
     Then the feature run should pass with:
-       """
-       2 scenarios (2 passed)
-       6 steps (6 passed)
-       """
+      """
+      2 scenarios (2 passed)
+      6 steps (6 passed)
+      """

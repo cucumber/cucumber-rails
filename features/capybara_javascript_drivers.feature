@@ -4,7 +4,7 @@ Feature: Capybara Javascript Drivers
   Background: A simple calendar app
     Given I have created a new Rails app and installed cucumber-rails
     And I force selenium to run Firefox in headless mode
-    And I run `bundle exec rails g scaffold appointment name:string when:datetime`
+    When I run `bundle exec rails g scaffold appointment name:string when:datetime`
     And I write to "features/step_definitions/date_time_steps.rb" with:
       """
       When /^(?:|I )select "([^"]+)" as the "([^"]+)" time$/ do |time, selector|
@@ -21,7 +21,7 @@ Feature: Capybara Javascript Drivers
       """
 
   Scenario: Use a particular driver
-    Given I write to "features/create_appointment.feature" with:
+    When I write to "features/create_appointment.feature" with:
       """
       @javascript
       Feature: Create appointments
@@ -34,7 +34,7 @@ Feature: Capybara Javascript Drivers
           And I should see "2015-02-20 15:10:00 UTC"
 
       """
-    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
     Then the feature run should pass with:
       """
@@ -43,7 +43,7 @@ Feature: Capybara Javascript Drivers
       """
 
   Scenario: Mixed DB access
-    Given I write to "features/create_appointment.feature" with:
+    When I write to "features/create_appointment.feature" with:
       """
       @javascript
       Feature: Create appointments
@@ -64,7 +64,7 @@ Feature: Capybara Javascript Drivers
       end
       """
 
-    When I run `bundle exec rake db:migrate`
+    And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
     Then the feature run should pass with:
       """
