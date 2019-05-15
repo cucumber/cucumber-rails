@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 appraise 'rails_4_2' do
   gem 'capybara', '< 3.16.0', platform: %i[mri_23 mri_22]
   gem 'i18n', '< 1.5.1', platform: :mri_22

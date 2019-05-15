@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 called_from_env_rb = caller.detect { |f| f =~ /\/env\.rb:/ }
 
 if called_from_env_rb

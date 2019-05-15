@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cucumber/rails/database'
 
 describe Cucumber::Rails::Database do

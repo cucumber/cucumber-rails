@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rspec/rails/fixture_support'
 require 'rails/all'
 

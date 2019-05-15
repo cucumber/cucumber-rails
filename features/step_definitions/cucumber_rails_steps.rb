@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given('I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile') do
   rails_new
   install_cucumber_rails :not_in_test_group
