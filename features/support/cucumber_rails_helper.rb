@@ -2,7 +2,7 @@ module CucumberRailsHelper
   def rails_new(options = {})
     options[:name] ||= 'test_app'
     command_result =
-      run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring #{options[:args]}"
+      run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring --skip-bootsnap #{options[:args]}"
     expect(command_result).to have_output /README/
     expect(last_command_started).to be_successfully_executed
     cd options[:name]
