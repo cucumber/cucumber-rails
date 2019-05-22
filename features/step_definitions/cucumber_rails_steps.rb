@@ -2,14 +2,12 @@ Given('I have created a new Rails app and installed cucumber-rails, accidentally
   rails_new
   install_cucumber_rails :not_in_test_group
   create_web_steps
-  prepare_aruba_report
 end
 
 Given('I have created a new Rails app and installed cucumber-rails') do
   rails_new
   install_cucumber_rails
   create_web_steps
-  prepare_aruba_report
 end
 
 Given('I have created a new Rails app with no database and installed cucumber-rails') do
