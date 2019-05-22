@@ -59,13 +59,6 @@ module CucumberRailsHelper
     end
   end
 
-  def prepare_aruba_report
-    return unless ENV['ARUBA_REPORT_DIR']
-
-    @aruba_report_start = Time.new
-    sleep(1)
-  end
-
   def fixture(path)
     File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
   end
