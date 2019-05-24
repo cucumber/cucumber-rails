@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 $LOAD_PATH.unshift File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
@@ -27,13 +29,14 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rspec', '~> 3.6')
   s.add_development_dependency('rubocop', '~> 0.66.0')
   s.add_development_dependency('rubocop-rspec', '~> 1.32.0')
+  s.add_development_dependency('sqlite3', '~> 1.3')
 
   # For Documentation:
   s.add_development_dependency('rdiscount', '>= 2.2')
   s.add_development_dependency('rdoc', '>= 5.0')
   s.add_development_dependency('yard', '~> 0.9')
 
-  s.required_ruby_version = '>= 2.2.0'
+  s.required_ruby_version = '>= 2.3.0'
   s.rubygems_version = '>= 1.6.1'
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")

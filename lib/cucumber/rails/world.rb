@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 begin
   # Try to load it so we can assign @_result below if needed.
   require 'test/unit/testresult'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CucumberRailsHelper
   def rails_new(options = {})
     options[:name] ||= 'test_app'
