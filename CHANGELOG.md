@@ -55,7 +55,7 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 ## [v1.5.0](https://github.com/cucumber/cucumber-rails/compare/1.4.5...1.5.0) (2017-05-12)
 
  * Drop rails 3 support ([#334](https://github.com/cucumber/cucumber-rails/pull/334) Matijs van Zuijlen)
- * Add rals 5.1 support ([#337](https://github.com/cucumber/cucumber-rails/pull/337) Matijs van Zuijlen - Rafael Reggiani Manzo)
+ * Add rails 5.1 support ([#337](https://github.com/cucumber/cucumber-rails/pull/337) Matijs van Zuijlen - Rafael Reggiani Manzo)
 
 ## [v1.4.5](https://github.com/cucumber/cucumber-rails/compare/1.4.4...1.4.5) (2016-09-27)
 
