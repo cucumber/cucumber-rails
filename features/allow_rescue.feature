@@ -28,10 +28,10 @@ Feature: Allow Cucumber to rescue exceptions
       """
     And I write to "features/step_definitions/posts_steps.rb" with:
       """
-      When(/^I look at the posts$/) do
+      When('I look at the posts') do
         visit '/posts'
       end
-      Then /^I should see the public error page$/ do
+      Then('I should see the public error page') do
         expect(page).to have_content "We're sorry, but something went wrong."
       end
       """
@@ -52,7 +52,7 @@ Feature: Allow Cucumber to rescue exceptions
       """
     And I write to "features/step_definitions/posts_steps.rb" with:
       """
-      When(/^I look at the posts$/) do
+      When('I look at the posts') do
         visit '/posts'
       end
       """

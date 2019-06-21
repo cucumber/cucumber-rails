@@ -56,15 +56,15 @@ Feature: Choose javascript database strategy
       """
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
-      When(/^I create (\d+) widgets/) do |num|
+      When('I create {int} widgets/) do |num|
         num.to_i.times { Widget.create! }
       end
 
-      Then(/^I should have (\d+) widgets$/) do |num|
+      Then('I should have {int} widgets') do |num|
         expect(Widget.count).to eq(num.to_i)
       end
 
-      Then(/^the DatabaseCleaner strategy should be (\w+)$/) do |strategy_name|
+      Then('the DatabaseCleaner strategy should be {word}') do |strategy_name|
         expect(DatabaseCleaner.connections.first.strategy.to_s).to match(/#{strategy_name}/i)
       end
       """
@@ -96,11 +96,11 @@ Feature: Choose javascript database strategy
       """
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
-      When(/^I create (\d+) widgets/) do |num|
+      When('I create {int} widgets/) do |num|
         num.to_i.times { Widget.create! }
       end
 
-      Then(/^I should have (\d+) widgets$/) do |num|
+      Then('I should have {int} widgets') do |num|
         expect(Widget.count).to eq(num.to_i)
       end
       """
@@ -129,11 +129,11 @@ Feature: Choose javascript database strategy
       """
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
-      When(/^I create (\d+) widgets/) do |num|
+      When('I create {int} widgets/) do |num|
         num.to_i.times { Widget.create! }
       end
 
-      Then(/^I should have (\d+) widgets$/) do |num|
+      Then('I should have {int} widgets') do |num|
         expect(Widget.count).to eq(num.to_i)
       end
       """

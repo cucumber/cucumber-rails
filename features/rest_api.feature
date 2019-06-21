@@ -30,7 +30,7 @@ Feature: REST API
       """
     And I write to "features/step_definitions/rest_steps.rb" with:
       """
-      When(/^the client requests GET (.*)$/) do |path|
+      When('the client requests GET /{word}') do |path|
         get(path)
       end
 

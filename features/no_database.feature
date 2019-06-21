@@ -17,7 +17,7 @@ Feature: No Database
 
       module TestApp
         class Application < Rails::Application
-          config.encoding = "utf-8"
+          config.encoding = 'utf-8'
           config.filter_parameters += [:password]
         end
       end
@@ -32,7 +32,7 @@ Feature: No Database
       """
       class PostsController < ApplicationController
         def index
-          raise "There is an error in index"
+          raise 'There is an error in index'
         end
       end
       """
@@ -50,7 +50,7 @@ Feature: No Database
       """
     And I write to "features/step_definitions/posts_steps.rb" with:
       """
-      When(/^I view the posts$/) do
+      When('I view the posts') do
         visit '/posts'
       end
       """

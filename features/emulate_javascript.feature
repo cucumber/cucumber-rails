@@ -15,7 +15,7 @@ Feature: Emulate Javascript
       """
     And I write to "features/step_definitions/s.rb" with:
       """
-      Given(/^there is a widget named "([^"]*)"$/) do |name|
+      Given('there is a widget named {string}') do |name|
         FactoryBot.create(:widget, name: name)
       end
       """
@@ -73,7 +73,7 @@ Feature: Emulate Javascript
       """
     And I write to "features/step_definitions/s.rb" with:
       """
-      Given(/^there is a widget named "([^"]*)"$/) do |name|
+      Given('there is a widget named {string}') do |name|
         FactoryBot.create(:widget, name: name)
       end
       """
