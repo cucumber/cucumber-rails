@@ -25,7 +25,7 @@ Feature: Rerun profile
     And a file named "features/step_definitions/rerun_steps.rb" with:
       """
       Given('fixed now') do
-        puts "All fixed now"
+        puts 'All fixed now'
       end
 
       Given('broken') do

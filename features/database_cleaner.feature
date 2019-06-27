@@ -19,20 +19,20 @@ Feature: DatabaseCleaner
     And I run `rails generate model widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
-      Given('I have {int} widgets') do |n|
-        n.to_i.times do |i|
+      Given('I have {int} widgets') do |number|
+        number.times do |i|
           Widget.create! name: "Widget #{Widget.count + i}"
         end
       end
 
-      When('I create {int} more widgets') do |n|
-        n.to_i.times do |i|
+      When('I create {int} more widgets') do |number|
+        number.times do |i|
           Widget.create! name: "Widget #{Widget.count + i}"
         end
       end
 
-      Then('I should have {int} widgets') do |num|
-        expect(Widget.count).to eq(num.to_i)
+      Then('I should have {int} widgets') do |number|
+        expect(Widget.count).to eq(number)
       end
       """
     And I run `bundle exec rake db:migrate`

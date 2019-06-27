@@ -6,7 +6,7 @@ Feature: Allow Cucumber to rescue exceptions
       """
       class PostsController < ApplicationController
         def index
-          raise "There is an error in index"
+          raise 'There is an error in index'
         end
       end
       """

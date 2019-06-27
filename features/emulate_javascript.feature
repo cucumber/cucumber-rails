@@ -54,7 +54,7 @@ Feature: Emulate Javascript
         protect_from_forgery
 
         before_action except: :establish do
-          render text: "denied", status: :forbidden and return false unless session[:verified]
+          render text: 'denied', status: :forbidden and return false unless session[:verified]
         end
       end
       """
