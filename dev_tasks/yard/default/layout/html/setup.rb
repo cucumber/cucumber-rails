@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def init
   super
   options[:serializer].serialize(

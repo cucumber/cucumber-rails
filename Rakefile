@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 CUCUMBER_RAILS_VERSION =
   Gem::Specification.load(File.dirname(__FILE__) + '/cucumber-rails.gemspec').version.version
 require 'rubygems'

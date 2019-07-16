@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'capybara'
 require 'capybara/rails'
 require 'capybara/cucumber'

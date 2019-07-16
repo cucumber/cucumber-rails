@@ -1,16 +1,19 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md) on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...master) (Not yet released)
-There are currently no unreleased changes.
+## [master](https://github.com/cucumber/cucumber-rails/compare/v1.7.0...master) (Not yet released)
 
+### Changed
+
+ * Drop Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
+ 
 ## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-17)
 
 ### Changed
 
- * Drop rails `4.0` / `4.1` support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez](https://github.com/deivid-rodriguez))
- * Allow Ruby `2.6` users to `ERB.new` ([#399](https://github.com/cucumber/cucumber-rails/pull/399) [koic](https://github.com/koic))
- * Allow Rails to be used in the `6.x` series (Currently as of release only beta1 is supported) ([#405](https://github.com/cucumber/cucumber-rails/pull/405) [kotovalexarian](https://github.com/kotovalexarian))
- * Update CI to test most relevant Rubies ([#411](https://github.com/cucumber/cucumber-rails/pull/411) [olleolleolle](https://github.com/olleolleolle))
+ * Drop rails `4.0` / `4.1` support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
+ * Allow Ruby `2.6` users to `ERB.new` ([#399](https://github.com/cucumber/cucumber-rails/pull/399) [koic])
+ * Allow Rails to be used in the `6.x` series (Currently as of release only beta1 is supported) ([#405](https://github.com/cucumber/cucumber-rails/pull/405) [kotovalexarian])
+ * Update CI to test most relevant Rubies ([#411](https://github.com/cucumber/cucumber-rails/pull/411) [olleolleolle])
 
 ### Fixed
 
@@ -52,7 +55,7 @@ There are currently no unreleased changes.
 ## [v1.5.0](https://github.com/cucumber/cucumber-rails/compare/1.4.5...1.5.0) (2017-05-12)
 
  * Drop rails 3 support ([#334](https://github.com/cucumber/cucumber-rails/pull/334) Matijs van Zuijlen)
- * Add rals 5.1 support ([#337](https://github.com/cucumber/cucumber-rails/pull/337) Matijs van Zuijlen - Rafael Reggiani Manzo)
+ * Add rails 5.1 support ([#337](https://github.com/cucumber/cucumber-rails/pull/337) Matijs van Zuijlen - Rafael Reggiani Manzo)
 
 ## [v1.4.5](https://github.com/cucumber/cucumber-rails/compare/1.4.4...1.4.5) (2016-09-27)
 
@@ -492,3 +495,10 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 * Webrat step "Then I should be on" should use request_uri instead of path for missing query string parameters (ZhangJinzhu)
 * Added MIME type parameter to attach file step definition (Felix Flores)
 * Added check when including ActiveSupport::Testing::SetupAndTeardown for older Rails versions (Jeremy Durham)
+
+
+[deivid-rodriguez]: https://github.com/deivid-rodriguez
+[koic]: https://github.com/koic
+[kotovalexarian]: https://github.com/kotovalexarian
+[mvz]: https://github.com/mvz
+[olleolleolle]: https://github.com/olleolleolle

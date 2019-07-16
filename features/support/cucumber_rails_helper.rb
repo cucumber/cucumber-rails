@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module CucumberRailsHelper
   def rails_new(options = {})
     options[:name] ||= 'test_app'
     command_result =
-      run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring #{options[:args]}"
+      run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring --skip-bootsnap #{options[:args]}"
     expect(command_result).to have_output(/README/)
     expect(last_command_started).to be_successfully_executed
     cd options[:name]
@@ -42,13 +44,6 @@ module CucumberRailsHelper
     else
       append_to_file('Gemfile', line)
     end
-  end
-
-  def prepare_aruba_report
-    return unless ENV['ARUBA_REPORT_DIR']
-
-    @aruba_report_start = Time.new
-    sleep(1)
   end
 
   def fixture(path)
