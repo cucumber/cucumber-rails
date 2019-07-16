@@ -30,7 +30,7 @@ Feature: Disable automatic database cleaning
     And I run `rails generate model widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
-      When('I create {int} more widgets') do |number|
+      When('I create {int} widgets') do |number|
         number.times do |i|
           Widget.create! name: "Widget #{Widget.count + i}"
         end
