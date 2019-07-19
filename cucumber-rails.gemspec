@@ -27,8 +27,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rails', ['>= 4.2', '< 7'])
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
-  s.add_development_dependency('rubocop', '~> 0.66.0')
-  s.add_development_dependency('rubocop-rspec', '~> 1.32.0')
+  s.add_development_dependency('rubocop', '~> 0.72.0')
+  s.add_development_dependency('rubocop-performance', '~> 1.4.0')
+  s.add_development_dependency('rubocop-rspec', '~> 1.33.0')
   s.add_development_dependency('sqlite3', '~> 1.3')
 
   # For Documentation:
