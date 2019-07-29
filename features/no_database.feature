@@ -1,7 +1,6 @@
 Feature: No Database
   Allow Cucumber to work with a Rails app without a database
 
-  @fails-on-travis
   Scenario: No ActiveRecord and DatabaseCleaner
     Given I have created a new Rails app with no database and installed cucumber-rails
     # Turn off ActiveRecord
@@ -17,7 +16,7 @@ Feature: No Database
 
       module TestApp
         class Application < Rails::Application
-          config.encoding = "utf-8"
+          config.encoding = 'utf-8'
           config.filter_parameters += [:password]
         end
       end
@@ -32,7 +31,7 @@ Feature: No Database
       """
       class PostsController < ApplicationController
         def index
-          raise "There is an error in index"
+          raise 'There is an error in index'
         end
       end
       """
@@ -46,11 +45,11 @@ Feature: No Database
       """
       Feature: posts
         Scenario: See them
-          When I do it
+          When I view the posts
       """
     And I write to "features/step_definitions/posts_steps.rb" with:
       """
-      When /^I do it$/ do
+      When('I view the posts') do
         visit '/posts'
       end
       """

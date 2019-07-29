@@ -7,15 +7,7 @@ Feature: Capybara Javascript Drivers
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
     And I write to "features/step_definitions/date_time_steps.rb" with:
       """
-      When /^(?:|I )select "([^"]+)" as the "([^"]+)" time$/ do |time, selector|
-        select_time(time, from: selector)
-      end
-
-      When /^(?:|I )select "([^"]+)" as the "([^"]+)" date$/ do |date, selector|
-        select_date(date, from: selector)
-      end
-
-      When /^(?:|I )select "([^"]+)" as the "([^"]+)" date and time$/ do |datetime, selector|
+      When('I select {string} as the {string} date and time') do |datetime, selector|
         select_datetime(datetime, from: selector)
       end
       """
@@ -25,14 +17,13 @@ Feature: Capybara Javascript Drivers
       """
       @javascript
       Feature: Create appointments
-        Scenario: Constitution on May 17
+        Scenario: Visit the Constitution on May 17
           Given I am on the new appointment page
           And I fill in "Norway's constitution" for "Name"
           And I select "2015-02-20 15:10:00 UTC" as the "When" date and time
           And I press "Create Appointment"
           Then I should see "Norway's constitution"
           And I should see "2015-02-20 15:10:00 UTC"
-
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
@@ -47,23 +38,21 @@ Feature: Capybara Javascript Drivers
       """
       @javascript
       Feature: Create appointments
-        Scenario: Constitution on May 17
+        Scenario: Visit the Constitution on May 17
           Given a random appointment
-          And I am viewing random appointment
+          And I am viewing a random appointment
           Then I should see "Random appointment"
-
       """
     And I write to "features/step_definitions/custom_steps.rb" with:
       """
-      Given /^a random appointment$/ do
+      Given('a random appointment') do
         @appointment = Appointment.create!(name: 'Random appointment', when: DateTime.now)
       end
 
-      Given /^I am viewing random appointment$/ do
+      Given('I am viewing a random appointment') do
         visit appointment_path(@appointment)
       end
       """
-
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
     Then the feature run should pass with:

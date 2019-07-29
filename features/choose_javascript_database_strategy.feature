@@ -26,6 +26,20 @@ Feature: Choose javascript database strategy
   Background:
     Given I have created a new Rails app and installed cucumber-rails
     And I have a "Widget" ActiveRecord model object
+    When I write to "features/step_definitions/widget_steps.rb" with:
+      """
+      When('I create {int} widgets') do |number|
+        number.times { Widget.create! }
+      end
+
+      Then('I should have {int} widgets') do |number|
+        expect(Widget.count).to eq(number)
+      end
+
+      Then('the DatabaseCleaner strategy should be {word}') do |strategy_name|
+        expect(DatabaseCleaner.connections.first.strategy.to_s).to match(/#{strategy_name}/i)
+      end
+      """
 
   Scenario: Set the strategy to truncation and run a javascript scenario.
     When I append to "features/env.rb" with:
@@ -37,13 +51,13 @@ Feature: Choose javascript database strategy
       """
       Feature:
         Background:
-          Given I have created 2 widgets
+          When I create 2 widgets
 
         @javascript
         Scenario:
-          Then the DatabaseCleaner strategy should be truncation
           When I create 3 widgets
-          Then I should have 5 widgets
+          Then the DatabaseCleaner strategy should be truncation
+          And I should have 5 widgets
 
         @javascript
         Scenario:
@@ -53,20 +67,6 @@ Feature: Choose javascript database strategy
         Scenario:
           Then the DatabaseCleaner strategy should be transaction
           And I should have 2 widgets
-      """
-    And I write to "features/step_definitions/widget_steps.rb" with:
-      """
-      Given /created? (\d) widgets/ do |num|
-        num.to_i.times { Widget.create! }
-      end
-
-      Then /should have (\d) widgets/ do |num|
-        Widget.count.should == num.to_i
-      end
-
-      Then /^the DatabaseCleaner strategy should be (\w+)$/ do |strategy_name|
-        DatabaseCleaner.connections.first.strategy.to_s.should =~ /#{strategy_name}/i
-      end
       """
     And I run the cukes
     Then the feature run should pass with:
@@ -85,7 +85,7 @@ Feature: Choose javascript database strategy
       @javascript
       Feature:
         Background:
-          Given I have created 2 widgets
+          When I create 2 widgets
 
         Scenario:
           When I create 3 widgets
@@ -93,16 +93,6 @@ Feature: Choose javascript database strategy
 
         Scenario:
           Then I should have 2 widgets
-      """
-    And I write to "features/step_definitions/widget_steps.rb" with:
-      """
-      Given /created? (\d) widgets/ do |num|
-        num.to_i.times { Widget.create! }
-      end
-
-      Then /should have (\d) widgets/ do |num|
-        Widget.count.should == num.to_i
-      end
       """
     And I run the cukes
     Then the feature run should pass with:
@@ -114,7 +104,7 @@ Feature: Choose javascript database strategy
   Scenario: Set the strategy to truncation with an except option and run a javascript scenario.
     When I append to "features/env.rb" with:
       """
-      Cucumber::Rails::Database.javascript_strategy = :truncation, {:except=>%w[widgets]}
+      Cucumber::Rails::Database.javascript_strategy = :truncation, { except: %w[widgets] }
       """
     And I write to "features/widgets.feature" with:
       """
@@ -126,16 +116,6 @@ Feature: Choose javascript database strategy
 
         Scenario:
           Then I should have 3 widgets
-      """
-    And I write to "features/step_definitions/widget_steps.rb" with:
-      """
-      Given /created? (\d) widgets/ do |num|
-        num.to_i.times { Widget.create! }
-      end
-
-      Then /should have (\d) widgets/ do |num|
-        Widget.count.should == num.to_i
-      end
       """
     And I run the cukes
     Then the feature run should pass with:
