@@ -1,1 +1,4 @@
---format progress --colour
+--format progress
+--color
+--order random
+--require spec_helper
