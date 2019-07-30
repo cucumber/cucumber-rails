@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
 
   s.license = 'MIT'
 
-  s.add_runtime_dependency('capybara', ['>= 2.3.0', '< 4'])
+  s.add_runtime_dependency('capybara', ['>= 2.12', '< 4'])
   s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 4'])
-  s.add_runtime_dependency('mime-types', ['>= 1.17', '< 4'])
+  s.add_runtime_dependency('mime-types', ['>= 2.0', '< 4'])
   s.add_runtime_dependency('nokogiri', '~> 1.8')
   s.add_runtime_dependency('railties', ['>= 4.2', '< 7'])
 
