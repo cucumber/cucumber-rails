@@ -21,9 +21,9 @@ Gem::Specification.new do |s|
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
-  s.add_development_dependency('appraisal', '~> 2.0')
+  s.add_development_dependency('appraisal', '~> 2.2')
   s.add_development_dependency('aruba', '~> 0.14.4')
-  s.add_development_dependency('bundler', '>= 1.16')
+  s.add_development_dependency('bundler', '>= 1.17')
   s.add_development_dependency('rails', ['>= 4.2', '< 7'])
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
