@@ -33,9 +33,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency('sqlite3', '~> 1.3')
 
   # For Documentation:
-  s.add_development_dependency('rdiscount', '>= 2.2')
-  s.add_development_dependency('rdoc', '>= 5.0')
-  s.add_development_dependency('yard', '~> 0.9')
+  s.add_development_dependency('rdoc', '>= 6.0')
+  s.add_development_dependency('yard', '~> 0.9.10')
 
   s.required_ruby_version = '>= 2.3.0'
   s.rubygems_version = '>= 1.6.1'
