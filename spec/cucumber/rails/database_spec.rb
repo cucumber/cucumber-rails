@@ -3,10 +3,12 @@
 require 'cucumber/rails/database'
 
 describe Cucumber::Rails::Database do
-  let(:strategy) { double(before_js: nil, before_non_js: nil) }
+  before { allow(strategy_type).to receive(:new).and_return(strategy) }
+
+  let(:strategy) { instance_double(strategy_type, before_js: nil, before_non_js: nil) }
+  let(:strategy_type) { Cucumber::Rails::Database::TruncationStrategy }
 
   it 'forwards events to the selected strategy' do
-    allow(Cucumber::Rails::Database::TruncationStrategy).to receive_messages(new: strategy)
     described_class.javascript_strategy = :truncation
 
     expect(strategy).to receive(:before_non_js).ordered
@@ -22,6 +24,8 @@ describe Cucumber::Rails::Database do
   end
 
   describe 'using a custom strategy' do
+    let(:strategy_type) { ValidStrategy }
+
     class ValidStrategy
       def before_js
         # Anything
@@ -32,8 +36,7 @@ describe Cucumber::Rails::Database do
       end
     end
 
-    class InvalidStrategy
-    end
+    class InvalidStrategy; end
 
     it 'raises an error if the strategy doens\'t support the protocol' do
       expect { described_class.javascript_strategy = InvalidStrategy }
@@ -46,7 +49,6 @@ describe Cucumber::Rails::Database do
     end
 
     it 'forwards events to a custom strategy' do
-      allow(ValidStrategy).to receive_messages(new: strategy)
       described_class.javascript_strategy = ValidStrategy
 
       expect(strategy).to receive(:before_non_js).ordered
