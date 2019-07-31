@@ -6,6 +6,38 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 
  * Drop Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
  
+ * Begin to update the core runtime / development dependencies to something a little more recent
+   ([#431](https://github.com/cucumber/cucumber-rails/pull/431) /
+   [#432](https://github.com/cucumber/cucumber-rails/pull/432) /
+   [mvz](https://github.com/mvz) / 
+   [luke-hill](https://github.com/luke-hill))
+   
+### Fixed
+
+ * Various rubocop / styling issues that had built up over time
+  ([#413](https://github.com/cucumber/cucumber-rails/pull/413) /
+  [#414](https://github.com/cucumber/cucumber-rails/pull/414) /
+  [#416](https://github.com/cucumber/cucumber-rails/pull/416) /
+  [#419](https://github.com/cucumber/cucumber-rails/pull/419) /
+  [#419](https://github.com/cucumber/cucumber-rails/pull/420) /
+  [#421](https://github.com/cucumber/cucumber-rails/pull/421) /
+  [luke-hill](https://github.com/luke-hill) /
+  [mvz](https://github.com/mvz))
+  
+ * Generic Travis Healthcheck (Fixed up polluted logs and use newer Ubuntu OS)
+  ([#415](https://github.com/cucumber/cucumber-rails/pull/415) /
+  [#417](https://github.com/cucumber/cucumber-rails/pull/417)
+  [luke-hill](https://github.com/luke-hill))
+  
+ * Rails6 not building correctly
+  ([#418](https://github.com/cucumber/cucumber-rails/pull/418)
+  [luke-hill](https://github.com/luke-hill))
+  
+ * Provisional Ruby 2.7 builds not working
+  ([#427](https://github.com/cucumber/cucumber-rails/pull/427)
+  [amatsuda](https://github.com/amatsuda) /
+  [luke-hill](https://github.com/luke-hill))
+ 
 ## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-17)
 
 ### Changed
@@ -495,7 +527,6 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 * Webrat step "Then I should be on" should use request_uri instead of path for missing query string parameters (ZhangJinzhu)
 * Added MIME type parameter to attach file step definition (Felix Flores)
 * Added check when including ActiveSupport::Testing::SetupAndTeardown for older Rails versions (Jeremy Durham)
-
 
 [deivid-rodriguez]: https://github.com/deivid-rodriguez
 [koic]: https://github.com/koic
