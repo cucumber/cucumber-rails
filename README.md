@@ -5,8 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.svg)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
 
-Cucumber-Rails brings Cucumber to Rails 4.2 and Rails 5.x. This gem is also compatible with Rails 6.0+
-but this is currently in a beta phase, so there may be issues.
+Cucumber-Rails brings Cucumber to Rails 4.2, Rails 5.x and Rails 6.0.
 
 ## Installation
 
@@ -97,7 +96,7 @@ To run the suite against a named gemfile, use the following:
 
 To remove and rebuild the different gemfiles (for example, to update a rails version or its dependencies), use the following:
 
-    [bundle exec] appraisal install
+    [bundle exec] appraisal update
 
 If you've changed versions of the dependencies, you may find it helpful to forcefully clean each appraisal's gem lock file in `gemfiles/`. You can do this using:
 
@@ -121,7 +120,7 @@ If you get an error while trying to run the tests locally, similar to the one be
 
     Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
     
-you would need to install a javascript runtime.
+You need to install a javascript runtime.
 
 You can do that in ubuntu by using:
 

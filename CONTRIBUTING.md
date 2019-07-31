@@ -29,7 +29,10 @@ This document is a guide for those maintaining Cucumber-Rails, and others who wo
     bundle install
     bin/install_geckodriver.sh
     bin/install_webpacker.sh
-    bundle exec rake
+    # Then to run tests on one specific gemfile (i.e. Rails 4.2), run
+    bundle exec appraisal rails_4_2 rake test
+    # Or run tests across the full supported stack. Note that because we support many versions. This takes 5-10 minutes
+    bundle exec rake appraisal
 
 ## Release Process
 
@@ -43,19 +46,6 @@ Now release it
     bundle exec rake
     git commit -m "Release X.Y.Z"
     rake release
-
-### NOTE:
-
-If after running the rake release task you get an error similar to this:
-
-    rake aborted!
-    Couldn't git push. `git push  2>&1' failed with the following output:
-
-    To git@github.com:cucumber/cucumber-rails.git
-    ! [rejected]        rails-2.3.x -> rails-2.3.x (non-fast-forward)
-    error: failed to push some refs to 'git@github.com:cucumber/cucumber-rails.git'
-
-make sure that you have pulled all the recent changes from the master branch
 
 ## Gaining Release Karma
 
