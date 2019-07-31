@@ -15,11 +15,7 @@ module Cucumber
           strategy_type =
             case strategy
             when Symbol
-              map[strategy] ||
-                raise(
-                  InvalidStrategy,
-                  "The strategy '#{strategy}' is not understood. Please use one of #{map.keys.join(',')}"
-                )
+              map[strategy] || throw_invalid_strategy_error(strategy)
             when Class
               strategy
             end
@@ -52,9 +48,21 @@ module Cucumber
           }
         end
 
+        def throw_invalid_strategy_error(strategy)
+          raise(InvalidStrategy, "The strategy '#{strategy}' is not understood. Please use one of #{mapped_keys}")
+        end
+
+        def mapped_keys
+          map.keys.join(',')
+        end
+
         def validate_interface!
           return if CUSTOM_STRATEGY_INTERFACE.all? { |m| @strategy.respond_to?(m) }
 
+          throw_invalid_strategy_interface_error
+        end
+
+        def throw_invalid_strategy_interface_error
           raise(
             ArgumentError,
             "Strategy must respond to all of: #{CUSTOM_STRATEGY_INTERFACE.map { |method| "##{method}" } * '  '} !"
