@@ -1,0 +1,7 @@
+Failing Scenarios:
+cucumber features/annotations.feature:16 # Scenario: See annotations in .feature file
+cucumber features/capybara_javascript_drivers.feature:15 # Scenario: Use a particular driver
+cucumber features/capybara_javascript_drivers.feature:36 # Scenario: Mixed DB access
+cucumber features/emulate_javascript.feature:3 # Scenario: See a widget
+cucumber features/emulate_javascript.feature:38 # Scenario: Pass on the CSRF token
+cucumber features/raising_errors.feature:3 # Scenario: Raise error for undefined route
