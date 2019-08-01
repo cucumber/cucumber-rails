@@ -7,36 +7,36 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
  * Drop Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
  
  * Begin to update the core runtime / development dependencies to something a little more recent
-   ([#431](https://github.com/cucumber/cucumber-rails/pull/431) /
+   ([#413](https://github.com/cucumber/cucumber-rails/pull/413) /
+   [#431](https://github.com/cucumber/cucumber-rails/pull/431) /
    [#432](https://github.com/cucumber/cucumber-rails/pull/432) /
-   [mvz](https://github.com/mvz) / 
-   [luke-hill](https://github.com/luke-hill))
+   [mvz] / 
+   [luke-hill])
    
 ### Fixed
 
  * Various rubocop / styling issues that had built up over time
-  ([#413](https://github.com/cucumber/cucumber-rails/pull/413) /
   [#414](https://github.com/cucumber/cucumber-rails/pull/414) /
   [#416](https://github.com/cucumber/cucumber-rails/pull/416) /
   [#419](https://github.com/cucumber/cucumber-rails/pull/419) /
-  [#419](https://github.com/cucumber/cucumber-rails/pull/420) /
+  [#420](https://github.com/cucumber/cucumber-rails/pull/420) /
   [#421](https://github.com/cucumber/cucumber-rails/pull/421) /
-  [luke-hill](https://github.com/luke-hill) /
-  [mvz](https://github.com/mvz))
+  [luke-hill] /
+  [mvz])
   
  * Generic Travis Healthcheck (Fixed up polluted logs and use newer Ubuntu OS)
   ([#415](https://github.com/cucumber/cucumber-rails/pull/415) /
   [#417](https://github.com/cucumber/cucumber-rails/pull/417)
-  [luke-hill](https://github.com/luke-hill))
+  [luke-hill])
   
  * Rails6 not building correctly
   ([#418](https://github.com/cucumber/cucumber-rails/pull/418)
-  [luke-hill](https://github.com/luke-hill))
+  [luke-hill])
   
  * Provisional Ruby 2.7 builds not working
   ([#427](https://github.com/cucumber/cucumber-rails/pull/427)
-  [amatsuda](https://github.com/amatsuda) /
-  [luke-hill](https://github.com/luke-hill))
+  [amatsuda] /
+  [luke-hill])
  
 ## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-17)
 
@@ -54,16 +54,16 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
  [#394](https://github.com/cucumber/cucumber-rails/pull/394) /
  [#395](https://github.com/cucumber/cucumber-rails/pull/395) /
  [#408](https://github.com/cucumber/cucumber-rails/pull/408)
- [xtrasimplicity](https://github.com/xtrasimplicity) /
- [deivid-rodriguez](https://github.com/deivid-rodriguez) /
- [mvz](https://github.com/mvz)
+ [xtrasimplicity] /
+ [deivid-rodriguez] /
+ [mvz])
  
  * Various build issues that had built up over the previous year
   [#403](https://github.com/cucumber/cucumber-rails/pull/403) /
   [#404](https://github.com/cucumber/cucumber-rails/pull/404) /
   [#410](https://github.com/cucumber/cucumber-rails/pull/410)
-  [koic](https://github.com/koic) /
-  [mvz](https://github.com/mvz)
+  [koic] /
+  [mvz]
 
 ## [v1.6.0](https://github.com/cucumber/cucumber-rails/compare/v1.5.0...v1.6.0) (2018-04-23)
 
@@ -533,3 +533,6 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 [kotovalexarian]: https://github.com/kotovalexarian
 [mvz]: https://github.com/mvz
 [olleolleolle]: https://github.com/olleolleolle
+[luke-hill]: https://github.com/luke-hill
+[amatsuda]: https://github.com/amatsuda
+[xtrasimplicity]: https://github.com/xtrasimplicity
