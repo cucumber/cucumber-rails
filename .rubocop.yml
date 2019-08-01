@@ -7,9 +7,6 @@ require:
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
-    # This file is something which we aren't advising people to use
-    # Probably need to consider deleting this fully at some point
-    - 'features/support/legacy_web_steps_support.rb'
     # These are auto-generated from a load of features that we
     # don't have direct control over
     - 'tmp/**/*'
