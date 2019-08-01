@@ -18,5 +18,5 @@ Feature: Annotations
     Then it should pass with:
       """
       features/tests.feature:
-        * [ 3] [TODO] When I go to the products page
+        * [3] [TODO] When I go to the products page
       """
