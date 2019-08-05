@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 # Generators are not automatically loaded by Rails
-require 'generators/cucumber/install/install_generator'
+require 'generators/cucumber/install_generator'
 
 describe Cucumber::InstallGenerator do
   # Tell the generator where to put its output (what it thinks of as Rails.root)
