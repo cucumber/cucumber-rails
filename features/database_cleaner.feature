@@ -1,4 +1,4 @@
-Feature: DatabaseCleaner
+Feature: Database Cleaner
 
   Scenario: Create records in background
     Given I have created a new Rails app and installed cucumber-rails

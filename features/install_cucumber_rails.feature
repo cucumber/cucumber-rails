@@ -1,4 +1,5 @@
-Feature: Rails
+Feature: Install Cucumber Rails
+
   In order to take over the world
   Cucumber-Rails should work on major versions
   of Rails and Ruby, with Capybara, Spork and DatabaseCleaner

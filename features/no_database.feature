@@ -1,4 +1,5 @@
 Feature: No Database
+
   Allow Cucumber to work with a Rails app without a database
 
   Scenario: No ActiveRecord and DatabaseCleaner
