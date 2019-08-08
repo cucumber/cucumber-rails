@@ -52,6 +52,10 @@ Feature: Capybara Javascript Drivers
       Given('I am viewing a random appointment') do
         visit appointment_path(@appointment)
       end
+
+      Then('I should see {string}') do |text|
+        expect(page).to have_content(text)
+      end
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
