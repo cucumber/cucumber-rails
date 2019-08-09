@@ -5,14 +5,14 @@ Feature: Database Cleaner
     When I write to "features/widgets.feature" with:
       """
       Feature: Create widgets
-        Background: some widgets
+        Background: 2 initial widgets
           Given I have 2 widgets
 
-        Scenario: Add 3
+        Scenario: Add 3 widgets
           When I create 3 more widgets
           Then I should have 5 widgets
 
-        Scenario: Add 7
+        Scenario: Add 7 widgets
           When I create 7 more widgets
           Then I should have 9 widgets
       """

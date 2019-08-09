@@ -1,10 +1,53 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md) on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v1.7.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...master) (Not yet released)
+
+### Changed
+
+ * 
+   
+### Fixed
+
+ * 
+
+## [v1.8.0](https://github.com/cucumber/cucumber-rails/compare/v1.7.0..v1.8.0) (2019-08-06)
 
 ### Changed
 
  * Drop Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
+ 
+ * Begin to update the core runtime / development dependencies to something a little more recent
+   ([#413](https://github.com/cucumber/cucumber-rails/pull/413) /
+   [#431](https://github.com/cucumber/cucumber-rails/pull/431) /
+   [#432](https://github.com/cucumber/cucumber-rails/pull/432)
+   [mvz] / 
+   [luke-hill])
+   
+### Fixed
+
+ * Various rubocop / styling issues that had built up over time
+  ([#414](https://github.com/cucumber/cucumber-rails/pull/414) /
+  [#416](https://github.com/cucumber/cucumber-rails/pull/416) /
+  [#419](https://github.com/cucumber/cucumber-rails/pull/419) /
+  [#420](https://github.com/cucumber/cucumber-rails/pull/420) /
+  [#421](https://github.com/cucumber/cucumber-rails/pull/421) /
+  [#421](https://github.com/cucumber/cucumber-rails/pull/434)
+  [luke-hill] /
+  [mvz])
+  
+ * Generic Travis Healthcheck (Fixed up polluted logs and use newer Ubuntu OS)
+  ([#415](https://github.com/cucumber/cucumber-rails/pull/415) /
+  [#417](https://github.com/cucumber/cucumber-rails/pull/417)
+  [luke-hill])
+  
+ * Rails6 not building correctly
+  ([#418](https://github.com/cucumber/cucumber-rails/pull/418)
+  [luke-hill])
+  
+ * Provisional Ruby 2.7 builds not working
+  ([#427](https://github.com/cucumber/cucumber-rails/pull/427)
+  [amatsuda] /
+  [luke-hill])
  
 ## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-17)
 
@@ -18,20 +61,20 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 ### Fixed
 
  * Appraisals fixes (Up-to-date `geckodriver`, standardised the various `.gemfile`s)
- [#389](https://github.com/cucumber/cucumber-rails/pull/389) /
+ ([#389](https://github.com/cucumber/cucumber-rails/pull/389) /
  [#394](https://github.com/cucumber/cucumber-rails/pull/394) /
  [#395](https://github.com/cucumber/cucumber-rails/pull/395) /
  [#408](https://github.com/cucumber/cucumber-rails/pull/408)
- [xtrasimplicity](https://github.com/xtrasimplicity) /
- [deivid-rodriguez](https://github.com/deivid-rodriguez) /
- [mvz](https://github.com/mvz)
+ [xtrasimplicity] /
+ [deivid-rodriguez] /
+ [mvz])
  
  * Various build issues that had built up over the previous year
-  [#403](https://github.com/cucumber/cucumber-rails/pull/403) /
+  ([#403](https://github.com/cucumber/cucumber-rails/pull/403) /
   [#404](https://github.com/cucumber/cucumber-rails/pull/404) /
   [#410](https://github.com/cucumber/cucumber-rails/pull/410)
-  [koic](https://github.com/koic) /
-  [mvz](https://github.com/mvz)
+  [koic] /
+  [mvz])
 
 ## [v1.6.0](https://github.com/cucumber/cucumber-rails/compare/v1.5.0...v1.6.0) (2018-04-23)
 
@@ -43,7 +86,7 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
  * Updated syntax to support both new and deprecated forms of tag negation. ([#348](https://github.com/cucumber/cucumber-rails/pull/348) [mirelon](https://github.com/mirelon), [#359](https://github.com/cucumber/cucumber-rails/pull/359) [xtrasimplicity](https://github.com/xtrasimplicity))
  * Dependencies: Allowed `Ammeter` versions greater than 1.1.3. ([#368](https://github.com/cucumber/cucumber-rails/pull/368) [mvz](https://github.com/mvz))
  * Switched to Ruby 1.9 hash syntax. ([#371](https://github.com/cucumber/cucumber-rails/pull/371) [mvz](https://github.com/mvz))
- * Added support to handle rerun files with multiple lines. ([#c6d3d7e](https://github.com/cucumber/cucumber-rails/commit/c6d3d7e77febb758ae17bd154b9d4da7a8847c3d) [mvz](https://github.com/mvz))
+ * Added support to handle rerun files with multiple lines. ([#373]((https://github.com/cucumber/cucumber-rails/pull/345)) [mvz](https://github.com/mvz))
  * Added support for Rails 5.2 and Capybara 3. ([#378](https://github.com/cucumber/cucumber-rails/pull/378/) [gobijan](https://github.com/gobijan), [radar](https://github.com/radar), [xtrasimplicity](https://github.com/xtrasimplicity))
  
 ### Fixed
@@ -496,9 +539,11 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 * Added MIME type parameter to attach file step definition (Felix Flores)
 * Added check when including ActiveSupport::Testing::SetupAndTeardown for older Rails versions (Jeremy Durham)
 
-
 [deivid-rodriguez]: https://github.com/deivid-rodriguez
 [koic]: https://github.com/koic
 [kotovalexarian]: https://github.com/kotovalexarian
 [mvz]: https://github.com/mvz
 [olleolleolle]: https://github.com/olleolleolle
+[luke-hill]: https://github.com/luke-hill
+[amatsuda]: https://github.com/amatsuda
+[xtrasimplicity]: https://github.com/xtrasimplicity

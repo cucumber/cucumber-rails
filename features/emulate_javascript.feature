@@ -32,7 +32,7 @@ Feature: Emulate Javascript
       """
 
   Scenario: See a widget
-    When I write to "features/widget.feature" with:
+    When I write to "features/widgets.feature" with:
       """
       @javascript
       Feature: Widget inventory
@@ -70,7 +70,7 @@ Feature: Emulate Javascript
         end
       end
       """
-    And I write to "features/widget.feature" with:
+    And I write to "features/widgets.feature" with:
       """
       Feature: Widget inventory
         Scenario: Delete a widget

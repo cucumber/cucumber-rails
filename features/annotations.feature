@@ -4,19 +4,17 @@ Feature: Annotations
   As a developer
   I should be able to list annotations in my features
 
-  Background:
+  Scenario: See annotations in feature file
     Given I have created a new Rails app with no database and installed cucumber-rails
-    When I write to "features/tests.feature" with:
+    When I write to "features/products.feature" with:
       """
-      Feature: Tests
-        Scenario: Tests
+      Feature: Products
+        Scenario: Test a Product
           # TODO: When I go to the products page
       """
-
-  Scenario: See annotations in .feature file
     When I run `bundle exec rake notes`
     Then it should pass with:
       """
-      features/tests.feature:
+      features/products.feature:
         * [3] [TODO] When I go to the products page
       """
