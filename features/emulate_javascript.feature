@@ -1,10 +1,38 @@
 Feature: Emulate Javascript
 
-  Scenario: See a widget
+  Background:
     Given I have created a new Rails app and installed cucumber-rails
     And I force selenium to run Firefox in headless mode
     When I run `rails generate scaffold widget name:string`
-    And I write to "features/f.feature" with:
+    And I write to "features/step_definitions/widget_steps.rb" with:
+    """
+      Given('there is a widget named {string}') do |name|
+        FactoryBot.create(:widget, name: name)
+      end
+
+      When('I go to the widgets page') do
+        visit path_to('widgets')
+      end
+
+      def path_to(page_name)
+        self.send(page_name.split(' ').push('path').join('_').to_sym)
+      end
+
+      Then('I should see {string}') do |text|
+        expect(page).to have_content(text)
+      end
+      """
+    And I write to "features/support/factories/widget.rb" with:
+      """
+      FactoryBot.define do
+        factory :widget do
+          name { 'testwidget' }
+        end
+      end
+      """
+
+  Scenario: See a widget
+    When I write to "features/widget.feature" with:
       """
       @javascript
       Feature: Widget inventory
@@ -12,20 +40,6 @@ Feature: Emulate Javascript
           Given there is a widget named "wrench"
           When I go to the widgets page
           Then I should see "wrench"
-      """
-    And I write to "features/step_definitions/s.rb" with:
-      """
-      Given('there is a widget named {string}') do |name|
-        FactoryBot.create(:widget, name: name)
-      end
-      """
-    And I write to "features/support/factories.rb" with:
-      """
-      FactoryBot.define do
-        factory :widget do
-          name { 'testwidget' }
-        end
-      end
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
@@ -36,9 +50,7 @@ Feature: Emulate Javascript
       """
 
   Scenario: Pass on the CSRF token
-    Given I have created a new Rails app and installed cucumber-rails
-    When I run `rails generate scaffold widget name:string`
-    And I run `sed -i -e 's/forgery_protection *= false/forgery_protection = true/' config/environments/test.rb`
+    When I run `sed -i -e 's/forgery_protection *= false/forgery_protection = true/' config/environments/test.rb`
     And I run `rails generate controller session establish`
     And I write to "app/controllers/session_controller.rb" with:
       """
@@ -58,7 +70,7 @@ Feature: Emulate Javascript
         end
       end
       """
-    And I write to "features/f.feature" with:
+    And I write to "features/widget.feature" with:
       """
       Feature: Widget inventory
         Scenario: Delete a widget
@@ -71,18 +83,25 @@ Feature: Emulate Javascript
           And I should be on the widgets page
           And I should not see "wrench"
       """
-    And I write to "features/step_definitions/s.rb" with:
+    And I append to "features/step_definitions/widget_steps.rb" with:
+      # TODO: Remove the newline below (Required) once bug is fixed: https://github.com/cucumber/aruba/issues/662
       """
-      Given('there is a widget named {string}') do |name|
-        FactoryBot.create(:widget, name: name)
+
+      When('I go to the session establish page') do
+        visit path_to('session establish')
       end
-      """
-    And I write to "features/support/factories.rb" with:
-      """
-      FactoryBot.define do
-        factory :widget do
-          name { 'testwidget' }
-        end
+
+      When('I follow {string}') do |link|
+        click_link(link)
+      end
+
+      Then('I should not see {string}') do |text|
+        expect(page).not_to have_content(text)
+      end
+
+      Then('I should be on the widgets page') do
+        current_path = URI.parse(current_url).path
+        expect(current_path).to eq(path_to('widgets'))
       end
       """
     And I run `bundle exec rake db:migrate`
