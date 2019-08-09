@@ -4,22 +4,22 @@ Feature: Emulate Javascript
     Given I have created a new Rails app and installed cucumber-rails
     And I force selenium to run Firefox in headless mode
     When I run `rails generate scaffold widget name:string`
-    And I write to "features/f.feature" with:
+    And I write to "features/widgets.feature" with:
       """
       @javascript
       Feature: Widget inventory
-        Scenario: Delete a widget
+        Scenario: View a widget
           Given there is a widget named "wrench"
           When I go to the widgets page
           Then I should see "wrench"
       """
-    And I write to "features/step_definitions/s.rb" with:
+    And I write to "features/step_definitions/widget_steps.rb" with:
       """
       Given('there is a widget named {string}') do |name|
         FactoryBot.create(:widget, name: name)
       end
       """
-    And I write to "features/support/factories.rb" with:
+    And I write to "features/support/factories/widget.rb" with:
       """
       FactoryBot.define do
         factory :widget do
@@ -58,7 +58,7 @@ Feature: Emulate Javascript
         end
       end
       """
-    And I write to "features/f.feature" with:
+    And I write to "features/widgets.feature" with:
       """
       Feature: Widget inventory
         Scenario: Delete a widget
@@ -71,13 +71,13 @@ Feature: Emulate Javascript
           And I should be on the widgets page
           And I should not see "wrench"
       """
-    And I write to "features/step_definitions/s.rb" with:
+    And I write to "features/step_definitions/widget_steps.rb" with:
       """
       Given('there is a widget named {string}') do |name|
         FactoryBot.create(:widget, name: name)
       end
       """
-    And I write to "features/support/factories.rb" with:
+    And I write to "features/support/factories/widget.rb" with:
       """
       FactoryBot.define do
         factory :widget do

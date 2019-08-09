@@ -24,6 +24,19 @@ Given('I have a {string} ActiveRecord model object') do |name|
   run_command_and_stop('bundle exec rake db:migrate RAILS_ENV=test')
 end
 
+Given('I remove the {string} gem from the Gemfile') do |gem_name|
+  content = File.open(expand_path('Gemfile'), 'r').readlines
+  new_content = []
+
+  content.each do |line|
+    next if line =~ /gem ["|']#{gem_name}["|'].*/
+
+    new_content << line
+  end
+
+  overwrite_file('Gemfile', new_content.join("\r\n"))
+end
+
 Given('I force selenium to run Firefox in headless mode') do
   selenium_config = %{
     Capybara.register_driver :selenium do |app|
@@ -56,17 +69,4 @@ Then(/^the feature run should pass with:$/) do |string|
   step 'the output should not contain " undefined)"'
   step 'the exit status should be 0'
   step 'the output should contain:', string
-end
-
-Given('I remove the {string} gem from the Gemfile') do |gem_name|
-  content = File.open(expand_path('Gemfile'), 'r').readlines
-  new_content = []
-
-  content.each do |line|
-    next if line =~ /gem ["|']#{gem_name}["|'].*/
-
-    new_content << line
-  end
-
-  overwrite_file('Gemfile', new_content.join("\r\n"))
 end

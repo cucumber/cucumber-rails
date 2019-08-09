@@ -46,10 +46,6 @@ module CucumberRailsHelper
     end
   end
 
-  def fixture(path)
-    File.expand_path(File.dirname(__FILE__) + "./../support/fixtures/#{path}")
-  end
-
   private
 
   def rails6?

@@ -43,7 +43,7 @@ Feature: Capybara Javascript Drivers
           And I am viewing a random appointment
           Then I should see "Random appointment"
       """
-    And I write to "features/step_definitions/custom_steps.rb" with:
+    And I write to "features/step_definitions/create_appointment_steps.rb" with:
       """
       Given('a random appointment') do
         @appointment = Appointment.create!(name: 'Random appointment', when: DateTime.now)

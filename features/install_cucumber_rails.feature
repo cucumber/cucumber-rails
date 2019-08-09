@@ -1,7 +1,7 @@
-Feature: Rails
+Feature: Install Rails
   In order to take over the world
-  Cucumber-Rails should work on major versions
-  of Rails and Ruby, with Capybara, Spork and DatabaseCleaner
+  Cucumber-Rails should work on supported versions
+  of Ruby on Rails, with Capybara and DatabaseCleaner
 
   Scenario: Install Cucumber-Rails
     Given I have created a new Rails app and installed cucumber-rails

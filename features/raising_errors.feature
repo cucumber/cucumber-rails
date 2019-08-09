@@ -2,10 +2,10 @@ Feature: Raise Errors
 
   Scenario: Raise error for undefined route
     Given I have created a new Rails app with no database and installed cucumber-rails
-    When I write to "features/tests.feature" with:
+    When I write to "features/products.feature" with:
       """
-      Feature: Tests
-        Scenario: Tests
+      Feature: Products
+        Scenario: Test a Product
           When I go to the products page
       """
     And I run `bundle exec cucumber`
