@@ -10,12 +10,8 @@ Feature: Emulate Javascript
         FactoryBot.create(:widget, name: name)
       end
 
-      When('I go to the widgets page') do
-        visit path_to('widgets')
-      end
-
-      def path_to(page_name)
-        self.send(page_name.split(' ').push('path').join('_').to_sym)
+      When('I am on the widgets page') do
+        visit widgets_path
       end
 
       Then('I should see {string}') do |text|
@@ -38,7 +34,7 @@ Feature: Emulate Javascript
       Feature: Widget inventory
         Scenario: Delete a widget
           Given there is a widget named "wrench"
-          When I go to the widgets page
+          And I am on the widgets page
           Then I should see "wrench"
       """
     And I run `bundle exec rake db:migrate`
@@ -75,8 +71,8 @@ Feature: Emulate Javascript
       Feature: Widget inventory
         Scenario: Delete a widget
           Given there is a widget named "wrench"
-          When I go to the session establish page
-          And I go to the widgets page
+          And I am on the session establish page
+          And I am on the widgets page
           Then I should see "wrench"
           When I follow "Destroy"
           Then I should not see "denied"
@@ -87,8 +83,8 @@ Feature: Emulate Javascript
       # TODO: Remove the newline below (Required) once bug is fixed: https://github.com/cucumber/aruba/issues/662
       """
 
-      When('I go to the session establish page') do
-        visit path_to('session establish')
+      Given('I am on the session establish page') do
+        visit session_establish_path
       end
 
       When('I follow {string}') do |link|
@@ -101,7 +97,7 @@ Feature: Emulate Javascript
 
       Then('I should be on the widgets page') do
         current_path = URI.parse(current_url).path
-        expect(current_path).to eq(path_to('widgets'))
+        expect(current_path).to eq(widgets_path)
       end
       """
     And I run `bundle exec rake db:migrate`
