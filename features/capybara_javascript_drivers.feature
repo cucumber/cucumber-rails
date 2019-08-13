@@ -36,9 +36,7 @@ Feature: Capybara Javascript Drivers
       Then('I should see {string}') do |text|
         expect(page).to have_content(text)
       end
-      """
-    And I write to "features/step_definitions/date_time_steps.rb" with:
-      """
+
       When('I select {string} as the {string} date and time') do |datetime, selector|
         select_datetime(datetime, from: selector)
       end
@@ -58,7 +56,7 @@ Feature: Capybara Javascript Drivers
       Feature: Create appointments
         Scenario: Visit the Constitution on May 17
           Given a random appointment
-          And I am viewing a random appointment
+          And I am viewing the appointment
           Then I should see "Random appointment"
       """
     And I write to "features/step_definitions/create_appointment_steps.rb" with:
@@ -67,7 +65,7 @@ Feature: Capybara Javascript Drivers
         @appointment = Appointment.create!(name: 'Random appointment', when: DateTime.now)
       end
 
-      Given('I am viewing a random appointment') do
+      Given('I am viewing the appointment') do
         visit appointment_path(@appointment)
       end
 
