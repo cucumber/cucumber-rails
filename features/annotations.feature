@@ -1,6 +1,6 @@
 Feature: Annotations
 
-  I order to track my development progress
+  In order to track my development progress
   As a developer
   I should be able to list annotations in my features
 
