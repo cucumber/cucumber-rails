@@ -9,8 +9,20 @@ end
 
 module Cucumber
   module Rails
+    class << self
+      attr_accessor :remove_rack_test_helpers
+
+      def configure
+        yield self
+      end
+    end
+  end
+end
+
+module Cucumber
+  module Rails
     class World < ActionDispatch::IntegrationTest
-      include Rack::Test::Methods
+      include Rack::Test::Methods unless Cucumber::Rails.remove_rack_test_helpers
       include ActiveSupport::Testing::SetupAndTeardown if ActiveSupport::Testing.const_defined?('SetupAndTeardown')
 
       def initialize
