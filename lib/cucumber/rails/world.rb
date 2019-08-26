@@ -10,10 +10,8 @@ end
 module Cucumber
   module Rails
     class << self
-      attr_accessor :remove_rack_test_helpers
-
-      def configure
-        yield self
+      def remove_rack_test_helpers
+        ENV['CR_REMOVE_RACK_TEST_HELPERS'] == "true"
       end
     end
   end

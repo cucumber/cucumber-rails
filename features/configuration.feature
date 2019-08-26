@@ -37,19 +37,13 @@ Feature: Cucumber Rails Configuration
       """
 
   Scenario: Altered configuration
+    Given I set the environment variable "CR_REMOVE_RACK_TEST_HELPERS" to "true"
     When I write to "features/config.feature" with:
       """
       Feature: Rack Test Methods
         Scenario: Default Methods are added to the World
           Given I boot up cucumber rails normally
           Then `Rack::Test` should not be included as an ancestor of `World`
-      """
-    And I append to "features/support/env.rb" with:
-      """
-
-      Cucumber::Rails.configure do |config|
-        config.remove_rack_test_helpers = true
-      end
       """
     And I run `bundle exec rake cucumber`
     Then the feature run should pass with:
