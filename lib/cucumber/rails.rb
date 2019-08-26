@@ -29,6 +29,7 @@ if called_from_env_rb
   require 'cucumber/rails/hooks'
   require 'cucumber/rails/capybara'
   require 'cucumber/rails/database'
+  require 'aruba/cucumber'
 
   MultiTest.disable_autorun
 else

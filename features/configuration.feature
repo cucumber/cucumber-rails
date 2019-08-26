@@ -6,16 +6,15 @@ Feature: Cucumber Rails Configuration
 
   Scenario: Default configuration
     Given I have created a new Rails app with no database and installed cucumber-rails
-
     When I write to "features/config.feature" with:
       """
       Feature: Rack Test Methods
         Scenario: Default Methods are added to the World
-          Then `Rack::Test` should be included as an ancestor of `World`
+          Then Rack Test should be mixed into the Cucumber World
       """
     When I write to "features/step_definitions/config_steps.rb" with:
       """
-      Then('`Rack::Test` should be included as an ancestor of `World`') do
+      Then('Rack Test should be mixed into the Cucumber World') do
         expect(self.class.ancestors).to include(Rack::Test::Methods)
       end
       """
@@ -28,16 +27,16 @@ Feature: Cucumber Rails Configuration
 
   Scenario: Altered configuration
     Given I have created a new Rails app with no database and installed cucumber-rails
-    Given I set the environment variable "CR_REMOVE_RACK_TEST_HELPERS" to "true"
+    And I set the environment variable "CR_REMOVE_RACK_TEST_HELPERS" to "true"
     When I write to "features/config.feature" with:
       """
       Feature: Rack Test Methods
         Scenario: Rack Test Methods can be removed from the world
-          Then `Rack::Test` should not be included as an ancestor of `World`
+          Then Rack Test should not be mixed into the Cucumber World
       """
     When I write to "features/step_definitions/config_steps.rb" with:
       """
-      Then('`Rack::Test` should not be included as an ancestor of `World`') do
+      Then('Rack Test should not be mixed into the Cucumber World') do
         expect(self.class.ancestors).not_to include(Rack::Test::Methods)
       end
       """
