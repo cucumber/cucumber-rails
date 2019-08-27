@@ -64,7 +64,7 @@ When('I run the cukes') do
 end
 
 # Copied from Aruba
-Then(/^the feature run should pass with:$/) do |string|
+Then('the feature run should pass with:') do |string|
   step 'the output should not contain " failed)"'
   step 'the output should not contain " undefined)"'
   step 'the exit status should be 0'

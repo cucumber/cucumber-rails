@@ -16,6 +16,7 @@ module CucumberRailsHelper
   def install_cucumber_rails(*options)
     add_conditional_gems(options)
 
+    gem 'capybara', group: :test
     gem 'selenium-webdriver', '~> 3.11', group: :test
     gem 'rspec-expectations', '~> 3.7', group: :test
     gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
@@ -61,12 +62,6 @@ module CucumberRailsHelper
       gem 'sqlite3', '~> 1.4'
     else
       gem 'sqlite3', '~> 1.3.13'
-    end
-
-    if RUBY_VERSION < '2.4.0'
-      gem 'capybara', '< 3.16.0', group: :test
-    else
-      gem 'capybara', group: :test
     end
   end
 end
