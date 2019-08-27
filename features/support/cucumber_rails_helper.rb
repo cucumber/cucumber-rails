@@ -33,7 +33,7 @@ module CucumberRailsHelper
     parts = ["'#{name}'"]
     parts << args.map(&:inspect) if args.any?
     parts << options.inspect[1..-2] if options.any?
-    new_parts = parts.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
+    new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
     line = "gem #{new_parts.join(', ')}\n"
 
     # These two lines below will be left in for a short time. See Commit SHA for details.
@@ -42,7 +42,18 @@ module CucumberRailsHelper
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
 
-    append_to_file('Gemfile', line)
+    if gemfile_content =~ gem_regexp
+      before = gemfile_content
+      puts "Length Before: #{before.length}"
+      gemfile_content.gsub!(gem_regexp, line)
+      after = gemfile_content
+      puts "Length After: #{after.length}"
+      puts "Before == after -> #{before == after}"
+      puts "Before length == after length -> #{before.length == after.length}"
+      overwrite_file('Gemfile', gemfile_content)
+    else
+      append_to_file('Gemfile', line)
+    end
   end
 
   private
