@@ -1,5 +1,5 @@
-Feature: Install Rails
-  In order to take over the world
+Feature: Install Cucumber Rails
+
   Cucumber-Rails should work on supported versions
   of Ruby on Rails, with Capybara and DatabaseCleaner
 

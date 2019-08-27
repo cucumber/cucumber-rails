@@ -3,20 +3,17 @@
 Given('I have created a new Rails app and installed cucumber-rails, accidentally outside of the test group in my Gemfile') do
   rails_new
   install_cucumber_rails :not_in_test_group
-  create_web_steps
 end
 
 Given('I have created a new Rails app and installed cucumber-rails') do
   rails_new
   install_cucumber_rails
-  create_web_steps
 end
 
 Given('I have created a new Rails app with no database and installed cucumber-rails') do
   rails_new args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_bot
   overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
-  create_web_steps
 end
 
 Given('I have a {string} ActiveRecord model object') do |name|

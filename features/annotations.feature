@@ -1,6 +1,6 @@
 Feature: Annotations
 
-  I order to track my development progress
+  In order to track my development progress
   As a developer
   I should be able to list annotations in my features
 
@@ -16,5 +16,5 @@ Feature: Annotations
     Then it should pass with:
       """
       features/products.feature:
-        * [ 3] [TODO] When I go to the products page
+        * [3] [TODO] When I go to the products page
       """

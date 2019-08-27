@@ -1,4 +1,5 @@
 Feature: Rerun profile
+
   In order to concentrate on failing features
   As a Rails developer working with Cucumber
   I want to rerun only failing features
