@@ -11,7 +11,8 @@ module Cucumber
   module Rails
     class << self
       def remove_rack_test_helpers
-        ENV['CR_REMOVE_RACK_TEST_HELPERS'] == "true"
+        # Using ActiveModel Boolean casting here will give false positives more often than not!
+        ENV['CR_REMOVE_RACK_TEST_HELPERS']&.casecmp('true')&.zero?
       end
     end
   end
