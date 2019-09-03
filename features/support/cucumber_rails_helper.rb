@@ -41,6 +41,8 @@ module CucumberRailsHelper
     # Remove before v2.1 is cut
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
+    puts "Frozen status of gem_regexp #{gem_regexp.frozen?}"
+    puts "Frozen status of gemfile_content #{gemfile_content.frozen?}"
 
     if gemfile_content =~ gem_regexp
       before = gemfile_content
