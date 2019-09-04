@@ -23,7 +23,7 @@ describe Cucumber::Rails::Database do
       .to raise_error(Cucumber::Rails::Database::InvalidStrategy)
   end
 
-  context 'using a custom strategy' do
+  context 'when using a custom strategy' do
     let(:strategy_type) { ValidStrategy }
 
     class ValidStrategy
