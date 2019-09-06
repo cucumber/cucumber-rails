@@ -6,12 +6,12 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 
  * New functionality allows users to Configure whether `Rack::Test` methods get auto-mixed in
    * Setting `ENV['CR_REMOVE_RACK_TEST_HELPERS] = "true"` will remove these methods from the `World`
-   ([#4xx](https://github.com/cucumber/cucumber-rails/pull/4xx) [luke-hill])
+   ([#440](https://github.com/cucumber/cucumber-rails/pull/440) [luke-hill])
 
 ### Changed
 
  * Altered some branching logic in tests designed to cater for old ruby/rails versions
-   ([#413](https://github.com/cucumber/cucumber-rails/pull/433) [luke-hill])
+   ([#433](https://github.com/cucumber/cucumber-rails/pull/433) [luke-hill])
  * `aruba` is now included as a core-dependency; not a test-dependency
 
 ### Fixed

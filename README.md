@@ -51,6 +51,12 @@ By default, cucumber-rails runs `DatabaseCleaner.start` and `DatabaseCleaner.cle
 Cucumber::Rails::Database.autorun_database_cleaner = false
 ```
 
+By default, cucumber-rails will auto mix-in the helpers from  `Rack::Test` into your default Cucumber World instance. You can prevent this behaviour like so:
+```ruby
+# features/support/env.rb
+ENV['CR_REMOVE_RACK_TEST_HELPERS'] = 'true'
+```
+
 ## Upgrading from a previous version
 
 When upgrading from a previous version it is recommended that you rerun:
