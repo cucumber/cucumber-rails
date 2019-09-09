@@ -2,10 +2,18 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 
 ## [master](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...master) (Not yet released)
 
+### New Features
+
+ * New functionality allows users to Configure whether `Rack::Test` methods get auto-mixed in
+   * Setting `ENV['CR_REMOVE_RACK_TEST_HELPERS] = "true"` will remove these methods from the `World`
+   ([#440](https://github.com/cucumber/cucumber-rails/pull/440) [luke-hill])
+
 ### Changed
 
- * 
-   
+ * Altered some branching logic in tests designed to cater for old ruby/rails versions
+   ([#433](https://github.com/cucumber/cucumber-rails/pull/433) [luke-hill])
+ * `aruba` is now included as a core-dependency; not a test-dependency
+
 ### Fixed
 
  * 

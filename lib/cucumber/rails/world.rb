@@ -9,8 +9,19 @@ end
 
 module Cucumber
   module Rails
+    class << self
+      def include_rack_test_helpers?
+        # Using ActiveModel Boolean casting here will give false positives more often than not!
+        !ENV['CR_REMOVE_RACK_TEST_HELPERS']&.casecmp('true')&.zero?
+      end
+    end
+  end
+end
+
+module Cucumber
+  module Rails
     class World < ActionDispatch::IntegrationTest
-      include Rack::Test::Methods
+      include Rack::Test::Methods if Cucumber::Rails.include_rack_test_helpers?
       include ActiveSupport::Testing::SetupAndTeardown if ActiveSupport::Testing.const_defined?('SetupAndTeardown')
 
       def initialize
