@@ -24,32 +24,36 @@ describe Cucumber::Rails::Database do
   end
 
   context 'when using a custom strategy' do
-    let(:strategy_type) { ValidStrategy }
+    let(:strategy_type) { valid_strategy }
 
-    class ValidStrategy
-      def before_js
-        # Anything
-      end
+    let(:valid_strategy) do
+      Class.new do
+        def before_js
+          # Anything
+        end
 
-      def before_non_js
-        # Likewise
+        def before_non_js
+          # Likewise
+        end
       end
     end
 
-    class InvalidStrategy; end
+    let(:invalid_strategy) do
+      Class.new
+    end
 
     it 'raises an error if the strategy does not have a valid interface' do
-      expect { described_class.javascript_strategy = InvalidStrategy }
+      expect { described_class.javascript_strategy = invalid_strategy }
         .to raise_error(ArgumentError)
     end
 
     it 'accepts the strategy if it has a valid interface' do
-      expect { described_class.javascript_strategy = ValidStrategy }
+      expect { described_class.javascript_strategy = valid_strategy }
         .not_to raise_error
     end
 
     it 'forwards events to the strategy' do
-      described_class.javascript_strategy = ValidStrategy
+      described_class.javascript_strategy = valid_strategy
 
       expect(strategy).to receive(:before_non_js)
       described_class.before_non_js
