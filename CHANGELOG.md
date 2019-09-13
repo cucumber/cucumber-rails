@@ -1,6 +1,20 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md) on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...master) (Not yet released)
+
+### New Features
+
+ * 
+
+### Changed
+
+ * 
+
+### Fixed
+
+ * 
+
+## [v2.0.0](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...v2.0.0) (Not yet released)
 
 ### New Features
 
@@ -10,13 +24,11 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 
 ### Changed
 
+ * **Breaking change:** `web_steps` have been completely removed from cucumber-rails
+   ([#437](https://github.com/cucumber/cucumber-rails/pull/437) [luke-hill])
+   
  * Altered some branching logic in tests designed to cater for old ruby/rails versions
    ([#433](https://github.com/cucumber/cucumber-rails/pull/433) [luke-hill])
- * `aruba` is now included as a core-dependency; not a test-dependency
-
-### Fixed
-
- * 
 
 ## [v1.8.0](https://github.com/cucumber/cucumber-rails/compare/v1.7.0..v1.8.0) (2019-08-06)
 
