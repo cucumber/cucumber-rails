@@ -4,7 +4,7 @@ $LOAD_PATH.unshift File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
   s.name        = 'cucumber-rails'
-  s.version     = '1.8.0'
+  s.version     = '2.0.0'
   s.authors     = ['Aslak Hellesøy', 'Dennis Blöte', 'Rob Holland']
   s.description = 'Cucumber Generator and Runtime for Rails'
   s.summary     = "#{s.name}-#{s.version}"
@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
 
   s.license = 'MIT'
 
-  s.add_runtime_dependency('aruba', '~> 0.14.4')
   s.add_runtime_dependency('capybara', ['>= 2.12', '< 4'])
   s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 4'])
   s.add_runtime_dependency('mime-types', ['>= 2.0', '< 4'])
@@ -22,6 +21,7 @@ Gem::Specification.new do |s|
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
+  s.add_development_dependency('aruba', '~> 0.14.4')
   s.add_development_dependency('appraisal', '~> 2.2')
   s.add_development_dependency('bundler', '>= 1.17')
   s.add_development_dependency('rails', ['>= 4.2', '< 7'])
