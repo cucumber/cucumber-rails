@@ -14,7 +14,7 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 
  * 
 
-## [v2.0.0](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...v2.0.0) (Not yet released)
+## [v2.0.0](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...v2.0.0) (2019-09-013)
 
 ### New Features
 
