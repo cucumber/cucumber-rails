@@ -29,30 +29,17 @@ module CucumberRailsHelper
 
   def gem(name, *args)
     options = args.last.is_a?(Hash) ? args.pop : {}
-
     parts = ["'#{name}'"]
     parts << args.map(&:inspect) if args.any?
     parts << options.inspect[1..-2] if options.any?
     new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
     line = "gem #{new_parts.join(', ')}\n"
-
-    # These two lines below will be left in for a short time. See Commit SHA for details.
-    #
-    # Remove before v2.1 is cut
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
-    puts "Frozen status of gem_regexp #{gem_regexp.frozen?}"
-    puts "Frozen status of gemfile_content #{gemfile_content.frozen?}"
 
     if gemfile_content =~ gem_regexp
-      before = gemfile_content
-      puts "Length Before: #{before.length}"
-      gemfile_content.gsub!(gem_regexp, line)
-      after = gemfile_content
-      puts "Length After: #{after.length}"
-      puts "Before == after -> #{before == after}"
-      puts "Before length == after length -> #{before.length == after.length}"
-      overwrite_file('Gemfile', gemfile_content)
+      updated_gemfile_content = gemfile_content.gsub(gem_regexp, line)
+      overwrite_file('Gemfile', updated_gemfile_content)
     else
       append_to_file('Gemfile', line)
     end
