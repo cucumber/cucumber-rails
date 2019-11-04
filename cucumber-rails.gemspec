@@ -9,9 +9,17 @@ Gem::Specification.new do |s|
   s.description = 'Cucumber Generator and Runtime for Rails'
   s.summary     = "#{s.name}-#{s.version}"
   s.email       = 'cukes@googlegroups.com'
-  s.homepage    = 'http://cukes.info'
+  s.homepage    = 'https://cucumber.io'
 
   s.license = 'MIT'
+
+  s.metadata = {
+    'bug_tracker_uri' => 'https://github.com/cucumber/cucumber-rails/issues',
+    'changelog_uri' => "https://github.com/cucumber/cucumber-rails/blob/v#{s.version}/CHANGELOG.md",
+    'documentation_uri' => 'https://cucumber.io/docs',
+    'mailing_list_uri' => 'https://groups.google.com/forum/#!forum/cukes',
+    'source_code_uri' => "https://github.com/cucumber/cucumber-rails/tree/v#{s.version}"
+  }
 
   s.add_runtime_dependency('capybara', ['>= 2.12', '< 4'])
   s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 4'])
