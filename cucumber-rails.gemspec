@@ -18,8 +18,7 @@ Gem::Specification.new do |s|
     'changelog_uri' => "https://github.com/cucumber/cucumber-rails/blob/v#{s.version}/CHANGELOG.md",
     'documentation_uri' => 'https://cucumber.io/docs',
     'mailing_list_uri' => 'https://groups.google.com/forum/#!forum/cukes',
-    'source_code_uri' => "https://github.com/cucumber/cucumber-rails/tree/v#{s.version}",
-    'wiki_uri' => 'https://github.com/cucumber/cucumber-rails/wiki'
+    'source_code_uri' => "https://github.com/cucumber/cucumber-rails/tree/v#{s.version}"
   }
 
   s.add_runtime_dependency('capybara', ['>= 2.12', '< 4'])
