@@ -1,22 +1,18 @@
 # frozen_string_literal: true
 
+
 require 'cucumber/rails/world'
 
-begin
-  require 'rspec/rails/matchers'
-
+if defined?(RSpec::Matchers)
   [Cucumber::Rails::World, ActionDispatch::Integration::Session].each do |klass|
     klass.class_eval do
       include RSpec::Matchers
     end
   end
-rescue LoadError
-  require 'spec/expectations'
-  require 'spec/rails'
-
+else
   [Cucumber::Rails::World, ActionDispatch::Integration::Session].each do |klass|
     klass.class_eval do
-      include Spec::Matchers
+      include Spec::Matchers if defined?(Spec::Matchers)
       include Spec::Rails::Matchers if defined?(Spec::Rails::Matchers)
     end
   end
