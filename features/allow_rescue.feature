@@ -20,7 +20,7 @@ Feature: Allow Cucumber to rescue exceptions
   Scenario: Allow rescue
     When I write to "features/posts.feature" with:
       """
-      Feature: posts
+      Feature: Posts
         @allow-rescue
         Scenario: See posts
           When I look at the posts
@@ -31,6 +31,7 @@ Feature: Allow Cucumber to rescue exceptions
       When('I look at the posts') do
         visit '/posts'
       end
+
       Then('I should see the public error page') do
         expect(page).to have_content "We're sorry, but something went wrong."
       end
@@ -46,7 +47,7 @@ Feature: Allow Cucumber to rescue exceptions
   Scenario: Don't allow rescue
     When I write to "features/posts.feature" with:
       """
-      Feature: posts
+      Feature: Posts
         Scenario: See them
           When I look at the posts
       """

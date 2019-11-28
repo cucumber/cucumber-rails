@@ -25,14 +25,13 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 4'])
   s.add_runtime_dependency('mime-types', ['>= 2.0', '< 4'])
   s.add_runtime_dependency('nokogiri', '~> 1.8')
-  s.add_runtime_dependency('railties', ['>= 4.2', '< 7'])
+  s.add_runtime_dependency('rails', ['>= 4.2', '< 7'])
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
   s.add_development_dependency('aruba', '~> 0.14.4')
   s.add_development_dependency('appraisal', '~> 2.2')
   s.add_development_dependency('bundler', '>= 1.17')
-  s.add_development_dependency('rails', ['>= 4.2', '< 7'])
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
   s.add_development_dependency('rubocop', '~> 0.74.0')

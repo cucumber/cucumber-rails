@@ -11,13 +11,7 @@ if called_from_env_rb
   ENV['RAILS_ROOT'] ||= File.expand_path(env_caller + '/../..')
   require File.expand_path(ENV['RAILS_ROOT'] + '/config/environment')
   require 'cucumber/rails/action_controller'
-
-  if defined?(ActiveRecord::Base)
-    require 'rails/test_help'
-  else
-    require 'action_dispatch/testing/test_process'
-    require 'action_dispatch/testing/integration'
-  end
+  require 'rails/test_help'
 
   unless Rails.application.config.cache_classes
     warn "WARNING: You have set Rails' config.cache_classes to false

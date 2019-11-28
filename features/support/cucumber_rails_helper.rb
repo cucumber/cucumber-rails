@@ -16,6 +16,7 @@ module CucumberRailsHelper
   def install_cucumber_rails(*options)
     add_conditional_gems(options)
 
+    gem 'capybara', group: :test
     gem 'selenium-webdriver', '~> 3.11', group: :test
     gem 'rspec-expectations', '~> 3.7', group: :test
     gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
@@ -28,19 +29,17 @@ module CucumberRailsHelper
 
   def gem(name, *args)
     options = args.last.is_a?(Hash) ? args.pop : {}
-
     parts = ["'#{name}'"]
     parts << args.map(&:inspect) if args.any?
     parts << options.inspect[1..-2] if options.any?
-
-    line = "gem #{parts.join(', ')}\n"
-
+    new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
+    line = "gem #{new_parts.join(', ')}\n"
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
 
     if gemfile_content =~ gem_regexp
-      gemfile_content.gsub!(gem_regexp, line)
-      overwrite_file('Gemfile', gemfile_content)
+      updated_gemfile_content = gemfile_content.gsub(gem_regexp, line)
+      overwrite_file('Gemfile', updated_gemfile_content)
     else
       append_to_file('Gemfile', line)
     end
@@ -63,12 +62,6 @@ module CucumberRailsHelper
       gem 'sqlite3', '~> 1.4'
     else
       gem 'sqlite3', '~> 1.3.13'
-    end
-
-    if RUBY_VERSION < '2.4.0'
-      gem 'capybara', '< 3.16.0', group: :test
-    else
-      gem 'capybara', group: :test
     end
   end
 end

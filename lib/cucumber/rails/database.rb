@@ -53,7 +53,7 @@ module Cucumber
         end
 
         def mapped_keys
-          map.keys.join(',')
+          map.keys.join(', ')
         end
 
         def validate_interface!
