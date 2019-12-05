@@ -28,12 +28,7 @@ module CucumberRailsHelper
   end
 
   def gem(name, *args)
-    options = args.last.is_a?(Hash) ? args.pop : {}
-    parts = ["'#{name}'"]
-    parts << args.map(&:inspect) if args.any?
-    parts << options.inspect[1..-2] if options.any?
-    new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
-    line = "gem #{new_parts.join(', ')}\n"
+    line = convert_gem_opts_to_string(name, *args)
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
 
@@ -63,6 +58,15 @@ module CucumberRailsHelper
     else
       gem 'sqlite3', '~> 1.3.13'
     end
+  end
+
+  def convert_gem_opts_to_string(name, *args)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+    parts = ["'#{name}'"]
+    parts << args.map(&:inspect) if args.any?
+    parts << options.inspect[1..-2] if options.any?
+    new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
+    "gem #{new_parts.join(', ')}\n"
   end
 end
 
