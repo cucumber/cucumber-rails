@@ -48,7 +48,7 @@ module Cucumber
           js_form['action'] = action
           js_form['method'] = method
 
-          add_hidden_input(document, js_form) unless same?(emulated_method, method)
+          add_hidden_method_input(document, js_form) unless same?(emulated_method, method)
 
           # rails will wipe the session if the CSRF token is not sent with non-GET requests
           add_hidden_csrf_input(document, js_form) if csrf_and_non_get?(emulated_method)
@@ -57,10 +57,10 @@ module Cucumber
         end
 
         def same?(emulated_method, method)
-          emulated_method&.casecmp(method)&.zero?
+          emulated_method.casecmp(method).zero?
         end
 
-        def add_hidden_input(document, js_form)
+        def add_hidden_method_input(document, js_form)
           input = document.create_element('input')
           input['type'] = 'hidden'
           input['name'] = '_method'
@@ -69,7 +69,7 @@ module Cucumber
         end
 
         def csrf_and_non_get?(emulated_method)
-          csrf? && !emulated_method.casecmp('get').zero?
+          csrf? && !same?(emulated_method, 'get')
         end
 
         def add_hidden_csrf_input(document, js_form)

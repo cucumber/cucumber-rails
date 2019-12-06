@@ -2,26 +2,25 @@
 
 module CucumberRailsHelper
   def rails_new(options = {})
-    command_result = run_rails_new_command(options)
-    validate_rails_new_success(command_result)
+    validate_rails_new_success(run_rails_new_command(options))
     clear_bundle_env_vars(options[:name])
   end
 
   def install_cucumber_rails(*options)
     add_conditional_gems(options)
 
-    gem 'capybara', group: :test
-    gem 'selenium-webdriver', '~> 3.11', group: :test
-    gem 'rspec-expectations', '~> 3.7', group: :test
-    gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
-    gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
+    add_gem 'capybara', group: :test
+    add_gem 'selenium-webdriver', '~> 3.11', group: :test
+    add_gem 'rspec-expectations', '~> 3.7', group: :test
+    add_gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
+    add_gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
 
     run_command_and_stop 'bundle install'
     run_command_and_stop 'bundle exec rails webpacker:install' if rails6?
     run_command_and_stop 'bundle exec rails generate cucumber:install'
   end
 
-  def gem(name, *args)
+  def add_gem(name, *args)
     line = convert_gem_opts_to_string(name, *args)
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
@@ -59,15 +58,15 @@ module CucumberRailsHelper
 
   def add_conditional_gems(options)
     if options.include?(:not_in_test_group)
-      gem 'cucumber-rails', path: File.expand_path('.').to_s
+      add_gem 'cucumber-rails', path: File.expand_path('.').to_s
     else
-      gem 'cucumber-rails', group: :test, require: false, path: File.expand_path('.').to_s
+      add_gem 'cucumber-rails', group: :test, require: false, path: File.expand_path('.').to_s
     end
 
     if rails6?
-      gem 'sqlite3', '~> 1.4'
+      add_gem 'sqlite3', '~> 1.4'
     else
-      gem 'sqlite3', '~> 1.3.13'
+      add_gem 'sqlite3', '~> 1.3.13'
     end
   end
 
