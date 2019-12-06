@@ -2,15 +2,9 @@
 
 module CucumberRailsHelper
   def rails_new(options = {})
-    options[:name] ||= 'test_app'
-    command_result =
-      run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring --skip-bootsnap #{options[:args]}"
-    expect(command_result).to have_output(/README/)
-    expect(last_command_started).to be_successfully_executed
-    cd options[:name]
-    delete_environment_variable 'RUBYOPT'
-    delete_environment_variable 'BUNDLE_BIN_PATH'
-    delete_environment_variable 'BUNDLE_GEMFILE'
+    command_result = run_rails_new_command(options)
+    validate_rails_new_success(command_result)
+    clear_bundle_env_vars(options[:name])
   end
 
   def install_cucumber_rails(*options)
@@ -41,6 +35,23 @@ module CucumberRailsHelper
   end
 
   private
+
+  def run_rails_new_command(options)
+    options[:name] ||= 'test_app'
+    run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring --skip-bootsnap #{options[:args]}"
+  end
+
+  def validate_rails_new_success(result)
+    expect(result).to have_output(/README/)
+    expect(last_command_started).to be_successfully_executed
+  end
+
+  def clear_bundle_env_vars(dir)
+    cd dir
+    delete_environment_variable 'RUBYOPT'
+    delete_environment_variable 'BUNDLE_BIN_PATH'
+    delete_environment_variable 'BUNDLE_GEMFILE'
+  end
 
   def rails6?
     `bundle exec rails -v`.start_with?('Rails 6')
