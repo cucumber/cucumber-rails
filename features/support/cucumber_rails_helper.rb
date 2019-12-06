@@ -2,38 +2,26 @@
 
 module CucumberRailsHelper
   def rails_new(options = {})
-    options[:name] ||= 'test_app'
-    command_result =
-      run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring --skip-bootsnap #{options[:args]}"
-    expect(command_result).to have_output(/README/)
-    expect(last_command_started).to be_successfully_executed
-    cd options[:name]
-    delete_environment_variable 'RUBYOPT'
-    delete_environment_variable 'BUNDLE_BIN_PATH'
-    delete_environment_variable 'BUNDLE_GEMFILE'
+    validate_rails_new_success(run_rails_new_command(options))
+    clear_bundle_env_vars(options[:name])
   end
 
   def install_cucumber_rails(*options)
     add_conditional_gems(options)
 
-    gem 'capybara', group: :test
-    gem 'selenium-webdriver', '~> 3.11', group: :test
-    gem 'rspec-expectations', '~> 3.7', group: :test
-    gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
-    gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
+    add_gem 'capybara', group: :test
+    add_gem 'selenium-webdriver', '~> 3.11', group: :test
+    add_gem 'rspec-expectations', '~> 3.7', group: :test
+    add_gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
+    add_gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
 
     run_command_and_stop 'bundle install'
     run_command_and_stop 'bundle exec rails webpacker:install' if rails6?
     run_command_and_stop 'bundle exec rails generate cucumber:install'
   end
 
-  def gem(name, *args)
-    options = args.last.is_a?(Hash) ? args.pop : {}
-    parts = ["'#{name}'"]
-    parts << args.map(&:inspect) if args.any?
-    parts << options.inspect[1..-2] if options.any?
-    new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
-    line = "gem #{new_parts.join(', ')}\n"
+  def add_gem(name, *args)
+    line = convert_gem_opts_to_string(name, *args)
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
 
@@ -47,22 +35,48 @@ module CucumberRailsHelper
 
   private
 
+  def run_rails_new_command(options)
+    options[:name] ||= 'test_app'
+    run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring --skip-bootsnap #{options[:args]}"
+  end
+
+  def validate_rails_new_success(result)
+    expect(result).to have_output(/README/)
+    expect(last_command_started).to be_successfully_executed
+  end
+
+  def clear_bundle_env_vars(dir)
+    cd dir
+    delete_environment_variable 'RUBYOPT'
+    delete_environment_variable 'BUNDLE_BIN_PATH'
+    delete_environment_variable 'BUNDLE_GEMFILE'
+  end
+
   def rails6?
     `bundle exec rails -v`.start_with?('Rails 6')
   end
 
   def add_conditional_gems(options)
     if options.include?(:not_in_test_group)
-      gem 'cucumber-rails', path: File.expand_path('.').to_s
+      add_gem 'cucumber-rails', path: File.expand_path('.').to_s
     else
-      gem 'cucumber-rails', group: :test, require: false, path: File.expand_path('.').to_s
+      add_gem 'cucumber-rails', group: :test, require: false, path: File.expand_path('.').to_s
     end
 
     if rails6?
-      gem 'sqlite3', '~> 1.4'
+      add_gem 'sqlite3', '~> 1.4'
     else
-      gem 'sqlite3', '~> 1.3.13'
+      add_gem 'sqlite3', '~> 1.3.13'
     end
+  end
+
+  def convert_gem_opts_to_string(name, *args)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+    parts = ["'#{name}'"]
+    parts << args.map(&:inspect) if args.any?
+    parts << options.inspect[1..-2] if options.any?
+    new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
+    "gem #{new_parts.join(', ')}\n"
   end
 end
 
