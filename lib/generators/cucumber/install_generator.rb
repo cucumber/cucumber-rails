@@ -24,7 +24,7 @@ module Cucumber
 
     def create_scripts
       copy_file 'script/cucumber', 'script/cucumber'
-      chmod     'script/cucumber', 755
+      chmod     'script/cucumber', 0755
     end
 
     def create_step_definitions
