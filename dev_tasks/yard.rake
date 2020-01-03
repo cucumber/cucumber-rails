@@ -23,14 +23,6 @@ namespace :api do
   end
   task yard: :dir
 
-  task :release do
-    Dir.chdir(SITE_DIR) do
-      sh('git add .')
-      sh("git commit -m 'Update API docs for cucumber-rails v#{cucumber-rails::VERSION}'")
-      sh('git push origin master')
-    end
-  end
-
   desc "Generate YARD docs for Cucumber-Rails' API"
-  task doc: %i[yard release]
+  task doc: :yard
 end

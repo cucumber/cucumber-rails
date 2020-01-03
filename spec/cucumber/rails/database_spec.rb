@@ -8,25 +8,33 @@ describe Cucumber::Rails::Database do
   let(:strategy) { instance_double(strategy_type, before_js: nil, before_non_js: nil) }
   let(:strategy_type) { Cucumber::Rails::Database::TruncationStrategy }
 
-  it 'forwards events to the selected strategy' do
-    described_class.javascript_strategy = :truncation
+  context 'when using a valid pre-determined strategy' do
+    before { described_class.javascript_strategy = :truncation }
 
-    expect(strategy).to receive(:before_non_js)
-    described_class.before_non_js
+    it 'forwards a `before_non_js` event to the selected strategy' do
+      expect(strategy).to receive(:before_non_js)
 
-    expect(strategy).to receive(:before_js)
-    described_class.before_js
+      described_class.before_non_js
+    end
+
+    it 'forwards a `before_js` event to the selected strategy' do
+      expect(strategy).to receive(:before_js)
+
+      described_class.before_js
+    end
   end
 
-  it 'raises an error if you use a non-understood strategy' do
-    expect { described_class.javascript_strategy = :invalid }
-      .to raise_error(Cucumber::Rails::Database::InvalidStrategy)
+  context 'when using an invalid pre-determined strategy' do
+    it 'raises an error if you use a non-understood strategy' do
+      expect { described_class.javascript_strategy = :invalid }
+        .to raise_error(Cucumber::Rails::Database::InvalidStrategy)
+    end
   end
 
-  context 'when using a custom strategy' do
-    let(:strategy_type) { valid_strategy }
+  context 'when using a valid custom strategy' do
+    before { described_class.javascript_strategy = strategy_type }
 
-    let(:valid_strategy) do
+    let(:strategy_type) do
       Class.new do
         def before_js
           # Anything
@@ -38,28 +46,25 @@ describe Cucumber::Rails::Database do
       end
     end
 
-    let(:invalid_strategy) do
-      Class.new
+    it 'forwards a `before_non_js` event to the strategy' do
+      expect(strategy).to receive(:before_non_js)
+
+      described_class.before_non_js
     end
+
+    it 'forwards a `before_js` event to the strategy' do
+      expect(strategy).to receive(:before_js)
+
+      described_class.before_js
+    end
+  end
+
+  context 'when using an invalid custom strategy' do
+    let(:invalid_strategy) { Class.new }
 
     it 'raises an error if the strategy does not have a valid interface' do
       expect { described_class.javascript_strategy = invalid_strategy }
         .to raise_error(ArgumentError)
-    end
-
-    it 'accepts the strategy if it has a valid interface' do
-      expect { described_class.javascript_strategy = valid_strategy }
-        .not_to raise_error
-    end
-
-    it 'forwards events to the strategy' do
-      described_class.javascript_strategy = valid_strategy
-
-      expect(strategy).to receive(:before_non_js)
-      described_class.before_non_js
-
-      expect(strategy).to receive(:before_js)
-      described_class.before_js
     end
   end
 end

@@ -11,5 +11,5 @@ begin
     DatabaseCleaner.clean if Cucumber::Rails::Database.autorun_database_cleaner
   end
 rescue LoadError
-  # database_cleaner gem not present
+  Cucumber.logger.debug('database_cleaner gem not present.')
 end
