@@ -4,7 +4,7 @@ begin
   # Try to load it so we can assign @_result below if needed.
   require 'test/unit/testresult'
 rescue LoadError
-  # Test Unit not found
+  Cucumber.logger.debug('Minitest not found.')
 end
 
 module Cucumber
