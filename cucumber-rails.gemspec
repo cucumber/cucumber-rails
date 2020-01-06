@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('bundler', '>= 1.17')
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
-  s.add_development_dependency('rubocop', '~> 0.76.0')
+  s.add_development_dependency('rubocop', '~> 0.78.0')
   s.add_development_dependency('rubocop-performance', '~> 1.5.0')
   s.add_development_dependency('rubocop-rspec', '~> 1.37.0')
   s.add_development_dependency('sqlite3', '~> 1.3')

@@ -22,7 +22,7 @@ Style/NumericLiteralPrefix:
 
 ## Cucumber Repo styles (Across implementations) ##
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 200
   IgnoredPatterns:
     - '^Given'
