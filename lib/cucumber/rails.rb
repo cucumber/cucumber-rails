@@ -10,7 +10,7 @@ if called_from_env_rb
   ENV['RAILS_ENV'] ||= 'test'
   ENV['RAILS_ROOT'] ||= File.expand_path(env_caller + '/../..')
   require File.expand_path(ENV['RAILS_ROOT'] + '/config/environment')
-  require 'cucumber/rails/action_controller'
+  require 'cucumber/rails/action_dispatch'
   require 'rails/test_help'
 
   unless Rails.application.config.cache_classes

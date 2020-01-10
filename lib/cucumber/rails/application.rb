@@ -7,17 +7,20 @@ require 'rails/application'
 # Instead we are overriding ActionDispatch::ShowExceptions to be able to
 # toggle whether or not exceptions are raised.
 
-module Rails
-  class Application
-    alias __cucumber_orig_initialize__ initialize!
+module Cucumber
+  module Rails
+    module Application
+      def initialize!
+        ad = config.action_dispatch
 
-    def initialize!
-      ad = config.action_dispatch
+        def ad.show_exceptions
+          true
+        end
 
-      def ad.show_exceptions
-        true
+        super
       end
-      __cucumber_orig_initialize__
     end
   end
 end
+
+Rails::Application.prepend(Cucumber::Rails::Application)
