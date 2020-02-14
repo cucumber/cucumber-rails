@@ -20,7 +20,7 @@ end
 
 module Cucumber
   module Rails
-    class World < ActionDispatch::IntegrationTest
+    class World < ::ActionDispatch::IntegrationTest
       include Rack::Test::Methods if Cucumber::Rails.include_rack_test_helpers?
       include ActiveSupport::Testing::SetupAndTeardown if ActiveSupport::Testing.const_defined?('SetupAndTeardown')
 
