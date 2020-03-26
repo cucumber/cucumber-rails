@@ -13,7 +13,7 @@ if called_from_env_rb
   require 'cucumber/rails/action_dispatch'
   require 'rails/test_help'
 
-  unless Rails.application.config.cache_classes
+  unless Rails.application.config.cache_classes || defined?(Spring)
     warn "WARNING: You have set Rails' config.cache_classes to false
     (most likely in config/environments/cucumber.rb). This setting is known to cause problems
     with database transactions. Set config.cache_classes to true if you want to use transactions."
