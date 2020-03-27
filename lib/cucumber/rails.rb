@@ -15,7 +15,7 @@ if called_from_env_rb
 
   unless Rails.application.config.cache_classes || defined?(Spring)
     warn "WARNING: You have set Rails' config.cache_classes to false
-    or are using Spring. This is known to cause problems
+    (Spring needs cache_classes set to false). This is known to cause problems
     with database transactions. Set config.cache_classes to true if you want to use transactions."
   end
 
