@@ -12,9 +12,10 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 
 ### Fixed
 
- * 
+ * Avoid printing a warning about `config.cache_classes` being set to `false` when
+   Spring is used ([#462](https://github.com/cucumber/cucumber-rails/pull/462) [janko])
 
-## [v2.0.0](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...v2.0.0) (2019-09-013)
+## [v2.0.0](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...v2.0.0) (2019-09-13)
 
 ### New Features
 
