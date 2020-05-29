@@ -37,7 +37,7 @@ Feature: Choose javascript database strategy
       end
 
       Then('the DatabaseCleaner strategy should be {word}') do |strategy_name|
-        expect(DatabaseCleaner.connections.first.strategy.to_s).to match(/#{strategy_name}/i)
+        expect(DatabaseCleaner.cleaners.values.first.strategy.to_s).to match(/#{strategy_name}/i)
       end
       """
 

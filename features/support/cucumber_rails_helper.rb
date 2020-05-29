@@ -12,7 +12,7 @@ module CucumberRailsHelper
     add_gem 'capybara', group: :test
     add_gem 'selenium-webdriver', '~> 3.11', group: :test
     add_gem 'rspec-expectations', '~> 3.7', group: :test
-    add_gem 'database_cleaner', '>= 1.1', group: :test unless options.include?(:no_database_cleaner)
+    add_gem 'database_cleaner', '>= 1.8.0', group: :test unless options.include?(:no_database_cleaner)
     add_gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
 
     run_command_and_stop 'bundle install'
