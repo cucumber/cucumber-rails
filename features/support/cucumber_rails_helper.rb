@@ -37,7 +37,9 @@ module CucumberRailsHelper
 
   def run_rails_new_command(options)
     options[:name] ||= 'test_app'
-    run_command "bundle exec rails new #{options[:name]} --skip-bundle --skip-test-unit --skip-spring --skip-bootsnap #{options[:args]}"
+    flags = '--skip-bundle --skip-test-unit --skip-spring --skip-bootsnap'
+    flags += ' --skip-webpack-install' if rails6?
+    run_command "bundle exec rails new #{options[:name]} #{flags} #{options[:args]}"
   end
 
   def validate_rails_new_success(result)
