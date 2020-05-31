@@ -25,7 +25,7 @@ module CucumberRailsHelper
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
 
-    if gemfile_content =~ gem_regexp
+    if gemfile_content&.match?(gem_regexp)
       updated_gemfile_content = gemfile_content.gsub(gem_regexp, line)
       overwrite_file('Gemfile', updated_gemfile_content)
     else

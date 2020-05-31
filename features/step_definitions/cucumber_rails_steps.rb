@@ -26,7 +26,7 @@ Given('I remove the {string} gem from the Gemfile') do |gem_name|
   new_content = []
 
   content.each do |line|
-    next if line =~ /gem ["|']#{gem_name}["|'].*/
+    next if /gem ["|']#{gem_name}["|'].*/.match?(line)
 
     new_content << line
   end
