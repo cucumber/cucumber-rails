@@ -1,6 +1,6 @@
 language: ruby
 
-dist: xenial
+dist: bionic
 
 rvm:
   - 2.3
