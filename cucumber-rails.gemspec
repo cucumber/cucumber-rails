@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   }
 
   s.add_runtime_dependency('capybara', ['>= 2.12', '< 4'])
-  s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 4'])
+  s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 5'])
   s.add_runtime_dependency('mime-types', ['>= 2.0', '< 4'])
   s.add_runtime_dependency('nokogiri', '~> 1.8')
   s.add_runtime_dependency('rails', ['>= 4.2', '< 7'])
