@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 5'])
   s.add_runtime_dependency('mime-types', ['>= 2.0', '< 4'])
   s.add_runtime_dependency('nokogiri', '~> 1.8')
-  s.add_runtime_dependency('rails', ['>= 4.2', '< 7'])
+  s.add_runtime_dependency('rails', ['>= 5.0', '< 7'])
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
