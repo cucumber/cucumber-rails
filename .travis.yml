@@ -3,10 +3,10 @@ language: ruby
 dist: bionic
 
 rvm:
-  - 2.3
   - 2.4
   - 2.5
   - 2.6
+  - 2.7
   - ruby-head
 
 addons:
@@ -33,10 +33,6 @@ matrix:
   exclude:
   # Only test Rails6 on supported rubies
   # Don't test lowest rails support on maintained rubies
-    - rvm: 2.3
-      gemfile: gemfiles/rails_6_0.gemfile
-    - rvm: 2.4
-      gemfile: gemfiles/rails_4_2.gemfile
     - rvm: 2.4
       gemfile: gemfiles/rails_6_0.gemfile
     - rvm: 2.5
@@ -46,6 +42,12 @@ matrix:
     - rvm: 2.6
       gemfile: gemfiles/rails_5_0.gemfile
     - rvm: 2.6
+      gemfile: gemfiles/rails_5_1.gemfile
+    - rvm: 2.7
+      gemfile: gemfiles/rails_4_2.gemfile
+    - rvm: 2.7
+      gemfile: gemfiles/rails_5_0.gemfile
+    - rvm: 2.7
       gemfile: gemfiles/rails_5_1.gemfile
     - rvm: ruby-head
       gemfile: gemfiles/rails_4_2.gemfile

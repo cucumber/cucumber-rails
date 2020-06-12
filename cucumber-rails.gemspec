@@ -30,20 +30,20 @@ Gem::Specification.new do |s|
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
   s.add_development_dependency('appraisal', '~> 2.2')
-  s.add_development_dependency('aruba', '~> 0.14.4')
+  s.add_development_dependency('aruba', '~> 1.0')
   s.add_development_dependency('bundler', '>= 1.17')
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
-  s.add_development_dependency('rubocop', '~> 0.81.0')
-  s.add_development_dependency('rubocop-performance', '~> 1.5.0')
-  s.add_development_dependency('rubocop-rspec', '~> 1.38.0')
+  s.add_development_dependency('rubocop', '~> 0.85.0')
+  s.add_development_dependency('rubocop-performance', '~> 1.6.1')
+  s.add_development_dependency('rubocop-rspec', '~> 1.39.0')
   s.add_development_dependency('sqlite3', '~> 1.3')
 
   # For Documentation:
   s.add_development_dependency('rdoc', '>= 6.0')
   s.add_development_dependency('yard', '~> 0.9.10')
 
-  s.required_ruby_version = '>= 2.3.0'
+  s.required_ruby_version = '>= 2.4.0'
   s.rubygems_version = '>= 1.6.1'
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
