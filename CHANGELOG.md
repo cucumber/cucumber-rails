@@ -1,6 +1,21 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md) on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.1.0...master) (Not yet released)
+
+### New Features
+
+ * 
+
+### Changed
+
+ * 
+
+### Fixed
+
+ * Avoid printing a warning about `config.cache_classes` being set to `false` when
+   Spring is used ([#462](https://github.com/cucumber/cucumber-rails/pull/462) [janko])
+
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...v2.1.0) (2020-06-1x)
 
 ### New Features
 
@@ -568,3 +583,4 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 [luke-hill]: https://github.com/luke-hill
 [amatsuda]: https://github.com/amatsuda
 [xtrasimplicity]: https://github.com/xtrasimplicity
+[janko]: https://github.com/janko
