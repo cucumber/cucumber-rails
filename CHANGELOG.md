@@ -1,6 +1,7 @@
-Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md) on how to contribute to Cucumber.
+Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md)
+on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.1.0...master) (Not yet released)
 
 ### New Features
 
@@ -8,10 +9,56 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 
 ### Changed
 
- * 
+ *
 
 ### Fixed
 
+ *
+
+## [v2.1.0](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...v2.1.0) (2020-06-15)
+
+### New Features
+
+ * Added metadata to allow gem to be searched / indexed by rubygems
+    ([#447](https://github.com/cucumber/cucumber-rails/pull/447) [orien])
+    
+ * Allow Cucumber 4 to be used as an option for cucumber-rails
+   * NB: Cucumber4 changes quite a lot of logic with auto-loaders. This means that any previous
+   logic that relied implicitly on load-order "may" be affected
+   ([#453](https://github.com/cucumber/cucumber-rails/pull/453) [luke-hill] / [deivid-rodriguez])
+
+### Changed
+
+ * Dropped Ruby 2.3 support (target 2.4 - 2.7) ([#466](https://github.com/cucumber/cucumber-rails/pull/466) [mvz])
+
+ * Refactored suite to remove a lot of old Rails3/4.0 "ism's"
+   * Also migrated a lot of old cucumber styles to cucumber4
+   ([#441](https://github.com/cucumber/cucumber-rails/pull/441) [luke-hill])
+   
+ * Refactored alias logic for overriding Rails methods to use `Module#prepend`
+   ([#457](https://github.com/cucumber/cucumber-rails/pull/457) [wagenet])
+   
+ * `database_cleaner` (when used), at a version `>= 1.8` will now silence all warnings
+   * The suite internally will only test a version `>= 1.8`, so other versions will work but are un-maintained
+   ([#463](https://github.com/cucumber/cucumber-rails/pull/463) [deivid-rodriguez])
+
+### Fixed
+
+ * Various rubocop / rspec styling fixes
+   ([#445](https://github.com/cucumber/cucumber-rails/pull/445) /
+    [#449](https://github.com/cucumber/cucumber-rails/pull/449) /
+    [#450](https://github.com/cucumber/cucumber-rails/pull/450) /
+    [#451](https://github.com/cucumber/cucumber-rails/pull/451) /
+    [#452](https://github.com/cucumber/cucumber-rails/pull/452) /
+    [#465](https://github.com/cucumber/cucumber-rails/pull/465)
+   [mvz] / [luke-hill])
+
+ * Various CI fixes
+   ([#444](https://github.com/cucumber/cucumber-rails/pull/444) /
+   [#460](https://github.com/cucumber/cucumber-rails/pull/460) /
+   [#464](https://github.com/cucumber/cucumber-rails/pull/464)
+   [mvz] / [damonjmurray] / [deivid-rodriguez])
+   
  * Avoid printing a warning about `config.cache_classes` being set to `false` when
    Spring is used ([#462](https://github.com/cucumber/cucumber-rails/pull/462) [janko])
 
@@ -35,7 +82,7 @@ Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CO
 
 ### Changed
 
- * Drop Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
+ * Dropped Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
  
  * Begin to update the core runtime / development dependencies to something a little more recent
    ([#413](https://github.com/cucumber/cucumber-rails/pull/413) /
@@ -568,3 +615,7 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 [luke-hill]: https://github.com/luke-hill
 [amatsuda]: https://github.com/amatsuda
 [xtrasimplicity]: https://github.com/xtrasimplicity
+[janko]: https://github.com/janko
+[damonjmurray]: https://github.com/damonjmurray
+[orien]: https://github.com/orien
+[wagenet]: https://github.com/wagenet
