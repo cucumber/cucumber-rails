@@ -9,6 +9,7 @@ on how to contribute to Cucumber.
 
 ### Changed
 
+ * Dropped Rails 4.2 support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
  *
 
 ### Fixed

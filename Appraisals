@@ -1,12 +1,5 @@
 # frozen_string_literal: true
 
-appraise 'rails_4_2' do
-  gem 'capybara', '< 3.16.0', platform: :mri_23
-  gem 'nokogiri', '< 1.9.1', platform: :mri_23
-  gem 'railties', '~> 4.2.11'
-  gem 'sqlite3', '~> 1.3.13'
-end
-
 appraise 'rails_5_0' do
   gem 'capybara', '< 3.16.0', platform: :mri_23
   gem 'nokogiri', '< 1.9.1', platform: :mri_23

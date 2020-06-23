@@ -29,8 +29,8 @@ This document is a guide for those maintaining Cucumber-Rails, and others who wo
     bundle install
     bin/install_geckodriver.sh
     bin/install_webpacker.sh
-    # Then to run tests on one specific gemfile (i.e. Rails 4.2), run
-    bundle exec appraisal rails_4_2 rake test
+    # Then to run tests on one version-specific Gemfile (e.g. gemfiles/rails_6_0.gemfile), run
+    bundle exec appraisal rails_6_0 rake test
     # Or run tests across the full supported stack. Note that because we support many versions. This takes 5-10 minutes
     bundle exec rake appraisal
 

@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.svg)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
 
-Cucumber-Rails brings Cucumber to Rails 4.2, 5.x and 6.x.
+Cucumber-Rails brings Cucumber to Rails 5.x and 6.x.
 
 ## Installation
 
@@ -108,7 +108,7 @@ all gemfiles, run the following commands:
 
 To run the suite against a named gemfile, use the following:
 
-    [bundle exec] appraisal rails_4_2 rake test
+    [bundle exec] appraisal rails_6_0 rake test
 
 To remove and rebuild the different gemfiles (for example, to update a rails version or its
 dependencies), use the following:
