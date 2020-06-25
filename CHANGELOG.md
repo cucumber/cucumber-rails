@@ -5,7 +5,7 @@ on how to contribute to Cucumber.
 
 ### New Features
 
- * 
+ *
 
 ### Changed
 
@@ -14,7 +14,8 @@ on how to contribute to Cucumber.
 
 ### Fixed
 
- *
+ * Database cleaning no longer silently fails when using database_cleaner v2 adapter gems
+   ([#467](https://github.com/cucumber/cucumber-rails/pull/467) [botandrose])
 
 ## [v2.1.0](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...v2.1.0) (2020-06-15)
 
