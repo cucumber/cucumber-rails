@@ -76,7 +76,7 @@ module Cucumber
         end
 
         def before_js(strategy)
-          @original_strategy = if Gem::Version.new(DatabaseCleaner::VERSION) >= Gem::Version.new('1.8.0.beta')
+          @original_strategy = if defined?(DatabaseCleaner::VERSION) && Gem::Version.new(DatabaseCleaner::VERSION) >= Gem::Version.new('1.8.0.beta')
                                  DatabaseCleaner.cleaners.values.first.strategy # that feels like a nasty hack
                                else
                                  DatabaseCleaner.connections.first.strategy # that feels like a nasty hack
