@@ -1,6 +1,7 @@
 require:
   - rubocop-rspec
   - rubocop-performance
+  - rubocop-packaging
 
 AllCops:
   TargetRubyVersion: 2.4

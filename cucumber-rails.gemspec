@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'rake/file_list'
 $LOAD_PATH.unshift File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
@@ -35,6 +36,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
   s.add_development_dependency('rubocop', '~> 0.85.0')
+  s.add_development_dependency('rubocop-packaging', '~> 0.1.1')
   s.add_development_dependency('rubocop-performance', '~> 1.6.1')
   s.add_development_dependency('rubocop-rspec', '~> 1.39.0')
   s.add_development_dependency('sqlite3', '~> 1.3')
@@ -45,7 +47,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.4.0'
   s.rubygems_version = '>= 1.6.1'
-  s.files            = `git ls-files`.split("\n")
-  s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
+  s.files            = Rake::FileList['**/*'].exclude(*File.read('.gitignore').split)
+  s.test_files       = Dir['{spec,features}/**/*']
   s.require_path     = 'lib'
 end
