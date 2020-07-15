@@ -16,6 +16,10 @@ on how to contribute to Cucumber.
 
  * Database cleaning no longer silently fails when using database_cleaner v2 adapter gems
    ([#467](https://github.com/cucumber/cucumber-rails/pull/467) [botandrose])
+ * Restored compatibility with `database_cleaner` versions earlier than 1.8.0.beta
+   ([#473](https://github.com/cucumber/cucumber-rails/pull/473) [cgriego])
+ * Restored previous `database_cleaner` behavior for apps that do not use/load ActiveRecord
+   ([#474](https://github.com/cucumber/cucumber-rails/pull/474) [cgriego])
 
 ## [v2.1.0](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...v2.1.0) (2020-06-15)
 
