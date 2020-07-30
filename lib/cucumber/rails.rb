@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-called_from_env_rb = caller.detect { |f| f =~ /\/env\.rb:/ }
+called_from_env_rb = caller.detect { |f| f.include? '/env.rb:' }
 
 if called_from_env_rb
   env_caller = File.dirname(called_from_env_rb)
