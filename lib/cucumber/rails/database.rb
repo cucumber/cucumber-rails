@@ -70,64 +70,6 @@ module Cucumber
         end
       end
 
-      class Strategy
-        def initialize(options = {})
-          @options = options
-        end
-
-        def before_js(strategy)
-          @original_strategy = if defined?(DatabaseCleaner::VERSION) && Gem::Version.new(DatabaseCleaner::VERSION) >= Gem::Version.new('1.8.0.beta')
-                                 DatabaseCleaner.cleaners.values.first.strategy # that feels like a nasty hack
-                               else
-                                 DatabaseCleaner.connections.first.strategy # that feels like a nasty hack
-                               end
-          DatabaseCleaner.strategy = strategy, @options
-        end
-
-        def before_non_js
-          # no-op
-        end
-
-        def after
-          return unless @original_strategy
-
-          DatabaseCleaner.strategy = @original_strategy
-          @original_strategy = nil
-        end
-      end
-
-      class TruncationStrategy < Strategy
-        def before_js
-          super :truncation
-        end
-      end
-
-      class DeletionStrategy < Strategy
-        def before_js
-          super :deletion
-        end
-      end
-
-      class SharedConnectionStrategy < Strategy
-        def before_js
-          # Forces all threads to share a connection on a per-model basis,
-          # as connections may vary per model as per establish_connection. This works
-          # on Capybara because it starts the web server in a thread.
-          ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-          ActiveRecord::Base.descendants.each do |model|
-            model.shared_connection = model.connection
-          end
-        end
-
-        def before_non_js
-          # Do not use a shared connection unless we're in a @javascript scenario
-          ActiveRecord::Base.shared_connection = nil
-          ActiveRecord::Base.descendants.each do |model|
-            model.shared_connection = nil
-          end
-        end
-      end
-
       Database.javascript_strategy = :truncation
       Database.autorun_database_cleaner = true
     end

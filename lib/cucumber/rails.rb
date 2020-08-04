@@ -23,6 +23,10 @@ if called_from_env_rb
   require 'cucumber/rails/hooks'
   require 'cucumber/rails/capybara'
   require 'cucumber/rails/database'
+  require 'cucumber/rails/database/strategy'
+  require 'cucumber/rails/database/deletion_strategy'
+  require 'cucumber/rails/database/shared_connection_strategy'
+  require 'cucumber/rails/database/truncation_strategy'
 
   MultiTest.disable_autorun
 else
