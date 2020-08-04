@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require 'cucumber/rails/database/strategy'
+require 'cucumber/rails/database/deletion_strategy'
+require 'cucumber/rails/database/shared_connection_strategy'
+require 'cucumber/rails/database/truncation_strategy'
 require 'cucumber/rails/database'
 
 describe Cucumber::Rails::Database do
