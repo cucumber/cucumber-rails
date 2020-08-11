@@ -15,6 +15,12 @@ Given('I have created a new Rails app and installed cucumber-rails with database
   install_cucumber_rails :no_database_cleaner, :database_cleaner_active_record
 end
 
+Given('I have created a new Rails app and installed cucumber-rails without database_cleaner') do
+  rails_new
+  install_cucumber_rails :no_database_cleaner
+  overwrite_file('features/support/env.rb', "require 'cucumber/rails'\n")
+end
+
 Given('I have created a new Rails app with no database and installed cucumber-rails') do
   rails_new args: '--skip-active-record'
   install_cucumber_rails :no_database_cleaner, :no_factory_bot
