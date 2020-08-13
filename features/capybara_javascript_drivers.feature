@@ -1,13 +1,10 @@
-@focus
 Feature: Capybara Javascript Drivers
 
-  Background: A simple calendar app
+  Scenario: Use a particular driver
     Given I have created a new Rails app and installed cucumber-rails
     And I force selenium to run Firefox in headless mode
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
-
-  Scenario: Use a particular driver
-    When I write to "features/create_appointment.feature" with:
+    And I write to "features/create_appointment.feature" with:
       """
       @javascript
       Feature: Create appointments
@@ -50,7 +47,10 @@ Feature: Capybara Javascript Drivers
       """
 
   Scenario: Mixed DB access
-    When I write to "features/create_appointment.feature" with:
+    Given I have created a new Rails app and installed cucumber-rails
+    And I force selenium to run Firefox in headless mode
+    When I run `bundle exec rails g scaffold appointment name:string when:datetime`
+    And I write to "features/create_appointment.feature" with:
       """
       @javascript
       Feature: Create appointments
