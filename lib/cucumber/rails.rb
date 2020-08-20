@@ -8,8 +8,8 @@ if called_from_env_rb
   require 'rails'
   require 'cucumber/rails/application'
   ENV['RAILS_ENV'] ||= 'test'
-  ENV['RAILS_ROOT'] ||= File.expand_path(env_caller + '/../..')
-  require File.expand_path(ENV['RAILS_ROOT'] + '/config/environment')
+  ENV['RAILS_ROOT'] ||= File.expand_path("#{env_caller}/../..")
+  require File.expand_path("#{ENV['RAILS_ROOT']}/config/environment")
   require 'cucumber/rails/action_dispatch'
   require 'rails/test_help'
 
