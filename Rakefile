@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 CUCUMBER_RAILS_VERSION =
-  Gem::Specification.load(File.dirname(__FILE__) + '/cucumber-rails.gemspec').version.version
+  Gem::Specification.load("#{File.dirname(__FILE__)}/cucumber-rails.gemspec").version.version
 require 'rubygems'
 require 'bundler'
 require 'bundler/setup'
@@ -11,7 +11,7 @@ require 'rake/clean'
 require 'pathname'
 Bundler::GemHelper.install_tasks
 
-$LOAD_PATH.unshift(File.dirname(__FILE__) + '/lib')
+$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
 Dir["#{File.dirname(__FILE__)}/dev_tasks/*.rake"].sort.each { |ext| load ext }
 
 CLEAN.include('doc', 'tmp')
