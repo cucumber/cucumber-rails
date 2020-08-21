@@ -5,8 +5,9 @@ on how to contribute to Cucumber.
 
 ### New Features
 
- *
-
+ * Added more documentation and tests around Javascript tagged scenarios
+   ([#480](https://github.com/cucumber/cucumber-rails/pull/480) [luke-hill])
+   
 ### Changed
 
  * Dropped Rails 4.2 support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
