@@ -25,6 +25,11 @@ module Cucumber
           validate_interface!
         end
 
+        def default_strategy!
+          self.javascript_strategy = :truncation
+          self.autorun_database_cleaner = true
+        end
+
         def before_js
           @strategy.before_js
         end
@@ -70,8 +75,7 @@ module Cucumber
         end
       end
 
-      Database.javascript_strategy = :truncation
-      Database.autorun_database_cleaner = true
+      default_strategy!
     end
   end
 end
