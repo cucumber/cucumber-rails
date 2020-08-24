@@ -5,19 +5,21 @@ on how to contribute to Cucumber.
 
 ### New Features
 
- *
-
+ * Added more documentation and tests around Javascript tagged scenarios
+   ([#480](https://github.com/cucumber/cucumber-rails/pull/480) [luke-hill])
+   
 ### Changed
 
  * Dropped Rails 4.2 support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
- *
 
 ### Fixed
 
  * Database cleaning no longer silently fails when using database_cleaner v2 adapter gems
    ([#467](https://github.com/cucumber/cucumber-rails/pull/467) [botandrose])
+   
  * Restored compatibility with `database_cleaner` versions earlier than 1.8.0.beta
    ([#473](https://github.com/cucumber/cucumber-rails/pull/473) [cgriego])
+   
  * Restored previous `database_cleaner` behavior for apps that do not use/load ActiveRecord
    ([#474](https://github.com/cucumber/cucumber-rails/pull/474) [cgriego])
 
@@ -625,3 +627,5 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 [damonjmurray]: https://github.com/damonjmurray
 [orien]: https://github.com/orien
 [wagenet]: https://github.com/wagenet
+[cgriego]: https://github.com/cgriego
+[botandrose]: https://github.com/botandrose
