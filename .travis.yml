@@ -30,8 +30,14 @@ matrix:
   allow_failures:
     - rvm: ruby-head
   exclude:
-  # Only test Rails6 on supported rubies
-  # Don't test lowest rails support on maintained rubies
+  # Only test latest Rails (Of each major), on actively supported Ruby Versions
+  # Only test latest Ruby with latest Rails versions (Of each major)
+  # 2.4 -> Not 5.2/6.0
+  # 2.5 -> Anything
+  # 2.6 -> Probably should be using 5.2+
+  # 2.7 -> Probably should be using 5.2+
+    - rvm: 2.4
+      gemfile: gemfiles/rails_5_2.gemfile
     - rvm: 2.4
       gemfile: gemfiles/rails_6_0.gemfile
     - rvm: 2.6
@@ -48,6 +54,6 @@ matrix:
       gemfile: gemfiles/rails_5_1.gemfile
 
 before_install:
-  - gem install --remote bundler -v '~> 1.17'
+  - gem install --remote bundler -v '~> 2.1'
   - bin/install_geckodriver.sh
   - bin/install_webpacker.sh
