@@ -22,11 +22,11 @@ Gem::Specification.new do |s|
     'source_code_uri' => "https://github.com/cucumber/cucumber-rails/tree/v#{s.version}"
   }
 
-  s.add_runtime_dependency('capybara', ['>= 2.12', '< 4'])
-  s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 5'])
-  s.add_runtime_dependency('mime-types', ['>= 2.0', '< 4'])
-  s.add_runtime_dependency('nokogiri', '~> 1.8')
-  s.add_runtime_dependency('rails', ['>= 5.0', '< 7'])
+  s.add_runtime_dependency('capybara', ['>= 2.18', '< 4']) # We support legacy capybara (But only the last 2.x)
+  s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 5']) # Support cucumber in the 3.x / 4.x revisions
+  s.add_runtime_dependency('mime-types', ['~> 3.0']) # Only support the latest major (5+ years old)
+  s.add_runtime_dependency('nokogiri', '~> 1.8') # Must use a Nokogiri that is from the last 3 years
+  s.add_runtime_dependency('rails', ['>= 5.0', '< 7']) # We support any version of Rails in the 5.x and 6.x series
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
