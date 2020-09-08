@@ -32,10 +32,11 @@ matrix:
   exclude:
   # Only test latest Rails (Of each major), on actively supported Ruby Versions
   # Only test latest Ruby with latest Rails versions (Of each major)
-  # 2.4 -> Not 5.2/6.0
-  # 2.5 -> Anything
-  # 2.6 -> Probably should be using 5.2+
-  # 2.7 -> Probably should be using 5.2+
+  # 2.4  -> Not 5.2/6.0
+  # 2.5  -> Anything
+  # 2.6  -> Users of this should be using Rails 5.2+
+  # 2.7  -> Users of this should be using Rails 5.2+
+  # head -> Users of this should be using Rails 5.2+
     - rvm: 2.4
       gemfile: gemfiles/rails_5_2.gemfile
     - rvm: 2.4
