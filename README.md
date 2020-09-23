@@ -110,16 +110,6 @@ To run the suite against a named gemfile, use the following:
 
     [bundle exec] appraisal rails_6_0 rake test
 
-To remove and rebuild the different gemfiles (for example, to update a rails version or its
-dependencies), use the following:
-
-    [bundle exec] appraisal update
-
-If you've changed versions of the dependencies, you may find it helpful to forcefully clean
-each appraisal's gem lock file in `gemfiles/`. You can do this using:
-
-    [bundle exec] rake clean
-
 ### Adding dependencies
 
 To support the multiple-gemfile testing, when adding a new dependency the following rules apply:
