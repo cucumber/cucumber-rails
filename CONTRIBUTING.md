@@ -34,6 +34,18 @@ This document is a guide for those maintaining Cucumber-Rails, and others who wo
     # Or run tests across the full supported stack. Note that because we support many versions. This takes 5-10 minutes
     bundle exec rake appraisal
 
+## Updating Appraisal gems / dependencies of cucumber-rails
+
+To remove and rebuild the different gemfiles (for example, to update a rails version or its
+dependencies), use the following:
+
+    [bundle exec] appraisal update
+
+If you've changed versions of the dependencies, you may find it helpful to forcefully clean
+each appraisal's gem lock file in `gemfiles/`. You can do this using:
+
+    [bundle exec] rake clean
+    
 ## Release Process
 
 * Make sure `CHANGELOG.md` is updated with the upcoming version number, and has entries for all fixes.
