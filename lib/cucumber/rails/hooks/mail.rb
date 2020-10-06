@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
-Before do
-  ActionMailer::Base.deliveries = []
+if defined?(::ActionMailer)
+  Before do
+    ActionMailer::Base.deliveries = []
+  end
 end
