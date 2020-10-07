@@ -1,7 +1,21 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md)
 on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v2.1.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.2.0...master) (Not yet released)
+
+### New Features
+
+ *
+
+### Changed
+
+ *
+
+### Fixed
+
+ *
+
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.1.0...v2.2.0) (2020-08-10)
 
 ### New Features
 
