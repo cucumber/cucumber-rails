@@ -1,12 +1,31 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md)
 on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v2.1.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.2.0...master) (Not yet released)
+
+### New Features
+
+ *
+
+### Changed
+
+ *
+
+### Fixed
+
+ *
+
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.1.0...v2.2.0) (2020-08-10)
 
 ### New Features
 
  * Added more documentation and tests around Javascript tagged scenarios
    ([#480](https://github.com/cucumber/cucumber-rails/pull/480) [luke-hill])
+   
+ * Gem Updates
+   * Allowed cucumber5, updated other gem dependencies
+   * Updated travis runs and gem builds tested against
+   ([#482](https://github.com/cucumber/cucumber-rails/pull/482) [luke-hill])
    
 ### Changed
 
@@ -22,6 +41,9 @@ on how to contribute to Cucumber.
    
  * Restored previous `database_cleaner` behavior for apps that do not use/load ActiveRecord
    ([#474](https://github.com/cucumber/cucumber-rails/pull/474) [cgriego])
+   
+ * Restored previous compatibility around standard Rails Modules not being loaded
+   ([#484](https://github.com/cucumber/cucumber-rails/pull/484) [Draiken])
 
 ## [v2.1.0](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...v2.1.0) (2020-06-15)
 
@@ -629,3 +651,4 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 [wagenet]: https://github.com/wagenet
 [cgriego]: https://github.com/cgriego
 [botandrose]: https://github.com/botandrose
+[Draiken]: https://github.com/Draiken
