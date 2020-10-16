@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 6']) # Support cucumber in the 3.x / 4.x / 5.x revisions
   s.add_runtime_dependency('mime-types', ['~> 3.2']) # Only support the latest major (3+ years old)
   s.add_runtime_dependency('nokogiri', '~> 1.8') # Only support the latest major (3+ years old)
-  s.add_runtime_dependency('rails', ['>= 5.0', '< 7']) # We support any version of Rails in the 5.x and 6.x series
+  s.add_runtime_dependency('railties', ['>= 5.0', '< 7']) # We support any version of Rails in the 5.x and 6.x series
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
