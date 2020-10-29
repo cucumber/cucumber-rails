@@ -9,7 +9,7 @@ on how to contribute to Cucumber.
 
 ### Changed
 
- *
+ * Changed dependency from rails to railties to avoid pulling in optional Rails gems like actioncable ([#486](https://github.com/cucumber/cucumber-rails/pull/486) [langalex]).
 
 ### Fixed
 
@@ -21,12 +21,12 @@ on how to contribute to Cucumber.
 
  * Added more documentation and tests around Javascript tagged scenarios
    ([#480](https://github.com/cucumber/cucumber-rails/pull/480) [luke-hill])
-   
+
  * Gem Updates
    * Allowed cucumber5, updated other gem dependencies
    * Updated travis runs and gem builds tested against
    ([#482](https://github.com/cucumber/cucumber-rails/pull/482) [luke-hill])
-   
+
 ### Changed
 
  * Dropped Rails 4.2 support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
@@ -35,13 +35,13 @@ on how to contribute to Cucumber.
 
  * Database cleaning no longer silently fails when using database_cleaner v2 adapter gems
    ([#467](https://github.com/cucumber/cucumber-rails/pull/467) [botandrose])
-   
+
  * Restored compatibility with `database_cleaner` versions earlier than 1.8.0.beta
    ([#473](https://github.com/cucumber/cucumber-rails/pull/473) [cgriego])
-   
+
  * Restored previous `database_cleaner` behavior for apps that do not use/load ActiveRecord
    ([#474](https://github.com/cucumber/cucumber-rails/pull/474) [cgriego])
-   
+
  * Restored previous compatibility around standard Rails Modules not being loaded
    ([#484](https://github.com/cucumber/cucumber-rails/pull/484) [Draiken])
 
@@ -51,7 +51,7 @@ on how to contribute to Cucumber.
 
  * Added metadata to allow gem to be searched / indexed by rubygems
     ([#447](https://github.com/cucumber/cucumber-rails/pull/447) [orien])
-    
+
  * Allow Cucumber 4 to be used as an option for cucumber-rails
    * NB: Cucumber4 changes quite a lot of logic with auto-loaders. This means that any previous
    logic that relied implicitly on load-order "may" be affected
@@ -64,10 +64,10 @@ on how to contribute to Cucumber.
  * Refactored suite to remove a lot of old Rails3/4.0 "ism's"
    * Also migrated a lot of old cucumber styles to cucumber4
    ([#441](https://github.com/cucumber/cucumber-rails/pull/441) [luke-hill])
-   
+
  * Refactored alias logic for overriding Rails methods to use `Module#prepend`
    ([#457](https://github.com/cucumber/cucumber-rails/pull/457) [wagenet])
-   
+
  * `database_cleaner` (when used), at a version `>= 1.8` will now silence all warnings
    * The suite internally will only test a version `>= 1.8`, so other versions will work but are un-maintained
    ([#463](https://github.com/cucumber/cucumber-rails/pull/463) [deivid-rodriguez])
@@ -88,7 +88,7 @@ on how to contribute to Cucumber.
    [#460](https://github.com/cucumber/cucumber-rails/pull/460) /
    [#464](https://github.com/cucumber/cucumber-rails/pull/464)
    [mvz] / [damonjmurray] / [deivid-rodriguez])
-   
+
  * Avoid printing a warning about `config.cache_classes` being set to `false` when
    Spring is used ([#462](https://github.com/cucumber/cucumber-rails/pull/462) [janko])
 
@@ -104,7 +104,7 @@ on how to contribute to Cucumber.
 
  * **Breaking change:** `web_steps` have been completely removed from cucumber-rails
    ([#437](https://github.com/cucumber/cucumber-rails/pull/437) [luke-hill])
-   
+
  * Altered some branching logic in tests designed to cater for old ruby/rails versions
    ([#433](https://github.com/cucumber/cucumber-rails/pull/433) [luke-hill])
 
@@ -113,14 +113,14 @@ on how to contribute to Cucumber.
 ### Changed
 
  * Dropped Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
- 
+
  * Begin to update the core runtime / development dependencies to something a little more recent
    ([#413](https://github.com/cucumber/cucumber-rails/pull/413) /
    [#431](https://github.com/cucumber/cucumber-rails/pull/431) /
    [#432](https://github.com/cucumber/cucumber-rails/pull/432)
-   [mvz] / 
+   [mvz] /
    [luke-hill])
-   
+
 ### Fixed
 
  * Various rubocop / styling issues that had built up over time
@@ -132,21 +132,21 @@ on how to contribute to Cucumber.
   [#421](https://github.com/cucumber/cucumber-rails/pull/434)
   [luke-hill] /
   [mvz])
-  
+
  * Generic Travis Healthcheck (Fixed up polluted logs and use newer Ubuntu OS)
   ([#415](https://github.com/cucumber/cucumber-rails/pull/415) /
   [#417](https://github.com/cucumber/cucumber-rails/pull/417)
   [luke-hill])
-  
+
  * Rails6 not building correctly
   ([#418](https://github.com/cucumber/cucumber-rails/pull/418)
   [luke-hill])
-  
+
  * Provisional Ruby 2.7 builds not working
   ([#427](https://github.com/cucumber/cucumber-rails/pull/427)
   [amatsuda] /
   [luke-hill])
- 
+
 ## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-17)
 
 ### Changed
@@ -166,7 +166,7 @@ on how to contribute to Cucumber.
  [xtrasimplicity] /
  [deivid-rodriguez] /
  [mvz])
- 
+
  * Various build issues that had built up over the previous year
   ([#403](https://github.com/cucumber/cucumber-rails/pull/403) /
   [#404](https://github.com/cucumber/cucumber-rails/pull/404) /
@@ -186,7 +186,7 @@ on how to contribute to Cucumber.
  * Switched to Ruby 1.9 hash syntax. ([#371](https://github.com/cucumber/cucumber-rails/pull/371) [mvz](https://github.com/mvz))
  * Added support to handle rerun files with multiple lines. ([#373]((https://github.com/cucumber/cucumber-rails/pull/345)) [mvz](https://github.com/mvz))
  * Added support for Rails 5.2 and Capybara 3. ([#378](https://github.com/cucumber/cucumber-rails/pull/378/) [gobijan](https://github.com/gobijan), [radar](https://github.com/radar), [xtrasimplicity](https://github.com/xtrasimplicity))
- 
+
 ### Fixed
 
  * Fix typo ([#343](https://github.com/cucumber/cucumber-rails/pull/343) Olle Jonsson)
@@ -201,7 +201,7 @@ on how to contribute to Cucumber.
 ## [v1.4.5](https://github.com/cucumber/cucumber-rails/compare/1.4.4...1.4.5) (2016-09-27)
 
  * Add support for Cucumber 3+ (Steve Tooke)
- 
+
 ## [v1.4.4](https://github.com/cucumber/cucumber-rails/compare/1.4.3...1.4.4) (2016-08-05)
 
  * Ensure support for Rails 5

@@ -3,7 +3,8 @@
 source "https://rubygems.org"
 
 gem "capybara", "< 3.33"
-gem "rails", "~> 5.2.4"
+gem "railties", "~> 5.2.4"
+gem "activerecord"
 gem "sqlite3", "~> 1.3.13"
 
 gemspec path: "../"
