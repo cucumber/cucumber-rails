@@ -9,7 +9,7 @@ on how to contribute to Cucumber.
 
 ### Changed
 
- * Changed dependency from rails to railties to avoid pulling in optional Rails gems like actioncable ([#486](https://github.com/cucumber/cucumber-rails/pull/486) [langalex]).
+ * Changed dependency from rails to railties to avoid pulling in optional Rails gems like actioncable ([#486](https://github.com/cucumber/cucumber-rails/pull/486)  [langalex]).
 
 ### Fixed
 
@@ -652,3 +652,4 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 [cgriego]: https://github.com/cgriego
 [botandrose]: https://github.com/botandrose
 [Draiken]: https://github.com/Draiken
+[langalex]: https://github.com/langalex
