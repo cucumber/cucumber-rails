@@ -7,12 +7,8 @@ require 'cucumber/rails/database/truncation_strategy'
 require 'cucumber/rails/database'
 
 describe Cucumber::Rails::Database do
-  before { allow(strategy_type).to receive(:new).and_return(strategy) }
-
-  let(:strategy) { instance_double(strategy_type, before_js: nil, before_non_js: nil) }
-  let(:strategy_type) { Cucumber::Rails::Database::TruncationStrategy }
-
   context 'when using a valid pre-determined strategy' do
+    let(:strategy) { described_class.instance_eval { @strategy } }
     before { described_class.javascript_strategy = :truncation }
 
     it 'forwards a `before_non_js` event to the selected strategy' do
@@ -36,8 +32,7 @@ describe Cucumber::Rails::Database do
   end
 
   context 'when using a valid custom strategy' do
-    before { described_class.javascript_strategy = strategy_type }
-
+    let(:strategy) { described_class.instance_eval { @strategy } }
     let(:strategy_type) do
       Class.new do
         def before_js
@@ -49,6 +44,8 @@ describe Cucumber::Rails::Database do
         end
       end
     end
+
+    before { described_class.javascript_strategy = strategy_type }
 
     it 'forwards a `before_non_js` event to the strategy' do
       expect(strategy).to receive(:before_non_js)
