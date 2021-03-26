@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'rake/file_list'
 $LOAD_PATH.unshift File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
@@ -47,7 +46,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.4.0'
   s.rubygems_version = '>= 1.6.1'
-  s.files            = Rake::FileList['**/*'].exclude(*File.read('.gitignore').split)
-  s.test_files       = Dir['{spec,features}/**/*']
   s.require_path     = 'lib'
+  s.files            = Dir['lib/**/*', 'CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE', 'README.md']
 end
