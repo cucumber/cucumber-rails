@@ -52,7 +52,6 @@ Given('I force selenium to run Firefox in headless mode') do
       http_client.read_timeout = 180
 
       browser_options = Selenium::WebDriver::Firefox::Options.new
-      browser_options.args << '--headless'
       Capybara::Selenium::Driver.new(
         app,
         browser: :firefox,
