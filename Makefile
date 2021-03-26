@@ -19,7 +19,7 @@ clean:
 .PHONY: clean
 
 release:
-	[ -d '../secrets' ]  || git clone keybase://team/cucumberbdd/secrets ../secrets
+	[ -d '../secrets' ] || git clone keybase://team/cucumberbdd/secrets ../secrets
 	git -C ../secrets pull
 	../secrets/update_permissions
 	docker run \
@@ -31,8 +31,6 @@ release:
 		--volume "${HOME}/.gitconfig":/home/cukebot/.gitconfig \
 		--env CUCUMBER_USE_RELEASED_GEMS=1 \
 		--env-file ../secrets/secrets.list \
-		--user 1000 \
 		--rm \
-		-it cucumber/cucumber-build:latest \
-		bash -c "rm Gemfile.lock && bundle && bundle exec rake && bundle exec rake release"
+		-it cucumber/cucumber-build:latest
 .PHONY: release
