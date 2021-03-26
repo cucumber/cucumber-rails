@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'database_cleaner'
 require 'cucumber/rails/database/strategy'
 require 'cucumber/rails/database/deletion_strategy'
 require 'cucumber/rails/database/shared_connection_strategy'
@@ -21,6 +22,13 @@ describe Cucumber::Rails::Database do
       expect(strategy).to receive(:before_js)
 
       described_class.before_js
+    end
+
+    it 'raises an error on `before_js` if no DatabaseCleaner cleaners exist' do
+      allow(DatabaseCleaner).to receive(:cleaners).and_return({})
+
+      expect { described_class.before_js }
+        .to raise_error /No DatabaseCleaner strategies found/
     end
   end
 
