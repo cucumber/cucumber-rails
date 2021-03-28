@@ -16,7 +16,7 @@ Feature: Database Cleaner
           When I create 7 more widgets
           Then I should have 9 widgets
       """
-    And I run `rails generate model widget name:string`
+    And I run `bundle exec rails generate model widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
       Given('I have {int} widgets') do |number|
@@ -59,7 +59,7 @@ Feature: Database Cleaner
           When I create 7 more widgets
           Then I should have 9 widgets
       """
-    And I run `rails generate model widget name:string`
+    And I run `bundle exec rails generate model widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
       Given('I have {int} widgets') do |number|
@@ -103,7 +103,7 @@ Feature: Database Cleaner
           When I create 7 more widgets
           Then I should have 14 widgets
       """
-    And I run `rails generate model widget name:string`
+    And I run `bundle exec rails generate model widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
       Given('I have {int} widgets') do |number|
