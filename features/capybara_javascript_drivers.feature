@@ -64,7 +64,7 @@ Feature: Capybara Javascript Drivers
       Given('a random appointment') do
         @when = DateTime.now
         @name = 'Random appointment for Cucumber Trainee'
-        @appointment = Appointment.create!(name: name, when: when)
+        @appointment = Appointment.create!(name: @name, when: @when)
       end
 
       Given('I am viewing the appointment') do
