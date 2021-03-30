@@ -16,3 +16,9 @@ release:
 		--rm \
 		-it cucumber/cucumber-build:latest
 .PHONY: release
+
+cut_and_push_gem:
+	gem build cucumber-rails.gemspec
+	gem push cucumber-rails*gem
+	rm cucumber-rails*gem
+.PHONY: cut_and_push_gem
