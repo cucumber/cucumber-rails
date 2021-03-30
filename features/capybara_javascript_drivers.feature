@@ -1,6 +1,6 @@
 Feature: Capybara Javascript Drivers
 
-  Scenario: Use a particular driver
+  Scenario: Use Browser UI backed by DB
     Given I have created a new Rails app and installed cucumber-rails
     And I force selenium to run Firefox in headless mode
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
@@ -8,13 +8,13 @@ Feature: Capybara Javascript Drivers
       """
       @javascript
       Feature: Create appointments
-        Scenario: Visit the Constitution on May 17
+        Scenario: Create an appointment using the Web Interface
           Given I am on the new appointment page
-          And I fill in "Norway's constitution" for "Name"
-          And I select "2015-02-20 15:10:00 UTC" as the "When" date and time
+          When I fill in "Cucumber Trainee" for "Name"
+          And I select "2026-02-20 15:10:00 UTC" as the "When" date and time
           And I press "Create Appointment"
-          Then I should see "Norway's constitution"
-          And I should see "2015-02-20 15:10:00 UTC"
+          Then I should see "Cucumber Trainee"
+          And I should see "2026-02-20 15:10:00 UTC"
       """
     And I write to "features/create_appointment_steps.rb" with:
       """
@@ -30,12 +30,12 @@ Feature: Capybara Javascript Drivers
         click_button(button)
       end
 
-      Then('I should see {string}') do |text|
-        expect(page).to have_content(text)
-      end
-
       When('I select {string} as the {string} date and time') do |datetime, selector|
         select_datetime(datetime, from: selector)
+      end
+
+      Then('I should see {string}') do |text|
+        expect(page).to have_content(text)
       end
       """
     And I run `bundle exec rake db:migrate`
@@ -46,7 +46,7 @@ Feature: Capybara Javascript Drivers
       6 steps (6 passed)
       """
 
-  Scenario: Mixed DB access
+  Scenario: Use direct DB injection
     Given I have created a new Rails app and installed cucumber-rails
     And I force selenium to run Firefox in headless mode
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
@@ -54,23 +54,27 @@ Feature: Capybara Javascript Drivers
       """
       @javascript
       Feature: Create appointments
-        Scenario: Visit the Constitution on May 17
-          Given a random appointment
-          And I am viewing the appointment
-          Then I should see "Random appointment"
+        Scenario: Create appointment using DB injection
+          Given an appointment for today
+          When I view the newly created appointment
+          Then I should see the correct appointment details
       """
     And I write to "features/step_definitions/create_appointment_steps.rb" with:
       """
-      Given('a random appointment') do
-        @appointment = Appointment.create!(name: 'Random appointment', when: DateTime.now)
+      Given('an appointment for today') do
+        @when = Time.now.utc
+        @name = 'Random appointment for Cucumber Trainee'
+        @appointment = Appointment.create!(name: @name, when: @when)
       end
 
-      Given('I am viewing the appointment') do
+      Given('I view the newly created appointment') do
         visit appointment_path(@appointment)
       end
 
-      Then('I should see {string}') do |text|
-        expect(page).to have_content(text)
+      Then('I should see the correct appointment details') do
+        expect(page).to have_text(@name)
+
+        expect(page).to have_text(@when)
       end
       """
     And I run `bundle exec rake db:migrate`
@@ -81,7 +85,7 @@ Feature: Capybara Javascript Drivers
       3 steps (3 passed)
       """
 
-  Scenario: Use a particular driver without a DB
+  Scenario: Use Browser UI without a DB
     Given I have created a new Rails app and installed cucumber-rails without database_cleaner
     And I force selenium to run Firefox in headless mode
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
@@ -91,11 +95,11 @@ Feature: Capybara Javascript Drivers
       Feature: Create appointments
         Scenario: Visit the Constitution on May 17
           Given I am on the new appointment page
-          And I fill in "Norway's constitution" for "Name"
-          And I select "2015-02-20 15:10:00 UTC" as the "When" date and time
+          When I fill in "Cucumber Trainee" for "Name"
+          And I select "2026-02-20 15:10:00 UTC" as the "When" date and time
           And I press "Create Appointment"
-          Then I should see "Norway's constitution"
-          And I should see "2015-02-20 15:10:00 UTC"
+          Then I should see "Cucumber Trainee"
+          And I should see "2026-02-20 15:10:00 UTC"
       """
     And I write to "features/create_appointment_steps.rb" with:
       """
@@ -111,12 +115,12 @@ Feature: Capybara Javascript Drivers
         click_button(button)
       end
 
-      Then('I should see {string}') do |text|
-        expect(page).to have_content(text)
-      end
-
       When('I select {string} as the {string} date and time') do |datetime, selector|
         select_datetime(datetime, from: selector)
+      end
+
+      Then('I should see {string}') do |text|
+        expect(page).to have_content(text)
       end
       """
     And I append to "features/support/env.rb" with:
