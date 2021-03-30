@@ -11,8 +11,6 @@ Before doing these tasks. Ensure you have done the following
 ```shell
 # Sync up the secrets repo and local master. Use docker container with auth
 $ make release
-# Build the latest version of the gem
-$ gem build cucumber-rails.gemspec
-# Push the gem to rubygems.org
-$ gem push
+# Build the latest version of the gem. Push the gem to rubygems.org. Remove any generated files
+$ make cut_and_push_gem
 ```
