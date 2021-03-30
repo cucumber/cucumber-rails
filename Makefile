@@ -1,3 +1,4 @@
+SHELL := /usr/bin/env bash
 MONOREPO_PATH ?= ../../cucumber
 
 # https://stackoverflow.com/questions/2483182/recursive-wildcards-in-gnu-make
