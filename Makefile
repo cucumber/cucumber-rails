@@ -1,23 +1,4 @@
 SHELL := /usr/bin/env bash
-MONOREPO_PATH ?= ../../cucumber
-
-# https://stackoverflow.com/questions/2483182/recursive-wildcards-in-gnu-make
-rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
-RUBY_FILES=$(call rwildcard,../lib ../../cucumber-ruby-core/lib/,*.rb)
-
-FEATURES = $(sort $(wildcard features/**.feature))
-
-OS := $(shell [[ "$$(uname)" == "Darwin" ]] && echo "darwin" || echo "linux")
-# Determine if we're on 386 or amd64 (ignoring other processors as we're not building on them)
-ARCH := $(shell [[ "$$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "386")
-
-bin/json-formatter: $(MONOREPO_PATH)/json-formatter/go/dist/cucumber-json-formatter-$(OS)-$(ARCH)
-	cp $(MONOREPO_PATH)/json-formatter/go/dist/cucumber-json-formatter-$(OS)-$(ARCH) $@
-	chmod +x $@
-
-clean:
-	rm -rf acceptance/*.json bin/json-formatter
-.PHONY: clean
 
 release:
 	[ -d '../secrets' ] || git clone keybase://team/cucumberbdd/secrets ../secrets
