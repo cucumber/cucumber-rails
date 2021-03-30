@@ -1,7 +1,21 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md)
 on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v2.2.0...master) (Not yet released)
+## [master](https://github.com/cucumber/cucumber-rails/compare/v2.3.0...master) (Not yet released)
+
+### New Features
+
+*
+
+### Changed
+
+* 
+
+### Fixed
+
+* 
+
+## [v2.3.0](https://github.com/cucumber/cucumber-rails/compare/v2.2.0...v2.3.0) (2021-03-30)
 
 ### New Features
 
@@ -9,11 +23,13 @@ on how to contribute to Cucumber.
 
 ### Changed
 
- * Changed dependency from rails to railties to avoid pulling in optional Rails gems like actioncable ([#486](https://github.com/cucumber/cucumber-rails/pull/486)  [langalex]).
+ * Changed dependency from rails to railties to avoid pulling in optional Rails gems like actioncable ([#486](https://github.com/cucumber/cucumber-rails/pull/486) [langalex])
+
+ * Lightened gem binary by removing un-needed files ([#496](https://github.com/cucumber/cucumber-rails/pull/496) [orien])
 
 ### Fixed
 
- *
+ * Fixed up a couple of legacy capybara specs to use a better format ([#498](https://github.com/cucumber/cucumber-rails/pull/498) [luke-hill])
 
 ## [v2.2.0](https://github.com/cucumber/cucumber-rails/compare/v2.1.0...v2.2.0) (2020-08-10)
 
@@ -653,3 +669,4 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 [botandrose]: https://github.com/botandrose
 [Draiken]: https://github.com/Draiken
 [langalex]: https://github.com/langalex
+[orien]: https://github.com/orien
