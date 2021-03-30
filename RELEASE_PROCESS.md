@@ -3,26 +3,16 @@
 NB: This can only be done by authors who have access to the secrets repo.
 If you require access to this speak to a member of the core team.
 
+Before doing these tasks. Ensure you have done the following
+
+- Check the changelog is up to date
+- Check a release branch has been made and merged with the new version number
+
 ```shell
-$ git checkout master
-
+# Sync up the secrets repo and local master. Use docker container with auth
+$ make release
+# Build the latest version of the gem
+$ gem build cucumber-rails.gemspec
+# Push the gem to rubygems.org
+$ gem push
 ```
-
-
-
-// Notes
-
-Start the docker container with secrets
-Update dependencies
-Update changelog
-Release packages
-The release commands will be done from a terminal session in the Docker container. This ensures a consistent release environment.
-
-Get the secrets
-In order to publish packages several secrets are required. Members of the core team can install keybase and join the cucumberbdd team to access these secrets.
-
-Start the Cucumber docker container
-All commands should be made from the Cucumber docker container. Start it:
-
-make docker-run-with-secrets
-You're now ready to make a release.
