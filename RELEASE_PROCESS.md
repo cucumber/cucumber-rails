@@ -9,8 +9,10 @@ Before doing these tasks. Ensure you have done the following
 - Check a release branch has been made and merged with the new version number
 
 ```shell
-# Sync up the secrets repo and local master. Use docker container with auth
+# This task will do the following
+# - Sync up the secrets repo / local master.
+# - Use docker container with authentication for pushing to rubygems
+# - Build and push the latest version of the gem 
+# - Cleanup the leftover gem
 $ make release
-# Build the latest version of the gem. Push the gem to rubygems.org. Remove any generated files
-$ make cut_and_push_gem
 ```
