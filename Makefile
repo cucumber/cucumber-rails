@@ -22,6 +22,7 @@ clean:
 release:
 	[ -d '../secrets' ] || git clone keybase://team/cucumberbdd/secrets ../secrets
 	git -C ../secrets pull
+	git checkout master && git pull
 	../secrets/update_permissions
 	docker run \
 		--volume "${shell pwd}":/app \
