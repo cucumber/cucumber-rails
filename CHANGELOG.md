@@ -5,21 +5,17 @@ on how to contribute to Cucumber.
 
 ### New Features
 
-*
+* Added new docker / Makefile script to permit releasing from repo ([#502](https://github.com/cucumber/cucumber-rails/pull/502) [luke-hill])
 
 ### Changed
 
-* 
+* Updated rubocop to use new major versions ([#504](https://github.com/cucumber/cucumber-rails/pull/504) [luke-hill])
 
 ### Fixed
 
 * 
 
 ## [v2.3.0](https://github.com/cucumber/cucumber-rails/compare/v2.2.0...v2.3.0) (2021-03-30)
-
-### New Features
-
- *
 
 ### Changed
 
