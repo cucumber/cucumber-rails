@@ -22,6 +22,13 @@ Metrics/BlockLength:
 Style/NumericLiteralPrefix:
   EnforcedOctalStyle: zero_only
 
+# This needs fixing as it's inheriting a lot more than what we originally need.
+# The inheritance chain goes all the way down to a single test case which the world
+# definitely doesn't represent. GH issue 505
+Lint/MissingSuper:
+  Exclude:
+    - lib/cucumber/rails/world.rb
+
 ## Cucumber Repo styles (Across implementations) ##
 
 Layout/LineLength:
