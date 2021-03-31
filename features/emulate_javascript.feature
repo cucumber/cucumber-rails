@@ -3,7 +3,7 @@ Feature: Emulate Javascript
   Background:
     Given I have created a new Rails app and installed cucumber-rails
     And I force selenium to run Firefox in headless mode
-    When I run `rails generate scaffold widget name:string`
+    When I run `bundle exec rails generate scaffold widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
     """
       Given('there is a widget named {string}') do |name|
@@ -47,7 +47,7 @@ Feature: Emulate Javascript
 
   Scenario: Pass on the CSRF token
     When I run `sed -i -e 's/forgery_protection *= false/forgery_protection = true/' config/environments/test.rb`
-    And I run `rails generate controller session establish`
+    And I run `bundle exec rails generate controller session establish`
     And I write to "app/controllers/session_controller.rb" with:
       """
       class SessionController < ApplicationController

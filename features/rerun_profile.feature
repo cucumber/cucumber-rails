@@ -26,7 +26,7 @@ Feature: Rerun profile
     And a file named "features/step_definitions/rerun_steps.rb" with:
       """
       Given('fixed now') do
-        puts 'All fixed now'
+        log 'All fixed now'
       end
 
       Given('broken') do
@@ -34,7 +34,7 @@ Feature: Rerun profile
       end
 
       Given('passing') do
-        puts "I've always been passing"
+        log "I've always been passing"
       end
       """
     When I run `bundle exec cucumber -p rerun`

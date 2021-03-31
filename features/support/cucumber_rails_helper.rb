@@ -50,8 +50,7 @@ module CucumberRailsHelper
 
   def clear_bundle_env_vars(dir)
     cd dir
-    delete_environment_variable 'RUBYOPT'
-    delete_environment_variable 'BUNDLE_BIN_PATH'
+    unset_bundler_env_vars
     delete_environment_variable 'BUNDLE_GEMFILE'
   end
 
