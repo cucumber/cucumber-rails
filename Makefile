@@ -15,5 +15,5 @@ release:
 		--env-file ../secrets/secrets.list \
 		--rm \
 		-it cucumber/cucumber-build:latest \
-		bash -c "gem build cucumber-rails.gemspec && gem push cucumber-rails*gem && cucumber-rails*gem"
+		bash -c "gem build cucumber-rails.gemspec && gem push cucumber-rails*gem && rm cucumber-rails*gem"
 .PHONY: release
