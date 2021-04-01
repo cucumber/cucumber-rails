@@ -17,7 +17,6 @@ module CucumberRailsHelper
     add_gem 'factory_bot', '>= 3.2', group: :test unless options.include?(:no_factory_bot)
 
     run_command_and_stop 'bundle install'
-    run_command_and_stop 'bundle exec rails webpacker:install' if rails6?
     run_command_and_stop 'bundle exec rails generate cucumber:install'
   end
 
@@ -38,8 +37,7 @@ module CucumberRailsHelper
 
   def run_rails_new_command(options)
     options[:name] ||= 'test_app'
-    flags = '--skip-bundle --skip-test-unit --skip-spring --skip-bootsnap'
-    flags += ' --skip-webpack-install' if rails6?
+    flags = '--skip-bundle --skip-test-unit --skip-spring --skip-bootsnap --skip-javascript'
     run_command "bundle exec rails new #{options[:name]} #{flags} #{options[:args]}"
   end
 
