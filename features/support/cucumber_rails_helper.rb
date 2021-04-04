@@ -48,6 +48,7 @@ module CucumberRailsHelper
 
   def bundle_install
     run_command_and_stop 'bundle config set --local without "development"'
+    run_command_and_stop "bundle config set --local path '#{ENV['GITHUB_WORKSPACE']}/vendor/bundle'" if ENV.key?('GITHUB_WORKSPACE')
     run_command_and_stop 'bundle install'
   end
 
