@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails'
+require 'cucumber'
+require 'capybara'
 
 module CucumberRailsHelper
   def rails_new(options = {})
@@ -15,7 +17,8 @@ module CucumberRailsHelper
   def install_cucumber_rails(*options)
     add_conditional_gems(options)
 
-    add_gem 'capybara', group: :test
+    add_gem 'cucumber', Cucumber::VERSION, group: :test
+    add_gem 'capybara', Capybara::VERSION, group: :test
     add_gem 'selenium-webdriver', '~> 3.11', group: :test
     add_gem 'rspec-expectations', '~> 3.7', group: :test
     add_gem 'database_cleaner', '>= 1.8.0', group: :test unless options.include?(:no_database_cleaner)
