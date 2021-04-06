@@ -123,14 +123,3 @@ For example, rspec is a primary development dependency, so it lives in the gemsp
 
 [the helper]: https://github.com/cucumber/cucumber-rails/blob/5e37c530560ae1c1a79521c38a54bae0be94242b/features/step_definitions/cucumber_rails_steps.rb#L15
 
-### NOTE
-
-If you get an error while trying to run the tests locally, similar to the one below:
-
-    Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
-    
-You need to install a javascript runtime.
-
-You can do that in ubuntu by using:
-
-    sudo apt-get install nodejs
