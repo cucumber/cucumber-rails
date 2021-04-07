@@ -41,6 +41,15 @@ module Cucumber
       end
     end
 
+    def configure_environment
+      environment(<<~CONFIG, env: %w[development test]) if ::Rails::VERSION::MAJOR >= 6
+        # Configure 'rails notes' to inspect Cucumber files
+        config.annotations.register_directories('features')
+        config.annotations.register_extensions('feature') { |tag| /#\\s*(\#{tag}):?\\s*(.*)$/ }
+
+      CONFIG
+    end
+
     def create_tasks
       empty_directory 'lib/tasks'
       template 'tasks/cucumber.rake.erb', 'lib/tasks/cucumber.rake'
