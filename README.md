@@ -4,6 +4,8 @@
 [![Build Status](https://github.com/cucumber/cucumber-rails/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/cucumber/cucumber-rails/actions/workflows/build.yml)
 [![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.svg)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
+[![pull requests](https://oselvar.com/api/badge?label=pull%20requests&csvUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fcucumber%2Foselvar-github-metrics%2Fmain%2Fdata%2Fcucumber%2Fcucumber-rails%2FpullRequests.csv)](https://oselvar.com/github/cucumber/oselvar-github-metrics/main/cucumber/cucumber-rails)
+[![issues](https://oselvar.com/api/badge?label=issues&csvUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fcucumber%2Foselvar-github-metrics%2Fmain%2Fdata%2Fcucumber%2Fcucumber-rails%2Fissues.csv)](https://oselvar.com/github/cucumber/oselvar-github-metrics/main/cucumber/cucumber-rails)
 
 Cucumber-Rails brings Cucumber to Rails 5.x and 6.x.
 
