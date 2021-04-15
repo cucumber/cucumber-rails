@@ -35,6 +35,7 @@ begin
       ::STATS_DIRECTORIES << %w(Cucumber\ features features) if File.exist?('features')
       ::CodeStatistics::TEST_TYPES << "Cucumber features" if File.exist?('features')
     end
+    <% if ::Rails::VERSION::MAJOR < 6 %>
 
     task :annotations_setup do
       Rails.application.configure do
@@ -44,7 +45,9 @@ begin
         end
       end
     end
+    <% end %>
   end
+
   desc 'Alias for cucumber:ok'
   task cucumber: 'cucumber:ok'
 
@@ -60,7 +63,9 @@ begin
 
   task stats: 'cucumber:statsetup'
 
+  <% if ::Rails::VERSION::MAJOR < 6 %>
   task notes: 'cucumber:annotations_setup'
+  <% end %>
 rescue LoadError
   desc 'cucumber rake task not available (cucumber not installed)'
   task :cucumber do

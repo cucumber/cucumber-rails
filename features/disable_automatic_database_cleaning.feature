@@ -27,7 +27,7 @@ Feature: Disable automatic database cleaning
           When I create 5 widgets
           Then I should have 8 widgets
       """
-    And I run `rails generate model widget name:string`
+    And I run `bundle exec rails generate model widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
       """
       When('I create {int} widgets') do |number|

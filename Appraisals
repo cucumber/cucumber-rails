@@ -28,3 +28,9 @@ appraise 'rails_6_0' do
   gem 'activerecord'
   gem 'sqlite3', '~> 1.4'
 end
+
+appraise 'rails_6_1' do
+  gem 'railties',    '~> 6.1.3'
+  gem 'activerecord'
+  gem 'sqlite3', '~> 1.4'
+end

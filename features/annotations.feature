@@ -12,7 +12,7 @@ Feature: Annotations
         Scenario: Test a Product
           # TODO: When I go to the products page
       """
-    When I run `bundle exec rake notes`
+    When I run `bundle exec rails notes`
     Then it should pass with:
       """
       features/products.feature:
