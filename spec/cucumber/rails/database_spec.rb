@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'database_cleaner'
 require 'cucumber/rails/database/strategy'
 require 'cucumber/rails/database/deletion_strategy'
 require 'cucumber/rails/database/shared_connection_strategy'
@@ -7,10 +8,7 @@ require 'cucumber/rails/database/truncation_strategy'
 require 'cucumber/rails/database'
 
 describe Cucumber::Rails::Database do
-  before { allow(strategy_type).to receive(:new).and_return(strategy) }
-
-  let(:strategy) { instance_double(strategy_type, before_js: nil, before_non_js: nil) }
-  let(:strategy_type) { Cucumber::Rails::Database::TruncationStrategy }
+  let(:strategy) { described_class.instance_eval { @strategy } }
 
   context 'when using a valid pre-determined strategy' do
     before { described_class.javascript_strategy = :truncation }
@@ -26,6 +24,13 @@ describe Cucumber::Rails::Database do
 
       described_class.before_js
     end
+
+    it 'raises an error on `before_js` if no DatabaseCleaner cleaners exist' do
+      allow(DatabaseCleaner).to receive(:cleaners).and_return({})
+
+      expect { described_class.before_js }
+        .to raise_error /No DatabaseCleaner strategies found/
+    end
   end
 
   context 'when using an invalid pre-determined strategy' do
@@ -36,8 +41,6 @@ describe Cucumber::Rails::Database do
   end
 
   context 'when using a valid custom strategy' do
-    before { described_class.javascript_strategy = strategy_type }
-
     let(:strategy_type) do
       Class.new do
         def before_js
@@ -49,6 +52,8 @@ describe Cucumber::Rails::Database do
         end
       end
     end
+
+    before { described_class.javascript_strategy = strategy_type }
 
     it 'forwards a `before_non_js` event to the strategy' do
       expect(strategy).to receive(:before_non_js)
