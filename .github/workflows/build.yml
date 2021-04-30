@@ -12,13 +12,15 @@ jobs:
         exclude:
           # Only test latest Rails (Of each major), on actively supported Ruby Versions
           # Only test latest Ruby with latest Rails versions (Of each major)
-          # 2.4  -> Not 5.2/6.0/6.1
-          # 2.5  -> Anything
+          # 2.4  -> Only use legacy rails versions (5.0/5.1)
+          # 2.5  -> Not 5.2/6.1
           # 2.6  -> Users of this should be using Rails 5.2+
           # 2.7  -> Users of this should be using Rails 5.2+
           - { ruby: '2.4', gemfile: 'rails_5_2' }
           - { ruby: '2.4', gemfile: 'rails_6_0' }
           - { ruby: '2.4', gemfile: 'rails_6_1' }
+          - { ruby: '2.5', gemfile: 'rails_5_2' }
+          - { ruby: '2.5', gemfile: 'rails_6_1' }
           - { ruby: '2.6', gemfile: 'rails_5_0' }
           - { ruby: '2.6', gemfile: 'rails_5_1' }
           - { ruby: '2.7', gemfile: 'rails_5_0' }
