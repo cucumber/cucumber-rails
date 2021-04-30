@@ -8,7 +8,7 @@ require 'cucumber/rails/database/truncation_strategy'
 require 'cucumber/rails/database'
 
 describe Cucumber::Rails::Database do
-  let(:strategy) { described_class.instance_eval { @strategy } }
+  let(:strategy) { described_class.instance_variable_get(:@strategy) }
 
   context 'when using a valid pre-determined strategy' do
     before { described_class.javascript_strategy = :truncation }
@@ -29,7 +29,7 @@ describe Cucumber::Rails::Database do
       allow(DatabaseCleaner).to receive(:cleaners).and_return({})
 
       expect { described_class.before_js }
-        .to raise_error /No DatabaseCleaner strategies found/
+        .to raise_error(/No DatabaseCleaner strategies found/)
     end
   end
 
