@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   }
 
   s.add_runtime_dependency('capybara', ['>= 2.18', '< 4']) # We support legacy capybara (But only the last 2.x)
-  s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 6']) # Support cucumber in the 3.x / 4.x / 5.x revisions
+  s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 7']) # Support cucumber in the 3.x / 4.x / 5.x / 6.x revisions
   s.add_runtime_dependency('mime-types', ['~> 3.2']) # Only support the latest major (3+ years old)
   s.add_runtime_dependency('nokogiri', '~> 1.8') # Only support the latest major (3+ years old)
   s.add_runtime_dependency('railties', ['>= 5.0', '< 7']) # We support any version of Rails in the 5.x and 6.x series
