@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('mime-types', ['~> 3.2']) # Only support the latest major (3+ years old)
   s.add_runtime_dependency('nokogiri', '~> 1.8') # Only support the latest major (3+ years old)
   s.add_runtime_dependency('railties', ['>= 5.0', '< 7']) # We support any version of Rails in the 5.x and 6.x series
+  s.add_runtime_dependency('rexml', '~> 3.0') # rexml is a bundled gem since ruby 3
+  s.add_runtime_dependency('webrick', '~> 1.7') # webrick is a bundled gem since ruby 3
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
