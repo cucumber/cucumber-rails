@@ -6,6 +6,5 @@ gem "cucumber", "< 6"
 gem "railties", "~> 6.0.3"
 gem "activerecord"
 gem "sqlite3", "~> 1.4"
-gem "rexml"
 
 gemspec path: "../"
