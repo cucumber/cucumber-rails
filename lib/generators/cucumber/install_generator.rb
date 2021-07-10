@@ -8,10 +8,6 @@ module Cucumber
 
     DEFAULT_SHEBANG = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])
 
-    class_option :spork,
-                 type: :boolean,
-                 desc: 'Use Spork'
-
     class_option :skip_database,
                  type: :boolean,
                  desc: 'Skip modification of database.yml',
@@ -34,11 +30,7 @@ module Cucumber
 
     def create_feature_support
       empty_directory 'features/support'
-      if spork?
-        template 'support/rails_spork.rb.erb', 'features/support/env.rb'
-      else
-        template 'support/rails.rb.erb',       'features/support/env.rb'
-      end
+      template 'support/rails.rb.erb', 'features/support/env.rb'
     end
 
     def configure_environment
@@ -67,10 +59,6 @@ module Cucumber
     end
 
     protected
-
-    def spork?
-      options[:spork]
-    end
 
     def embed_file(source, indent = '')
       IO.read(File.join(self.class.source_root, source)).gsub(/^/, indent)
