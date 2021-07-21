@@ -6,12 +6,14 @@ on how to contribute to Cucumber.
 ### New Features
 
 * Added new docker / Makefile script to permit releasing from repo ([#502](https://github.com/cucumber/cucumber-rails/pull/502) [luke-hill])
-* Gem update: allowed cucumber 6 ([#515](https://github.com/cucumber/cucumber-rails/pull/515))
+* Gem update: allowed cucumber 6/7 ([#515](https://github.com/cucumber/cucumber-rails/pull/515) /
+                                    [#519](https://github.com/cucumber/cucumber-rails/pull/519))
 * Add support for Ruby 3 ([#517](https://github.com/cucumber/cucumber-rails/pull/517/))
 
 ### Changed
 
-* Updated rubocop to use new major versions ([#504](https://github.com/cucumber/cucumber-rails/pull/504) [luke-hill])
+* Updated rubocop to use new major versions ([#504](https://github.com/cucumber/cucumber-rails/pull/504) /
+                                             [#519](https://github.com/cucumber/cucumber-rails/pull/519) [luke-hill])
 
 ### Fixed
 
