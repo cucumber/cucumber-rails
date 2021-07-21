@@ -22,25 +22,25 @@ Gem::Specification.new do |s|
   }
 
   s.add_runtime_dependency('capybara', ['>= 2.18', '< 4']) # We support legacy capybara (But only the last 2.x)
-  s.add_runtime_dependency('cucumber', ['>= 3.0.2', '< 7']) # Support cucumber in the 3.x / 4.x / 5.x / 6.x revisions
-  s.add_runtime_dependency('mime-types', ['~> 3.2']) # Only support the latest major (3+ years old)
-  s.add_runtime_dependency('nokogiri', '~> 1.8') # Only support the latest major (3+ years old)
+  s.add_runtime_dependency('cucumber', ['>= 3.2', '< 8']) # Support cucumber in the 3.x <-> 7.x revision range
+  s.add_runtime_dependency('mime-types', ['~> 3.3']) # Only support the latest major (3+ years old)
+  s.add_runtime_dependency('nokogiri', '~> 1.10') # Only support the latest major (3+ years old)
   s.add_runtime_dependency('railties', ['>= 5.0', '< 7']) # We support any version of Rails in the 5.x and 6.x series
-  s.add_runtime_dependency('rexml', '~> 3.0') # rexml is a bundled gem since ruby 3
-  s.add_runtime_dependency('webrick', '~> 1.7') # webrick is a bundled gem since ruby 3
+  s.add_runtime_dependency('rexml', '~> 3.0') # rexml is a bundled gem from ruby 3
+  s.add_runtime_dependency('webrick', '~> 1.7') # webrick is a bundled gem from ruby 3
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
-  s.add_development_dependency('appraisal', '~> 2.2')
+  s.add_development_dependency('appraisal', '< 2.4') # See: https://github.com/thoughtbot/appraisal/issues/186
   s.add_development_dependency('aruba', '~> 1.0')
   s.add_development_dependency('bundler', '>= 1.17')
   s.add_development_dependency('database_cleaner', ['>= 1.8', '< 3.0'])
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
-  s.add_development_dependency('rubocop', '~> 1.0.0')
+  s.add_development_dependency('rubocop', '~> 1.7.0')
   s.add_development_dependency('rubocop-packaging', '~> 0.5.1')
   s.add_development_dependency('rubocop-performance', '~> 1.10.2')
-  s.add_development_dependency('rubocop-rspec', '~> 2.0.0')
+  s.add_development_dependency('rubocop-rspec', '~> 2.2.0')
   s.add_development_dependency('sqlite3', '~> 1.3')
 
   # For Documentation:
