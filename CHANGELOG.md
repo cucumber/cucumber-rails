@@ -1,7 +1,21 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md)
 on how to contribute to Cucumber.
 
-## [master](https://github.com/cucumber/cucumber-rails/compare/v2.3.0...master) (Not yet released)
+## [main](https://github.com/cucumber/cucumber-rails/compare/v2.4.0...main) (Not yet released)
+
+### New Features
+
+* 
+
+### Changed
+
+*
+
+### Fixed
+
+*
+
+## [v2.4.0](https://github.com/cucumber/cucumber-rails/compare/v2.3.0...v2.4.0) (2021-07-21)
 
 ### New Features
 
@@ -14,10 +28,10 @@ on how to contribute to Cucumber.
 
 * Updated rubocop to use new major versions ([#504](https://github.com/cucumber/cucumber-rails/pull/504) /
                                              [#519](https://github.com/cucumber/cucumber-rails/pull/519) [luke-hill])
+  
+### Removed
 
-### Fixed
-
-*
+* Removed traces of legacy spork setup / help (No longer used)  ([#518](https://github.com/cucumber/cucumber-rails/pull/518))
 
 ## [v2.3.0](https://github.com/cucumber/cucumber-rails/compare/v2.2.0...v2.3.0) (2021-03-30)
 
