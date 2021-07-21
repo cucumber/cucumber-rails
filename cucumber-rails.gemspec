@@ -37,10 +37,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency('database_cleaner', ['>= 1.8', '< 3.0'])
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
-  s.add_development_dependency('rubocop', '~> 1.0.0')
+  s.add_development_dependency('rubocop', '~> 1.7.0')
   s.add_development_dependency('rubocop-packaging', '~> 0.5.1')
-  s.add_development_dependency('rubocop-performance', '~> 1.10.2')
-  s.add_development_dependency('rubocop-rspec', '~> 2.0.0')
+  s.add_development_dependency('rubocop-performance', '~> 1.11.2')
+  s.add_development_dependency('rubocop-rspec', '~> 2.4.0')
   s.add_development_dependency('sqlite3', '~> 1.3')
 
   # For Documentation:
