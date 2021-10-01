@@ -20,8 +20,11 @@ Feature: Choose javascript database strategy
   Right now, the default behavior is to use truncation, but you can override this by telling
   cucumber-rails which strategy to use for javascript scenarios.
 
-  The deletion strategy can be quicker for situations where truncation causes locks which
+  The `:deletion` strategy can be quicker for situations where truncation causes locks which
   has been reported by some Oracle users.
+
+  The `:none` strategy can be used when user doesn't want special handling of scenario
+  database clean-up regardless of tags set for said scenario.
 
   Background:
     Given I have created a new Rails app and installed cucumber-rails
@@ -99,6 +102,35 @@ Feature: Choose javascript database strategy
       """
       2 scenarios (2 passed)
       5 steps (5 passed)
+      """
+
+  Scenario: Set the strategy to none and run a javascript scenario.
+    When I append to "features/env.rb" with:
+      """
+      DatabaseCleaner.strategy = :transaction
+      Cucumber::Rails::Database.javascript_strategy = :none
+      """
+    And I write to "features/widgets.feature" with:
+      """
+      Feature:
+        Background:
+          When I create 2 widgets
+
+        @javascript
+        Scenario:
+          When I create 3 widgets
+          Then I should have 5 widgets
+          And the DatabaseCleaner strategy should be transaction
+
+        Scenario:
+          Then I should have 2 widgets
+          And the DatabaseCleaner strategy should be transaction
+      """
+    And I run the cukes
+    Then the feature run should pass with:
+      """
+      2 scenarios (2 passed)
+      7 steps (7 passed)
       """
 
   Scenario: Set the strategy to truncation with an except option and run a javascript scenario.

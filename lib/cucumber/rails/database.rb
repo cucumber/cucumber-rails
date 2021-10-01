@@ -49,7 +49,8 @@ module Cucumber
             truncation: TruncationStrategy,
             shared_connection: SharedConnectionStrategy,
             transaction: SharedConnectionStrategy,
-            deletion: DeletionStrategy
+            deletion: DeletionStrategy,
+            none: NullStrategy
           }
         end
 

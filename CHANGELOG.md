@@ -5,7 +5,7 @@ on how to contribute to Cucumber.
 
 ### New Features
 
-* 
+* Added `:none` option for `javascript_strategy` which indicates no special handling of `@javascript` tagged tests ([#522](https://github.com/cucumber/cucumber-rails/pull/522) [akostadinov])
 
 ### Changed
 

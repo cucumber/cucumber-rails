@@ -3,6 +3,7 @@
 require 'database_cleaner'
 require 'cucumber/rails/database/strategy'
 require 'cucumber/rails/database/deletion_strategy'
+require 'cucumber/rails/database/null_strategy'
 require 'cucumber/rails/database/shared_connection_strategy'
 require 'cucumber/rails/database/truncation_strategy'
 require 'cucumber/rails/database'
