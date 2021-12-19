@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('cucumber', ['>= 3.2', '< 8']) # Support cucumber in the 3.x <-> 7.x revision range
   s.add_runtime_dependency('mime-types', ['~> 3.3']) # Only support the latest major (3+ years old)
   s.add_runtime_dependency('nokogiri', '~> 1.10') # Only support the latest major (3+ years old)
-  s.add_runtime_dependency('railties', ['>= 5.0', '< 7']) # We support any version of Rails in the 5.x and 6.x series
+  s.add_runtime_dependency('railties', ['>= 5.0', '< 8']) # We support any version of Rails in the 5, 6 and 7 series
   s.add_runtime_dependency('rexml', '~> 3.0') # rexml is a bundled gem from ruby 3
   s.add_runtime_dependency('webrick', '~> 1.7') # webrick is a bundled gem from ruby 3
 
