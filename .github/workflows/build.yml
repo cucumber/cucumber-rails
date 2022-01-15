@@ -41,4 +41,9 @@ jobs:
           bundler-cache: true
       - run: bundle exec rake spec
       - run: bundle exec rubocop
+      # ruby-2.5.9 has issues running bundle install during specs.
+      # see errors here https://github.com/mgrunberg/cucumber-rails/runs/4824503004?check_suite_focus=true
+      # seems incompatibility with psych gem and rubygems version.
+      - run: gem update --system
+        if: matrix.ruby == '2.5'
       - run: bundle exec rake cucumber
