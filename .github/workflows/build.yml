@@ -39,6 +39,7 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler: '2.1.4'
           bundler-cache: true
+          cache-version: 4
       - run: bundle exec rake spec
       - run: bundle exec rubocop
       - run: bundle exec rake cucumber
