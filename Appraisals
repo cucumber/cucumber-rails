@@ -18,12 +18,14 @@ end
 
 appraise 'rails_5_2' do
   gem 'capybara', '< 3.33'
+  gem 'cucumber', '< 6'
   gem 'railties', '~> 5.2.4'
   gem 'activerecord'
   gem 'sqlite3', '~> 1.3.13'
 end
 
 appraise 'rails_6_0' do
+  gem 'cucumber', '< 6'
   gem 'railties',    '~> 6.0.3'
   gem 'activerecord'
   gem 'sqlite3', '~> 1.4'
