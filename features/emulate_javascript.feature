@@ -72,7 +72,7 @@ Feature: Emulate Javascript
         Scenario: Delete a widget
           Given there is a widget named "wrench"
           And I am on the session establish page
-          When I am on destroy "wrench" page
+          And I navigate to destroy "wrench" page
           Then I should see "wrench"
           And I should see "Destroy"
           When I follow "Destroy"
@@ -88,19 +88,19 @@ Feature: Emulate Javascript
         visit session_establish_path
       end
 
+      Given('I navigate to destroy {string} page') do |name|
+        if ::Rails::VERSION::MAJOR >= 7
+          visit widget_path(Widget.find_by(name: name))
+        else
+          visit widgets_path
+        end
+      end
+
       When('I follow {string}') do |link|
         if ::Rails::VERSION::MAJOR >= 7
           click_button(link)
         else
           click_link(link)
-        end
-      end
-
-      When('I am on destroy {string} page') do |name|
-        if ::Rails::VERSION::MAJOR >= 7
-          visit widget_path(Widget.find_by(name: name))
-        else
-          visit widgets_path
         end
       end
 
