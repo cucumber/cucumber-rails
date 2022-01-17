@@ -72,8 +72,9 @@ Feature: Emulate Javascript
         Scenario: Delete a widget
           Given there is a widget named "wrench"
           And I am on the session establish page
-          And I am on the widgets page
+          And I navigate to destroy "wrench" page
           Then I should see "wrench"
+          And I should see "Destroy"
           When I follow "Destroy"
           Then I should not see "denied"
           And I should be on the widgets page
@@ -87,8 +88,20 @@ Feature: Emulate Javascript
         visit session_establish_path
       end
 
+      Given('I navigate to destroy {string} page') do |name|
+        if ::Rails::VERSION::MAJOR >= 7
+          visit widget_path(Widget.find_by(name: name))
+        else
+          visit widgets_path
+        end
+      end
+
       When('I follow {string}') do |link|
-        click_link(link)
+        if ::Rails::VERSION::MAJOR >= 7
+          click_button(link)
+        else
+          click_link(link)
+        end
       end
 
       Then('I should not see {string}') do |text|
@@ -105,5 +118,5 @@ Feature: Emulate Javascript
     Then the feature run should pass with:
       """
       1 scenario (1 passed)
-      8 steps (8 passed)
+      9 steps (9 passed)
       """
