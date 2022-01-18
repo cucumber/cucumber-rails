@@ -48,3 +48,7 @@ Style/RegexpLiteral:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
+
+# TODO: investigate changes to release process and then enable MFA (https://guides.rubygems.org/mfa-requirement-opt-in/)
+Gemspec/RequireMFA:
+  Enabled: false
