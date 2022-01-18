@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('database_cleaner', ['>= 1.8', '< 3.0'])
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
-  s.add_development_dependency('rubocop', '~> 1.7.0')
+  s.add_development_dependency('rubocop', '~> 1.24.0')
   s.add_development_dependency('rubocop-packaging', '~> 0.5.1')
   s.add_development_dependency('rubocop-performance', '~> 1.10.2')
   s.add_development_dependency('rubocop-rspec', '~> 2.2.0')
@@ -47,7 +47,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rdoc', '>= 6.0')
   s.add_development_dependency('yard', '~> 0.9.10')
 
-  s.required_ruby_version = '>= 2.4.0'
+  s.required_ruby_version = '>= 2.5.0'
   s.rubygems_version = '>= 1.6.1'
   s.require_path     = 'lib'
   s.files            = Dir['lib/**/*', 'CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE', 'README.md']

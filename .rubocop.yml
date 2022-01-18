@@ -4,7 +4,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
   NewCops: enable
   Exclude:
     # These are auto-generated from a load of features that use aruba
@@ -48,3 +48,7 @@ Style/RegexpLiteral:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
+
+# TODO: investigate changes to release process and then enable MFA (https://guides.rubygems.org/mfa-requirement-opt-in/)
+Gemspec/RequireMFA:
+  Enabled: false

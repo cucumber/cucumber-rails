@@ -7,23 +7,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [ '2.4', '2.5', '2.6', '2.7', '3.0' ]
+        ruby: [ '2.5.8', '2.6', '2.7', '3.0', '3.1' ]
         gemfile: [ 'rails_5_0', 'rails_5_1', 'rails_5_2', 'rails_6_0', 'rails_6_1', 'rails_7_0' ]
         exclude:
           # Only test latest Rails (Of each major), on actively supported Ruby Versions
           # Only test latest Ruby with latest Rails versions (Of each major)
-          # 2.4  -> Only use legacy rails versions (5.0/5.1)
           # 2.5  -> Not 5.2/6.1
           # 2.6  -> Users of this should be using Rails 5.2+
           # 2.7  -> Users of this should be using Rails 5.2+
-          # 3.0  -> Only Rails 6.1
-          - { ruby: '2.4', gemfile: 'rails_5_2' }
-          - { ruby: '2.4', gemfile: 'rails_6_0' }
-          - { ruby: '2.4', gemfile: 'rails_6_1' }
-          - { ruby: '2.4', gemfile: 'rails_7_0' }
-          - { ruby: '2.5', gemfile: 'rails_5_2' }
-          - { ruby: '2.5', gemfile: 'rails_6_1' }
-          - { ruby: '2.5', gemfile: 'rails_7_0' }
+          # 3.0  -> Rails 6.1 and 7.0
+          # 3.1  -> Only 7.0
+          - { ruby: '2.5.8', gemfile: 'rails_5_2' }
+          - { ruby: '2.5.8', gemfile: 'rails_6_1' }
+          - { ruby: '2.5.8', gemfile: 'rails_7_0' }
           - { ruby: '2.6', gemfile: 'rails_5_0' }
           - { ruby: '2.6', gemfile: 'rails_5_1' }
           - { ruby: '2.6', gemfile: 'rails_7_0' }
@@ -33,6 +29,11 @@ jobs:
           - { ruby: '3.0', gemfile: 'rails_5_1' }
           - { ruby: '3.0', gemfile: 'rails_5_2' }
           - { ruby: '3.0', gemfile: 'rails_6_0' }
+          - { ruby: '3.1', gemfile: 'rails_5_0' }
+          - { ruby: '3.1', gemfile: 'rails_5_1' }
+          - { ruby: '3.1', gemfile: 'rails_5_2' }
+          - { ruby: '3.1', gemfile: 'rails_6_0' }
+          - { ruby: '3.1', gemfile: 'rails_6_1' }
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
@@ -44,9 +45,9 @@ jobs:
           bundler-cache: true
       - run: bundle exec rake spec
       - run: bundle exec rubocop
-      # ruby-2.5.9 has issues running bundle install during specs.
+      # ruby-2.5.8 and 2.5.9 has issues running bundle install during specs.
       # see errors here https://github.com/mgrunberg/cucumber-rails/runs/4824503004?check_suite_focus=true
       # seems incompatibility with psych gem and rubygems version.
       - run: gem update --system
-        if: matrix.ruby == '2.5'
+        if: matrix.ruby == '2.5.8'
       - run: bundle exec rake cucumber
