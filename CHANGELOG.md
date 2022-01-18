@@ -6,6 +6,7 @@ on how to contribute to Cucumber.
 ### New Features
 
 * Added `:none` option for `javascript_strategy` which indicates no special handling of `@javascript` tagged tests ([#522](https://github.com/cucumber/cucumber-rails/pull/522) [akostadinov])
+* Added support for Rails 7 ([#526](https://github.com/cucumber/cucumber-rails/pull/526/) [mgrunberg])
 * Added Ruby 3.1 support ([#529](https://github.com/cucumber/cucumber-rails/pull/529) [mgrunberg])
 
 ### Changed
