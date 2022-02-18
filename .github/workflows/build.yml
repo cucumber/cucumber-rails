@@ -11,35 +11,33 @@ jobs:
         gemfile: [ 'rails_5_0', 'rails_5_1', 'rails_5_2', 'rails_6_0', 'rails_6_1', 'rails_7_0' ]
         exclude:
           # Newest ruby will test
-          # - all permissible rails versions in latest major
+          # - all permissible rails versions in current major
           # - latest rails version in the last major
           # Supported rubies will test
-          # - all permissible rails versions in latest major
+          # - all permissible rails versions in current major
           # - all permissible supported rails versions beneath latest major
           # Unsupported rubies will test
           # - all permissible rails versions released within 6 months of EOL
+          # - not the latest rails version
 
-          # 2.5 -> Unsupported since March '21 -> Only test up to Sep '21
-          # 2.6 -> Supported until March '22
+          # 2.5 -> Unsupported from March '21 -> Only test up to Sep '21
+          # 2.6 -> Unsupported from March '22 -> Only test up to Sep '22
           # 2.7 -> Supported until March '23 (At least)
           # 3.0 -> Supported for a while...
           - { ruby: '2.5.8', gemfile: 'rails_5_2' }
+          - { ruby: '2.5.8', gemfile: 'rails_6_0' }
           - { ruby: '2.5.8', gemfile: 'rails_6_1' }
           - { ruby: '2.5.8', gemfile: 'rails_7_0' }
-          - { ruby: '2.6', gemfile: 'rails_5_0' }
-          - { ruby: '2.6', gemfile: 'rails_5_1' }
           - { ruby: '2.6', gemfile: 'rails_7_0' }
           - { ruby: '2.7', gemfile: 'rails_5_0' }
           - { ruby: '2.7', gemfile: 'rails_5_1' }
           - { ruby: '3.0', gemfile: 'rails_5_0' }
           - { ruby: '3.0', gemfile: 'rails_5_1' }
-          - { ruby: '3.0', gemfile: 'rails_5_2' }
           - { ruby: '3.0', gemfile: 'rails_6_0' }
           - { ruby: '3.1', gemfile: 'rails_5_0' }
           - { ruby: '3.1', gemfile: 'rails_5_1' }
           - { ruby: '3.1', gemfile: 'rails_5_2' }
           - { ruby: '3.1', gemfile: 'rails_6_0' }
-          - { ruby: '3.1', gemfile: 'rails_6_1' }
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
