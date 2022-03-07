@@ -1,7 +1,21 @@
 Please see [CONTRIBUTING.md](https://github.com/cucumber/cucumber/blob/master/CONTRIBUTING.md)
 on how to contribute to Cucumber.
 
-## [main](https://github.com/cucumber/cucumber-rails/compare/v2.4.0...main) (Not yet released)
+## [main](https://github.com/cucumber/cucumber-rails/compare/v2.5.0...main) (Not yet released)
+
+### New Features
+
+
+
+### Changed
+
+
+
+### Fixed
+
+*
+
+## [v2.5.0](https://github.com/cucumber/cucumber-rails/compare/v2.4.0...v2.5.0) (2022-03-07)
 
 ### New Features
 
@@ -12,10 +26,6 @@ on how to contribute to Cucumber.
 ### Changed
 
 * Dropped Ruby 2.4 support ([#529](https://github.com/cucumber/cucumber-rails/pull/529) [mgrunberg])
-
-### Fixed
-
-*
 
 ## [v2.4.0](https://github.com/cucumber/cucumber-rails/compare/v2.3.0...v2.4.0) (2021-07-21)
 
