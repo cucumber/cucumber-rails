@@ -48,7 +48,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('yard', '~> 0.9.10')
 
   s.required_ruby_version = '>= 2.5.0'
-  s.rubygems_version = '>= 1.6.1'
+  s.required_rubygems_version = '>= 1.6.1'
   s.require_path     = 'lib'
   s.files            = Dir['lib/**/*', 'CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE', 'README.md']
 end
