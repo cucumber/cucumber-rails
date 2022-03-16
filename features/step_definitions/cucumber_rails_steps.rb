@@ -67,6 +67,12 @@ Given('I force selenium to run Firefox in headless mode') do
   step 'I append to "features/support/env.rb" with:', selenium_config
 end
 
+Given('I force {string} to use select boxes for dates') do |file|
+  content = File.read(expand_path(file))
+
+  overwrite_file(file, content.gsub(/\.(datetime|time|date)_field/, '.\1_select'))
+end
+
 When('I run the cukes') do
   run_command_and_stop('bundle exec cucumber')
 end

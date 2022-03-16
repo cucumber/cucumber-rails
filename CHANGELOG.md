@@ -13,7 +13,7 @@ on how to contribute to Cucumber.
 
 ### Fixed
 
-*
+* Date input support in Rails 7 ([#535](https://github.com/cucumber/cucumber-rails/pull/535) [mgrunberg])
 
 ## [v2.5.0](https://github.com/cucumber/cucumber-rails/compare/v2.4.0...v2.5.0) (2022-03-07)
 
