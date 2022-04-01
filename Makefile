@@ -3,7 +3,7 @@ SHELL := /usr/bin/env bash
 release:
 	[ -d '../secrets' ] || git clone keybase://team/cucumberbdd/secrets ../secrets
 	git -C ../secrets pull
-	git checkout master && git pull
+	git checkout main && git pull
 	../secrets/update_permissions
 	docker run \
 		--volume "${shell pwd}":/app \
