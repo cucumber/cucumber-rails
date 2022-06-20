@@ -21,11 +21,11 @@ Gem::Specification.new do |s|
     'source_code_uri' => "https://github.com/cucumber/cucumber-rails/tree/v#{s.version}"
   }
 
-  s.add_runtime_dependency('capybara', ['>= 2.18', '< 4']) # We support legacy capybara (But only the last 2.x)
-  s.add_runtime_dependency('cucumber', '>= 3.2', '< 9') # Support cucumber in the 3.x <-> 7.x revision range
-  s.add_runtime_dependency('mime-types', ['~> 3.3']) # Only support the latest major (3+ years old)
-  s.add_runtime_dependency('nokogiri', '~> 1.10') # Only support the latest major (3+ years old)
-  s.add_runtime_dependency('railties', ['>= 5.0', '< 8']) # We support any version of Rails in the 5.x, 6.x and 7.x series
+  s.add_runtime_dependency('capybara', ['>= 2.18', '< 4'])
+  s.add_runtime_dependency('cucumber', '>= 3.2', '< 9')
+  s.add_runtime_dependency('mime-types', ['~> 3.3'])
+  s.add_runtime_dependency('nokogiri', '~> 1.10')
+  s.add_runtime_dependency('railties', ['>= 5.0', '< 8'])
   s.add_runtime_dependency('rexml', '~> 3.0') # rexml is a bundled gem from ruby 3
   s.add_runtime_dependency('webrick', '~> 1.7') # webrick is a bundled gem from ruby 3
 
