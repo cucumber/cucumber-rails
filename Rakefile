@@ -40,7 +40,7 @@ end
 namespace :gemfiles do
   desc 'Install dependencies for all gemfiles'
   task :install do
-    system "bundle exec appraisal update"
+    system 'bundle exec appraisal update'
   end
 
   task :clean do
