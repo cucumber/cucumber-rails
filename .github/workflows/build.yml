@@ -7,18 +7,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [ '2.5.8', '2.6', '2.7', '3.0', '3.1' ]
-        gemfile: [ 'rails_5_0', 'rails_5_1', 'rails_5_2', 'rails_6_0', 'rails_6_1', 'rails_7_0' ]
+        ruby: ['2.5.8', '2.6', '2.7', '3.0', '3.1']
+        gemfile: ['rails_5_0', 'rails_5_1', 'rails_5_2', 'rails_6_0', 'rails_6_1', 'rails_7_0']
         exclude:
-          # Newest ruby will test
-          # - all permissible rails versions in current major
-          # - latest rails version in the last major
+          # Latest ruby will test
+          # - all rails versions in current major
+          # - latest rails version in the previous major
           # Supported rubies will test
-          # - all permissible rails versions in current major
-          # - all permissible supported rails versions beneath latest major
+          # - all permissible supported rails versions
           # Unsupported rubies will test
           # - all permissible rails versions released within 6 months of EOL
-          # - not the latest rails version
+          # - nothing in the current rails major
 
           # 2.5 -> Unsupported from March '21 -> Only test up to Sep '21
           # 2.6 -> Unsupported from March '22 -> Only test up to Sep '22
@@ -34,7 +33,6 @@ jobs:
           - { ruby: '3.0', gemfile: 'rails_5_0' }
           - { ruby: '3.0', gemfile: 'rails_5_1' }
           - { ruby: '3.0', gemfile: 'rails_5_2' } # Rails 5.2 won't work with Ruby 3+: https://github.com/rails/rails/issues/40938
-          - { ruby: '3.0', gemfile: 'rails_6_0' }
           - { ruby: '3.1', gemfile: 'rails_5_0' }
           - { ruby: '3.1', gemfile: 'rails_5_1' }
           - { ruby: '3.1', gemfile: 'rails_5_2' }
@@ -52,7 +50,6 @@ jobs:
       - run: bundle exec rubocop
       # ruby-2.5.8 and 2.5.9 has issues running bundle install during specs.
       # see errors here https://github.com/mgrunberg/cucumber-rails/runs/4824503004?check_suite_focus=true
-      # seems incompatibility with psych gem and rubygems version.
       - run: gem update --system
         if: matrix.ruby == '2.5.8'
       - run: bundle exec rake cucumber
