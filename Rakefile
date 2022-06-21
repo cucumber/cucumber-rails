@@ -6,7 +6,7 @@ require 'rubygems'
 require 'bundler'
 require 'bundler/setup'
 require 'appraisal'
-require 'rdoc' # https://github.com/lsegal/yard/commit/b861dcc2d7f7e1fbbed7b552ac2e4f7caf68bafa
+require 'rdoc'
 require 'rake/clean'
 require 'pathname'
 Bundler::GemHelper.install_tasks
@@ -40,8 +40,7 @@ end
 namespace :gemfiles do
   desc 'Install dependencies for all gemfiles'
   task :install do
-    ENV['BUNDLE_GEMFILE'] = 'Gemfile.appraisal'
-    Rake::Task['appraisal:install'].invoke
+    system 'bundle exec appraisal update'
   end
 
   task :clean do
