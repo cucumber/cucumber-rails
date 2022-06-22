@@ -6,9 +6,10 @@ We appreciate that. But before you do, please learn our basic rules:
 * Do you have an idea for a new feature? Then don't expect it to be implemented unless you or someone else sends a [pull request](https://help.github.com/articles/using-pull-requests). You might be better to start a discussion on [the google group](http://groups.google.com/group/cukes).
 * Reporting a bug? Please tell us:
   * which version of Cucumber you're using
-  * which version of Ruby you're using.
+  * which version of Ruby you're using
+  * which version of Rails you're using (include all associated gems)
   * How to reproduce it. Bugs with a failing test in a [pull request](https://help.github.com/articles/using-pull-requests) get fixed much quicker. Some bugs may never be fixed.
-* Want to paste some code or output? Put \`\`\` on a line above and below your code/output. See [GFM](https://help.github.com/articles/github-flavored-markdown)'s *Fenced Code Blocks* for details.
+* Want to paste some code or output? Put ``` on a line above and below your code/output. See [GFM](https://help.github.com/articles/github-flavored-markdown)'s *Fenced Code Blocks* for details.
 * We love [pull requests](https://help.github.com/articles/using-pull-requests). But if you don't have a test to go with it we probably won't merge it.
 
 # Contributing to cucumber-rails
@@ -58,18 +59,3 @@ Now release it
     bundle exec rake
     git commit -m "Release X.Y.Z"
     rake release
-
-## Gaining Release Karma
-
-To become a release manager, create a pull request adding your name to the list below, including
-your Rubygems email address in the ticket. One of the existing Release managers will then add you.
-
-Current release managers:
-  * Kosmas Chatzimichalis
-  * Matt Wynne
-  * Mathieu Jobin
-  * Andrew Walter
-
-To grant release karma, issue the following command:
-
-    gem owner cucumber-rails --add <NEW OWNER RUBYGEMS EMAIL>

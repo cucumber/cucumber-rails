@@ -22,7 +22,7 @@ module Cucumber
   module Rails
     class World < ::ActionDispatch::IntegrationTest
       include Rack::Test::Methods if Cucumber::Rails.include_rack_test_helpers?
-      include ActiveSupport::Testing::SetupAndTeardown if ActiveSupport::Testing.const_defined?('SetupAndTeardown')
+      include ActiveSupport::Testing::SetupAndTeardown if ActiveSupport::Testing.const_defined?(:SetupAndTeardown)
 
       def initialize
         @_result = Test::Unit::TestResult.new if defined?(Test::Unit::TestResult)
