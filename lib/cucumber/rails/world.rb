@@ -12,7 +12,7 @@ module Cucumber
     class << self
       def include_rack_test_helpers?
         # Using ActiveModel Boolean casting here will give false positives more often than not!
-        !ENV['CR_REMOVE_RACK_TEST_HELPERS']&.casecmp('true')&.zero?
+        !ENV.fetch('CR_REMOVE_RACK_TEST_HELPERS', '').casecmp('true').zero?
       end
     end
   end
