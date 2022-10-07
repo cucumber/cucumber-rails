@@ -50,293 +50,294 @@ on how to contribute to Cucumber.
 
 * Added new docker / Makefile script to permit releasing from repo ([#502](https://github.com/cucumber/cucumber-rails/pull/502) [luke-hill])
 * Gem update: allowed cucumber 6/7 ([#515](https://github.com/cucumber/cucumber-rails/pull/515) /
-                                    [#519](https://github.com/cucumber/cucumber-rails/pull/519))
+[#519](https://github.com/cucumber/cucumber-rails/pull/519))
 * Add support for Ruby 3 ([#517](https://github.com/cucumber/cucumber-rails/pull/517/))
 
 ### Changed
 
 * Updated rubocop to use new major versions ([#504](https://github.com/cucumber/cucumber-rails/pull/504) /
-                                             [#519](https://github.com/cucumber/cucumber-rails/pull/519) [luke-hill])
+[#519](https://github.com/cucumber/cucumber-rails/pull/519) [luke-hill])
   
 ### Removed
 
-* Removed traces of legacy spork setup / help (No longer used)  ([#518](https://github.com/cucumber/cucumber-rails/pull/518))
+* Removed traces of legacy spork setup / help (No longer used) 
+([#518](https://github.com/cucumber/cucumber-rails/pull/518) [luke-hill])
 
 ## [v2.3.0](https://github.com/cucumber/cucumber-rails/compare/v2.2.0...v2.3.0) (2021-03-30)
 
 ### Changed
 
- * Changed dependency from rails to railties to avoid pulling in optional Rails gems like actioncable ([#486](https://github.com/cucumber/cucumber-rails/pull/486) [langalex])
+* Changed dependency from rails to railties to avoid pulling in optional Rails gems like actioncable
+([#486](https://github.com/cucumber/cucumber-rails/pull/486) [langalex])
 
- * Lightened gem binary by removing un-needed files ([#496](https://github.com/cucumber/cucumber-rails/pull/496) [orien])
+* Lightened gem binary by removing un-needed files ([#496](https://github.com/cucumber/cucumber-rails/pull/496) [orien])
 
 ### Fixed
 
- * Fixed up a couple of legacy capybara specs to use a better format ([#498](https://github.com/cucumber/cucumber-rails/pull/498) [luke-hill])
+* Fixed up a couple of legacy capybara specs to use a better format
+([#498](https://github.com/cucumber/cucumber-rails/pull/498) [luke-hill])
 
 ## [v2.2.0](https://github.com/cucumber/cucumber-rails/compare/v2.1.0...v2.2.0) (2020-08-10)
 
 ### New Features
 
- * Added more documentation and tests around Javascript tagged scenarios
-   ([#480](https://github.com/cucumber/cucumber-rails/pull/480) [luke-hill])
+* Added more documentation and tests around Javascript tagged scenarios
+  ([#480](https://github.com/cucumber/cucumber-rails/pull/480) [luke-hill])
 
- * Gem Updates
-   * Allowed cucumber5, updated other gem dependencies
-   * Updated travis runs and gem builds tested against
-   ([#482](https://github.com/cucumber/cucumber-rails/pull/482) [luke-hill])
+* Gem Updates
+  * Allowed cucumber5, updated other gem dependencies
+  * Updated travis runs and gem builds tested against
+  ([#482](https://github.com/cucumber/cucumber-rails/pull/482) [luke-hill])
 
 ### Changed
 
- * Dropped Rails 4.2 support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
+* Dropped Rails 4.2 support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
 
 ### Fixed
 
- * Database cleaning no longer silently fails when using database_cleaner v2 adapter gems
-   ([#467](https://github.com/cucumber/cucumber-rails/pull/467) [botandrose])
+* Database cleaning no longer silently fails when using database_cleaner v2 adapter gems
+  ([#467](https://github.com/cucumber/cucumber-rails/pull/467) [botandrose])
 
- * Restored compatibility with `database_cleaner` versions earlier than 1.8.0.beta
-   ([#473](https://github.com/cucumber/cucumber-rails/pull/473) [cgriego])
+* Restored compatibility with `database_cleaner` versions earlier than 1.8.0.beta
+  ([#473](https://github.com/cucumber/cucumber-rails/pull/473) [cgriego])
 
- * Restored previous `database_cleaner` behavior for apps that do not use/load ActiveRecord
-   ([#474](https://github.com/cucumber/cucumber-rails/pull/474) [cgriego])
-
- * Restored previous compatibility around standard Rails Modules not being loaded
-   ([#484](https://github.com/cucumber/cucumber-rails/pull/484) [Draiken])
+* Restored previous `database_cleaner` behavior for apps that do not use/load ActiveRecord
+  ([#474](https://github.com/cucumber/cucumber-rails/pull/474) [cgriego]* Restored previous compatibility around standard Rails Modules not being loaded
+  ([#484](https://github.com/cucumber/cucumber-rails/pull/484) [Draiken])
 
 ## [v2.1.0](https://github.com/cucumber/cucumber-rails/compare/v2.0.0...v2.1.0) (2020-06-15)
 
 ### New Features
 
- * Added metadata to allow gem to be searched / indexed by rubygems
-    ([#447](https://github.com/cucumber/cucumber-rails/pull/447) [orien])
+* Added metadata to allow gem to be searched / indexed by rubygems
+   ([#447](https://github.com/cucumber/cucumber-rails/pull/447) [orien])
 
- * Allow Cucumber 4 to be used as an option for cucumber-rails
-   * NB: Cucumber4 changes quite a lot of logic with auto-loaders. This means that any previous
-   logic that relied implicitly on load-order "may" be affected
-   ([#453](https://github.com/cucumber/cucumber-rails/pull/453) [luke-hill] / [deivid-rodriguez])
+* Allow Cucumber 4 to be used as an option for cucumber-rails
+  * NB: Cucumber4 changes quite a lot of logic with auto-loaders. This means that any previous
+  logic that relied implicitly on load-order "may" be affected
+  ([#453](https://github.com/cucumber/cucumber-rails/pull/453) [luke-hill] / [deivid-rodriguez])
 
 ### Changed
 
- * Dropped Ruby 2.3 support (target 2.4 - 2.7) ([#466](https://github.com/cucumber/cucumber-rails/pull/466) [mvz])
+* Dropped Ruby 2.3 support (target 2.4 - 2.7) ([#466](https://github.com/cucumber/cucumber-rails/pull/466) [mvz])
 
- * Refactored suite to remove a lot of old Rails3/4.0 "ism's"
-   * Also migrated a lot of old cucumber styles to cucumber4
-   ([#441](https://github.com/cucumber/cucumber-rails/pull/441) [luke-hill])
+* Refactored suite to remove a lot of old Rails3/4.0 "ism's"
+  * Also migrated a lot of old cucumber styles to cucumber4
+  ([#441](https://github.com/cucumber/cucumber-rails/pull/441) [luke-hill])
 
- * Refactored alias logic for overriding Rails methods to use `Module#prepend`
-   ([#457](https://github.com/cucumber/cucumber-rails/pull/457) [wagenet])
+* Refactored alias logic for overriding Rails methods to use `Module#prepend`
+  ([#457](https://github.com/cucumber/cucumber-rails/pull/457) [wagenet])
 
- * `database_cleaner` (when used), at a version `>= 1.8` will now silence all warnings
-   * The suite internally will only test a version `>= 1.8`, so other versions will work but are un-maintained
-   ([#463](https://github.com/cucumber/cucumber-rails/pull/463) [deivid-rodriguez])
+* `database_cleaner` (when used), at a version `>= 1.8` will now silence all warnings
+  * The suite internally will only test a version `>= 1.8`, so other versions will work but are un-maintained
+  ([#463](https://github.com/cucumber/cucumber-rails/pull/463) [deivid-rodriguez])
 
 ### Fixed
 
- * Various rubocop / rspec styling fixes
-   ([#445](https://github.com/cucumber/cucumber-rails/pull/445) /
-    [#449](https://github.com/cucumber/cucumber-rails/pull/449) /
-    [#450](https://github.com/cucumber/cucumber-rails/pull/450) /
-    [#451](https://github.com/cucumber/cucumber-rails/pull/451) /
-    [#452](https://github.com/cucumber/cucumber-rails/pull/452) /
-    [#465](https://github.com/cucumber/cucumber-rails/pull/465)
-   [mvz] / [luke-hill])
+* Various rubocop / rspec styling fixes
+  ([#445](https://github.com/cucumber/cucumber-rails/pull/445) /
+   [#449](https://github.com/cucumber/cucumber-rails/pull/449) /
+   [#450](https://github.com/cucumber/cucumber-rails/pull/450) /
+   [#451](https://github.com/cucumber/cucumber-rails/pull/451) /
+   [#452](https://github.com/cucumber/cucumber-rails/pull/452) /
+   [#465](https://github.com/cucumber/cucumber-rails/pull/465)
+  [mvz] / [luke-hill])
 
- * Various CI fixes
-   ([#444](https://github.com/cucumber/cucumber-rails/pull/444) /
-   [#460](https://github.com/cucumber/cucumber-rails/pull/460) /
-   [#464](https://github.com/cucumber/cucumber-rails/pull/464)
-   [mvz] / [damonjmurray] / [deivid-rodriguez])
+* Various CI fixes
+  ([#444](https://github.com/cucumber/cucumber-rails/pull/444) /
+  [#460](https://github.com/cucumber/cucumber-rails/pull/460) /
+  [#464](https://github.com/cucumber/cucumber-rails/pull/464)
+  [mvz] / [damonjmurray] / [deivid-rodriguez])
 
- * Avoid printing a warning about `config.cache_classes` being set to `false` when
-   Spring is used ([#462](https://github.com/cucumber/cucumber-rails/pull/462) [janko])
+* Avoid printing a warning about `config.cache_classes` being set to `false` when
+  Spring is used ([#462](https://github.com/cucumber/cucumber-rails/pull/462) [janko])
 
 ## [v2.0.0](https://github.com/cucumber/cucumber-rails/compare/v1.8.0...v2.0.0) (2019-09-13)
 
 ### New Features
 
- * New functionality allows users to Configure whether `Rack::Test` methods get auto-mixed in
-   * Setting `ENV['CR_REMOVE_RACK_TEST_HELPERS] = "true"` will remove these methods from the `World`
-   ([#440](https://github.com/cucumber/cucumber-rails/pull/440) [luke-hill])
+* New functionality allows users to Configure whether `Rack::Test` methods get auto-mixed in
+  * Setting `ENV['CR_REMOVE_RACK_TEST_HELPERS] = "true"` will remove these methods from the `World`
+  ([#440](https://github.com/cucumber/cucumber-rails/pull/440) [luke-hill])
 
 ### Changed
 
- * **Breaking change:** `web_steps` have been completely removed from cucumber-rails
-   ([#437](https://github.com/cucumber/cucumber-rails/pull/437) [luke-hill])
+* **Breaking change:** `web_steps` have been completely removed from cucumber-rails
+  ([#437](https://github.com/cucumber/cucumber-rails/pull/437) [luke-hill])
 
- * Altered some branching logic in tests designed to cater for old ruby/rails versions
-   ([#433](https://github.com/cucumber/cucumber-rails/pull/433) [luke-hill])
+* Altered some branching logic in tests designed to cater for old ruby/rails versions
+  ([#433](https://github.com/cucumber/cucumber-rails/pull/433) [luke-hill])
 
 ## [v1.8.0](https://github.com/cucumber/cucumber-rails/compare/v1.7.0..v1.8.0) (2019-08-06)
 
 ### Changed
 
- * Dropped Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
+* Dropped Ruby 2.2 support (target 2.3 and up) ([#424](https://github.com/cucumber/cucumber-rails/pull/424) [mvz])
 
- * Begin to update the core runtime / development dependencies to something a little more recent
-   ([#413](https://github.com/cucumber/cucumber-rails/pull/413) /
-   [#431](https://github.com/cucumber/cucumber-rails/pull/431) /
-   [#432](https://github.com/cucumber/cucumber-rails/pull/432)
-   [mvz] /
-   [luke-hill])
+* Begin to update the core runtime / development dependencies to something a little more recent
+  ([#413](https://github.com/cucumber/cucumber-rails/pull/413) /
+  [#431](https://github.com/cucumber/cucumber-rails/pull/431) /
+  [#432](https://github.com/cucumber/cucumber-rails/pull/432)
+  [mvz] /
+  [luke-hill])
 
 ### Fixed
 
- * Various rubocop / styling issues that had built up over time
-  ([#414](https://github.com/cucumber/cucumber-rails/pull/414) /
-  [#416](https://github.com/cucumber/cucumber-rails/pull/416) /
-  [#419](https://github.com/cucumber/cucumber-rails/pull/419) /
-  [#420](https://github.com/cucumber/cucumber-rails/pull/420) /
-  [#421](https://github.com/cucumber/cucumber-rails/pull/421) /
-  [#421](https://github.com/cucumber/cucumber-rails/pull/434)
-  [luke-hill] /
-  [mvz])
+* Various rubocop / styling issues that had built up over time
+ ([#414](https://github.com/cucumber/cucumber-rails/pull/414) /
+ [#416](https://github.com/cucumber/cucumber-rails/pull/416) /
+ [#419](https://github.com/cucumber/cucumber-rails/pull/419) /
+ [#420](https://github.com/cucumber/cucumber-rails/pull/420) /
+ [#421](https://github.com/cucumber/cucumber-rails/pull/421) /
+ [#421](https://github.com/cucumber/cucumber-rails/pull/434)
+ [luke-hill] /
+ [mvz])
 
- * Generic Travis Healthcheck (Fixed up polluted logs and use newer Ubuntu OS)
-  ([#415](https://github.com/cucumber/cucumber-rails/pull/415) /
-  [#417](https://github.com/cucumber/cucumber-rails/pull/417)
-  [luke-hill])
+* Generic Travis Healthcheck (Fixed up polluted logs and use newer Ubuntu OS)
+ ([#415](https://github.com/cucumber/cucumber-rails/pull/415) /
+ [#417](https://github.com/cucumber/cucumber-rails/pull/417)
+ [luke-hill])
 
- * Rails6 not building correctly
-  ([#418](https://github.com/cucumber/cucumber-rails/pull/418)
-  [luke-hill])
+* Rails6 not building correctly
+ ([#418](https://github.com/cucumber/cucumber-rails/pull/418)
+ [luke-hill])
 
- * Provisional Ruby 2.7 builds not working
-  ([#427](https://github.com/cucumber/cucumber-rails/pull/427)
-  [amatsuda] /
-  [luke-hill])
+* Provisional Ruby 2.7 builds not working
+ ([#427](https://github.com/cucumber/cucumber-rails/pull/427)
+ [amatsuda] /
+ [luke-hill])
 
 ## [v1.7.0](https://github.com/cucumber/cucumber-rails/compare/v1.6.0...v1.7.0) (2019-04-17)
 
 ### Changed
 
- * Drop rails `4.0` / `4.1` support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
- * Allow Ruby `2.6` users to `ERB.new` ([#399](https://github.com/cucumber/cucumber-rails/pull/399) [koic])
- * Allow Rails to be used in the `6.x` series (Currently as of release only beta1 is supported) ([#405](https://github.com/cucumber/cucumber-rails/pull/405) [kotovalexarian])
- * Update CI to test most relevant Rubies ([#411](https://github.com/cucumber/cucumber-rails/pull/411) [olleolleolle])
+* Drop rails `4.0` / `4.1` support ([#392](https://github.com/cucumber/cucumber-rails/pull/392) [deivid-rodriguez])
+* Allow Ruby `2.6` users to `ERB.new` ([#399](https://github.com/cucumber/cucumber-rails/pull/399) [koic])
+* Allow Rails to be used in the `6.x` series (Currently as of release only beta1 is supported) ([#405](https://github.com/cucumber/cucumber-rails/pull/405) [kotovalexarian])
+* Update CI to test most relevant Rubies ([#411](https://github.com/cucumber/cucumber-rails/pull/411) [olleolleolle])
 
 ### Fixed
 
- * Appraisals fixes (Up-to-date `geckodriver`, standardised the various `.gemfile`s)
- ([#389](https://github.com/cucumber/cucumber-rails/pull/389) /
- [#394](https://github.com/cucumber/cucumber-rails/pull/394) /
- [#395](https://github.com/cucumber/cucumber-rails/pull/395) /
- [#408](https://github.com/cucumber/cucumber-rails/pull/408)
- [xtrasimplicity] /
- [deivid-rodriguez] /
- [mvz])
+* Appraisals fixes (Up-to-date `geckodriver`, standardised the various `.gemfile`s)
+([#389](https://github.com/cucumber/cucumber-rails/pull/389) /
+[#394](https://github.com/cucumber/cucumber-rails/pull/394) /
+[#395](https://github.com/cucumber/cucumber-rails/pull/395) /
+[#408](https://github.com/cucumber/cucumber-rails/pull/408)
+[xtrasimplicity] /
+[deivid-rodriguez] /
+[mvz])
 
- * Various build issues that had built up over the previous year
-  ([#403](https://github.com/cucumber/cucumber-rails/pull/403) /
-  [#404](https://github.com/cucumber/cucumber-rails/pull/404) /
-  [#410](https://github.com/cucumber/cucumber-rails/pull/410)
-  [koic] /
-  [mvz])
+* Various build issues that had built up over the previous year
+ ([#403](https://github.com/cucumber/cucumber-rails/pull/403) /
+ [#404](https://github.com/cucumber/cucumber-rails/pull/404) /
+ [#410](https://github.com/cucumber/cucumber-rails/pull/410)
+ [koic] /
+ [mvz])
 
 ## [v1.6.0](https://github.com/cucumber/cucumber-rails/compare/v1.5.0...v1.6.0) (2018-04-23)
 
 ### Changed
 
- * Renamed History.md to CHANGELOG.md, added contributing note, and this line in accordance with [cucumber/cucumber #251](https://github.com/cucumber/cucumber/issues/251) ([#345](https://github.com/cucumber/cucumber-rails/pull/345) [jaysonesmith](https://github.com/jaysonesmith))
- * Update .travis.yml with ruby versions ([#341](https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga)
- * Removed support for Ruby <= 2.1, to keep in line with [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/master/CHANGELOG.md#302-2017-11-11) ([#360](https://github.com/cucumber/cucumber-rails/pull/360) [xtrasimplicity](https://github.com/xtrasimplicity)).
- * Updated syntax to support both new and deprecated forms of tag negation. ([#348](https://github.com/cucumber/cucumber-rails/pull/348) [mirelon](https://github.com/mirelon), [#359](https://github.com/cucumber/cucumber-rails/pull/359) [xtrasimplicity](https://github.com/xtrasimplicity))
- * Dependencies: Allowed `Ammeter` versions greater than 1.1.3. ([#368](https://github.com/cucumber/cucumber-rails/pull/368) [mvz](https://github.com/mvz))
- * Switched to Ruby 1.9 hash syntax. ([#371](https://github.com/cucumber/cucumber-rails/pull/371) [mvz](https://github.com/mvz))
- * Added support to handle rerun files with multiple lines. ([#373]((https://github.com/cucumber/cucumber-rails/pull/345)) [mvz](https://github.com/mvz))
- * Added support for Rails 5.2 and Capybara 3. ([#378](https://github.com/cucumber/cucumber-rails/pull/378/) [gobijan](https://github.com/gobijan), [radar](https://github.com/radar), [xtrasimplicity](https://github.com/xtrasimplicity))
+* Renamed History.md to CHANGELOG.md, added contributing note, and this line in accordance with [cucumber/cucumber #251](https://github.com/cucumber/cucumber/issues/251) ([#345](https://github.com/cucumber/cucumber-rails/pull/345) [jaysonesmith](https://github.com/jaysonesmith))
+* Update .travis.yml with ruby versions ([#341](https://github.com/cucumber/cucumber-rails/pull/341) Jun Aruga)
+* Removed support for Ruby <= 2.1, to keep in line with [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/master/CHANGELOG.md#302-2017-11-11) ([#360](https://github.com/cucumber/cucumber-rails/pull/360) [xtrasimplicity](https://github.com/xtrasimplicity)).
+* Updated syntax to support both new and deprecated forms of tag negation. ([#348](https://github.com/cucumber/cucumber-rails/pull/348) [mirelon](https://github.com/mirelon), [#359](https://github.com/cucumber/cucumber-rails/pull/359) [xtrasimplicity](https://github.com/xtrasimplicity))
+* Dependencies: Allowed `Ammeter` versions greater than 1.1.3. ([#368](https://github.com/cucumber/cucumber-rails/pull/368) [mvz](https://github.com/mvz))
+* Switched to Ruby 1.9 hash syntax. ([#371](https://github.com/cucumber/cucumber-rails/pull/371) [mvz](https://github.com/mvz))
+* Added support to handle rerun files with multiple lines. ([#373]((https://github.com/cucumber/cucumber-rails/pull/345)) [mvz](https://github.com/mvz))
+* Added support for Rails 5.2 and Capybara 3. ([#378](https://github.com/cucumber/cucumber-rails/pull/378/) [gobijan](https://github.com/gobijan), [radar](https://github.com/radar), [xtrasimplicity](https://github.com/xtrasimplicity))
 
 ### Fixed
 
- * Fix typo ([#343](https://github.com/cucumber/cucumber-rails/pull/343) Olle Jonsson)
- * History.md: Fixed markdown formatting ([#344](https://github.com/cucumber/cucumber-rails/pull/344) [Kosmas](https://github.com/Kosmas))
- * Fixed tag deprecation warnings. ([#373](https://github.com/cucumber/cucumber-rails/pull/373) [mvz](https://github.com/mvz))
+* Fix typo ([#343](https://github.com/cucumber/cucumber-rails/pull/343) Olle Jonsson)
+* History.md: Fixed markdown formatting ([#344](https://github.com/cucumber/cucumber-rails/pull/344) [Kosmas](https://github.com/Kosmas))
+* Fixed tag deprecation warnings. ([#373](https://github.com/cucumber/cucumber-rails/pull/373) [mvz](https://github.com/mvz))
 
 ## [v1.5.0](https://github.com/cucumber/cucumber-rails/compare/1.4.5...1.5.0) (2017-05-12)
 
- * Drop rails 3 support ([#334](https://github.com/cucumber/cucumber-rails/pull/334) Matijs van Zuijlen)
- * Add rails 5.1 support ([#337](https://github.com/cucumber/cucumber-rails/pull/337) Matijs van Zuijlen - Rafael Reggiani Manzo)
+* Drop rails 3 support ([#334](https://github.com/cucumber/cucumber-rails/pull/334) Matijs van Zuijlen)
+* Add rails 5.1 support ([#337](https://github.com/cucumber/cucumber-rails/pull/337) Matijs van Zuijlen - Rafael Reggiani Manzo)
 
 ## [v1.4.5](https://github.com/cucumber/cucumber-rails/compare/1.4.4...1.4.5) (2016-09-27)
 
- * Add support for Cucumber 3+ (Steve Tooke)
+* Add support for Cucumber 3+ (Steve Tooke)
 
 ## [v1.4.4](https://github.com/cucumber/cucumber-rails/compare/1.4.3...1.4.4) (2016-08-05)
 
- * Ensure support for Rails 5
+* Ensure support for Rails 5
 
 ## [v1.4.3](https://github.com/cucumber/cucumber-rails/compare/1.4.2...1.4.3) (2016-01-21)
 
- * Added gem version badge (Kosmas Chatzimichalis)
- * Fix a failing test due to rails date selectors only showing 5 years into the past by default ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
- * Allow cucumber 2 ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
- * Add rails 4.2 to test matrix ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
- * Depend on railties instead of rails ([#294](https://github.com/cucumber/cucumber-rails/pull/294) Alexander Lang)
- * Fix failing Travis CI tests ([#305](https://github.com/cucumber/cucumber-rails/pull/305) Matijs van Zuijlen)
- * Allow any cucumber < 3 ([#306](https://github.com/cucumber/cucumber-rails/pull/306) Matijs van Zuijlen)
- * Add annotations configuration in generator ([#292](https://github.com/cucumber/cucumber-rails/pull/292) Bob Showalter)
- * Expand support to include mime-types 3 ([#304](https://github.com/cucumber/cucumber-rails/pull/304) Austin Ziegler)
- * Replace badges with SVG versions ([#307](https://github.com/cucumber/cucumber-rails/pull/307) Kevin Goslar)
- * Add new line to end of generated database.yml ([#302](https://github.com/cucumber/cucumber-rails/pull/302) Kevin Carmody)
+* Added gem version badge (Kosmas Chatzimichalis)
+* Fix a failing test due to rails date selectors only showing 5 years into the past by default ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
+* Allow cucumber 2 ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
+* Add rails 4.2 to test matrix ([#293](https://github.com/cucumber/cucumber-rails/pull/293) Thomas Walpole)
+* Depend on railties instead of rails ([#294](https://github.com/cucumber/cucumber-rails/pull/294) Alexander Lang)
+* Fix failing Travis CI tests ([#305](https://github.com/cucumber/cucumber-rails/pull/305) Matijs van Zuijlen)
+* Allow any cucumber < 3 ([#306](https://github.com/cucumber/cucumber-rails/pull/306) Matijs van Zuijlen)
+* Add annotations configuration in generator ([#292](https://github.com/cucumber/cucumber-rails/pull/292) Bob Showalter)
+* Expand support to include mime-types 3 ([#304](https://github.com/cucumber/cucumber-rails/pull/304) Austin Ziegler)
+* Replace badges with SVG versions ([#307](https://github.com/cucumber/cucumber-rails/pull/307) Kevin Goslar)
+* Add new line to end of generated database.yml ([#302](https://github.com/cucumber/cucumber-rails/pull/302) Kevin Carmody)
 
 ## [v1.4.2](https://github.com/cucumber/cucumber-rails/compare/1.4.1...v1.4.2) (2014-10-09)
 
- * Updated appraisal dependencies to rspec-rails 3.1.0, gemspec dependency to rspec <= 3.1, and removed turn from rails_4_1 appraisal (Kosmas Chatzimichalis)
- * Update mime-types dependency to >= 1.16, < 3 ([#289](https://github.com/cucumber/cucumber-rails/pull/289) Erik Michaels-Ober)
- * Upgrade to RSpec 3 ([#290](https://github.com/cucumber/cucumber-rails/pull/290) Tamir Duberstein)
+* Updated appraisal dependencies to rspec-rails 3.1.0, gemspec dependency to rspec <= 3.1, and removed turn from rails_4_1 appraisal (Kosmas Chatzimichalis)
+* Update mime-types dependency to >= 1.16, < 3 ([#289](https://github.com/cucumber/cucumber-rails/pull/289) Erik Michaels-Ober)
+* Upgrade to RSpec 3 ([#290](https://github.com/cucumber/cucumber-rails/pull/290) Tamir Duberstein)
 
 ## [v1.4.1](https://github.com/cucumber/cucumber-rails/compare/v1.4.0...v1.4.1) (2014-05-10)
 
 ### New Features
 
- * Added MIT licence in gemspec ([#261](https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
- * Ensure dependency on DatabaseCleaner is not required ([#276](https://github.com/cucumber/cucumber-rails/pull/276) Matthew O'Riordan)
- * Added Rails 4.1 support ([#287](https://github.com/cucumber/cucumber-rails/pull/287) Felix Bünemann)
- * Modified appraisal instructions in README.md (Kosmas Chatzimichalis)
- * Added Gemnasium support (Kosmas Chatzimichalis)
- * Various code enhancements based on PullReview suggestions (Kosmas Chatzimichalis)
+* Added MIT licence in gemspec ([#261](https://github.com/cucumber/cucumber-rails/issues/261#issuecomment-23260956) Benjamin Fleischer)
+* Ensure dependency on DatabaseCleaner is not required ([#276](https://github.com/cucumber/cucumber-rails/pull/276) Matthew O'Riordan)
+* Added Rails 4.1 support ([#287](https://github.com/cucumber/cucumber-rails/pull/287) Felix Bünemann)
+* Modified appraisal instructions in README.md (Kosmas Chatzimichalis)
+* Added Gemnasium support (Kosmas Chatzimichalis)
+* Various code enhancements based on PullReview suggestions (Kosmas Chatzimichalis)
 
 ### Removed Features
 
- * Mongo step definition ([#263](https://github.com/cucumber/cucumber-rails/issues/263) Aslak Hellesøy)
+* Mongo step definition ([#263](https://github.com/cucumber/cucumber-rails/issues/263) Aslak Hellesøy)
 
 ### Bugfixes
 
- * Prevent MiniTest running `at_exit` when running cucumber ([#253](https://github.com/cucumber/cucumber-rails/issues/253) Steve Tooke)
- * `bundle exec rake` runs minitest with cucumber options and raises exception ([#252](https://github.com/cucumber/cucumber-rails/issues/252) Peter Bollenbeck)
- * Various bundler related fixes ([#264](https://github.com/cucumber/cucumber-rails/pull/264) Erik Michaels-Ober)
- * Additional gemspec cleanup ([#265](https://github.com/cucumber/cucumber-rails/pull/265) Erik Michaels-Ober)
- * Added mime-types runtime dependency to fix bundle install issue ([#273](https://github.com/cucumber/cucumber-rails/pull/273) Kosmas Chatzimichalis)
- * Removed mongoid gem from Appraisal ([#274](https://github.com/cucumber/cucumber-rails/pull/274) Kosmas Chatzimichalis)
- * Amend typo in select_dates_and_times.rb comments ([#268](https://github.com/cucumber/cucumber-rails/pull/268)  Erik Eide)
- * Keep empty step_definitions directories ([#249](https://github.com/cucumber/cucumber-rails/pull/249) Iain D Broadfoot)
- * Remove obsolete link for config.cache_classes to false ([#271](https://github.com/cucumber/cucumber-rails/issues/271) Andrew Premdas)
+* Prevent MiniTest running `at_exit` when running cucumber ([#253](https://github.com/cucumber/cucumber-rails/issues/253) Steve Tooke)
+* `bundle exec rake` runs minitest with cucumber options and raises exception ([#252](https://github.com/cucumber/cucumber-rails/issues/252) Peter Bollenbeck)
+* Various bundler related fixes ([#264](https://github.com/cucumber/cucumber-rails/pull/264) Erik Michaels-Ober)
+* Additional gemspec cleanup ([#265](https://github.com/cucumber/cucumber-rails/pull/265) Erik Michaels-Ober)
+* Added mime-types runtime dependency to fix bundle install issue ([#273](https://github.com/cucumber/cucumber-rails/pull/273) Kosmas Chatzimichalis)
+* Removed mongoid gem from Appraisal ([#274](https://github.com/cucumber/cucumber-rails/pull/274) Kosmas Chatzimichalis)
+* Amend typo in select_dates_and_times.rb comments ([#268](https://github.com/cucumber/cucumber-rails/pull/268)  Erik Eide)
+* Keep empty step_definitions directories ([#249](https://github.com/cucumber/cucumber-rails/pull/249) Iain D Broadfoot)
+* Remove obsolete link for config.cache_classes to false ([#271](https://github.com/cucumber/cucumber-rails/issues/271) Andrew Premdas)
 
 ## [v1.4.0](https://github.com/cucumber/cucumber-rails/compare/v1.3.1...v1.4.0) (2013-08-23)
 
 ### New Features
 
- * New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
- * Added recommendation in README.md for running install scripts after upgrading (Joost Baaij)
- * Describe configuration option 'autorun_database_cleaner' in README ([#255](https://github.com/cucumber/cucumber-rails/pull/255) Martin Eismann)
+* New test raising_errors.feature to test raising routing errors that replaced the earlier routing.feature
+* Added recommendation in README.md for running install scripts after upgrading (Joost Baaij)
+* Describe configuration option 'autorun_database_cleaner' in README ([#255](https://github.com/cucumber/cucumber-rails/pull/255) Martin Eismann)
 
 ### Changed Features
 
- * Gemspec in 1.3.1 doesn't allow usage with rails 4 ([#244](https://github.com/cucumber/cucumber-rails/issues/244) Fabian Schwahn)
+* Gemspec in 1.3.1 doesn't allow usage with rails 4 ([#244](https://github.com/cucumber/cucumber-rails/issues/244) Fabian Schwahn)
 
 ### Removed Features
 
- * routing.feature code was actually testing the raising of errors so it was renamed to raising_errors.feature and slightly changed to deal with rails 4 changes in public folder
- * multiple_databases.feature was removed as it was actually testing DatabaseCleaner behaviour
- * pre_bundler.feature was removed as it is no longer relevant
- * mongodb feature was removed as is there is no mongodb code in cucumber-rails codebase
+* routing.feature code was actually testing the raising of errors so it was renamed to raising_errors.feature and slightly changed to deal with rails 4 changes in public folder
+* multiple_databases.feature was removed as it was actually testing DatabaseCleaner behaviour
+* pre_bundler.feature was removed as it is no longer relevant
+* mongodb feature was removed as is there is no mongodb code in cucumber-rails codebase
 
 ### Bugfixes
 
- * Fixed tests so they pass in Rails 4 and updated gemspec ([#247](https://github.com/cucumber/cucumber-rails/pull/247) Dave Brace)
- * Allow use with Rails 4 ([#254](https://github.com/cucumber/cucumber-rails/pull/254) Marnen Laibow-Koser)
- * (dumb) Fix for Rails4 ([#256](https://github.com/cucumber/cucumber-rails/pull/256) Jon Rowe)
- * Revert "Merge pull request #256 from JonRowe/dumb_fix_for_rails4_test_he... ([#258](https://github.com/cucumber/cucumber-rails/pull/258) Kosmas Chatzimichalis)
+* Fixed tests so they pass in Rails 4 and updated gemspec ([#247](https://github.com/cucumber/cucumber-rails/pull/247) Dave Brace)
+* Allow use with Rails 4 ([#254](https://github.com/cucumber/cucumber-rails/pull/254) Marnen Laibow-Koser)
+* Fix for Rails4 ([#256](https://github.com/cucumber/cucumber-rails/pull/256) Jon Rowe)
+* Revert "Merge pull request #256 from JonRowe/dumb_fix_for_rails4_test_he... ([#258](https://github.com/cucumber/cucumber-rails/pull/258) Kosmas Chatzimichalis)
 
 ## [v1.3.1](https://github.com/cucumber/cucumber-rails/compare/v1.3.0...v1.3.1) (2013-03-15)
 
