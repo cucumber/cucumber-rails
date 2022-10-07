@@ -4,6 +4,23 @@ on how to contribute to Cucumber.
 ## [main](https://github.com/cucumber/cucumber-rails/compare/v2.5.1...main) (Not yet released)
 
 ### New Features
+* Dependabot has now been added to the repo (Alongside this a bunch of gem updates have been done)
+  ([#540](https://github.com/cucumber/cucumber-rails/pull/540) [mattwynne])
+
+### Changed
+* Gem update: allowed cucumber 8 ([#538](https://github.com/cucumber/cucumber-rails/pull/538) /
+  [#541](https://github.com/cucumber/cucumber-rails/pull/541) [mattwynne])
+
+### Fixed
+* Some bugs with dev dependencies have now been fixed externally, so these have been unrestricted
+  ([#552](https://github.com/cucumber/cucumber-rails/pull/552) [BrianHawley])
+
+* Fixed up some rubocop offenses from updated `rubocop-performance`
+  ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle])
+
+## [v2.6.0](https://github.com/cucumber/cucumber-rails/compare/v2.5.1...v2.6.0) (2022-10-07)
+
+### New Features
 
 ### Changed
 
@@ -696,3 +713,6 @@ and to celebrate that cucumber-rails now supports Capybara as an alternative to 
 [Draiken]: https://github.com/Draiken
 [langalex]: https://github.com/langalex
 [orien]: https://github.com/orien
+[mgrunberg]: https://github.com/mgrunberg
+[BrianHawley]: https://github.com/BrianHawley
+[mattwynne]: https://github.com/mattwynne
