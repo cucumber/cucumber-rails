@@ -1,0 +1,42 @@
+name: Release to RubyGems
+
+on:
+  push:
+    branches:
+      - release/*
+
+jobs:
+
+  pre-release-check:
+    uses: cucumber/.github/.github/workflows/prerelease-checks.yml@main
+  
+  test:
+    uses: ./.github/workflows/test.yml
+
+  publish-rubygem:
+    name: Publish Ruby Gem
+    needs: [pre-release-check, test]
+    runs-on: ubuntu-latest
+    environment: Release
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Publish ruby gem
+        uses: cucumber/action-publish-rubygem@v1.0.0
+        with:
+          rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}
+
+  create-github-release:
+    name: Create GitHub Release and Git tag
+    needs: publish-rubygem
+    runs-on: ubuntu-latest
+    environment: Release
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cucumber/action-create-github-release@v1.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
