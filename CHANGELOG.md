@@ -11,7 +11,7 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 
 ## [2.6.1] - 2022-10-12
 ### Changed
-- Automate release process
+- Automate release process [#554](https://github.com/cucumber/cucumber-rails/pull/554)
 
 ## [v2.6.0]
 ### Changed
