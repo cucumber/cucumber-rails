@@ -8,12 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+
+## [2.6.1] - 2022-10-12
 ### Changed
 - Automate release process
 
-[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
-
-## [v2.6.0](./CHANGELOG.old.md)
-
+## [v2.6.0]
 ### Changed
 - New release process. Older releases are in [this changelog](./CHANGELOG.old.md).
+
+[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
+[2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
+[v2.6.0]: ./CHANGELOG.old.md
