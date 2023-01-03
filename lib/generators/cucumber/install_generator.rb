@@ -66,11 +66,7 @@ module Cucumber
 
     def embed_template(source, indent = '')
       template = File.join(self.class.source_root, source)
-      if RUBY_VERSION >= '2.6'
-        ERB.new(File.read(template), trim_mode: '-').result(binding).gsub(/^/, indent)
-      else
-        ERB.new(File.read(template), nil, '-').result(binding).gsub(/^/, indent)
-      end
+      ERB.new(File.read(template), trim_mode: '-').result(binding).gsub(/^/, indent)
     end
   end
 end
