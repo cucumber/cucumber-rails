@@ -65,6 +65,8 @@ Given('I force selenium to run Firefox in headless mode') do
   }
 
   step 'I append to "features/support/env.rb" with:', selenium_config
+  step 'I append to "Gemfile" with:', "gem 'webrick', group: 'test'\n"
+  run_command_and_stop('bundle install --jobs 4')
 end
 
 Given('I force {string} to use select boxes for dates') do |file|

@@ -9,7 +9,7 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 
 ## [Unreleased]
 ### Removed
-- Removed runtime dependencies: `mime-types` and `rexml` [#559](https://github.com/cucumber/cucumber-rails/pull/559)
+- Removed runtime dependencies: `mime-types`, `rexml`, and `webrick` [#559](https://github.com/cucumber/cucumber-rails/pull/559)
 
 ## [2.6.1] - 2022-10-12
 ### Changed
