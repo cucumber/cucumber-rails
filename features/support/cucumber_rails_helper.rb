@@ -19,7 +19,6 @@ module CucumberRailsHelper
 
     add_gem 'cucumber', Cucumber::VERSION, group: :test
     add_gem 'capybara', Capybara::VERSION, group: :test
-    add_gem 'selenium-webdriver', '~> 3.11', group: :test
     add_gem 'rspec-expectations', '~> 3.7', group: :test
     add_gem 'database_cleaner', '>= 1.8.0', group: :test unless options.include?(:no_database_cleaner)
     add_gem 'database_cleaner-active_record', '>= 2.0.0.beta2', group: :test if options.include?(:database_cleaner_active_record)
@@ -111,8 +110,10 @@ module CucumberRailsHelper
 
     if rails_6_0_or_higher?
       add_gem 'sqlite3', '~> 1.4'
+      add_gem 'selenium-webdriver', '~> 4', group: :test
     else
       add_gem 'sqlite3', '~> 1.3.13'
+      add_gem 'selenium-webdriver', '~> 3.11', group: :test
     end
   end
 
