@@ -63,9 +63,8 @@ Given('I force selenium to run Firefox in headless mode') do
 
     Capybara.server = :webrick
   }
-
-  step 'I append to "features/support/env.rb" with:', selenium_config
-  step 'I append to "Gemfile" with:', "gem 'webrick', group: 'test'\n"
+  append_to_file('features/support/env.rb', selenium_config)
+  append_to_file('Gemfile', "gem 'webrick', group: :test\n")
   run_command_and_stop('bundle install --jobs 4')
 end
 
