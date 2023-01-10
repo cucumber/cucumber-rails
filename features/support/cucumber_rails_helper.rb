@@ -109,7 +109,7 @@ module CucumberRailsHelper # rubocop:todo Layout/ModuleLength
   def add_rails_specific_gems
     if rails_equal_or_higher_than?('6.0')
       add_gem 'sqlite3', '~> 1.4'
-      add_gem 'selenium-webdriver', '~> 4', group: :test
+      add_gem 'selenium-webdriver', '~> 4.0', group: :test
     else
       add_gem 'sqlite3', '~> 1.3.13'
       add_gem 'selenium-webdriver', '~> 3.11', group: :test
