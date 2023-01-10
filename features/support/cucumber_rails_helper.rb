@@ -4,7 +4,7 @@ require 'rails'
 require 'cucumber'
 require 'capybara'
 
-module CucumberRailsHelper # rubocop:todo Layout/ModuleLength
+module CucumberRailsHelper
   def rails_new(options = {})
     validate_rails_new_success(run_rails_new_command(options))
     cd options[:name]
@@ -121,8 +121,7 @@ module CucumberRailsHelper # rubocop:todo Layout/ModuleLength
     parts = ["'#{name}'"]
     parts << args.map(&:inspect) if args.any?
     parts << options.inspect[1..-2] if options.any?
-    new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
-    "gem #{new_parts.join(', ')}\n"
+    "gem #{parts.flatten.join(', ')}\n"
   end
 end
 
