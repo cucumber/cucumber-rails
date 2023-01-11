@@ -16,10 +16,10 @@ module CucumberRailsHelper
 
   def install_cucumber_rails(*options)
     add_conditional_gems(options)
+    add_rails_specific_gems
 
     add_gem 'cucumber', Cucumber::VERSION, group: :test
     add_gem 'capybara', Capybara::VERSION, group: :test
-    add_gem 'selenium-webdriver', '~> 3.11', group: :test
     add_gem 'rspec-expectations', '~> 3.7', group: :test
     add_gem 'database_cleaner', '>= 1.8.0', group: :test unless options.include?(:no_database_cleaner)
     add_gem 'database_cleaner-active_record', '>= 2.0.0.beta2', group: :test if options.include?(:database_cleaner_active_record)
@@ -79,8 +79,8 @@ module CucumberRailsHelper
     options[:name] ||= 'test_app'
     flags = %w[ --skip-action-cable --skip-action-mailer --skip-active-job --skip-bootsnap --skip-bundle --skip-javascript
                 --skip-jbuilder --skip-listen --skip-spring --skip-sprockets --skip-test-unit --skip-turbolinks ]
-    flags += %w[--skip-active-storage] if rails_5_2_or_higher?
-    flags += %w[--skip-action-mailbox --skip-action-text] if rails_6_0_or_higher?
+    flags += %w[--skip-active-storage] if rails_equal_or_higher_than?('5.2')
+    flags += %w[--skip-action-mailbox --skip-action-text] if rails_equal_or_higher_than?('6.0')
     run_command "bundle exec rails new #{options[:name]} #{flags.join(' ')} #{options[:args]}"
   end
 
@@ -94,12 +94,8 @@ module CucumberRailsHelper
     delete_environment_variable 'BUNDLE_GEMFILE'
   end
 
-  def rails_5_2_or_higher?
-    Rails.gem_version >= Gem::Version.new('5.2')
-  end
-
-  def rails_6_0_or_higher?
-    Rails.gem_version >= Gem::Version.new('6.0')
+  def rails_equal_or_higher_than?(version)
+    Rails.gem_version >= Gem::Version.new(version)
   end
 
   def add_conditional_gems(options)
@@ -108,11 +104,15 @@ module CucumberRailsHelper
     else
       add_gem 'cucumber-rails', group: :test, require: false, path: File.expand_path('.').to_s
     end
+  end
 
-    if rails_6_0_or_higher?
+  def add_rails_specific_gems
+    if rails_equal_or_higher_than?('6.0')
       add_gem 'sqlite3', '~> 1.4'
+      add_gem 'selenium-webdriver', '~> 4.0', group: :test
     else
       add_gem 'sqlite3', '~> 1.3.13'
+      add_gem 'selenium-webdriver', '~> 3.11', group: :test
     end
   end
 
@@ -121,8 +121,7 @@ module CucumberRailsHelper
     parts = ["'#{name}'"]
     parts << args.map(&:inspect) if args.any?
     parts << options.inspect[1..-2] if options.any?
-    new_parts = parts.flatten.map { |part| part.gsub(/:(\w+)=>/, '\1: ') }
-    "gem #{new_parts.join(', ')}\n"
+    "gem #{parts.flatten.join(', ')}\n"
   end
 end
 
