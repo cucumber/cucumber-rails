@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('capybara', ['>= 2.18', '< 4'])
   s.add_runtime_dependency('cucumber', '>= 3.2', '< 9')
   s.add_runtime_dependency('nokogiri', '~> 1.10')
-  s.add_runtime_dependency('railties', ['>= 5.0', '< 8'])
+  s.add_runtime_dependency('railties', ['>= 5.2', '< 8'])
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
