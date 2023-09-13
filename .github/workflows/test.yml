@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         ruby: ['2.6', '2.7', '3.0', '3.1']
-        gemfile: ['rails_5_0', 'rails_5_1', 'rails_5_2', 'rails_6_0', 'rails_6_1', 'rails_7_0']
+        gemfile: ['rails_5_2', 'rails_6_0', 'rails_6_1', 'rails_7_0']
         exclude:
           # Latest ruby will test
           # - all rails versions in current major
@@ -23,13 +23,7 @@ jobs:
           # 2.7 -> Supported until March '23 (At least)
           # 3.0 -> Supported for a while...
           - { ruby: '2.6', gemfile: 'rails_7_0' }
-          - { ruby: '2.7', gemfile: 'rails_5_0' }
-          - { ruby: '2.7', gemfile: 'rails_5_1' }
-          - { ruby: '3.0', gemfile: 'rails_5_0' }
-          - { ruby: '3.0', gemfile: 'rails_5_1' }
           - { ruby: '3.0', gemfile: 'rails_5_2' } # Rails 5.2 won't work with Ruby 3+: https://github.com/rails/rails/issues/40938
-          - { ruby: '3.1', gemfile: 'rails_5_0' }
-          - { ruby: '3.1', gemfile: 'rails_5_1' }
           - { ruby: '3.1', gemfile: 'rails_5_2' }
           - { ruby: '3.1', gemfile: 'rails_6_0' }
     env:
