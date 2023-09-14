@@ -34,7 +34,7 @@ Lint/MissingSuper:
 
 Layout/LineLength:
   Max: 200
-  IgnoredPatterns:
+  AllowedPatterns:
     - '^Given'
     - '^When'
     - '^Then'
