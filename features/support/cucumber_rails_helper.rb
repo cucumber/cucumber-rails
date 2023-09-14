@@ -36,7 +36,7 @@ module CucumberRailsHelper
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
 
-    if gemfile_content&.match?(gem_regexp)
+    if gemfile_content.match?(gem_regexp)
       updated_gemfile_content = gemfile_content.gsub(gem_regexp, line)
       overwrite_file('Gemfile', updated_gemfile_content)
     else
@@ -77,9 +77,8 @@ module CucumberRailsHelper
 
   def run_rails_new_command(options)
     options[:name] ||= 'test_app'
-    flags = %w[ --skip-action-cable --skip-action-mailer --skip-active-job --skip-bootsnap --skip-bundle --skip-javascript
-                --skip-jbuilder --skip-listen --skip-spring --skip-sprockets --skip-test-unit --skip-turbolinks ]
-    flags += %w[--skip-active-storage] if rails_equal_or_higher_than?('5.2')
+    flags = %w[--skip-action-cable --skip-action-mailer --skip-active-job --skip-bootsnap --skip-bundle --skip-javascript
+               --skip-jbuilder --skip-listen --skip-spring --skip-sprockets --skip-test-unit --skip-turbolinks --skip-active-storage]
     flags += %w[--skip-action-mailbox --skip-action-text] if rails_equal_or_higher_than?('6.0')
     run_command "bundle exec rails new #{options[:name]} #{flags.join(' ')} #{options[:args]}"
   end

@@ -11,6 +11,10 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 ### Removed
 - Removed runtime dependencies: `mime-types`, `rexml`, and `webrick` [#559](https://github.com/cucumber/cucumber-rails/pull/559)
 
+- Removed support for Ruby 2.5 [#558](https://github.com/cucumber/cucumber-rails/pull/558)
+
+- Removed support for Rails 5.0 and 5.1 (5.2 is still supported and 6.0+ is now expected) [#565](https://github.com/cucumber/cucumber-rails/pull/565)
+
 ## [2.6.1] - 2022-10-12
 ### Changed
 - Automate release process [#554](https://github.com/cucumber/cucumber-rails/pull/554)
