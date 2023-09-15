@@ -9,7 +9,7 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 
 ## [Unreleased]
 
-## [3.0.0] - 2023-09-15
+## [3.0.0.rc.1] - 2023-09-15
 ### Removed
 - Removed runtime dependencies: `mime-types`, `rexml`, and `webrick` [#559](https://github.com/cucumber/cucumber-rails/pull/559)
 - Removed support for Ruby 2.5 [#558](https://github.com/cucumber/cucumber-rails/pull/558)
@@ -23,7 +23,7 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 ### Changed
 - New release process. Older releases are in [this changelog](./CHANGELOG.old.md).
 
-[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
-[3.0.0]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
-[2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
+[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0.rc.1...main
+[3.0.0.rc.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.1...v3.0.0.rc.1
+[2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...v2.6.1
 [v2.6.0]: ./CHANGELOG.old.md
