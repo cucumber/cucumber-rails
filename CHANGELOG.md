@@ -8,11 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+
+## [3.0.0] - 2023-09-15
 ### Removed
 - Removed runtime dependencies: `mime-types`, `rexml`, and `webrick` [#559](https://github.com/cucumber/cucumber-rails/pull/559)
-
 - Removed support for Ruby 2.5 [#558](https://github.com/cucumber/cucumber-rails/pull/558)
-
 - Removed support for Rails 5.0 and 5.1 (5.2 is still supported and 6.0+ is now expected) [#565](https://github.com/cucumber/cucumber-rails/pull/565)
 
 ## [2.6.1] - 2022-10-12
@@ -24,5 +24,6 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 - New release process. Older releases are in [this changelog](./CHANGELOG.old.md).
 
 [Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
+[3.0.0]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
 [2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...main
 [v2.6.0]: ./CHANGELOG.old.md
