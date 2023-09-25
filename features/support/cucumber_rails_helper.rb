@@ -17,15 +17,7 @@ module CucumberRailsHelper
   def install_cucumber_rails(*options)
     add_cucumber_rails(options)
     add_sqlite3
-
-    add_gem 'cucumber', Cucumber::VERSION, group: :test
-    add_gem 'capybara', Capybara::VERSION, group: :test
-    add_gem 'database_cleaner', '>= 1.8.0', group: :test unless options.include?(:no_database_cleaner)
-    add_gem 'database_cleaner-active_record', '>= 2.0.0', group: :test if options.include?(:database_cleaner_active_record)
-    add_gem 'factory_bot', '>= 5.0', group: :test unless options.include?(:no_factory_bot)
-    add_gem 'rspec-expectations', '~> 3.12', group: :test
-    add_gem 'selenium-webdriver', '~> 4.6', group: :test
-
+    add_remaining_gems(options)
     bundle_install
     run_command_and_stop 'bundle exec rails generate cucumber:install'
   end
@@ -109,6 +101,16 @@ module CucumberRailsHelper
     else
       add_gem 'sqlite3', '~> 1.3.13'
     end
+  end
+
+  def add_remaining_gems(options)
+    add_gem 'cucumber', Cucumber::VERSION, group: :test
+    add_gem 'capybara', Capybara::VERSION, group: :test
+    add_gem 'database_cleaner', '>= 1.8.0', group: :test unless options.include?(:no_database_cleaner)
+    add_gem 'database_cleaner-active_record', '>= 2.0.0', group: :test if options.include?(:database_cleaner_active_record)
+    add_gem 'factory_bot', '>= 5.0', group: :test unless options.include?(:no_factory_bot)
+    add_gem 'rspec-expectations', '~> 3.12', group: :test
+    add_gem 'selenium-webdriver', '~> 4.6', group: :test
   end
 
   def bundle_install
