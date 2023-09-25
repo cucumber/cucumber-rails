@@ -6,7 +6,9 @@ require 'capybara'
 
 module CucumberRailsHelper
   def rails_new(options = {})
-    run_rails_new_command(options)
+    # This expectation allows us to wait until the command line monitor has output a README file (i.e. the command has completed)
+    expect(run_rails_new_command(options)).to have_output(/README/)
+
     cd options[:name]
     configure_rails_gems
     configure_rails_requires
