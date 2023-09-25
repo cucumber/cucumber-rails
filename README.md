@@ -73,7 +73,7 @@ Cucumber feature. Let's say you think you have found a bug in the cucumber:insta
 Fork this project, clone it to your workstation and check out a branch with a descriptive name:
 
     git clone git@github.com:you/cucumber-rails.git
-    git checkout -b bugfix/generator-fails-on-ruby-25
+    git checkout -b bugfix/generator-fails-on-ruby-31
 
 Start by making sure you can run the existing features. Now, create a feature that demonstrates
 what's wrong. See the existing features for examples. When you have a failing feature that
@@ -118,10 +118,8 @@ To support the multiple-gemfile testing, when adding a new dependency the follow
 
 1. If it's a runtime dependency of the gem, add it to the gemspec
 2. If it's a primary development dependency, add it to the gemspec
-3. If it's a dependency of a generated rails app in a test, add it to [the helper] that
-modifies the `Gemfile`.
+3. If it's a dependency of a generated rails app in a test, add it to [the helper] that modifies the `Gemfile`
 
 For example, rspec is a primary development dependency, so it lives in the gemspec.
 
 [the helper]: https://github.com/cucumber/cucumber-rails/blob/5e37c530560ae1c1a79521c38a54bae0be94242b/features/step_definitions/cucumber_rails_steps.rb#L15
-
