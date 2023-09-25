@@ -20,7 +20,7 @@ module CucumberRailsHelper
 
     add_gem 'cucumber', Cucumber::VERSION, group: :test
     add_gem 'capybara', Capybara::VERSION, group: :test
-    add_gem 'rspec-expectations', '~> 3.7', group: :test
+    add_gem 'rspec-expectations', '~> 3.12', group: :test
     add_gem 'database_cleaner', '>= 1.8.0', group: :test unless options.include?(:no_database_cleaner)
     add_gem 'database_cleaner-active_record', '>= 2.0.0', group: :test if options.include?(:database_cleaner_active_record)
     add_gem 'factory_bot', '>= 5.0', group: :test unless options.include?(:no_factory_bot)
