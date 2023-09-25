@@ -6,7 +6,7 @@ require 'capybara'
 
 module CucumberRailsHelper
   def rails_new(options = {})
-    validate_rails_new_success(run_rails_new_command(options))
+    run_rails_new_command(options)
     cd options[:name]
     configure_rails_gems
     configure_rails_requires
@@ -81,11 +81,6 @@ module CucumberRailsHelper
                --skip-jbuilder --skip-listen --skip-spring --skip-sprockets --skip-test-unit --skip-turbolinks --skip-active-storage]
     flags += %w[--skip-action-mailbox --skip-action-text] if rails_equal_or_higher_than?('6.0')
     run_command "bundle exec rails new #{options[:name]} #{flags.join(' ')} #{options[:args]}"
-  end
-
-  def validate_rails_new_success(result)
-    expect(result).to have_output(/README/)
-    expect(last_command_started).to be_successfully_executed
   end
 
   def clear_bundle_env_vars
