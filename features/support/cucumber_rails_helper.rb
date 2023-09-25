@@ -15,15 +15,16 @@ module CucumberRailsHelper
   end
 
   def install_cucumber_rails(*options)
-    add_conditional_gems(options)
-    add_rails_specific_gems
+    add_cucumber_rails(options)
+    add_sqlite3
 
     add_gem 'cucumber', Cucumber::VERSION, group: :test
     add_gem 'capybara', Capybara::VERSION, group: :test
-    add_gem 'rspec-expectations', '~> 3.12', group: :test
     add_gem 'database_cleaner', '>= 1.8.0', group: :test unless options.include?(:no_database_cleaner)
     add_gem 'database_cleaner-active_record', '>= 2.0.0', group: :test if options.include?(:database_cleaner_active_record)
     add_gem 'factory_bot', '>= 5.0', group: :test unless options.include?(:no_factory_bot)
+    add_gem 'rspec-expectations', '~> 3.12', group: :test
+    add_gem 'selenium-webdriver', '~> 4.6', group: :test
 
     bundle_install
     run_command_and_stop 'bundle exec rails generate cucumber:install'
@@ -92,7 +93,7 @@ module CucumberRailsHelper
     Rails.gem_version >= Gem::Version.new(version)
   end
 
-  def add_conditional_gems(options)
+  def add_cucumber_rails(options)
     if options.include?(:not_in_test_group)
       add_gem 'cucumber-rails', path: File.expand_path('.').to_s
     else
@@ -100,13 +101,11 @@ module CucumberRailsHelper
     end
   end
 
-  def add_rails_specific_gems
+  def add_sqlite3
     if rails_equal_or_higher_than?('6.0')
       add_gem 'sqlite3', '~> 1.4'
-      add_gem 'selenium-webdriver', '~> 4.0', group: :test
     else
       add_gem 'sqlite3', '~> 1.3.13'
-      add_gem 'selenium-webdriver', '~> 3.11', group: :test
     end
   end
 
