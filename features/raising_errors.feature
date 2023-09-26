@@ -8,7 +8,7 @@ Feature: Raise Errors
         Scenario: Tests
           When I go to the home page
       """
-    And I write to "features/home_steps.rb" with:
+    And I write to "features/step_definitions/home_steps.rb" with:
       """
       When('I go to the home page') do
         visit('/')

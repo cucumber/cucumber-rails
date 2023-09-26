@@ -16,7 +16,7 @@ Feature: Capybara Javascript Drivers
           Then I should see "Cucumber Trainee"
           And I should see "2026-02-20 15:10:00 UTC"
       """
-    And I write to "features/create_appointment_steps.rb" with:
+    And I write to "features/step_definitions/create_appointment_steps.rb" with:
       """
       Given('I am on the new appointment page') do
         visit new_appointment_path
@@ -63,7 +63,7 @@ Feature: Capybara Javascript Drivers
           Then I should see "Cucumber Trainee"
           And I should see "2026-02-20 15:10:00 UTC"
       """
-    And I write to "features/create_appointment_steps.rb" with:
+    And I write to "features/step_definitions/create_appointment_steps.rb" with:
       """
       Given('I am on the new appointment page') do
         visit new_appointment_path
@@ -148,7 +148,7 @@ Feature: Capybara Javascript Drivers
           Then I should see "Cucumber Trainee"
           And I should see "2026-02-20 15:10:00 UTC"
       """
-    And I write to "features/create_appointment_steps.rb" with:
+    And I write to "features/step_definitions/create_appointment_steps.rb" with:
       """
       Given('I am on the new appointment page') do
         visit new_appointment_path
