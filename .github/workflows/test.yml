@@ -16,17 +16,20 @@ jobs:
           # Supported rubies will test
           # - all permissible supported rails versions
           # Unsupported rubies will test
-          # - all permissible rails versions released within 6 months of EOL
+          # - rails versions in each branch if they are released within 6 months of EOL
           # - nothing in the current rails major
 
           # 2.6 -> Unsupported from March '22 -> Only test up to Sep '22
           # 2.7 -> Unsupported from March '23 -> Only test up to Sep '23
           # 3.0/3.1/3.2 -> Supported
+          - { ruby: '2.6', gemfile: 'rails_6_0' }
+          - { ruby: '2.6', gemfile: 'rails_6_1' }
           - { ruby: '2.6', gemfile: 'rails_7_0' }
+          - { ruby: '2.7', gemfile: 'rails_7_0' }
           - { ruby: '3.0', gemfile: 'rails_5_2' } # Rails 5.2 won't work with Ruby 3+: https://github.com/rails/rails/issues/40938
           - { ruby: '3.1', gemfile: 'rails_5_2' }
-          - { ruby: '3.1', gemfile: 'rails_6_0' }
           - { ruby: '3.2', gemfile: 'rails_5_2' }
+          - { ruby: '3.2', gemfile: 'rails_6_0' }
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
