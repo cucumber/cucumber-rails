@@ -21,8 +21,8 @@ Gem::Specification.new do |s|
     'source_code_uri' => "https://github.com/cucumber/cucumber-rails/tree/v#{s.version}"
   }
 
-  s.add_runtime_dependency('capybara', ['>= 2.18', '< 4'])
-  s.add_runtime_dependency('cucumber', '>= 3.2', '< 9')
+  s.add_runtime_dependency('capybara', ['>= 3.14', '< 4'])
+  s.add_runtime_dependency('cucumber', '>= 5', '< 9')
   s.add_runtime_dependency('nokogiri', '~> 1.10')
   s.add_runtime_dependency('railties', ['>= 5.2', '< 8'])
 
