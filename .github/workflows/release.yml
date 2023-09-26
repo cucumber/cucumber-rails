@@ -6,7 +6,6 @@ on:
       - release/*
 
 jobs:
-
   pre-release-check:
     uses: cucumber/.github/.github/workflows/prerelease-checks.yml@main
   
@@ -18,12 +17,9 @@ jobs:
     needs: [pre-release-check, test]
     runs-on: ubuntu-latest
     environment: Release
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Publish ruby gem
-        uses: cucumber/action-publish-rubygem@v1.0.0
+      - uses: cucumber/action-publish-rubygem@v1.0.0
         with:
           rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}
 
@@ -34,7 +30,6 @@ jobs:
     environment: Release
     permissions:
       contents: write
-
     steps:
       - uses: actions/checkout@v4
       - uses: cucumber/action-create-github-release@v1.1.1
