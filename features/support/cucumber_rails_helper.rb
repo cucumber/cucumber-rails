@@ -97,12 +97,17 @@ module CucumberRailsHelper
     end
   end
 
-  def add_sqlite3
+  def add_rails_conditional_gems
     if rails_equal_or_higher_than?('6.0')
       add_gem 'sqlite3', '~> 1.4'
+      add_gem 'selenium-webdriver', '~> 4.0', group: :test
     else
       add_gem 'sqlite3', '~> 1.3.13'
+      add_gem 'selenium-webdriver', '< 4', group: :test
     end
+
+    add_gem 'webdrivers', '~> 5.0' unless rails_equal_or_higher_than?('7.0')
+    remove_gem 'chromedriver-helper' unless rails_equal_or_higher_than?('6.0')
   end
 
   def add_remaining_gems(options)
@@ -112,8 +117,6 @@ module CucumberRailsHelper
     add_gem 'database_cleaner-active_record', '>= 2.0.0', group: :test if options.include?(:database_cleaner_active_record)
     add_gem 'factory_bot', '>= 5.0', group: :test unless options.include?(:no_factory_bot)
     add_gem 'rspec-expectations', '~> 3.12', group: :test
-    add_gem 'selenium-webdriver', '~> 4.0', group: :test
-    %w[chromedriver-helper].each { |gem| remove_gem(gem) } unless rails_equal_or_higher_than?('6.0')
   end
 
   def bundle_install
