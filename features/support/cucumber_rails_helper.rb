@@ -113,6 +113,7 @@ module CucumberRailsHelper
     add_gem 'factory_bot', '>= 5.0', group: :test unless options.include?(:no_factory_bot)
     add_gem 'rspec-expectations', '~> 3.12', group: :test
     add_gem 'selenium-webdriver', '~> 4.0', group: :test
+    %w[chromedriver-helper].each { |gem| remove_gem(gem) } unless rails_equal_or_higher_than?('6.0')
   end
 
   def bundle_install
