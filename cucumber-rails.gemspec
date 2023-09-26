@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('aruba', ['>= 1.0', '< 3'])
   s.add_development_dependency('bundler', '>= 1.17')
   s.add_development_dependency('database_cleaner', ['>= 1.8', '< 3.0'])
+  s.add_development_dependency('rails', ['>= 5.2', '< 8'])
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
   s.add_development_dependency('rubocop', '~> 1.28.2')

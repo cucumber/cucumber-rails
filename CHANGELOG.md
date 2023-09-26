@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+### Fixed
+* Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill])
 
 ## [3.0.0.rc.1] - 2023-09-15
 ### Removed
@@ -19,11 +21,30 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 ### Changed
 - Automate release process [#554](https://github.com/cucumber/cucumber-rails/pull/554)
 
-## [v2.6.0]
+## [2.6.0] - 2022-10-07
+### New Features
+* Dependabot has now been added to the repo (Alongside this a bunch of gem updates have been done)
+  ([#540](https://github.com/cucumber/cucumber-rails/pull/540) [mattwynne])
+
 ### Changed
-- New release process. Older releases are in [this changelog](./CHANGELOG.old.md).
+* Gem update: allowed cucumber 8 ([#538](https://github.com/cucumber/cucumber-rails/pull/538) / [#541](https://github.com/cucumber/cucumber-rails/pull/541) [mattwynne])
+
+* New release process. Older releases are in [this changelog](./CHANGELOG.old.md)
+
+### Fixed
+* Some bugs with dev dependencies have now been fixed externally, so these have been unrestricted
+  ([#552](https://github.com/cucumber/cucumber-rails/pull/552) [BrianHawley])
+
+* Fixed up some rubocop offenses from updated `rubocop-performance`
+  ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle])
 
 [Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0.rc.1...main
 [3.0.0.rc.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.1...v3.0.0.rc.1
 [2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...v2.6.1
-[v2.6.0]: ./CHANGELOG.old.md
+[2.6.0]: https://github.com/cucumber/cucumber-rails/compare/v2.5.1...v2.6.0
+
+[olleolleolle]: https://github.com/olleolleolle
+[BrianHawley]: https://github.com/BrianHawley
+[mattwynne]: https://github.com/mattwynne
+[orien]: https://github.com/orien
+[luke-hill]: https://github.com/luke-hill
