@@ -9,7 +9,7 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 
 ## [Unreleased]
 ### Fixed
-* Some of the rails 5.2 tests were installing lots of old conflicting gems
+* Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill])
 
 ## [3.0.0.rc.1] - 2023-09-15
 ### Removed
@@ -42,3 +42,9 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 [3.0.0.rc.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.1...v3.0.0.rc.1
 [2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/cucumber/cucumber-rails/compare/v2.5.1...v2.6.0
+
+[olleolleolle]: https://github.com/olleolleolle
+[BrianHawley]: https://github.com/BrianHawley
+[mattwynne]: https://github.com/mattwynne
+[orien]: https://github.com/orien
+[luke-hill]: https://github.com/luke-hill
