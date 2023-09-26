@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+### Fixed
+* Some of the rails 5.2 tests were installing lots of old conflicting gems
 
 ## [3.0.0.rc.1] - 2023-09-15
 ### Removed
