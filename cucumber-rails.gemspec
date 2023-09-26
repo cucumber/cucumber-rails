@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
-  s.add_development_dependency('appraisal', ['>= 2.4.1', '< 3'])
+  s.add_development_dependency('appraisal', '~> 2.5')
   s.add_development_dependency('aruba', ['>= 1.0', '< 3'])
   s.add_development_dependency('bundler', '>= 1.17')
   s.add_development_dependency('database_cleaner', ['>= 1.8', '< 3.0'])
