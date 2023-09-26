@@ -18,7 +18,7 @@ module CucumberRailsHelper
 
   def install_cucumber_rails(*options)
     add_cucumber_rails(options)
-    add_sqlite3
+    add_rails_conditional_gems
     add_remaining_gems(options)
     bundle_install
     run_command_and_stop 'bundle exec rails generate cucumber:install'
