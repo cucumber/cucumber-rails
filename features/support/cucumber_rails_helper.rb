@@ -9,7 +9,7 @@ module CucumberRailsHelper
     # This expectation allows us to wait until the command line monitor has output a README file (i.e. the command has completed)
     expect(run_rails_new_command(options)).to have_output(/README/)
 
-    cd options[:name]
+    cd 'test_app'
     configure_rails_gems
     configure_rails_requires
     configure_rails_layout
@@ -27,11 +27,10 @@ module CucumberRailsHelper
   private
 
   def run_rails_new_command(options)
-    options[:name] ||= 'test_app'
     flags = %w[--skip-action-cable --skip-action-mailer --skip-active-job --skip-bootsnap --skip-bundle --skip-javascript
                --skip-jbuilder --skip-listen --skip-spring --skip-sprockets --skip-test-unit --skip-turbolinks --skip-active-storage]
     flags += %w[--skip-action-mailbox --skip-action-text] if rails_equal_or_higher_than?('6.0')
-    run_command "bundle exec rails new #{options[:name]} #{flags.join(' ')} #{options[:args]}"
+    run_command "bundle exec rails new test_app #{flags.join(' ')} #{options[:args]}"
   end
 
   def configure_rails_gems
