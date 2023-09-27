@@ -1,6 +1,15 @@
 ---
 name: build
-on: [ push, pull_request, workflow_call ]
+on:
+  push:
+    branches:
+      - main
+      - renovate/**
+  pull_request:
+    branches:
+      - main
+  workflow_call:
+
 jobs:
   test:
     runs-on: ubuntu-latest
