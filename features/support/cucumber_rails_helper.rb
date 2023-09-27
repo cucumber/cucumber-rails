@@ -9,7 +9,7 @@ module CucumberRailsHelper
     # This expectation allows us to wait until the command line monitor has output a README file (i.e. the command has completed)
     expect(run_rails_new_command(options)).to have_output(/README/)
 
-    cd options[:name]
+    cd 'test_app'
     configure_rails_gems
     configure_rails_requires
     configure_rails_layout
@@ -27,11 +27,10 @@ module CucumberRailsHelper
   private
 
   def run_rails_new_command(options)
-    options[:name] ||= 'test_app'
     flags = %w[--skip-action-cable --skip-action-mailer --skip-active-job --skip-bootsnap --skip-bundle --skip-javascript
                --skip-jbuilder --skip-listen --skip-spring --skip-sprockets --skip-test-unit --skip-turbolinks --skip-active-storage]
     flags += %w[--skip-action-mailbox --skip-action-text] if rails_equal_or_higher_than?('6.0')
-    run_command "bundle exec rails new #{options[:name]} #{flags.join(' ')} #{options[:args]}"
+    run_command "bundle exec rails new test_app #{flags.join(' ')} #{options[:args]}"
   end
 
   def configure_rails_gems
@@ -101,13 +100,13 @@ module CucumberRailsHelper
     if rails_equal_or_higher_than?('6.0')
       add_gem 'sqlite3', '~> 1.4'
       add_gem 'selenium-webdriver', '~> 4.0', group: :test
+      add_gem 'webdrivers', '~> 5.0', group: :test
     else
       add_gem 'sqlite3', '~> 1.3.13'
       add_gem 'selenium-webdriver', '< 4', group: :test
+      add_gem 'webdrivers', '~> 4.0', group: :test
+      remove_gem 'chromedriver-helper'
     end
-
-    add_gem 'webdrivers', '~> 5.0' unless rails_equal_or_higher_than?('7.0')
-    remove_gem 'chromedriver-helper' unless rails_equal_or_higher_than?('6.0')
   end
 
   def add_remaining_gems(options)

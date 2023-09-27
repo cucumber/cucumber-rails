@@ -13,15 +13,16 @@ AllCops:
     - 'gemfiles/*.gemfile'
     - 'vendor/**/*'
 
-# These two areas will frequently break this limit, so we ignore the limit
-Metrics/BlockLength:
-  Exclude:
-    - './spec/**/*_spec.rb'
-    - 'cucumber-rails.gemspec'
+# Disabled on our repo's to enable polyglot-release
+Gemspec/RequireMFA:
+  Enabled: false
 
-# This allows us to read the chmod action in a more reproducible way
-Style/NumericLiteralPrefix:
-  EnforcedOctalStyle: zero_only
+Layout/LineLength:
+  Max: 200
+  AllowedPatterns:
+    - '^Given'
+    - '^When'
+    - '^Then'
 
 # This needs fixing as it's inheriting a lot more than what we originally need.
 # The inheritance chain goes all the way down to a single test case which the world
@@ -30,14 +31,15 @@ Lint/MissingSuper:
   Exclude:
     - lib/cucumber/rails/world.rb
 
-## Cucumber Repo styles (Across implementations) ##
+# These can both be removed once we upgrade rubocop and rubocop-rspec to more up to date versions
+Metrics/BlockLength:
+  Exclude:
+    - './spec/**/*_spec.rb'
+    - 'cucumber-rails.gemspec'
 
-Layout/LineLength:
-  Max: 200
-  AllowedPatterns:
-    - '^Given'
-    - '^When'
-    - '^Then'
+# This allows us to read the chmod action in a more reproducible way
+Style/NumericLiteralPrefix:
+  EnforcedOctalStyle: zero_only
 
 Style/Documentation:
   Enabled: false
@@ -48,7 +50,3 @@ Style/RegexpLiteral:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
-
-# TODO: investigate changes to release process and then enable MFA (https://guides.rubygems.org/mfa-requirement-opt-in/)
-Gemspec/RequireMFA:
-  Enabled: false

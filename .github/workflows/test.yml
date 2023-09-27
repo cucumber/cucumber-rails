@@ -1,6 +1,15 @@
 ---
 name: build
-on: [ push, pull_request, workflow_call ]
+on:
+  push:
+    branches:
+      - main
+      - renovate/**
+  pull_request:
+    branches:
+      - main
+  workflow_call:
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -26,8 +35,11 @@ jobs:
           - { ruby: '2.6', gemfile: 'rails_6_1' }
           - { ruby: '2.6', gemfile: 'rails_7_0' }
           - { ruby: '2.7', gemfile: 'rails_7_0' }
-          - { ruby: '3.0', gemfile: 'rails_5_2' } # Rails 5.2 won't work with Ruby 3+: https://github.com/rails/rails/issues/40938
+          # Ruby 3+ won't work with Rails 5.2: https://github.com/rails/rails/issues/40938
+          - { ruby: '3.0', gemfile: 'rails_5_2' }
           - { ruby: '3.1', gemfile: 'rails_5_2' }
+          # Ruby 3.1+ has a conflicting Psych version with Rails 6.0 (And maybe 6.1...): https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
+          - { ruby: '3.1', gemfile: 'rails_6_0' }
           - { ruby: '3.2', gemfile: 'rails_5_2' }
           - { ruby: '3.2', gemfile: 'rails_6_0' }
     env:
