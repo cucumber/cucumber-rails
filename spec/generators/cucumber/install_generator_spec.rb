@@ -58,8 +58,8 @@ describe Cucumber::InstallGenerator do
       it { is_expected.to contain "task cucumber: 'cucumber:ok'" }
     end
 
-    describe 'script/cucumber' do
-      subject { file('script/cucumber') }
+    describe 'bin/cucumber' do
+      subject { file('bin/cucumber') }
 
       it { is_expected.to exist }
       it { is_expected.to contain 'load Cucumber::BINARY' }
