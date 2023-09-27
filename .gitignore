@@ -5,7 +5,6 @@ coverage
 .bundle
 .rvmrc
 .yardoc/
-.rvmrc
 .cucumber.rerun
 gemfiles/*.lock
 Gemfile.lock
