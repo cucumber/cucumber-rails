@@ -80,7 +80,7 @@ Feature: Emulate Javascript
           And I should be on the widgets page
           And I should not see "wrench"
       """
-    And I append to "features/step_definitions/widget_steps.rb" with:
+    And I append the following lines to "features/step_definitions/widget_steps.rb":
       # TODO: Remove the newline below (Required) once bug is fixed: https://github.com/cucumber/aruba/issues/662
       """
 
