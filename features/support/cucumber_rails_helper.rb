@@ -101,13 +101,13 @@ module CucumberRailsHelper
     if rails_equal_or_higher_than?('6.0')
       add_gem 'sqlite3', '~> 1.4'
       add_gem 'selenium-webdriver', '~> 4.0', group: :test
+      add_gem 'webdrivers', '~> 5.0', group: :test
     else
       add_gem 'sqlite3', '~> 1.3.13'
       add_gem 'selenium-webdriver', '< 4', group: :test
+      add_gem 'webdrivers', '~> 4.0', group: :test
+      remove_gem 'chromedriver-helper'
     end
-
-    add_gem 'webdrivers', '~> 5.0' unless rails_equal_or_higher_than?('7.0')
-    remove_gem 'chromedriver-helper' unless rails_equal_or_higher_than?('6.0')
   end
 
   def add_remaining_gems(options)
