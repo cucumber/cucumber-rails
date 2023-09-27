@@ -30,7 +30,7 @@ module Cucumber
 
     def create_feature_support
       empty_directory 'features/support'
-      template 'support/rails.rb.erb', 'features/support/env.rb'
+      template 'support/env.rb.erb', 'features/support/env.rb'
     end
 
     def configure_environment
