@@ -6,7 +6,6 @@ require 'rubygems'
 require 'bundler'
 require 'bundler/setup'
 require 'appraisal'
-require 'rdoc'
 require 'rake/clean'
 require 'pathname'
 Bundler::GemHelper.install_tasks

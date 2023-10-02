@@ -6,9 +6,9 @@ Feature: Install Cucumber Rails
   Scenario: Install Cucumber-Rails
     Given I have created a new Rails app and installed cucumber-rails
     Then the following files should exist:
-      | config/cucumber.yml                    |
-      | script/cucumber                        |
-      | features/support/env.rb                |
-      | features/step_definitions/.gitkeep     |
-      | lib/tasks/cucumber.rake                |
+      | config/cucumber.yml              |
+      | bin/cucumber                     |
+      | features/support/env.rb          |
+      | features/step_definitions/.keep  |
+      | lib/tasks/cucumber.rake          |
     And the file "features/support/env.rb" should contain "require 'cucumber/rails'"

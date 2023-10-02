@@ -21,18 +21,17 @@ Gem::Specification.new do |s|
     'source_code_uri' => "https://github.com/cucumber/cucumber-rails/tree/v#{s.version}"
   }
 
-  s.add_runtime_dependency('capybara', ['>= 2.18', '< 4'])
-  s.add_runtime_dependency('cucumber', '>= 3.2', '< 9')
-  s.add_runtime_dependency('nokogiri', '~> 1.10')
-  s.add_runtime_dependency('railties', ['>= 5.2', '< 8'])
+  s.add_runtime_dependency('capybara', '>= 3.11', '< 4')
+  s.add_runtime_dependency('cucumber', '>= 5', '< 9')
+  s.add_runtime_dependency('railties', '>= 5.2', '< 8')
 
   # Main development dependencies
   s.add_development_dependency('ammeter', '>= 1.1.4')
-  s.add_development_dependency('appraisal', ['>= 2.4.1', '< 3'])
-  s.add_development_dependency('aruba', ['>= 1.0', '< 3'])
+  s.add_development_dependency('appraisal', '>= 2.4.1', '< 3')
+  s.add_development_dependency('aruba', '>= 1.1.2', '< 3')
   s.add_development_dependency('bundler', '>= 1.17')
-  s.add_development_dependency('database_cleaner', ['>= 1.8', '< 3.0'])
-  s.add_development_dependency('rails', ['>= 5.2', '< 8'])
+  s.add_development_dependency('database_cleaner', '>= 1.8', '< 3.0')
+  s.add_development_dependency('rails', '>= 5.2', '< 8')
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
   s.add_development_dependency('rubocop', '~> 1.28.2')
@@ -42,11 +41,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency('sqlite3', '~> 1.3')
 
   # For Documentation:
-  s.add_development_dependency('rdoc', '>= 6.0')
   s.add_development_dependency('yard', '~> 0.9.10')
 
   s.required_ruby_version = '>= 2.6.0'
-  s.required_rubygems_version = '>= 3.0.1'
+  s.required_rubygems_version = '>= 3.2.3'
   s.require_path     = 'lib'
   s.files            = Dir['lib/**/*', 'CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE', 'README.md']
 end

@@ -80,10 +80,8 @@ Feature: Emulate Javascript
           And I should be on the widgets page
           And I should not see "wrench"
       """
-    And I append to "features/step_definitions/widget_steps.rb" with:
-      # TODO: Remove the newline below (Required) once bug is fixed: https://github.com/cucumber/aruba/issues/662
+    And I append the following lines to "features/step_definitions/widget_steps.rb":
       """
-
       Given('I am on the session establish page') do
         visit session_establish_path
       end
