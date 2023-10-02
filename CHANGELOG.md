@@ -9,7 +9,12 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 
 ## [Unreleased]
 ### Fixed
-* Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill])
+- Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill])
+- Generator updates:
+  - Updated the install locations for some scripts from `script/` to `bin/`
+  - Changed some install generators to remove some legacy items
+  - Updates have facilitated minimum support versions altering: capybara must be `v3.11+` and cucumber must be `v5+`
+    ([luke-hill])
 
 ## [3.0.0.rc.1] - 2023-09-15
 ### Removed
@@ -23,19 +28,18 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 
 ## [2.6.0] - 2022-10-07
 ### New Features
-* Dependabot has now been added to the repo (Alongside this a bunch of gem updates have been done)
+- Dependabot has now been added to the repo (Alongside this a bunch of gem updates have been done)
   ([#540](https://github.com/cucumber/cucumber-rails/pull/540) [mattwynne])
 
 ### Changed
-* Gem update: allowed cucumber 8 ([#538](https://github.com/cucumber/cucumber-rails/pull/538) / [#541](https://github.com/cucumber/cucumber-rails/pull/541) [mattwynne])
-
-* New release process. Older releases are in [this changelog](./CHANGELOG.old.md)
+- Gem update: allowed cucumber 8 ([#538](https://github.com/cucumber/cucumber-rails/pull/538) / [#541](https://github.com/cucumber/cucumber-rails/pull/541) [mattwynne])
+- New release process. Older releases are in [this changelog](./CHANGELOG.old.md)
 
 ### Fixed
-* Some bugs with dev dependencies have now been fixed externally, so these have been unrestricted
+- Some bugs with dev dependencies have now been fixed externally, so these have been unrestricted
   ([#552](https://github.com/cucumber/cucumber-rails/pull/552) [BrianHawley])
 
-* Fixed up some rubocop offenses from updated `rubocop-performance`
+- Fixed up some rubocop offenses from updated `rubocop-performance`
   ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle])
 
 [Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0.rc.1...main
