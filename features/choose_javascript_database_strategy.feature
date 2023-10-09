@@ -72,7 +72,7 @@ Feature: Choose javascript database strategy
           And I should have 2 widgets
       """
     And I run the cukes
-    Then the feature run should pass with:
+    Then the feature should pass with:
       """
       3 scenarios (3 passed)
       10 steps (10 passed)
@@ -98,7 +98,7 @@ Feature: Choose javascript database strategy
           Then I should have 2 widgets
       """
     And I run the cukes
-    Then the feature run should pass with:
+    Then the feature should pass with:
       """
       2 scenarios (2 passed)
       5 steps (5 passed)
@@ -127,7 +127,7 @@ Feature: Choose javascript database strategy
           And the DatabaseCleaner strategy should be transaction
       """
     And I run the cukes
-    Then the feature run should pass with:
+    Then the feature should pass with:
       """
       2 scenarios (2 passed)
       7 steps (7 passed)
@@ -150,7 +150,7 @@ Feature: Choose javascript database strategy
           Then I should have 3 widgets
       """
     And I run the cukes
-    Then the feature run should pass with:
+    Then the feature should pass with:
       """
       2 scenarios (2 passed)
       3 steps (3 passed)
