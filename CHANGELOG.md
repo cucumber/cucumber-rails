@@ -13,11 +13,11 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 
 ### Fixed
 - Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill])
-- Generator updates:
-  - Updated the install locations for some scripts from `script/` to `bin/`
-  - Changed some install generators to remove some legacy items
-  - Updates have facilitated minimum support versions altering: capybara must be `v3.11+` and cucumber must be `v5+`
-    ([luke-hill])
+- Generator updates (Updated the install locations for some scripts from `script/` to `bin/` and remove some legacy items)
+  ([luke-hill])
+
+- Update minimum versions of several gems: capybara must be `v3.11+` and cucumber must be `v5+` (cucumber v9 is also permissible)
+  ([luke-hill])
 
 ## [3.0.0.rc.1] - 2023-09-15
 ### Removed
