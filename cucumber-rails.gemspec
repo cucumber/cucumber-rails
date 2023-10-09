@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   }
 
   s.add_runtime_dependency('capybara', '>= 3.11', '< 4')
-  s.add_runtime_dependency('cucumber', '>= 5', '< 10')
+  s.add_runtime_dependency('cucumber', '>= 5', '< 9')
   s.add_runtime_dependency('railties', '>= 5.2', '< 8')
 
   # Main development dependencies
@@ -37,9 +37,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
   s.add_development_dependency('rubocop', '~> 1.31.0')
-  s.add_development_dependency('rubocop-packaging', '~> 0.5.2')
+  s.add_development_dependency('rubocop-packaging', '~> 0.5.1')
   s.add_development_dependency('rubocop-performance', '~> 1.17.0')
-  s.add_development_dependency('rubocop-rspec', '~> 2.16.0')
+  s.add_development_dependency('rubocop-rspec', '~> 2.12.0')
 
   # For Documentation:
   s.add_development_dependency('yard', '~> 0.9.10')
