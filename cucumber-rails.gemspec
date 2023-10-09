@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   }
 
   s.add_runtime_dependency('capybara', '>= 3.11', '< 4')
-  s.add_runtime_dependency('cucumber', '>= 5', '< 9')
+  s.add_runtime_dependency('cucumber', '>= 5', '< 10')
   s.add_runtime_dependency('railties', '>= 5.2', '< 8')
 
   # Main development dependencies
