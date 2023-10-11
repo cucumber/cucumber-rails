@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+require_relative 'database/strategy'
+require_relative 'database/deletion_strategy'
+require_relative 'database/null_strategy'
+require_relative 'database/shared_connection_strategy'
+require_relative 'database/truncation_strategy'
+
 module Cucumber
   module Rails
     module Database
