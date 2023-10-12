@@ -10,7 +10,14 @@ module Cucumber
       module ShowExceptions
         def call(env)
           env['action_dispatch.show_detailed_exceptions'] = !ActionController::Base.allow_rescue
-          env['action_dispatch.show_exceptions'] = !env['action_dispatch.show_detailed_exceptions']
+
+          show_exceptions = !env['action_dispatch.show_detailed_exceptions']
+          if ::Rails.gem_version >= Gem::Version.new('7.1.0')
+            # Rails 7.1 deprecated `show_exceptions` boolean in in favor of symbols
+            show_exceptions = show_exceptions ? :all : :none
+          end
+
+          env['action_dispatch.show_exceptions'] = show_exceptions
           super(env)
         end
       end
