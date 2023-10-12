@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+### Changed
+- Add support for Rails 7.1 [#575](https://github.com/cucumber/cucumber-rails/pull/575)
+
 ### Fixed
 - Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill])
 - Generator updates:
