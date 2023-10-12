@@ -64,6 +64,11 @@ Feature: Emulate Javascript
         before_action except: :establish do
           render text: 'denied', status: :forbidden and return false unless session[:verified]
         end
+
+        # Rails 7.1 introduces raise_on_missing_callback_conditionals and it's on by default
+        def establish
+          raise "This action must be implemented in child controllers"
+        end
       end
       """
     And I write to "features/widgets.feature" with:
