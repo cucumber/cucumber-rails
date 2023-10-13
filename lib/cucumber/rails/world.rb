@@ -26,7 +26,7 @@ module Cucumber
 
       def initialize
         @_result = Test::Unit::TestResult.new if defined?(Test::Unit::TestResult)
-        super
+        super()
       end
 
       unless defined?(ActiveRecord::Base)
