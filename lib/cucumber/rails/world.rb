@@ -24,6 +24,10 @@ module Cucumber
       include Rack::Test::Methods if Cucumber::Rails.include_rack_test_helpers?
       include ActiveSupport::Testing::SetupAndTeardown if ActiveSupport::Testing.const_defined?(:SetupAndTeardown)
 
+      def initialize
+        super('MiniTest run-name if needed')
+      end
+
       unless defined?(ActiveRecord::Base)
         # Workaround for projects that don't use ActiveRecord
         def self.fixture_table_names
