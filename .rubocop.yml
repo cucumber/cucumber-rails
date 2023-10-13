@@ -24,19 +24,6 @@ Layout/LineLength:
     - '^When'
     - '^Then'
 
-# This needs fixing as it's inheriting a lot more than what we originally need.
-# The inheritance chain goes all the way down to a single test case which the world
-# definitely doesn't represent. GH issue 505
-Lint/MissingSuper:
-  Exclude:
-    - lib/cucumber/rails/world.rb
-
-# These can both be removed once we upgrade rubocop and rubocop-rspec to more up to date versions
-Metrics/BlockLength:
-  Exclude:
-    - './spec/**/*_spec.rb'
-    - 'cucumber-rails.gemspec'
-
 # This allows us to read the chmod action in a more reproducible way
 Style/NumericLiteralPrefix:
   EnforcedOctalStyle: zero_only

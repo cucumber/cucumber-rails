@@ -25,7 +25,7 @@ module Cucumber
       include ActiveSupport::Testing::SetupAndTeardown if ActiveSupport::Testing.const_defined?(:SetupAndTeardown)
 
       def initialize
-        @_result = Test::Unit::TestResult.new if defined?(Test::Unit::TestResult)
+        super('MiniTest run-name if needed')
       end
 
       unless defined?(ActiveRecord::Base)

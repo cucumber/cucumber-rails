@@ -19,7 +19,7 @@ Feature: Cucumber Rails Configuration
       end
       """
     And I run `bundle exec rake cucumber`
-    Then the feature run should pass with:
+    Then the feature should pass with:
       """
       1 scenario (1 passed)
       1 step (1 passed)
@@ -41,7 +41,7 @@ Feature: Cucumber Rails Configuration
       end
       """
     And I run `bundle exec rake cucumber`
-    Then the feature run should pass with:
+    Then the feature should pass with:
       """
       1 scenario (1 passed)
       1 step (1 passed)

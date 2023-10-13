@@ -73,15 +73,3 @@ Given('I force {string} to use select boxes for dates') do |file|
 
   overwrite_file(file, content.gsub(/\.(datetime|time|date)_field/, '.\1_select'))
 end
-
-When('I run the cukes') do
-  run_command_and_stop('bundle exec cucumber')
-end
-
-# Copied from Aruba
-Then('the feature run should pass with:') do |string|
-  step 'the output should not contain " failed)"'
-  step 'the output should not contain " undefined)"'
-  step 'the exit status should be 0'
-  step 'the output should contain:', string
-end
