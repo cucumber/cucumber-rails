@@ -41,12 +41,14 @@ jobs:
           - { ruby: '3.0', gemfile: 'rails_5_2' }
           # Capybara has an incompatibility here with rails 6. It's easier to just exclude this one run from the matrix until it's out of support
           - { ruby: '3.0', gemfile: 'rails_6_0' }
+          - { ruby: '3.0', gemfile: 'rails_6_1' }
           - { ruby: '3.1', gemfile: 'rails_5_2' }
           # Ruby 3.1+ has a conflicting Psych version with Rails 6.x: https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
           - { ruby: '3.1', gemfile: 'rails_6_0' }
           - { ruby: '3.1', gemfile: 'rails_6_1' }
           - { ruby: '3.2', gemfile: 'rails_5_2' }
           - { ruby: '3.2', gemfile: 'rails_6_0' }
+          - { ruby: '3.2', gemfile: 'rails_6_1' }
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
