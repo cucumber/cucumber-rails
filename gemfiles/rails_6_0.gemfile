@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "activerecord"
+gem "capybara", "< 3.35"
 gem "cucumber", "< 6"
 gem "psych", "< 4"
 gem "rails-html-sanitizer", "< 1.4.3"
