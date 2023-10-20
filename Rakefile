@@ -34,15 +34,16 @@ namespace :test do
 end
 
 namespace :gemfiles do
-  desc 'Install dependencies for all gemfiles'
+  desc 'Re-install dependencies for all gemfiles'
   task :install do
     system 'bundle exec appraisal update'
   end
 
+  desc 'Remove all generated gemfiles'
   task :clean do
     FileUtils.rm_rf('gemfiles/*')
   end
 
-  desc 'Rebuild generated gemfiles and install dependencies'
+  desc 'Remove all generated gemfiles and re-install dependencies'
   task rebuild: %i[clean install]
 end
