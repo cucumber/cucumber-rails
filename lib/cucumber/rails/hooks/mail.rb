@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if defined?(::ActionMailer)
+if defined?(ActionMailer)
   Before do
     ActionMailer::Base.deliveries = []
   end

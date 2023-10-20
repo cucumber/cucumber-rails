@@ -70,4 +70,4 @@ module Cucumber
   end
 end
 
-World(::Cucumber::Rails::Capybara::SelectDatesAndTimes)
+World(Cucumber::Rails::Capybara::SelectDatesAndTimes)
