@@ -10,6 +10,7 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 ## [Unreleased]
 ### Changed
 - Add support for Rails 7.1 [#575](https://github.com/cucumber/cucumber-rails/pull/575)
+- Added new rubocop sub-gems (rails / rake) and updated versions to 2.6 ruby-conformance [#581](https://github.com/cucumber/cucumber-rails/pull/581)
 
 ### Fixed
 - Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill])
