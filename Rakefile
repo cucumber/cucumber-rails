@@ -35,7 +35,7 @@ end
 
 namespace :gemfiles do
   desc 'Re-install dependencies for all gemfiles'
-  task :install do
+  task :reinstall do
     system 'bundle exec appraisal update'
   end
 
@@ -45,5 +45,5 @@ namespace :gemfiles do
   end
 
   desc 'Remove all generated gemfiles and re-install dependencies'
-  task rebuild: %i[clean install]
+  task rebuild: %i[clean reinstall]
 end
