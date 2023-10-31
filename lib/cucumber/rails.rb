@@ -14,9 +14,12 @@ if called_from_env_rb
   require 'rails/test_help'
 
   unless Rails.application.config.cache_classes || defined?(Spring)
-    warn "WARNING: You have set Rails' config.cache_classes to false
-    (Spring needs cache_classes set to false). This is known to cause problems
-    with database transactions. Set config.cache_classes to true if you want to use transactions."
+    warn <<~MESSAGE
+      WARNING: You have set Rails' config.cache_classes to false (Spring needs cache_classes set to false).
+      This is known to cause problems with database transactions.
+
+      Set config.cache_classes to true if you want to use transactions.
+    MESSAGE
   end
 
   require 'cucumber/rails/world'
@@ -31,8 +34,10 @@ if called_from_env_rb
 
   MultiTest.disable_autorun
 else
-  warn "WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred
-  until env.rb is called. To avoid this warning, move 'gem \'cucumber-rails\', require: false'
-  under only group :test in your Gemfile. If already in the :test group, be sure you are
-  specifying 'require: false'."
+  warn <<~MESSAGE
+    WARNING: Cucumber-rails has been required outside of env.rb. The rest of loading is being deferred until env.rb is called.
+
+    To avoid this warning, move `gem 'cucumber-rails', require: false` under `group :test` in your Gemfile.
+    If it is already in the `:test` group, be sure you are specifying 'require: false'.
+  MESSAGE
 end

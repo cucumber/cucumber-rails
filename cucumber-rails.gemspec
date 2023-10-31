@@ -36,10 +36,12 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rails', '>= 5.2', '< 8')
   s.add_development_dependency('rake', '>= 12.0')
   s.add_development_dependency('rspec', '~> 3.6')
-  s.add_development_dependency('rubocop', '~> 1.31.0')
-  s.add_development_dependency('rubocop-packaging', '~> 0.5.1')
-  s.add_development_dependency('rubocop-performance', '~> 1.17.0')
-  s.add_development_dependency('rubocop-rspec', '~> 2.12.0')
+  s.add_development_dependency('rubocop', '~> 1.45.0')
+  s.add_development_dependency('rubocop-packaging', '~> 0.5.2')
+  s.add_development_dependency('rubocop-performance', '~> 1.17.1')
+  s.add_development_dependency('rubocop-rails', '~> 2.18.0')
+  s.add_development_dependency('rubocop-rake', '~> 0.6.0')
+  s.add_development_dependency('rubocop-rspec', '~> 2.17.0')
 
   # For Documentation:
   s.add_development_dependency('yard', '~> 0.9.10')

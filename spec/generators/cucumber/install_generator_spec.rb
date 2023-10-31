@@ -65,7 +65,7 @@ describe Cucumber::InstallGenerator do
       it { is_expected.to contain 'load Cucumber::BINARY' }
     end
 
-    if ::Rails::VERSION::MAJOR >= 6
+    if Rails::VERSION::MAJOR >= 6
       %w[development test].each do |environment|
         describe "config/environments/#{environment}.rb" do
           subject { file("config/environments/#{environment}.rb") }

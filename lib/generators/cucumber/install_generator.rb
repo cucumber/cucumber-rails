@@ -53,9 +53,6 @@ module Cucumber
 
       gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
       gsub_file 'config/database.yml', /\z/, "\ncucumber:\n  <<: *test\n"
-
-      # Since gsub_file doesn't ask the user, just inform user that the file was overwritten.
-      puts '       force  config/database.yml'
     end
 
     protected

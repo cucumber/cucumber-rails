@@ -1,6 +1,8 @@
 require:
   - rubocop-packaging
   - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
   - rubocop-rspec
 
 AllCops:
@@ -23,6 +25,10 @@ Layout/LineLength:
     - '^Given'
     - '^When'
     - '^Then'
+
+# This cop isn't relevant for our codebase
+Rails/RakeEnvironment:
+  Enabled: false
 
 # This allows us to read the chmod action in a more reproducible way
 Style/NumericLiteralPrefix:

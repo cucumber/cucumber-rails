@@ -108,14 +108,14 @@ end
 
 Before('not @no-js-emulation') do
   # Enable javascript emulation
-  ::Capybara::RackTest::Node.class_eval do
+  Capybara::RackTest::Node.class_eval do
     alias_method :click, :click_with_javascript_emulation
   end
 end
 
 Before('@no-js-emulation') do
   # Disable javascript emulation
-  ::Capybara::RackTest::Node.class_eval do
+  Capybara::RackTest::Node.class_eval do
     alias_method :click, :click_without_javascript_emulation
   end
 end
