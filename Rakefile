@@ -1,19 +1,16 @@
 # frozen_string_literal: true
 
-CUCUMBER_RAILS_VERSION =
-  Gem::Specification.load("#{File.dirname(__FILE__)}/cucumber-rails.gemspec").version.version
-require 'rubygems'
 require 'appraisal'
-require 'rake/clean'
 require 'pathname'
+require 'cucumber/rake/task'
+require 'rspec/core/rake_task'
+
+Cucumber::Rake::Task.new
+RSpec::Core::RakeTask.new
 
 $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
-Dir["#{File.dirname(__FILE__)}/dev_tasks/*.rake"].sort.each { |ext| load ext }
-
-CLEAN.include('doc', 'tmp')
 
 task default: :test
-
 task test: %i[spec cucumber]
 
 namespace :test do
