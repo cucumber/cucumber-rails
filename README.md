@@ -33,12 +33,6 @@ Finally, bootstrap your Rails app, for example:
 
 ## Running Cucumber
 
-With Rake:
-
-    rake cucumber
-
-Without Rake:
-
     [bundle exec] cucumber
 
 ## Configuration options
@@ -52,7 +46,8 @@ before and after your scenarios. You can disable this behaviour like so:
 Cucumber::Rails::Database.autorun_database_cleaner = false
 ```
 
-By default, cucumber-rails will auto mix-in the helpers from  `Rack::Test` into your default Cucumber World instance. You can prevent this behaviour like so:
+By default, cucumber-rails will auto mix-in the helpers from  `Rack::Test` into your default Cucumber World instance.
+You can prevent this behaviour like so:
 ```ruby
 # features/support/env.rb
 ENV['CR_REMOVE_RACK_TEST_HELPERS'] = 'true'
@@ -71,7 +66,7 @@ Cucumber feature. Let's say you think you have found a bug in the cucumber:insta
 Fork this project, clone it to your workstation and check out a branch with a descriptive name:
 
     git clone git@github.com:you/cucumber-rails.git
-    git checkout -b bugfix/generator-fails-on-ruby-31
+    git checkout -b bugfix/generator-fails-on-bundle-exec
 
 Start by making sure you can run the existing features. Now, create a feature that demonstrates
 what's wrong. See the existing features for examples. When you have a failing feature that
@@ -83,7 +78,7 @@ feature) before you send the pull request.
 
 ### Setting up your environment
 
-Make sure you have a supported ruby installed, cd into your cucumber-rails repository and:
+Make sure you have a supported ruby installed, cd into your `cucumber-rails` repository and run
 
     gem install bundler
     bundle install
@@ -116,8 +111,8 @@ To support the multiple-gemfile testing, when adding a new dependency the follow
 
 1. If it's a runtime dependency of the gem, add it to the gemspec
 2. If it's a primary development dependency, add it to the gemspec
-3. If it's a dependency of a generated rails app in a test, add it to [the helper] that modifies the `Gemfile`
+3. If it's a dependency of a generated rails app in a test, add it to [the helper method] that modifies the `Gemfile`
 
 For example, rspec is a primary development dependency, so it lives in the gemspec.
 
-[the helper]: https://github.com/cucumber/cucumber-rails/blob/5e37c530560ae1c1a79521c38a54bae0be94242b/features/step_definitions/cucumber_rails_steps.rb#L15
+[the helper method]: https://github.com/cucumber/cucumber-rails/blob/main/features/support/cucumber_rails_helper.rb#L19
