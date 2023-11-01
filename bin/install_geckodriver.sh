@@ -8,7 +8,7 @@ curl --silent \
      --fail \
      --retry 3 \
      --output /tmp/geckodriver_linux64.tar.gz \
-     https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-linux64.tar.gz
+     https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz
 
 sudo tar -C /usr/local/bin -xvzf /tmp/geckodriver_linux64.tar.gz geckodriver
 
