@@ -24,7 +24,6 @@ end
 appraise 'rails_6_1' do
   gem 'activerecord'
   gem 'capybara', '< 3.38'
-  gem 'cucumber', '< 10'
   gem 'psych', '< 4'
   gem 'railties', '~> 6.1.3'
   gem 'sqlite3', '~> 1.4'

@@ -40,22 +40,13 @@ This document is a guide for those maintaining Cucumber-Rails, and others who wo
 To remove and rebuild the different gemfiles (for example, to update a rails version or its
 dependencies), use the following:
 
-    [bundle exec] appraisal update
+    [bundle exec] rake gemfiles:reinstall
 
 If you've changed versions of the dependencies, you may find it helpful to forcefully clean
 each appraisal's gem lock file in `gemfiles/`. You can do this using:
 
-    [bundle exec] rake clean
+    [bundle exec] rake gemfiles:clean
     
 ## Release Process
 
-* Make sure `CHANGELOG.md` is updated with the upcoming version number, and has entries for all fixes.
-* No need to add a new version header at this point - this should be done when a new release is made, later.
-* Make sure you have up-to-date and clean copy of `cucumber/cucumber.github.com.git` at the same level as cucumber repo.
-
-Now release it
-
-    bundle update
-    bundle exec rake
-    git commit -m "Release X.Y.Z"
-    rake release
+We now use polyglot-release. Consult [RELEASING.md](./RELEASING.md) for more info
