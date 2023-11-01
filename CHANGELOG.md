@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+
+## [3.0.0] - 2023-11-01
 ### Changed
 - Add support for Rails 7.1 [#575](https://github.com/cucumber/cucumber-rails/pull/575)
 - Added new rubocop sub-gems (rails / rake) and updated repo to be rubocop 2.6 conformant [#581](https://github.com/cucumber/cucumber-rails/pull/581)
@@ -46,7 +48,8 @@ This file is intended to be modified using the [`changelog`](github.com/cucumber
 - Fixed up some rubocop offenses from updated `rubocop-performance`
   ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle])
 
-[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0.rc.1...main
+[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0.rc.1...v3.0.0
 [3.0.0.rc.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.1...v3.0.0.rc.1
 [2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/cucumber/cucumber-rails/compare/v2.5.1...v2.6.0
