@@ -115,4 +115,4 @@ To support the multiple-gemfile testing, when adding a new dependency the follow
 
 For example, rspec is a primary development dependency, so it lives in the gemspec.
 
-[the helper method]: https://github.com/cucumber/cucumber-rails/blob/main/features/support/cucumber_rails_helper.rb#L19
+[the helper method]: ./features/support/cucumber_rails_gem_helper.rb
