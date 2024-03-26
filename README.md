@@ -95,8 +95,8 @@ With all dependencies installed, all specs and features should pass:
 
 In order to test against multiple versions of key dependencies, the [Appraisal](https://github.com/thoughtbot/appraisal)
 gem is used to generate multiple gemfiles, stored in the `gemfiles/` directory.
-Normally these will only run on Travis; however, if you want to run the full test suite against
-all gemfiles, run the following commands:
+Normally these will only run on GitHub via GitHub Actions; however if you want to run the full test
+suite against all gemfiles, run the following commands:
 
     [bundle exec] appraisal install
     [bundle exec] appraisal rake test
