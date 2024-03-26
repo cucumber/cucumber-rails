@@ -114,7 +114,11 @@ module CucumberRailsHelper
     add_gem 'capybara', Capybara::VERSION, group: :test
     add_gem 'database_cleaner', '>= 2.0.0', group: :test unless options.include?(:no_database_cleaner)
     add_gem 'database_cleaner-active_record', '>= 2.0.0', group: :test if options.include?(:database_cleaner_active_record)
-    add_gem 'factory_bot', '>= 5.0', group: :test unless options.include?(:no_factory_bot)
+    if rails_equal_or_higher_than?('6.0')
+      add_gem 'factory_bot', '>= 6.4', group: :test unless options.include?(:no_factory_bot)
+    else
+      add_gem 'factory_bot', '< 6.4', group: :test unless options.include?(:no_factory_bot)
+    end
     add_gem 'rspec-expectations', '~> 3.12', group: :test
   end
 
