@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+### Changed
+- Internal testing code has been refactored to handle older ruby/rails installs
 
 ## [3.0.0] - 2023-11-01
 ### Changed
