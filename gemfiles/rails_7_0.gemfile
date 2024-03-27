@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 gem "activerecord"
 gem "cucumber", "< 10"
-gem "railties", "~> 7.0.0"
-gem "sqlite3", "~> 1.4"
+gem "railties", "~> 7.0.8"
+gem "sqlite3", "~> 1.7"
 
 gemspec path: "../"
