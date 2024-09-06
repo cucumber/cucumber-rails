@@ -44,3 +44,9 @@ appraise 'rails_7_1' do
   gem 'railties', '~> 7.1.3'
   gem 'sqlite3', '~> 1.7'
 end
+
+appraise 'rails_7_2' do
+  gem 'activerecord'
+  gem 'railties', '~> 7.2.1'
+  gem 'sqlite3', '~> 1.7'
+end
