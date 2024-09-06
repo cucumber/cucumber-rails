@@ -46,7 +46,7 @@ If you've changed versions of the dependencies, you may find it helpful to force
 each appraisal's gem lock file in `gemfiles/`. You can do this using:
 
     [bundle exec] rake gemfiles:clean
-    
+
 ## Release Process
 
 We now use polyglot-release. Consult [RELEASING.md](./RELEASING.md) for more info
