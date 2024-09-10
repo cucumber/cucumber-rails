@@ -28,13 +28,17 @@ jobs:
         # 2.6 -> Unsupported from March '22 -> Only test up to Sep '22
         # 2.7 -> Unsupported from March '23 -> Only test up to Sep '23
         # 3.0/3.1/3.2/3.3 -> Supported
-        ruby: ['2.7', '3.0', '3.1', '3.2', '3.3']
+        ruby: ['3.0', '3.1', '3.2']
         gemfile: ['rails_5_2', 'rails_6_0', 'rails_6_1', 'rails_7_0', 'rails_7_1', 'rails_7_2']
         include:
           - { ruby: '2.6', gemfile: 'rails_5_2' }
           - { ruby: '2.7', gemfile: 'rails_5_2' }
           - { ruby: '2.7', gemfile: 'rails_6_0' }
           - { ruby: '2.7', gemfile: 'rails_6_1' }
+          - { ruby: '3.3', gemfile: 'rails_6_1' }
+          - { ruby: '3.3', gemfile: 'rails_7_0' }
+          - { ruby: '3.3', gemfile: 'rails_7_1' }
+          - { ruby: '3.3', gemfile: 'rails_7_2' }
         exclude:
           - { ruby: '3.0', gemfile: 'rails_7_2' }
           # Ruby 3+ won't work with Rails 5.2: https://github.com/rails/rails/issues/40938
@@ -49,8 +53,6 @@ jobs:
           - { ruby: '3.2', gemfile: 'rails_5_2' }
           - { ruby: '3.2', gemfile: 'rails_6_0' }
           - { ruby: '3.2', gemfile: 'rails_6_1' }
-          - { ruby: '3.3', gemfile: 'rails_5_2' }
-          - { ruby: '3.3', gemfile: 'rails_6_0' }
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
