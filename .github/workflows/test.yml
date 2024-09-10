@@ -24,9 +24,9 @@ jobs:
         # - rails versions in each branch if their last release is within 6 months of the Ruby EOL date
         # - Excluding any version of the current rails major
         #
-        # 2.6 -> Unsupported from March '22 -> Only test up to Sep '22
-        # 2.7 -> Unsupported from March '23 -> Only test up to Sep '23
-        # 3.0 -> Unsupported from March '24 -> Only test up to Sep '24
+        # 2.6 -> EOL Mar '22 -> Only test Rails versions released after Sep '22
+        # 2.7 -> EOL Mar '23 -> Only test Rails versions released after Sep '23
+        # 3.0 -> EOL Mar '24 -> Only test Rails versions released after Sep '24
         include:
           - { ruby: '2.6', gemfile: 'rails_5_2' }
           - { ruby: '2.7', gemfile: 'rails_6_0' }
