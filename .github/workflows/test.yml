@@ -34,7 +34,8 @@ jobs:
           # Capybara has an incompatibility here with rails 6. It's easier to just exclude this one run from the matrix until it's out of support
           # As such ruby 3.0 is only tested on rails 7.0 as an EXCEPTION to the above rules
           - { ruby: '3.0', gemfile: 'rails_7_0' }
-          - { ruby: '3.3', gemfile: 'rails_6_1' }
+          # Ruby 3.1+ appears to have issues with Rails 6.1 https://github.com/rails/rails/issues/46883#issuecomment-1371325906
+          # It (Rails 6.1.x), has been marked as a won't fix and as such it's likely this will need to just be excluded until out of support window
           - { ruby: '3.3', gemfile: 'rails_7_0' }
           - { ruby: '3.3', gemfile: 'rails_7_1' }
           - { ruby: '3.3', gemfile: 'rails_7_2' }
