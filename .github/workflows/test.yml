@@ -17,16 +17,15 @@ jobs:
       fail-fast: false
       matrix:
         # Latest ruby will only be tested on
-        # - all rails versions in current major
-        # - latest rails version in the previous major
+        # - all rails versions in current major & latest minor rails version of the previous major
         #
         # Any unsupported ruby will only be tested on
-        # - rails versions in each branch if their last release is within 6 months of the Ruby EOL date
-        # - Excluding any version of the current rails major
+        # - rails versions if their patch release is within 6 months of the Ruby EOL date
+        # - No version of the current rails major
         #
-        # 2.6 -> EOL Mar '22 -> Only test Rails versions released after Sep '22
-        # 2.7 -> EOL Mar '23 -> Only test Rails versions released after Sep '23
-        # 3.0 -> EOL Mar '24 -> Only test Rails versions released after Sep '24
+        # 2.6 -> EOL Mar '22 -> Only test Rails versions initially released before Sep '22
+        # 2.7 -> EOL Mar '23 -> Only test Rails versions initially released before Sep '23
+        # 3.0 -> EOL Mar '24 -> Only test Rails versions initially released before Sep '24
         include:
           - { ruby: '2.6', gemfile: 'rails_5_2' }
           - { ruby: '2.7', gemfile: 'rails_6_0' }
