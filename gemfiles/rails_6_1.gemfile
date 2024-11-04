@@ -7,6 +7,6 @@ gem "capybara", "< 3.38"
 gem "factory_bot", "< 6.4"
 gem "psych", "< 4"
 gem "railties", "~> 6.1.7"
-gem "sqlite3", "~> 1.4"
+gem "sqlite3", "< 2"
 
 gemspec path: "../"

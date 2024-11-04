@@ -29,24 +29,25 @@ appraise 'rails_6_1' do
   gem 'factory_bot', '< 6.4'
   gem 'psych', '< 4'
   gem 'railties', '~> 6.1.7'
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '< 2'
 end
 
 appraise 'rails_7_0' do
   gem 'activerecord'
   gem 'cucumber', '< 10'
+  gem 'factory_bot', '< 6.6'
   gem 'railties', '~> 7.0.8'
-  gem 'sqlite3', '~> 1.7'
+  gem 'sqlite3', '< 2'
 end
 
 appraise 'rails_7_1' do
   gem 'activerecord'
-  gem 'railties', '~> 7.1.3'
-  gem 'sqlite3', '~> 1.7'
+  gem 'railties', '~> 7.1.5'
+  gem 'sqlite3', '~> 2.0'
 end
 
 appraise 'rails_7_2' do
   gem 'activerecord'
-  gem 'railties', '~> 7.2.1'
-  gem 'sqlite3', '~> 1.7'
+  gem 'railties', '~> 7.2.2'
+  gem 'sqlite3', '~> 2.2'
 end
