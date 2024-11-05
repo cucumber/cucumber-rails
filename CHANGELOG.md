@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](https://github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+
+## [3.0.1] - 2024-11-05
 ### Changed
 - Add support for Rails 7.2 / Ruby 3.3 (No code changes required) [#586](https://github.com/cucumber/cucumber-rails/pull/586) [#588](https://github.com/cucumber/cucumber-rails/pull/588)
 
@@ -20,12 +22,12 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 - Added new rubocop sub-gems (rails / rake) and updated repo to be rubocop 2.6 conformant [#581](https://github.com/cucumber/cucumber-rails/pull/581)
 
 ### Fixed
-- Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill])
+- Some of the rails 5.2 tests were installing lots of old conflicting gems ([luke-hill](https://github.com/luke-hill))
 - Generator updates (Updated the install locations for some scripts from `script/` to `bin/` and remove some legacy items)
-  ([luke-hill])
+([luke-hill](https://github.com/luke-hill))
 - Update minimum versions of several gems: capybara must be `v3.11+` and cucumber must be `v5+` (cucumber v9 is also permissible)
-  ([luke-hill])
-- Fixed an issue where the World instantiation didn't re-run the inherited classes initializer ([luke-hill])
+([luke-hill](https://github.com/luke-hill))
+- Fixed an issue where the World instantiation didn't re-run the inherited classes initializer ([luke-hill](https://github.com/luke-hill))
 
 ## [3.0.0.rc.1] - 2023-09-15
 ### Removed
@@ -38,29 +40,22 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 - Automate release process [#554](https://github.com/cucumber/cucumber-rails/pull/554)
 
 ## [2.6.0] - 2022-10-07
-### New Features
-- Dependabot has now been added to the repo (Alongside this a bunch of gem updates have been done)
-  ([#540](https://github.com/cucumber/cucumber-rails/pull/540) [mattwynne])
-
 ### Changed
-- Gem update: allowed cucumber 8 ([#538](https://github.com/cucumber/cucumber-rails/pull/538) / [#541](https://github.com/cucumber/cucumber-rails/pull/541) [mattwynne])
+- Gem update: allowed cucumber 8 ([#538](https://github.com/cucumber/cucumber-rails/pull/538) / [#541](https://github.com/cucumber/cucumber-rails/pull/541) [mattwynne](https://github.com/mattwynne))
 - New release process. Older releases are in [this changelog](./CHANGELOG.old.md)
 
 ### Fixed
 - Some bugs with dev dependencies have now been fixed externally, so these have been unrestricted
-  ([#552](https://github.com/cucumber/cucumber-rails/pull/552) [BrianHawley])
-
+([#552](https://github.com/cucumber/cucumber-rails/pull/552) [BrianHawley](https://github.com/BrianHawley))
 - Fixed up some rubocop offenses from updated `rubocop-performance`
-  ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle])
+([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle](https://github.com/olleolleolle))
 
-[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.0.1...HEAD
+[3.0.1]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0.rc.1...v3.0.0
 [3.0.0.rc.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.1...v3.0.0.rc.1
 [2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/cucumber/cucumber-rails/compare/v2.5.1...v2.6.0
-
-[olleolleolle]: https://github.com/olleolleolle
-[BrianHawley]: https://github.com/BrianHawley
-[mattwynne]: https://github.com/mattwynne
+//github.com/mattwynne
 [orien]: https://github.com/orien
 [luke-hill]: https://github.com/luke-hill
