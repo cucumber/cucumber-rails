@@ -9,9 +9,10 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 
 ## [Unreleased]
 ### Changed
-- Internal testing code has been refactored to handle older ruby/rails installs
-- Add support for Rails 7.2 (No code changes required) [#586](https://github.com/cucumber/cucumber-rails/pull/586) [#588](https://github.com/cucumber/cucumber-rails/pull/588)
-- Add support for Ruby 3.3 (No code changes required) [#586](https://github.com/cucumber/cucumber-rails/pull/586)
+- Add support for Rails 7.2 / Ruby 3.3 (No code changes required) [#586](https://github.com/cucumber/cucumber-rails/pull/586) [#588](https://github.com/cucumber/cucumber-rails/pull/588)
+
+### Fixed
+- Internal testing code has been refactored to handle older ruby/rails installs [#583](https://github.com/cucumber/cucumber-rails/pull/583)
 
 ## [3.0.0] - 2023-11-01
 ### Changed
