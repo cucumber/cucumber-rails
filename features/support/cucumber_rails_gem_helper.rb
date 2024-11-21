@@ -8,7 +8,8 @@ module CucumberRailsGemHelper
   def install_cucumber_rails(*options)
     configure_rails_gems
     add_cucumber_rails(options)
-    add_rails_conditional_gems
+    add_sqlite3_gem
+    add_selenium_webdriver_gem
     add_remaining_gems(options)
     bundle_install
     run_command_and_stop 'bundle exec rails generate cucumber:install'
@@ -29,13 +30,23 @@ module CucumberRailsGemHelper
     end
   end
 
-  def add_rails_conditional_gems
-    if rails_equal_or_higher_than?('6.0')
+  def add_sqlite3_gem
+    if rails_equal_or_higher_than?('7.1')
+      add_gem 'sqlite3', '~> 2.0'
+    elsif rails_equal_or_higher_than?('6.0')
       add_gem 'sqlite3', '~> 1.4'
+    else
+      add_gem 'sqlite3', '~> 1.3.13'
+    end
+  end
+
+  def add_selenium_webdriver_gem
+    if rails_equal_or_higher_than?('7.0')
+      add_gem 'selenium-webdriver', '~> 4.22', group: :test
+    elsif rails_equal_or_higher_than?('6.0')
       add_gem 'selenium-webdriver', '~> 4.0', group: :test
       add_gem 'webdrivers', '~> 5.0', group: :test
     else
-      add_gem 'sqlite3', '~> 1.3.13'
       add_gem 'selenium-webdriver', '< 4', group: :test
       add_gem 'webdrivers', '~> 4.0', group: :test
       remove_gem 'chromedriver-helper'

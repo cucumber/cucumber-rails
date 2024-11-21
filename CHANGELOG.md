@@ -9,6 +9,8 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 
 ## [Unreleased]
 
+- Add support for Rails 8.0 (No code changes required) [#590](https://github.com/cucumber/cucumber-rails/pull/590)
+
 ## [3.0.1] - 2024-11-05
 ### Changed
 - Add support for Rails 7.2 / Ruby 3.3 (No code changes required) [#586](https://github.com/cucumber/cucumber-rails/pull/586) [#588](https://github.com/cucumber/cucumber-rails/pull/588)

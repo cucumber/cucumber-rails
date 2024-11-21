@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.svg)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
 
-Cucumber-Rails brings Cucumber to Rails 5.2, 6.x and 7.x.
+Cucumber-Rails brings Cucumber to Rails 5.2, 6.x, 7.x, and 8.0.
 
 ## Installation
 

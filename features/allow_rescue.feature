@@ -33,7 +33,7 @@ Feature: Allow Cucumber to rescue exceptions
       end
 
       Then('I should see the public error page') do
-        expect(page).to have_content "We're sorry, but something went wrong."
+        expect(page).to have_content "sorry, but something went wrong."
       end
       """
     And I run `bundle exec rake db:migrate`
