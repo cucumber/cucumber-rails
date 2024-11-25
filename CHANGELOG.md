@@ -9,7 +9,7 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 
 ## [Unreleased]
 
-- Add support for Rails 8.0 (No code changes required) [#590](https://github.com/cucumber/cucumber-rails/pull/590)
+## [3.1.0] - 2024-11-25
 
 ## [3.0.1] - 2024-11-05
 ### Changed
@@ -52,12 +52,14 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 - Fixed up some rubocop offenses from updated `rubocop-performance`
 ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle](https://github.com/olleolleolle))
 
-[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/cucumber/cucumber-rails/compare/v3.0.1...v3.1.0
 [3.0.1]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0.rc.1...v3.0.0
 [3.0.0.rc.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.1...v3.0.0.rc.1
 [2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/cucumber/cucumber-rails/compare/v2.5.1...v2.6.0
+2.5.1...v2.6.0
 //github.com/mattwynne
 [orien]: https://github.com/orien
 [luke-hill]: https://github.com/luke-hill
