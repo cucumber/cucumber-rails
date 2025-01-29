@@ -3,6 +3,7 @@
 appraise 'rails_5_2' do
   gem 'activerecord'
   gem 'capybara', '< 3.33'
+  gem 'concurrent-ruby', '< 1.3.5'
   gem 'cucumber', '< 6'
   gem 'factory_bot', '< 6.4'
   gem 'psych', '< 4'
@@ -14,6 +15,7 @@ end
 appraise 'rails_6_0' do
   gem 'activerecord'
   gem 'capybara', '< 3.35'
+  gem 'concurrent-ruby', '< 1.3.5'
   gem 'cucumber', '< 6'
   gem 'factory_bot', '< 6.4'
   gem 'matrix'
@@ -26,6 +28,7 @@ end
 appraise 'rails_6_1' do
   gem 'activerecord'
   gem 'capybara', '< 3.38'
+  gem 'concurrent-ruby', '< 1.3.5'
   gem 'factory_bot', '< 6.4'
   gem 'psych', '< 4'
   gem 'railties', '~> 6.1.7'
@@ -34,6 +37,7 @@ end
 
 appraise 'rails_7_0' do
   gem 'activerecord'
+  gem 'concurrent-ruby', '< 1.3.5'
   gem 'cucumber', '< 10'
   gem 'factory_bot', '< 6.6'
   gem 'railties', '~> 7.0.8'
