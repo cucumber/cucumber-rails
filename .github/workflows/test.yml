@@ -26,6 +26,7 @@ jobs:
         # 2.6 -> EOL Mar '22 -> Only test Rails versions initially released before Sep '22
         # 2.7 -> EOL Mar '23 -> Only test Rails versions initially released before Sep '23
         # 3.0 -> EOL Mar '24 -> Only test Rails versions initially released before Sep '24
+        # 3.1 -> EOL Mar '25 -> Only test Rails versions initially released before Sep '25
         include:
           - { ruby: '2.6', gemfile: 'rails_5_2' }
           - { ruby: '2.7', gemfile: 'rails_6_0' }
