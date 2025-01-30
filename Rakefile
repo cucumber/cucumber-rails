@@ -37,7 +37,7 @@ namespace :gemfiles do
 
   desc 'Remove all generated gemfiles'
   task :clean do
-    FileUtils.rm_rf('gemfiles/*')
+    system 'bundle exec appraisal clean'
   end
 
   desc 'Remove all generated gemfiles and re-install dependencies'

@@ -14,16 +14,18 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 - Updated some dev dependencies and improved some dev rake tasks to make testing leaner
 
 ## [3.1.0] - 2024-11-25
+### Added
+- Add support for Rails 8.0 (No code changes required) [#590](https://github.com/cucumber/cucumber-rails/pull/590)
 
 ## [3.0.1] - 2024-11-05
-### Changed
+### Added
 - Add support for Rails 7.2 / Ruby 3.3 (No code changes required) [#586](https://github.com/cucumber/cucumber-rails/pull/586) [#588](https://github.com/cucumber/cucumber-rails/pull/588)
 
 ### Fixed
 - Internal testing code has been refactored to handle older ruby/rails installs [#583](https://github.com/cucumber/cucumber-rails/pull/583)
 
 ## [3.0.0] - 2023-11-01
-### Changed
+### Added
 - Add support for Rails 7.1 [#575](https://github.com/cucumber/cucumber-rails/pull/575)
 - Added new rubocop sub-gems (rails / rake) and updated repo to be rubocop 2.6 conformant [#581](https://github.com/cucumber/cucumber-rails/pull/581)
 
@@ -64,8 +66,3 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 [3.0.0.rc.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.1...v3.0.0.rc.1
 [2.6.1]: https://github.com/cucumber/cucumber-rails/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/cucumber/cucumber-rails/compare/v2.5.1...v2.6.0
-.5.1...v2.6.0
-2.5.1...v2.6.0
-//github.com/mattwynne
-[orien]: https://github.com/orien
-[luke-hill]: https://github.com/luke-hill
