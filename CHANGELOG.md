@@ -24,7 +24,7 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 - Internal testing code has been refactored to handle older ruby/rails installs [#583](https://github.com/cucumber/cucumber-rails/pull/583)
 
 ## [3.0.0] - 2023-11-01
-### Changed
+### Added
 - Add support for Rails 7.1 [#575](https://github.com/cucumber/cucumber-rails/pull/575)
 - Added new rubocop sub-gems (rails / rake) and updated repo to be rubocop 2.6 conformant [#581](https://github.com/cucumber/cucumber-rails/pull/581)
 
