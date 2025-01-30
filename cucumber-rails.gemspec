@@ -32,10 +32,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency('ammeter', '>= 1.1.5')
   s.add_development_dependency('appraisal', '>= 2.4.1', '< 3')
   s.add_development_dependency('aruba', '>= 1.1.2', '< 3')
-  s.add_development_dependency('database_cleaner', '>= 1.8', '< 3.0')
+  s.add_development_dependency('database_cleaner', '~> 2.0')
   s.add_development_dependency('rails', '>= 5.2', '< 9')
-  s.add_development_dependency('rake', '>= 13.0')
-  s.add_development_dependency('rspec', '~> 3.12')
+  s.add_development_dependency('rake', '~> 13.2')
+  s.add_development_dependency('rspec', '~> 3.13')
   s.add_development_dependency('rubocop', '~> 1.45.0')
   s.add_development_dependency('rubocop-packaging', '~> 0.5.2')
   s.add_development_dependency('rubocop-performance', '~> 1.17.1')
@@ -47,5 +47,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency('yard', '~> 0.9.10')
 
   s.require_path     = 'lib'
-  s.files            = Dir['lib/**/*', 'CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE', 'README.md']
+  s.files            = Dir['lib/**/*', 'CHANGELOG.md', 'LICENSE', 'README.md']
 end

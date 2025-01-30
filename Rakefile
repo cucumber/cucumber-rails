@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'appraisal'
-require 'pathname'
 require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 
@@ -21,7 +20,7 @@ namespace :test do
 
   desc 'Run tests against specified gemfile, e.g. rake test:gemfile[rails_6_0]'
   task :gemfile, :name do |_task, args|
-    unless args.name && Pathname.new("gemfiles/#{args.name}.gemfile").exist?
+    unless args.name && File.exist?("gemfiles/#{args.name}.gemfile")
       raise ArgumentError, "You must provide the name of an existing Appraisal gemfile,
         e.g. 'rake test:gemfile[rails_6_0]'"
     end
