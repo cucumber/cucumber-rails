@@ -28,15 +28,13 @@ jobs:
         include:
           # Ruby 3.1+ has issues with Rails 6.1 https://github.com/rails/rails/issues/46883#issuecomment-1371325906
           # It (Rails 6.1.x), has been marked as a won't fix and as such it's likely this will need to just be excluded until out of support window
-          - { ruby: '3.3', gemfile: 'rails_7_2' }
-          - { ruby: '3.3', gemfile: 'rails_8_0' }
           - { ruby: '3.4', gemfile: 'rails_7_2' }
           - { ruby: '3.4', gemfile: 'rails_8_0' }
         # Supported rubies will test all permissible supported rails versions
-        ruby: ['3.1', '3.2']
+        ruby: ['3.1', '3.2', '3.3']
         gemfile: ['rails_5_2', 'rails_6_0', 'rails_6_1', 'rails_7_0', 'rails_7_1', 'rails_7_2', 'rails_8_0']
         exclude:
-            # Ruby 3.1+ has a conflicting Psych version with Rails 6.x: https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
+            # Ruby 3.1+ has a conflicting Psych version with Rails 5.2 & 6.x: https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
           - { ruby: '3.1', gemfile: 'rails_5_2' }
           - { ruby: '3.1', gemfile: 'rails_6_0' }
           - { ruby: '3.1', gemfile: 'rails_6_1' }
@@ -44,6 +42,9 @@ jobs:
           - { ruby: '3.2', gemfile: 'rails_5_2' }
           - { ruby: '3.2', gemfile: 'rails_6_0' }
           - { ruby: '3.2', gemfile: 'rails_6_1' }
+          - { ruby: '3.3', gemfile: 'rails_5_2' }
+          - { ruby: '3.3', gemfile: 'rails_6_0' }
+          - { ruby: '3.3', gemfile: 'rails_6_1' }
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
