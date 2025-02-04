@@ -1,30 +1,5 @@
 # frozen_string_literal: true
 
-appraise 'rails_5_2' do
-  gem 'activerecord'
-  gem 'capybara', '< 3.33'
-  gem 'concurrent-ruby', '< 1.3.5'
-  gem 'cucumber', '< 6'
-  gem 'factory_bot', '< 6.4'
-  gem 'psych', '< 4'
-  gem 'rails-html-sanitizer', '< 1.4.3'
-  gem 'railties', '~> 5.2.8'
-  gem 'sqlite3', '~> 1.3.13'
-end
-
-appraise 'rails_6_0' do
-  gem 'activerecord'
-  gem 'capybara', '< 3.35'
-  gem 'concurrent-ruby', '< 1.3.5'
-  gem 'cucumber', '< 6'
-  gem 'factory_bot', '< 6.4'
-  gem 'matrix'
-  gem 'psych', '< 4'
-  gem 'rails-html-sanitizer', '< 1.4.3'
-  gem 'railties', '~> 6.0.6'
-  gem 'sqlite3', '< 1.6'
-end
-
 appraise 'rails_6_1' do
   gem 'activerecord'
   gem 'capybara', '< 3.38'
