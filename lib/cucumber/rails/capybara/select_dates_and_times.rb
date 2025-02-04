@@ -45,7 +45,7 @@ module Cucumber
           if html5_input_field_present?(base_dom_id)
             fill_in options[:from], with: DateTime.parse(datetime)
           else
-            extended_options = options.merge(base_dom_id: base_dom_id)
+            extended_options = options.merge(base_dom_id:)
             select_date(datetime, extended_options)
             select_time(datetime, extended_options)
           end
