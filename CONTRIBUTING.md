@@ -1,9 +1,10 @@
-## About to create a new Github Issue?
+## About to create a new GitHub Issue?
 
 We appreciate that. But before you do, please learn our basic rules:
 
 * This is not a support forum. If you have a question, please go to [The Cukes Google Group](http://groups.google.com/group/cukes).
-* Do you have an idea for a new feature? Then don't expect it to be implemented unless you or someone else sends a [pull request](https://help.github.com/articles/using-pull-requests). You might be better to start a discussion on [the google group](http://groups.google.com/group/cukes).
+* Do you have an idea for a new feature? Then don't expect it to be implemented unless you or someone else
+sends a [pull request](https://help.github.com/articles/using-pull-requests). You might be better to start a discussion on [the google group](http://groups.google.com/group/cukes).
 * Reporting a bug? Please tell us:
   * which version of Cucumber you're using
   * which version of Ruby you're using
@@ -30,8 +31,8 @@ This document is a guide for those maintaining Cucumber-Rails, and others who wo
     bundle install
     bin/install_geckodriver.sh
     bin/install_webpacker.sh
-    # Then to run tests on one version-specific Gemfile (e.g. gemfiles/rails_6_0.gemfile), run
-    bundle exec appraisal rails_6_0 rake test
+    # Then to run tests on one version-specific Gemfile (e.g. gemfiles/rails_8_0.gemfile), run
+    bundle exec appraisal rails_8_0 rake test
     # Or run tests across the full supported stack. Note that because we support many versions. This takes 5-10 minutes
     bundle exec rake appraisal
 
