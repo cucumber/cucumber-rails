@@ -2,10 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/cucumber-rails.svg)](http://badge.fury.io/rb/cucumber-rails)
 [![build](https://github.com/cucumber/cucumber-rails/actions/workflows/test.yml/badge.svg)](https://github.com/cucumber/cucumber-rails/actions/workflows/test.yml)
-[![Code Climate](https://codeclimate.com/github/cucumber/cucumber-rails.svg)](https://codeclimate.com/github/cucumber/cucumber-rails)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
 
-Cucumber-Rails brings Cucumber to Rails 5.2, 6.x, 7.x, and 8.x.
+Cucumber-Rails brings Cucumber to Rails 6.1, 7.x, and 8.x.
 
 ## Installation
 
@@ -103,7 +102,7 @@ suite against all gemfiles, run the following commands:
 
 To run the suite against a named gemfile, use the following:
 
-    [bundle exec] appraisal rails_6_0 rake test
+    [bundle exec] appraisal rails_8_0 rake test
 
 ### Adding dependencies
 
