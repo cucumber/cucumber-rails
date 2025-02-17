@@ -34,23 +34,17 @@ module CucumberRailsGemHelper
   def add_sqlite3_gem
     if rails_equal_or_higher_than?('7.1')
       add_gem 'sqlite3', '~> 2.0'
-    elsif rails_equal_or_higher_than?('6.0')
-      add_gem 'sqlite3', '~> 1.4'
     else
-      add_gem 'sqlite3', '~> 1.3.13'
+      add_gem 'sqlite3', '~> 1.4'
     end
   end
 
   def add_selenium_webdriver_gem
     if rails_equal_or_higher_than?('7.0')
       add_gem 'selenium-webdriver', '~> 4.22', group: :test
-    elsif rails_equal_or_higher_than?('6.0')
+    else
       add_gem 'selenium-webdriver', '~> 4.0', group: :test
       add_gem 'webdrivers', '~> 5.0', group: :test
-    else
-      add_gem 'selenium-webdriver', '< 4', group: :test
-      add_gem 'webdrivers', '~> 4.0', group: :test
-      remove_gem 'chromedriver-helper'
     end
   end
 
@@ -59,11 +53,7 @@ module CucumberRailsGemHelper
     add_gem 'capybara', Capybara::VERSION, group: :test
     add_gem 'database_cleaner', '>= 2.0.0', group: :test unless options.include?(:no_database_cleaner)
     add_gem 'database_cleaner-active_record', '>= 2.0.0', group: :test if options.include?(:database_cleaner_active_record)
-    if rails_equal_or_higher_than?('6.0')
-      add_gem 'factory_bot', '>= 6.4', group: :test unless options.include?(:no_factory_bot)
-    else
-      add_gem 'factory_bot', '< 6.4', group: :test unless options.include?(:no_factory_bot)
-    end
+    add_gem 'factory_bot', '>= 6.4', group: :test unless options.include?(:no_factory_bot)
     add_gem 'rspec-expectations', '~> 3.12', group: :test
   end
 
