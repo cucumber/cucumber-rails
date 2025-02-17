@@ -15,6 +15,10 @@ AllCops:
     - 'gemfiles/*.gemfile'
     - 'vendor/**/*'
 
+# Stylistic preference to keep dev dependencies in gemspec
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
 # Disabled on our repo's to enable polyglot-release
 Gemspec/RequireMFA:
   Enabled: false
