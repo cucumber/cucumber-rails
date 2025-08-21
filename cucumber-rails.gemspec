@@ -5,7 +5,7 @@ $LOAD_PATH.unshift File.expand_path('lib', __dir__)
 Gem::Specification.new do |s|
   s.name        = 'cucumber-rails'
   s.version     = File.read("#{__dir__}/VERSION")
-  s.authors     = ['Aslak Hellesøy', 'Dennis Blöte', 'Rob Holland']
+  s.authors     = ['Aslak Hellesøy', 'Dennis Blöte', 'Rob Holland', 'Luke Hill']
   s.description = 'Cucumber Generator and Runtime for Rails'
   s.summary     = "#{s.name}-#{s.version}"
   s.email       = 'cukes@googlegroups.com'
