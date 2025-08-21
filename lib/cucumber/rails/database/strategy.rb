@@ -9,7 +9,7 @@ module Cucumber
         end
 
         def before_js(strategy)
-          @original_strategy = if defined?(DatabaseCleaner::VERSION) && Gem::Version.new(DatabaseCleaner::VERSION) >= Gem::Version.new('1.8.0.beta')
+          @original_strategy = if defined?(DatabaseCleaner) && Gem::Version.new(DatabaseCleaner::VERSION) >= Gem::Version.new('1.8.0')
                                  raise "No DatabaseCleaner strategies found. Make sure you have required one of DatabaseCleaner's adapters" if DatabaseCleaner.cleaners.empty?
 
                                  DatabaseCleaner.cleaners.values.first.strategy # that feels like a nasty hack

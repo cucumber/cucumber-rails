@@ -3,6 +3,8 @@
 source "https://rubygems.org"
 
 gem "activerecord"
+gem "capybara", "< 3.41"
+gem "cucumber", "< 10"
 gem "railties", "~> 7.1.5"
 gem "sqlite3", "~> 2.0"
 

@@ -19,8 +19,8 @@ module CucumberRailsSetupHelper
 
   def run_rails_new_command(options)
     flags = %w[--skip-action-cable --skip-action-mailer --skip-active-job --skip-bootsnap --skip-bundle --skip-javascript
-               --skip-jbuilder --skip-listen --skip-spring --skip-sprockets --skip-test-unit --skip-turbolinks --skip-active-storage]
-    flags += %w[--skip-action-mailbox --skip-action-text] if rails_equal_or_higher_than?('6.0')
+               --skip-jbuilder --skip-listen --skip-spring --skip-sprockets --skip-test-unit --skip-turbolinks
+               --skip-active-storage --skip-action-mailbox --skip-action-text]
     run_command "bundle exec rails new test_app #{flags.join(' ')} #{options[:args]}"
   end
 
@@ -42,10 +42,6 @@ module CucumberRailsSetupHelper
   def clear_bundle_env_vars
     unset_bundler_env_vars
     delete_environment_variable 'BUNDLE_GEMFILE'
-  end
-
-  def rails_equal_or_higher_than?(version)
-    Rails.gem_version >= Gem::Version.new(version)
   end
 end
 

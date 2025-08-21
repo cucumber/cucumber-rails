@@ -18,14 +18,24 @@ namespace :test do
     Rake::Task['appraisal'].invoke('test')
   end
 
-  desc 'Run tests against specified gemfile, e.g. rake test:gemfile[rails_6_0]'
-  task :gemfile, :name do |_task, args|
+  desc 'Run tests against specified gemfile, e.g. rake test:gemfile[rails_8_0]'
+  task :full, :name do |_task, args|
     unless args.name && File.exist?("gemfiles/#{args.name}.gemfile")
       raise ArgumentError, "You must provide the name of an existing Appraisal gemfile,
-        e.g. 'rake test:gemfile[rails_6_0]'"
+        e.g. 'rake test:full[rails_8_0]'"
     end
 
     Rake::Task["appraisal:#{args.name}"].invoke('test')
+  end
+
+  desc 'Run unit tests only against specified gemfile, e.g. rake test:gemfile[rails_8_0]'
+  task :spec, :name do |_task, args|
+    unless args.name && File.exist?("gemfiles/#{args.name}.gemfile")
+      raise ArgumentError, "You must provide the name of an existing Appraisal gemfile,
+        e.g. 'rake test:spec[rails_8_0]'"
+    end
+
+    system "BUNDLE_GEMFILE=/home/luke/Code/cucumber-rails/gemfiles/#{args.name}.gemfile bundle exec rspec"
   end
 end
 

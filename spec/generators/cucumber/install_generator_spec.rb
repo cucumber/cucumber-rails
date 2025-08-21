@@ -65,14 +65,12 @@ describe Cucumber::InstallGenerator do
       it { is_expected.to contain 'load Cucumber::BINARY' }
     end
 
-    if Rails::VERSION::MAJOR >= 6
-      %w[development test].each do |environment|
-        describe "config/environments/#{environment}.rb" do
-          subject { file("config/environments/#{environment}.rb") }
+    %w[development test].each do |environment|
+      describe "config/environments/#{environment}.rb" do
+        subject { file("config/environments/#{environment}.rb") }
 
-          it { is_expected.to contain "config.annotations.register_extensions('feature') { |tag| /#\\s*(\#{tag}):?\\s*(.*)$/ }" }
-          it { is_expected.to contain "config.annotations.register_directories('features')" }
-        end
+        it { is_expected.to contain "config.annotations.register_extensions('feature') { |tag| /#\\s*(\#{tag}):?\\s*(.*)$/ }" }
+        it { is_expected.to contain "config.annotations.register_directories('features')" }
       end
     end
   end

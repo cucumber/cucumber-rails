@@ -34,7 +34,7 @@ module Cucumber
     end
 
     def configure_environment
-      environment(<<~CONFIG, env: %w[development test]) if ::Rails::VERSION::MAJOR >= 6
+      environment(<<~CONFIG, env: %w[development test])
         # Configure 'rails notes' to inspect Cucumber files
         config.annotations.register_directories('features')
         config.annotations.register_extensions('feature') { |tag| /#\\s*(\#{tag}):?\\s*(.*)$/ }
