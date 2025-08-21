@@ -76,8 +76,8 @@ module CucumberRailsGemHelper
     overwrite_file('Gemfile', content)
   end
 
-  def add_gem(name, *args)
-    line = convert_gem_opts_to_string(name, *args)
+  def add_gem(name, *)
+    line = convert_gem_opts_to_string(name, *)
     gem_regexp = /gem ["']#{name}["'].*$/
     gemfile_content = File.read(expand_path('Gemfile'))
 
