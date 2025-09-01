@@ -5,7 +5,7 @@ module Cucumber
     module Database
       class TruncationStrategy < Strategy
         def before_js
-          super :truncation
+          super(:truncation)
         end
       end
     end

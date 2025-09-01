@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](https://github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+### Removed
+- Removed support for Ruby 2.6 - 3.1 (Ruby 3.2 is now the lowest version)
+- Removed support for Rails 5.2 and 6.0 (6.1 is still supported and 7.0+ is preferred)
+
+### Changed
+- In-line with minimum ruby / rails, a lot of internal non-breaking refactors have been done to remove legacy code
 
 ## [3.1.1] - 2025-01-30
 ### Changed

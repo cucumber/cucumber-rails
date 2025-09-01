@@ -5,7 +5,7 @@ module Cucumber
     module Database
       class DeletionStrategy < Strategy
         def before_js
-          super :deletion
+          super(:deletion)
         end
       end
     end

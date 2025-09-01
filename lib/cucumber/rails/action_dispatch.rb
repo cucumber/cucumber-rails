@@ -13,7 +13,7 @@ module Cucumber
 
           show_exceptions = !env['action_dispatch.show_detailed_exceptions']
           if ::Rails.gem_version >= Gem::Version.new('7.1.0')
-            # Rails 7.1 deprecated `show_exceptions` boolean in in favor of symbols
+            # Rails 7.1 deprecated `show_exceptions` boolean in favour of symbols
             show_exceptions = show_exceptions ? :all : :none
           end
 
