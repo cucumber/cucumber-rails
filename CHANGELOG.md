@@ -8,12 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](https://github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+
+## [4.0.0] - 2025-09-01
+### Changed
+- In-line with minimum ruby / rails, a lot of internal non-breaking refactors have been done to remove legacy code
+
 ### Removed
 - Removed support for Ruby 2.6 - 3.1 (Ruby 3.2 is now the lowest version)
 - Removed support for Rails 5.2 and 6.0 (6.1 is still supported and 7.0+ is preferred)
-
-### Changed
-- In-line with minimum ruby / rails, a lot of internal non-breaking refactors have been done to remove legacy code
 
 ## [3.1.1] - 2025-01-30
 ### Changed
@@ -64,7 +66,8 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 - Fixed up some rubocop offenses from updated `rubocop-performance`
 ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle](https://github.com/olleolleolle))
 
-[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v3.1.1...HEAD
+[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/cucumber/cucumber-rails/compare/v3.1.1...v4.0.0
 [3.1.1]: https://github.com/cucumber/cucumber-rails/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/cucumber/cucumber-rails/compare/v3.0.1...v3.1.0
 [3.0.1]: https://github.com/cucumber/cucumber-rails/compare/v3.0.0...v3.0.1
