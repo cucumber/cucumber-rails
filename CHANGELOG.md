@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](https://github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+### Removed
+- Stop printing a warning about `config.cache_classes` being set to `false`
 
 ## [4.0.0] - 2025-09-01
 ### Changed
