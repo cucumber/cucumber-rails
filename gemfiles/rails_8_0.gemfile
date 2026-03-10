@@ -3,7 +3,9 @@
 source "https://rubygems.org"
 
 gem "activerecord"
-gem "railties", "~> 8.0.0"
-gem "sqlite3", "~> 2.2"
+gem "capybara", "< 3.41"
+gem "factory_bot", "< 6.6"
+gem "railties", "~> 8.0.4"
+gem "sqlite3", "~> 2.4"
 
 gemspec path: "../"
