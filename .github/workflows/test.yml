@@ -30,7 +30,7 @@ jobs:
           - { ruby: '4.0', gemfile: 'rails_8_1' }
         # Supported rubies will test all permissible supported rails versions
         ruby: ['3.2', '3.3', '3.4']
-        gemfile: ['rails_6_1', 'rails_7_0', 'rails_7_1', 'rails_7_2', 'rails_8_0', 'rails_8_0']
+        gemfile: ['rails_6_1', 'rails_7_0', 'rails_7_1', 'rails_7_2', 'rails_8_0', 'rails_8_1']
         exclude:
             # Ruby 3.1+ has issues with Rails 6.1 https://github.com/rails/rails/issues/46883#issuecomment-1371325906
             # It (Rails 6.1.x), has been marked as a won't fix and as such it's likely this will need to just be excluded until out of support window
