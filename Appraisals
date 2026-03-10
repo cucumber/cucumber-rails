@@ -40,3 +40,9 @@ appraise 'rails_8_0' do
   gem 'railties', '~> 8.0.0'
   gem 'sqlite3', '~> 2.2'
 end
+
+appraise 'rails_8_1' do
+  gem 'activerecord'
+  gem 'railties', '~> 8.1.2'
+  gem 'sqlite3', '~> 2.2'
+end
