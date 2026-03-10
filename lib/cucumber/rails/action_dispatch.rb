@@ -18,7 +18,7 @@ module Cucumber
           end
 
           env['action_dispatch.show_exceptions'] = show_exceptions
-          super(env)
+          super
         end
       end
     end
