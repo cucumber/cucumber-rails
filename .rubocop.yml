@@ -1,11 +1,13 @@
 inherit_from: .rubocop_todo.yml
 
-require:
-  - rubocop-packaging
+plugins:
   - rubocop-performance
   - rubocop-rails
-  - rubocop-rake
   - rubocop-rspec
+
+require:
+  - rubocop-packaging
+  - rubocop-rake
 
 AllCops:
   TargetRubyVersion: 3.2
