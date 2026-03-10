@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](https://github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+
+## [4.0.1] - 2026-03-10
 ### Removed
 - Stop printing a warning about `config.cache_classes` being set to `false`
 
@@ -68,7 +70,8 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 - Fixed up some rubocop offenses from updated `rubocop-performance`
 ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle](https://github.com/olleolleolle))
 
-[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v4.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v4.0.1...HEAD
+[4.0.1]: https://github.com/cucumber/cucumber-rails/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/cucumber/cucumber-rails/compare/v3.1.1...v4.0.0
 [3.1.1]: https://github.com/cucumber/cucumber-rails/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/cucumber/cucumber-rails/compare/v3.0.1...v3.1.0
