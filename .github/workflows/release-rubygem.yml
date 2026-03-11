@@ -1,5 +1,7 @@
 name: Release to RubyGems
 
+permissions: {}
+
 on:
   push:
     branches:
