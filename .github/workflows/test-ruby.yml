@@ -1,5 +1,7 @@
----
 name: build
+
+permissions: {}
+
 on:
   push:
     branches:
