@@ -10,7 +10,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '35 11 * * 2'
+    - cron: '50 11 * * 2'
 
 concurrency:
   # Cancels in-progress runs only for pull requests
