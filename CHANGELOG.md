@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](https://github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+
+## [4.1.0] - 2026-07-03
 ### Changed
 - Allow Cucumber 11.x by bumping the runtime dependency cap to `< 12` [#612](https://github.com/cucumber/cucumber-rails/pull/612)
 
@@ -72,7 +74,8 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 - Fixed up some rubocop offenses from updated `rubocop-performance`
 ([#550](https://github.com/cucumber/cucumber-rails/pull/550) [olleolleolle](https://github.com/olleolleolle))
 
-[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v4.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/cucumber-rails/compare/v4.1.0...HEAD
+[4.1.0]: https://github.com/cucumber/cucumber-rails/compare/v4.0.1...v4.1.0
 [4.0.1]: https://github.com/cucumber/cucumber-rails/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/cucumber/cucumber-rails/compare/v3.1.1...v4.0.0
 [3.1.1]: https://github.com/cucumber/cucumber-rails/compare/v3.1.0...v3.1.1
