@@ -22,7 +22,7 @@ This document is a guide for those maintaining Cucumber-Rails, and others who wo
 * Fork the project. Make a branch for your change.
 * Make your feature addition or bug fix.
 * Make sure your patch is well covered by tests. We don't accept changes to `cucumber-rails` that aren't tested.
-* Please do not change the Rakefile, version, or CHANGELOG.
+* Please do not change the Rakefile or version.
 * Send us a pull request.
 
 ## Running tests

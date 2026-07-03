@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](https://github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+### Changed
+- Allow Cucumber 11.x by bumping the runtime dependency cap to `< 12` [#612](https://github.com/cucumber/cucumber-rails/pull/612)
 
 ## [4.0.1] - 2026-03-10
 ### Removed
