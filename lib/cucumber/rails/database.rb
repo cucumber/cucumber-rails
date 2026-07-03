@@ -36,17 +36,11 @@ module Cucumber
           self.autorun_database_cleaner = true
         end
 
-        def before_js
-          @strategy.before_js
-        end
+        delegate :before_js, to: :@strategy
 
-        def before_non_js
-          @strategy.before_non_js
-        end
+        delegate :before_non_js, to: :@strategy
 
-        def after
-          @strategy.after
-        end
+        delegate :after, to: :@strategy
 
         private
 

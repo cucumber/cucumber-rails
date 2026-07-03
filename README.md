@@ -6,6 +6,8 @@
 
 Cucumber-Rails brings Cucumber to Rails 6.1, 7.x, and 8.x.
 
+**NB: Rails 6.1 is no longer directly supported in modern versions of ruby. This will soon be discontinued in our support**
+
 ## Installation
 
 Before you can use the generator, add the gem to your project's Gemfile as follows:
