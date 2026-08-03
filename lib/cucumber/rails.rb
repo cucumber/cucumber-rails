@@ -22,7 +22,7 @@ if called_from_env_rb
   require 'cucumber/rails/database/truncation_strategy'
   require 'cucumber/rails/database'
 
-  MultiTest.disable_autorun
+  MultiTest.disable_autorun if MultiTest.respond_to?(:disable_autorun)
 else
   warn <<~MESSAGE
     WARNING: Cucumber-rails has been required outside of env.rb. The rest of loading is being deferred until env.rb is called.

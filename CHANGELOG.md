@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 This file is intended to be modified using the [`changelog`](https://github.com/cucumber/changelog) command-line tool.
 
 ## [Unreleased]
+### Changed
+- Gracefully support removal of `MultiTest.disable_autorun` when using Cucumber 11.x [#613](https://github.com/cucumber/cucumber-rails/pull/613)
 
 ## [4.1.0] - 2026-07-03
 ### Changed
