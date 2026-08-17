@@ -1,7 +1,7 @@
 # Cucumber-Rails
 
 [![Gem Version](https://badge.fury.io/rb/cucumber-rails.svg)](http://badge.fury.io/rb/cucumber-rails)
-[![build](https://github.com/cucumber/cucumber-rails/actions/workflows/test.yml/badge.svg)](https://github.com/cucumber/cucumber-rails/actions/workflows/test.yml)
+[![build](https://github.com/cucumber/cucumber-rails/actions/workflows/test-ruby.yaml/badge.svg)](https://github.com/cucumber/cucumber-rails/actions/workflows/test-ruby.yaml)
 [![Open Source Helpers](https://www.codetriage.com/cucumber/cucumber-rails/badges/users.svg)](https://www.codetriage.com/cucumber/cucumber-rails)
 
 Cucumber-Rails brings Cucumber to Rails 6.1, 7.x, and 8.x.
