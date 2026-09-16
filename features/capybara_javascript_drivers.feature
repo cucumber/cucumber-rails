@@ -2,7 +2,7 @@ Feature: Capybara Javascript Drivers
 
   Scenario: Use Browser UI backed by DB
     Given I have created a new Rails app and installed cucumber-rails
-    And I force selenium to run Firefox in headless mode
+    And I force selenium to run Chrome in headless mode
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
     And I write to "features/create_appointment.feature" with:
       """
@@ -48,7 +48,7 @@ Feature: Capybara Javascript Drivers
 
   Scenario: Support non HTML5 date inputs
     Given I have created a new Rails app and installed cucumber-rails
-    And I force selenium to run Firefox in headless mode
+    And I force selenium to run Chrome in headless mode
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
     And I force "app/views/appointments/_form.html.erb" to use select boxes for dates
     And I write to "features/create_appointment.feature" with:
@@ -95,7 +95,7 @@ Feature: Capybara Javascript Drivers
 
   Scenario: Use direct DB injection
     Given I have created a new Rails app and installed cucumber-rails
-    And I force selenium to run Firefox in headless mode
+    And I force selenium to run Chrome in headless mode
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
     And I write to "features/create_appointment.feature" with:
       """
@@ -134,7 +134,7 @@ Feature: Capybara Javascript Drivers
 
   Scenario: Use Browser UI without a DB
     Given I have created a new Rails app and installed cucumber-rails without database_cleaner
-    And I force selenium to run Firefox in headless mode
+    And I force selenium to run Chrome in headless mode
     When I run `bundle exec rails g scaffold appointment name:string when:datetime`
     And I write to "features/create_appointment.feature" with:
       """

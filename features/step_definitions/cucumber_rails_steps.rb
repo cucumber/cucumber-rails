@@ -45,19 +45,18 @@ Given('I remove the {string} gem from the Gemfile') do |gem_name|
   overwrite_file('Gemfile', new_content.join("\r\n"))
 end
 
-Given('I force selenium to run Firefox in headless mode') do
+Given('I force selenium to run Chrome in headless mode') do
   selenium_config = %{
     Capybara.register_driver :selenium do |app|
-      http_client = Selenium::WebDriver::Remote::Http::Default.new
-      http_client.read_timeout = 180
+      browser_options = Selenium::WebDriver::Chrome::Options.new
+      browser_options.add_argument('--headless=new')
+      browser_options.add_argument('--no-sandbox')
+      browser_options.add_argument('--disable-dev-shm-usage')
 
-      browser_options = Selenium::WebDriver::Firefox::Options.new
-      browser_options.args << '--headless'
       Capybara::Selenium::Driver.new(
         app,
-        browser: :firefox,
-        options: browser_options,
-        http_client: http_client
+        browser: :chrome,
+        options: browser_options
       )
     end
 
