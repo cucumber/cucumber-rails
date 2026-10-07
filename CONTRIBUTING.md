@@ -29,8 +29,6 @@ This document is a guide for those maintaining Cucumber-Rails, and others who wo
 
     gem install bundler
     bundle install
-    bin/install_geckodriver.sh
-    bin/install_webpacker.sh
     # Then to run tests on one version-specific Gemfile (e.g. gemfiles/rails_8_0.gemfile), run
     bundle exec appraisal rails_8_0 rake test
     # Or run tests across the full supported stack. Note that because we support many versions. This takes 5-10 minutes

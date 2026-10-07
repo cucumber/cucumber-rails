@@ -21,6 +21,7 @@ module CucumberRailsGemHelper
     %w[bootsnap byebug jbuilder listen rails sass-rails turbolinks webpacker].each { |gem| remove_gem(gem) }
     %w[railties activerecord actionpack].each { |rails_gem| add_gem(rails_gem, Rails.version) }
     add_gem 'concurrent-ruby', '< 1.3.5' unless rails_equal_or_higher_than?('7.1')
+    add_gem 'json', '< 3' unless rails_equal_or_higher_than?('8.1.4')
   end
 
   def add_cucumber_rails(options)
@@ -41,10 +42,9 @@ module CucumberRailsGemHelper
 
   def add_selenium_webdriver_gem
     if rails_equal_or_higher_than?('7.0')
-      add_gem 'selenium-webdriver', '~> 4.22', group: :test
+      add_gem 'selenium-webdriver', '~> 4.30', group: :test
     else
-      add_gem 'selenium-webdriver', '~> 4.0', group: :test
-      add_gem 'webdrivers', '~> 5.0', group: :test
+      add_gem 'selenium-webdriver', '~> 4.12', group: :test
     end
   end
 
