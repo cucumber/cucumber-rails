@@ -21,6 +21,7 @@ module CucumberRailsGemHelper
     %w[bootsnap byebug jbuilder listen rails sass-rails turbolinks webpacker].each { |gem| remove_gem(gem) }
     %w[railties activerecord actionpack].each { |rails_gem| add_gem(rails_gem, Rails.version) }
     add_gem 'concurrent-ruby', '< 1.3.5' unless rails_equal_or_higher_than?('7.1')
+    add_gem 'json', '< 3' unless rails_equal_or_higher_than?('8.1.4')
   end
 
   def add_cucumber_rails(options)
