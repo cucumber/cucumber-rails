@@ -41,10 +41,9 @@ module CucumberRailsGemHelper
 
   def add_selenium_webdriver_gem
     if rails_equal_or_higher_than?('7.0')
-      add_gem 'selenium-webdriver', '~> 4.22', group: :test
+      add_gem 'selenium-webdriver', '~> 4.30', group: :test
     else
-      add_gem 'selenium-webdriver', '~> 4.0', group: :test
-      add_gem 'webdrivers', '~> 5.0', group: :test
+      add_gem 'selenium-webdriver', '~> 4.12', group: :test
     end
   end
 
