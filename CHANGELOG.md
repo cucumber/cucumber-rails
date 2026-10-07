@@ -11,6 +11,9 @@ This file is intended to be modified using the [`changelog`](https://github.com/
 ### Changed
 - Gracefully support removal of `MultiTest.disable_autorun` when using Cucumber 11.x [#613](https://github.com/cucumber/cucumber-rails/pull/613)
 
+### Fixed
+- Use headless Chrome/Selenium Manager for the test suite and remove legacy browser setup
+
 ## [4.1.0] - 2026-07-03
 ### Changed
 - Allow Cucumber 11.x by bumping the runtime dependency cap to `< 12` [#612](https://github.com/cucumber/cucumber-rails/pull/612)

@@ -45,7 +45,7 @@ Given('I remove the {string} gem from the Gemfile') do |gem_name|
   overwrite_file('Gemfile', new_content.join("\r\n"))
 end
 
-Given('I force selenium to run Chrome in headless mode') do
+Given('I use Selenium with Chrome in headless mode') do
   selenium_config = %{
     Capybara.register_driver :selenium do |app|
       browser_options = Selenium::WebDriver::Chrome::Options.new

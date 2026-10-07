@@ -2,7 +2,7 @@ Feature: Emulate Javascript
 
   Background:
     Given I have created a new Rails app and installed cucumber-rails
-    And I force selenium to run Chrome in headless mode
+    And I use Selenium with Chrome in headless mode
     When I run `bundle exec rails generate scaffold widget name:string`
     And I write to "features/step_definitions/widget_steps.rb" with:
     """
