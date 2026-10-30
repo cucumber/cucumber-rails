@@ -42,7 +42,7 @@ Feature: Disable automatic database cleaning
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
-    Then the feature should pass with:
+    Then it should pass with:
       """
       2 scenarios (2 passed)
       4 steps (4 passed)

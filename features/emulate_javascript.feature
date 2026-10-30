@@ -39,7 +39,7 @@ Feature: Emulate Javascript
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
-    Then the feature should pass with:
+    Then it should pass with:
       """
       1 scenario (1 passed)
       3 steps (3 passed)
@@ -118,7 +118,7 @@ Feature: Emulate Javascript
       """
     And I run `bundle exec rake db:migrate`
     And I run `bundle exec rake cucumber`
-    Then the feature should pass with:
+    Then it should pass with:
       """
       1 scenario (1 passed)
       9 steps (9 passed)
